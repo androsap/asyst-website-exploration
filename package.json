@@ -7,8 +7,8 @@
     "init": "node ./initialize/index.cjs",
     "start": "node ./initialize/index.cjs && vite --mode=dev",
     "start:prd": "node ./initialize/index.cjs && vite --mode=prd",
-    "build": "tsc && vite build --mode=dev",
-    "build:prd": "tsc && vite build --mode=prd",
+    "build": "node ./initialize/index.cjs && tsc && vite build --mode=dev",
+    "build:prd": "node ./initialize/index.cjs && tsc && vite build --mode=prd",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
