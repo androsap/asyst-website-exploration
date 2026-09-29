@@ -1,0 +1,43 @@
+.airline-airport {
+    .MuiFormControlLabel-label {
+        margin-top: 7%;
+    }
+
+    .MuiDivider-middle {
+        margin-right: 0;
+        // border-color: #E2EAF1
+    }
+    .bold-left {
+        width: 28%;
+        margin-left: 0;
+        border-color: #1A1A1A;
+        border-width: 2px;
+    }
+
+    .thin-right {
+        width: 72%;
+        margin-left: 28%;
+        border-width: 1px;
+        margin-top: -2px;
+    }
+
+    .box-main-image {
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        max-height: 360px;
+        margin-top: 34px;
+        border-radius: 20px;
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            visibility: hidden;
+        }
+    }
+
+    .logo {
+        width: 100%;
+        height: auto;
+    }
+}

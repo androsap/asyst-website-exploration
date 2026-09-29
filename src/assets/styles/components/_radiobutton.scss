@@ -1,0 +1,20 @@
+.main-radiobutton {
+    .MuiTypography-root {
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .active {
+        .MuiTypography-root {
+            color: #fff;
+        }
+    }
+
+    .MuiRadio-root {
+        color: #0069B3;
+        
+        &.Mui-checked {
+            color: #3A3A3A;
+        }
+    }
+}

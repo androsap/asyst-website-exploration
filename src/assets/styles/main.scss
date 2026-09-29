@@ -1,0 +1,135 @@
+@use "config/all" as config;
+@use "components/all" as components;
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/src/assets/fonts/SourceSans3-VariableFont_wght.woff2') format('woff2'),
+        url('/src/assets/fonts/SourceSans3-VariableFont_wght.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/src/assets/fonts/Inter-VariableFont_slnt\,wght.woff2') format('woff2'),
+        url('/src/assets/fonts/Inter-VariableFont_slnt\,wght.woff') format('woff');
+}
+
+body {
+    margin: 0px !important;
+    font-family: "Inter";
+}
+
+a {
+    text-decoration: none;
+    color: #0069B3;
+
+    &:active {
+        color: #019cda;
+    }
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.bgs-snackbar.MuiSnackbar-root {
+    z-index: 999999 !important;
+}
+
+.scrolling {
+
+    &:hover {
+        &::-webkit-scrollbar {
+            height: 7px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #ebe8e8;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(136, 136, 136, 0.651);
+            border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgba(85, 85, 85, 0.589);
+        }
+    }
+
+    &::-webkit-scrollbar {
+        height: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #fff;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #fff;
+    }
+}
+
+.MuiModal-root {
+    z-index: 9999 !important;
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1600px) {
+    .MuiContainer-root.MuiContainer-maxWidthXl {
+        max-width: 1320px;
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+}
+
+//laptop 13" lenovo thinkpad L13
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+    .MuiContainer-root.MuiContainer-maxWidthXl {
+        max-width: 1200px;
+        // padding-left: 24px;
+        // padding-right: 24px;
+        padding-left: 72px;
+        padding-right: 58px;
+    }
+}
+
+//laptop 14" (screen pecentage 80% alike)
+@media only screen and (min-width: 1279px) and (max-width: 1281px) {
+    .MuiContainer-root.MuiContainer-maxWidthXl {
+        padding-left: 110px;
+        padding-right: 112px;
+    }
+}
+
+@media screen and (max-device-width:1023px),
+screen and (max-width:1023px) {
+    .MuiContainer-root.MuiContainer-maxWidthXl {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+.app-bar-nav.MuiAppBar-root.active {
+    box-shadow: 0px 4px 16px -3px rgba(0, 0, 0, 0.09);
+}
+
+.MuiTooltip-popper {
+    z-index: 5000 !important;
+}
+
+.bgs-snackbar.MuiSnackbar-root {
+    width: 100%;
+    left: 50% !important;
+    right: 50% !important;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @media (max-width: 599.95px) {
+        transform: translateX(-50%) !important;
+        bottom: 24px !important;
+    }
+}

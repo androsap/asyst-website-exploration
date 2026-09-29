@@ -1,0 +1,20 @@
+.submenu-navigation {
+    width: 100%;
+    height: calc(100vh - 85px);
+    position: fixed;
+    top: 85px;
+    background: rgba(0, 0, 0, 0.76);
+
+    .submenu-content {
+        background: #FFF;
+        box-shadow: inset 0px 4px 16px 0.2px rgba(0, 0, 0, 0.06);
+        // height: 325px;
+        // padding: 36px 48px 0px 48px;
+        box-sizing: border-box;
+    }
+
+    //laptop 14" (screen pecentage 80% alike)
+    @media only screen and (min-width: 1279px) and (max-width: 1281px) {
+        top: 65px;
+    }
+}

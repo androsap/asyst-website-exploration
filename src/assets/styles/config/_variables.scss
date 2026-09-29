@@ -1,0 +1,33 @@
+//https://www.color-name.com/hex/{hex color}
+@use "sass:list";
+
+$baseColor: #EC1F5F;
+$baseAlt1Color: #00B6BD;
+$baseAlt2Color: #2AD088;
+$baseAlt3Color: #909090;
+$txtHintColor: #666f75;
+$txtDanger: #ef4565;
+
+$colors: (
+    "base-color",
+    $baseColor),
+    ("base-alt1-color", $baseAlt1Color),
+    ("base-alt2-color", $baseAlt2Color),
+    ("base-alt3-color", $baseAlt3Color),
+    ("base-alt3-color", $baseAlt3Color),
+    ("danger", $txtDanger),
+    ("hint-color", $txtHintColor);
+
+@each $color in $colors {
+    .bg-#{list.nth($color,1)} {
+        background-color: list.nth($color, 2) !important;
+    }
+
+    .border-#{list.nth($color,1)} {
+        border-color: list.nth($color, 2) !important;
+    }
+
+    .text-#{list.nth($color,1)} {
+        color: list.nth($color, 2) !important;
+    }
+}

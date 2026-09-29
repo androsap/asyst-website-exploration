@@ -1,0 +1,73 @@
+.head-product {
+
+    .MuiTypography-root.MuiTypography-h1 {
+        color: #FFF;
+        text-align: center;
+        font-family: Inter;
+        font-size: 57px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 64px;
+    }
+
+    .MuiTypography-root.MuiTypography-h2 {
+        width: 842px;
+        color: #F4F4F4;
+        text-align: center;
+        font-family: Inter;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 32px;
+    }
+
+    .gambar-sub {
+
+        .MuiTypography-root.MuiTypography-h1 {
+            // color: #1A1A1A;
+            color: #000;
+            text-align: center;
+            font-family: Inter;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px;
+        }
+
+        .MuiTypography-root.MuiTypography-h2 {
+            width: 676px;
+            height: 58px;
+            text-align: start;
+            flex-shrink: 0;
+            // color: #4A4A4A;
+            color: #000;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 24px;
+        }
+
+        .img-products {
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
+            border-radius: 200px;
+            object-fit: cover;
+        }
+
+        .component-icons {
+
+            .MuiTypography-root.MuiTypography-h1 {
+                color: var(--Primary, #006CAE);
+                text-align: center;
+                font-family: Inter;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 32px;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,60 @@
+.service-product-solution {
+    margin-top: 20px;
+
+    .title {
+        color: #909090;
+        font-family: Source Sans Pro;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+    }
+
+    .title-icons {
+        color: var(--Title-Dark, #1A1A1A);
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 5px;
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .card-content {
+            border-radius: 20px;
+            border: 1px solid #E2EAF1;
+            min-width: 120px;
+            min-height: 120px;
+            // width: 100%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+
+            .label {
+                color:#006CAE;
+                text-align: center;
+                font-family: Inter;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+            }
+        }
+
+        .MuiLink-root {
+            text-decoration: none;
+        }
+    }
+
+    // .card {
+    //     -ms-overflow-style: none;  /* IE and Edge */
+    //     scrollbar-width: none;
+    // }
+}

@@ -1,0 +1,13 @@
+import BaseHelper from "../BaseHelper";
+import { api } from "config/index";
+import { Callback } from "models/response.model";
+
+class PromotionHelper extends BaseHelper {
+    static url = api.promotion;
+
+    static get(callback?: Callback) {
+        return this.getBase("/hermes", callback, { showSuccess: true, showError: true })
+    }
+}
+
+export default PromotionHelper;

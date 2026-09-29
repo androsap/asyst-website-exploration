@@ -1,0 +1,99 @@
+.drawer-menu-content {
+
+    .header-menu {
+        display: "flex";
+        flex-direction: "row";
+        align-items: "center";
+        background-color: #006CAE;
+        height: 56px;
+
+        .logo-asyst {
+            // margin-left: 20px;
+            height: 28px;
+            width: 100px;
+            margin-right: 5px;
+        }
+
+
+        .box-close {
+            display: flex;
+            align-items: flex-start;
+        }
+    }
+
+    .title-parent {
+        color: #000;
+        font-family: "Source Sans Pro";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    .title-link {
+        color: #000;
+        font-family: "Source Sans Pro";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        margin-left: 20px;
+        line-height: 20px;
+    }
+
+    .box-menu {
+        margin-top: 24px;
+    }
+
+    .title-menu {
+        color: var(--nuted-black, #000);
+        font-family: "Inter";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        margin-bottom: 15px;
+    }
+
+    .box-back {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .back-button {
+        color: var(--Primary, #006CAE);
+        font-family: "Source Sans Pro";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    .header-category {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 15px;
+        margin-left: 10px;
+    }
+
+    .title-category {
+        color: var(--nuted-key-colors-tertiary, #002561);
+        font-family: "Source Sans Pro";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+    }
+
+    .list-submenu.MuiList-root {
+        padding: 2px;
+    }
+
+    .content-line {
+        margin-top: 12px;
+    }
+
+}

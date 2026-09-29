@@ -1,0 +1,71 @@
+.active {
+    background-color: #F6FBFF !important;
+    box-shadow: none;
+    // border-radius: 20px 20px 0px 0px;
+}
+
+.main-box {
+    background: #F6FBFF;
+}
+
+.content-box.MuiBox-root {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    // max-width: xl;
+    height: auto;
+    border-radius: 0px 20px 20px 20px;
+    background: #F6FBFF;
+    padding: 100px 30px 100px 30px;
+    gap: 60px;
+
+    .business-box.MuiBox-root {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
+@media only screen and (max-width: 1400px) {
+    .content-box.MuiBox-root {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        // max-width: xl;
+        height: auto;
+        border-radius: 0px 20px 20px 20px;
+        background: #F6FBFF;
+        padding: 100px 30px 100px 30px;
+        gap: 60px;
+
+        .business-box.MuiBox-root {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+}
+
+@media only screen and (max-width: 1920px) {
+    .content-box.MuiBox-root {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        // max-width: xl;
+        height: auto;
+        border-radius: 0px 20px 20px 20px;
+        background: #F6FBFF;
+        padding: 100px 30px 100px 30px;
+        gap: 60px;
+
+        .business-box {
+            display: flex;
+            flex-direction: column;
+            gap: 50px
+        }
+    }
+}

@@ -1,0 +1,67 @@
+.chronus-page {
+    .img-chronus {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+        border-radius: 200px;
+        object-fit: cover;
+    }
+
+    .img-profile {
+        width: 345.972px;
+        height: 345.972px;
+        flex-shrink: 0;
+    }
+
+
+    .MuiTypography-root.MuiTypography-h1 {
+        color: #1A1A1A;
+        font-family: Inter;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 44px;
+    }
+
+    .paraf-overview {
+
+        .MuiTypography-root.MuiTypography-h1 {
+            color: #000;
+            font-family: Inter;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 28px;
+        }
+
+        .MuiTypography-root.MuiTypography-h2 {
+            color: var(--nuted-extended-bodytext-value, #42423B);
+            font-family: Source Sans Pro;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+        }
+    }
+
+    .paraf-sub {
+
+        .MuiTypography-root.MuiTypography-h1 {
+            color: var(--Primary, #006CAE);
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 28px;
+        }
+
+        .MuiTypography-root.MuiTypography-h2 {
+            color: var(--nuted-extended-bodytext-value, #42423B);
+            font-family: Source Sans Pro;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+        }
+    }
+}

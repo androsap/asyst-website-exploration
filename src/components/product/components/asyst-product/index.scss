@@ -1,0 +1,62 @@
+.asyst-product {
+
+    .MuiTypography-root.MuiTypography-h1 {
+        color: #1A1A1A;
+        font-family: Inter;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 44px;
+    }
+
+    .MuiTypography-root.MuiTypography-h2 {
+        color: #3A3A3A;
+        font-family: Inter;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 28px;
+    }
+
+    .MuiTypography-root.MuiTypography-h3 {
+        color: #4A4A4A;
+        font-family: Source Sans Pro;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+    }
+
+}
+
+.saliman {
+
+    .MuiTypography-root.MuiTypography-h1 {
+        color: #EE6823;
+        font-family: Inter;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px;
+    }
+
+    .MuiTypography-root.MuiTypography-h2 {
+        color: #42423B;
+        width: 289px;
+        height: 56px;
+        flex-shrink: 0;
+        font-family: Source Sans Pro;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+    }
+}
+
+.img-products {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 200px;
+    object-fit: cover;
+}

@@ -1,0 +1,32 @@
+.container-industry-detail {
+    position: relative;
+    background-size: cover;
+    position: relative;
+    background-position: center top;
+
+    .hero-banner-grid {
+        height: 100vh;
+
+        .hero-banner-box {
+            height: 100vh;
+        }
+
+    }
+
+
+    .bg-home {
+        height: 100%;
+
+        &::after {
+            background: linear-gradient(180deg, rgba(16, 16, 16, 0.00) 0%, rgba(16, 16, 16, 0.78) 45.31%, #101010 100%);
+            content: '';
+            height: 100%;
+            position: absolute;
+            display: block;
+            width: 100%;
+            z-index: 2;
+            top: 0;
+            left: 0;
+        }
+    }
+}

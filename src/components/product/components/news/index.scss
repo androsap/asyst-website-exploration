@@ -1,0 +1,96 @@
+.heading-small {
+    color: #3A3A3A;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+.heading-large {
+    color: #1A1A1A;
+    font-family: Inter;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px;
+}
+
+.button-categories {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    .MuiButtonBase-root {
+        border-radius: 100px;
+        padding-left: 24px;
+        padding-right: 24px;
+
+        &.MuiButton-text {
+            color: #006CAE;
+            border: 1px solid var(--Primary, #006CAE);
+
+            &:hover {
+                background-color: #0069B3;
+                color: #fff;
+            }
+        }
+
+        &.MuiButton-contained {
+            background-color: #0069B3;
+            color: #fff;
+            box-shadow: none;
+        }
+
+    }
+}
+
+.discover {
+    color: var(--Primary, #006CAE);
+    font-family: Source Sans Pro;
+    font-size: 16px;
+    margin-right: 0% !important;
+}
+
+.card-news {
+    margin-top: 27px;
+    width: 300px;
+
+    .images {
+        background-size: cover;
+        height: 170px;
+        border-radius: 20px;
+        overflow: hidden;
+
+        // .card-images {
+        //     width: 100%;
+        //     min-height: 170px;
+        //     height: auto;
+        // }
+
+        .tags-label {
+            border-radius: 55px;
+            position: absolute;
+            margin-top: 132px;
+            margin-left: 1.5%;
+            background: rgba(244, 248, 255, 0.80);
+            padding-left: 15px;
+            padding-right: 15px;
+            color: #002663;
+            font-size: 12px;
+            font-weight: 400;
+        }
+    }
+
+    .title-news {
+        color: #1A1A1A;
+        font-size: 20px;
+        font-weight: 700;
+        min-height: 94px;
+    }
+
+    .footer-news {
+        color: #909090;
+        font-size: 14px;
+    }
+}

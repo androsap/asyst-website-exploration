@@ -1,0 +1,53 @@
+.MuiTypography-root.MuiTypography-h1 {
+    color: #1A1A1A;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.MuiTypography-root.MuiTypography-h2 {
+    color: #3A3A3A;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.MuiTypography-root.MuiTypography-h3 {
+    color: var(--nuted-key-colors-tertiary, #002561);
+
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.MuiTypography-root.MuiTypography-h4 {
+    color: #4A4A4A;
+
+    font-family: Source Sans Pro;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.MuiTypography-root.MuiTypography-h5 {
+    color: var(--Primary, #006CAE);
+
+    font-family: Source Sans Pro;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.img-products {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 200px;
+    object-fit: cover;
+}

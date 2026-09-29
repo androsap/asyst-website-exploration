@@ -1,0 +1,25 @@
+.list-button {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    .MuiButtonBase-root {
+        border-radius: 55px;
+        height: 38px;
+        min-width: 120px !important;
+        font-size: 14px !important;
+
+        &.MuiButton-text {
+            color: #0069B3;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            background-color: rgba(0, 170, 236, 0.06);
+        }
+
+        &.MuiButton-contained {
+            background-color: #0069B3;
+            color: #fff;
+            box-shadow: none;
+        }
+    }
+}

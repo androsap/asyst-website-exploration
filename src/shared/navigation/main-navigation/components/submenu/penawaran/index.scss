@@ -1,0 +1,118 @@
+.submenu-penawaran {
+    color: #fff !important;
+    user-select: none;
+
+    .content-container {
+        padding: 36px 48px;
+    }
+
+    .image {
+        width: 284px;
+        height: 170px;
+        background-size: cover;
+        border-radius: 12px;
+        background-position: center;
+    }
+
+    .MuiButtonBase-root {
+        color: #fff !important;
+        border-color: #fff !important;
+        font-size: 14px !important;
+        border-radius: 55px !important;
+        height: 36px;
+    }
+
+    .MuiTypography-root.MuiTypography-body1 {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+    }
+
+    .submenu {
+        margin-top: 16px;
+
+        a {
+            color: #fff;
+
+            &:hover {
+                color: #009EDB;
+            }
+
+            .MuiTypography-root.MuiTypography-body2 {
+                font-size: 14px !important;
+                font-weight: 400 !important;
+                font-family: "Source Sans Pro" !important;
+                margin-bottom: 10px;
+            }
+        }
+
+    }
+
+    .footer-submenu {
+        border-top: 1px solid #00aaec26;
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 36px;
+            border-radius: 4px;
+            background: #FFF;
+
+            .MuiTypography-root.MuiTypography-overline {
+                color: #002F5F !important;
+                font-size: 10px !important;
+                font-weight: 600 !important;
+                text-transform: none !important;
+            }
+        }
+
+        .MuiTypography-root.MuiTypography-subtitle1 {
+            color: #F9F9F9 !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+
+            a {
+                color: #009EDB !important;
+            }
+        }
+    }
+}
+
+//laptop 14" (screen pecentage 80% alike)
+@media only screen and (min-width: 1279px) and (max-width: 1281px) {
+    .submenu-penawaran {
+        .content-container {
+            padding: 30px 40px;
+
+            .image {
+                width: 228px;
+                height: 133px;
+            }
+
+            .MuiTypography-root.MuiTypography-body1 {
+                font-size: 12px !important;
+            }
+
+            .submenu {
+                a {
+                    .MuiTypography-root.MuiTypography-body2 {
+                        font-size: 12px !important;
+                    }
+                }
+            }
+        }
+
+
+        .footer-submenu {
+
+            .MuiGrid-container {
+                height: 78px;
+            }
+
+            .MuiTypography-root.MuiTypography-subtitle1 {
+                font-size: 12px !important;
+            }
+        }
+    }
+}

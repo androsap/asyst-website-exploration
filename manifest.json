@@ -1,0 +1,19 @@
+{
+    "registerType": "prompt",
+    "includeAssets": [
+        "icon.png"
+    ],
+    "manifest": {
+        "name": "Garuda Indonesia",
+        "short_name": "GA",
+        "description": "The Airlines of Indonesia",
+        "icons": [
+        ],
+        "theme_color": "#171717",
+        "background_color": "#e8ebf2",
+        "display": "standalone",
+        "scope": "/",
+        "start_url": "/",
+        "orientation": "portrait"
+    }
+}

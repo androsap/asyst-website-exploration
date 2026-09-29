@@ -1,0 +1,18 @@
+.box-review {
+    min-height: 120px;
+    height: 120px;
+}
+
+@media only screen and (max-width: 1400px) {
+    .box-review {
+        min-height: 80px;
+        height: 100px;
+    }
+}
+
+@media only screen and (max-width: 1920px) {
+    .box-review {
+        min-height: 120px;
+        height: 120px;
+    }
+}
