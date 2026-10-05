@@ -12,20 +12,20 @@ import HotelOutlinedIcon from "@mui/icons-material/HotelOutlined";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlined";
 
-import imgAdmin from "assets/asyst/img/background/product/anteros/device-A.png";
-import imgMobile from "assets/asyst/img/background/product/anteros/device-B.png";
-import imgOverview from "assets/asyst/img/background/services-solutions/anteros1.png";
-import imgLoyaltyMember from "assets/asyst/img/background/product/anteros/loyalty-member.png";
-import imgLoyaltyStaff from "assets/asyst/img/background/product/anteros/loyalty-staff.png";
-import imgLoyaltyUnit from "assets/asyst/img/background/product/anteros/loyalty-unit.png";
-import imgMultiTier from "assets/asyst/img/background/product/anteros/multi-tier.png";
-import imgPointExchange from "assets/asyst/img/background/product/anteros/point-exchange.png";
-import imgPromoReward from "assets/asyst/img/background/product/anteros/promo-and-reward.png";
-import imgBusinessOwner from "assets/asyst/img/background/product/anteros/business-owner.png";
+import imgAdmin from "assets/asyst/img/background/product/amala/device-A.png";
+import imgMobile from "assets/asyst/img/background/product/amala/device-B.png";
+import imgOverview from "assets/asyst/img/background/services-solutions/amala1.png";
+import imgLoyaltyMember from "assets/asyst/img/background/product/amala/loyalty-member.png";
+import imgLoyaltyStaff from "assets/asyst/img/background/product/amala/loyalty-staff.png";
+import imgLoyaltyUnit from "assets/asyst/img/background/product/amala/loyalty-unit.png";
+import imgMultiTier from "assets/asyst/img/background/product/amala/multi-tier.png";
+import imgPointExchange from "assets/asyst/img/background/product/amala/point-exchange.png";
+import imgPromoReward from "assets/asyst/img/background/product/amala/promo-and-reward.png";
+import imgBusinessOwner from "assets/asyst/img/background/product/amala/business-owner.png";
 import { ProductDetailContent } from "consts/product-detail.const";
 
 // Konten mengikuti home.asyst.co.id/product/hermes (di situs lama slug ini dipakai untuk "Loyalty Platform").
-// Screenshot CMS lama untuk Hermes adalah aplikasi cargo, jadi sementara memakai aset loyalty Anteros.
+// Screenshot CMS lama untuk Hermes adalah aplikasi cargo, jadi sementara memakai aset loyalty Amala.
 
 export const HermesDetailConst: ProductDetailContent = {
     hero: {

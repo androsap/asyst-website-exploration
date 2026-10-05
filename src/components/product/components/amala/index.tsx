@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid'
 import Apollo from 'assets/img/icon/products/Group 33.png';
-import apolloProfile from 'assets/img/icon/page-product/profile-anteros.png';
+import apolloProfile from 'assets/img/icon/page-product/profile-amala.png';
 import './index.scss'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
@@ -9,12 +9,12 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
 
-export default function AnterosComponent() {
+export default function AmalaComponent() {
     return <>
-        <Grid className='anteros-page'>
+        <Grid className='amala-page'>
             <Box sx={{ display: 'flex', flexDirection: 'row', gap: '14px', alignItems: 'center' }}>
-                <img className='img-anteros' src={Apollo} alt="" />
-                <Typography variant='h1'>Anteros</Typography>
+                <img className='img-amala' src={Apollo} alt="" />
+                <Typography variant='h1'>Amala</Typography>
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'row', padding: '50px' }}>
                 <img className='img-profile' src={apolloProfile} alt="" />
@@ -38,7 +38,7 @@ export default function AnterosComponent() {
                         <Typography variant='h2' sx={{ width: '628px' }}>ECO or UX writter find this out about the products data-spread</Typography>
                         <Divider sx={{ borderBottomWidth: 2, backgroundColor: '#E2EAF1' }} />
                     </Box>
-                    <Link target={"_blank"} to={'/product/anteros/'}>
+                    <Link target={"_blank"} to={'/product/amala/'}>
                         <Button variant='text' sx={{ width: '179px', height: '20px', borderWidth: 0, }}>Learn more about apollo</Button>
                     </Link>
                 </Box>

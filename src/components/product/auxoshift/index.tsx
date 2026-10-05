@@ -22,10 +22,10 @@ import { bgsModal } from '@andrydharmawan/bgs-component';
 import './index.scss';
 
 import { styles } from './styled';
-import { BannerModel } from 'models/anteros/banner.model';
-import { ProductTestimonialModel } from 'models/anteros/testimonial.model';
-import { CustomersModel } from 'models/anteros/customers.model';
-import { FeaturesModel } from 'models/anteros/features.model';
+import { BannerModel } from 'models/amala/banner.model';
+import { ProductTestimonialModel } from 'models/amala/testimonial.model';
+import { CustomersModel } from 'models/amala/customers.model';
+import { FeaturesModel } from 'models/amala/features.model';
 import BannerHelper from 'helper/auxoshift/BannerHelper';
 import TestimonialHelper from 'helper/auxoshift/TestimonialHelper';
 import CustomersHelper from 'helper/auxoshift/CustomersHelper';
@@ -50,7 +50,7 @@ export const requestDemoModal = () => {
     })
 };
 
-export default function AnterosDetailComponent({ }: MainLayoutSharedProps) {
+export default function AmalaDetailComponent({ }: MainLayoutSharedProps) {
     const [data, setData] = useState<BannerModel>({} as BannerModel)
     const [testimonialData, setTestimonialData] = useState<ProductTestimonialModel>({} as ProductTestimonialModel)
     const [customerData, setCustomerData] = useState<CustomersModel>({} as CustomersModel)
@@ -100,7 +100,7 @@ export default function AnterosDetailComponent({ }: MainLayoutSharedProps) {
 
     // console.log("data nih", data.product?.product_name)
     return <Box className="container-product">
-        <Element name="anteros">
+        <Element name="amala">
             <Box className='mainBox' sx={{ backgroundImage: `url(${bannerBackground})` }}>
                 {!loading && data && (
                     <Container maxWidth="xl">

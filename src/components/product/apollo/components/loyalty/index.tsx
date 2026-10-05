@@ -9,7 +9,7 @@ import { Children } from 'react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { CustomersModel } from "models/anteros/customers.model";
+import { CustomersModel } from "models/amala/customers.model";
 
 interface CustomersProps {
     corporate: CustomersModel;

@@ -22,12 +22,12 @@ import { bgsModal } from '@andrydharmawan/bgs-component';
 import './index.scss';
 
 import { styles } from './styled';
-import { BannerModel } from 'models/anteros/banner.model';
-import { ProductTestimonialModel } from 'models/anteros/testimonial.model';
-import { CustomersModel } from 'models/anteros/customers.model';
-import { FeaturesModel } from 'models/anteros/features.model';
+import { BannerModel } from 'models/amala/banner.model';
+import { ProductTestimonialModel } from 'models/amala/testimonial.model';
+import { CustomersModel } from 'models/amala/customers.model';
+import { FeaturesModel } from 'models/amala/features.model';
 import BannerHelper from 'helper/athena/BannerHelper';
-import TestimonialHelper from 'helper/anteros/TestimonialHelper';
+import TestimonialHelper from 'helper/amala/TestimonialHelper';
 import CustomersHelper from 'helper/athena/CustomersHelper';
 import FeaturesHelper from 'helper/athena/FeatureHelper';
 import he from 'he';

@@ -1,4 +1,4 @@
-import bannerBackground from 'assets/asyst/img/background/product/anteros/product-detail-anteros.png';
+import bannerBackground from 'assets/asyst/img/background/product/amala/product-detail-amala.png';
 
 export const styles = {
     backNavContainer: {

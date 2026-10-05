@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
-import Anteros from 'assets/img/icon/products/Group 33.png';
+import Amala from 'assets/img/icon/products/Group 33.png';
 import Auxoshift from 'assets/img/icon/products/Group 34.png';
 import Athena from 'assets/img/icon/products/Group 35.png';
 import Hermes from 'assets/img/icon/products/Group 36.png';
@@ -30,10 +30,10 @@ export default function ProductComponent() {
                                     <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#0069B3', textAlign: 'center', color: 'white' }}>
                                         <Typography fontSize={12} paddingTop={0.2}>Products</Typography>
                                     </Box>
-                                    <img className='img-products' src={Anteros} alt="" />
+                                    <img className='img-products' src={Amala} alt="" />
                                 </Box>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                                    <Typography variant='h3'>Anteros</Typography>
+                                    <Typography variant='h3'>Amala</Typography>
                                     <Typography variant='h4'>a framework for rewarding and incentivizing customers to engage with a business repeatedly fostering long-term customer loyalty and retention</Typography>
                                     <Button sx={{ width:'100px',height:'20px' }}>Learn more</Button>
                                 </Box>

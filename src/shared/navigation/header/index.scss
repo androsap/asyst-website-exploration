@@ -196,14 +196,14 @@ $header-height: 84px;
     &__title {
         font-family: $font-heading;
         color: $navy;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 700;
     }
 
     &__subtitle {
         margin-top: 8px;
         color: $text;
-        font-size: 17px;
+        font-size: 14px;
         line-height: 1.6;
     }
 
@@ -213,12 +213,12 @@ $header-height: 84px;
         gap: 4px;
         margin-top: 12px;
         color: $blue;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 600;
         text-decoration: none;
 
         svg {
-            font-size: 20px;
+            font-size: 18px;
         }
 
         &:hover {
@@ -240,11 +240,11 @@ $header-height: 84px;
         padding: 10px 0 !important;
         color: $blue;
         font-family: $font-body !important;
-        font-size: 18px;
+        font-size: 15px;
         text-align: left;
 
         svg {
-            font-size: 24px;
+            font-size: 20px;
         }
 
         &.active,
@@ -269,15 +269,15 @@ $header-height: 84px;
     &__highlight-title {
         font-family: $font-heading;
         color: $navy-2;
-        font-size: 20px;
+        font-size: 17px;
         font-weight: 600;
     }
 
     &__highlight-description {
-        margin-top: 8px;
+        margin-top: 6px;
         color: $text;
-        font-size: 16px;
-        line-height: 1.65;
+        font-size: 14px;
+        line-height: 1.6;
     }
 }
 
@@ -303,8 +303,8 @@ $header-height: 84px;
     }
 
     &__icon {
-        width: 64px;
-        height: 64px;
+        width: 48px;
+        height: 48px;
         flex-shrink: 0;
         border: 1px solid $border;
         border-radius: 50%;
@@ -314,7 +314,7 @@ $header-height: 84px;
         color: $navy-2;
 
         svg {
-            font-size: 30px;
+            font-size: 22px;
         }
     }
 
@@ -322,7 +322,7 @@ $header-height: 84px;
         display: block;
         font-family: $font-heading;
         color: $navy-2;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 600;
     }
 
@@ -330,8 +330,8 @@ $header-height: 84px;
         display: -webkit-box;
         margin-top: 4px;
         color: $text;
-        font-size: 16px;
-        line-height: 1.65;
+        font-size: 14px;
+        line-height: 1.5;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
         line-clamp: 4;
@@ -363,8 +363,8 @@ $header-height: 84px;
     }
 
     &__icon {
-        width: 64px;
-        height: 64px;
+        width: 48px;
+        height: 48px;
         flex-shrink: 0;
         border: 1px solid $border;
         border-radius: 10px;
@@ -374,12 +374,12 @@ $header-height: 84px;
         justify-content: center;
 
         svg {
-            font-size: 30px;
+            font-size: 22px;
         }
     }
 
     &__label {
-        font-size: 18px;
+        font-size: 15px;
         line-height: 1.5;
     }
 }

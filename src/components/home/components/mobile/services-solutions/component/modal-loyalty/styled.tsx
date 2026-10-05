@@ -56,13 +56,13 @@ export const styles = {
                 justifyContent: "space-between",
                 paddingTop: "20px",
 
-                anteros1: {
+                amala1: {
                     height: "100px",
                     width: "159px",
                     backgroundImage: `url(${hermes1})`,
                 },
 
-                anteros2: {
+                amala2: {
                     height: "100px",
                     width: "159px",
                     backgroundImage: `url(${hermes2})`,

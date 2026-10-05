@@ -6,8 +6,8 @@ import RocketLaunchOutlinedIcon from "@mui/icons-material/RocketLaunchOutlined";
 
 import imgHeroMockup from "assets/asyst/img/background/product/product-hero.png";
 import imgProductCard1 from "assets/asyst/img/background/services-solutions/hermes2.png";
-import imgProductCard2 from "assets/asyst/img/background/services-solutions/anteros2.png";
-import imgSolveMockup from "assets/asyst/img/background/product/anteros/device-A.png";
+import imgProductCard2 from "assets/asyst/img/background/services-solutions/amala2.png";
+import imgSolveMockup from "assets/asyst/img/background/product/amala/device-A.png";
 
 // Konten statis halaman Products (desain revamp 2026).
 // Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
@@ -49,7 +49,7 @@ export const ProductCatalogConst = {
             description: "Modular enterprise applications designed to support critical business processes, from resource management and loyalty to specialized operational workflows",
             products: [
                 { name: "Apollo", title: "Enterprise Resource Planning", description: "Apollo brings core business processes into an integrated enterprise platform", image: imgProductCard1, link: "/product/apollo" },
-                { name: "Amala", title: "Loyalty & Customer Engagement Platform", description: "Amala brings loyalty programs, rewards and customer engagement into one connected platform", image: imgProductCard2, link: "/product/anteros" },
+                { name: "Amala", title: "Loyalty & Customer Engagement Platform", description: "Amala brings loyalty programs, rewards and customer engagement into one connected platform", image: imgProductCard2, link: "/product/amala" },
                 { name: "Doc", title: "Smart Document with AI", description: "Doc brings business documents into an intelligent, searchable and connected workspace", image: imgProductCard1, link: "/product/smart-document" },
                 { name: "Project Management", title: "AI Project Management", description: "Project Management keeps streams, deliverables, tasks and hours in one plan, with AI agents writing the status reports", image: imgProductCard2, link: "/product/project-management" },
                 { name: "E-Procurement", title: "E-Procurement Solution", description: "E-Procurement centralizes and automates purchasing, connecting buyers and suppliers in one environment", image: imgProductCard1, link: "/product/e-procurement" },
@@ -70,9 +70,9 @@ export const ProductCatalogConst = {
             title: "Grow and retain your customers",
             description: "Commercial platforms that help organizations engage customers, run loyalty programs and manage direct channels",
             products: [
-                { name: "Anteros", title: "Enterprise Loyalty Platform", description: "Anteros brings member management, tiers, points, rewards, promotions and partners into one loyalty platform", image: imgProductCard2, link: "/product/anteros" },
+                { name: "Amala", title: "Enterprise Loyalty Platform", description: "Amala brings member management, tiers, points, rewards, promotions and partners into one loyalty platform", image: imgProductCard2, link: "/product/amala" },
             ],
-            button: { label: "Explore Commercial Products", link: "/product/anteros" },
+            button: { label: "Explore Commercial Products", link: "/product/amala" },
         },
         {
             label: "Operations",
@@ -137,7 +137,7 @@ export interface SolveItem {
 
 const productFamilyLinks = [
     { label: "Enterprise Products", link: "/product" },
-    { label: "Commercial Products", link: "/product/anteros" },
+    { label: "Commercial Products", link: "/product/amala" },
     { label: "Operations Products", link: "/product/chronus" },
 ];
 

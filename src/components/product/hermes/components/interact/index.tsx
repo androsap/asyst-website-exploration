@@ -3,9 +3,9 @@ import Box from "@mui/material/Box"
 import Divider from '@mui/material/Divider'
 import Grid from '@mui/material/Grid'
 import { styles } from './styled'
-import { PromotionModel } from "models/anteros/promotion.model";
+import { PromotionModel } from "models/amala/promotion.model";
 import PromotionHelper from 'helper/hermes/PromotionHelper';
-import { PromotionCardsModel } from "models/anteros/promotionCards.model";
+import { PromotionCardsModel } from "models/amala/promotionCards.model";
 import PromotionCardsHelper from 'helper/hermes/PromotionCardsHelper';
 import { Children, useState, useEffect } from "react"
 import he from 'he'

@@ -15,7 +15,7 @@ import profile3 from 'assets/asyst/img/background/industry/testimonials-profile-
 
 const testimonialsData = [
     {
-        text: "Anteros was the modern software solution that was exactly what we were looking for. From the feature set to the pricing model, Aero Systems Indonesia has been great for us.",
+        text: "Amala was the modern software solution that was exactly what we were looking for. From the feature set to the pricing model, Aero Systems Indonesia has been great for us.",
         name: "Victor Mansen",
         position: "Chief Technology Officer",
         company: "AXA",

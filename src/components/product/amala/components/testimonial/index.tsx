@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { styles } from './styled';
-import { ProductTestimonialModel } from "models/anteros/testimonial.model";
+import { ProductTestimonialModel } from "models/amala/testimonial.model";
 import { Children } from 'react';
 import he from 'he';
 import './index.scss';

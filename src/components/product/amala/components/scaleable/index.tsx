@@ -2,8 +2,8 @@ import Typography from "@mui/material/Typography"
 import { styles } from './styled'
 import Box from "@mui/material/Box"
 import { useState, useEffect, } from 'react'
-import { ScaleModel } from "models/anteros/scale.model"
-import ScaleHelper from 'helper/anteros/ScaleHelper'
+import { ScaleModel } from "models/amala/scale.model"
+import ScaleHelper from 'helper/amala/ScaleHelper'
 import he from 'he'
 
 export default function ScalableComponent() {

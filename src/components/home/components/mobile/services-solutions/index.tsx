@@ -202,9 +202,9 @@ const ServicesSolutionsMobileComponent: React.FC<ServicesSolutionsMobileProps> =
                 <Box sx={styles.boxContent}>
                     <Typography sx={styles.boxContent.title}>{selectedSolutionData?.subtitle_en}</Typography>
                     <Typography sx={styles.boxContent.text}>{selectedSolutionData?.description_en}</Typography>
-                    <Box sx={styles.boxContent.boxImageAnteros}>
-                        <Box sx={styles.boxContent.boxImageAnteros.anteros1} />
-                        <Box sx={styles.boxContent.boxImageAnteros.anteros2} />
+                    <Box sx={styles.boxContent.boxImageAmala}>
+                        <Box sx={styles.boxContent.boxImageAmala.amala1} />
+                        <Box sx={styles.boxContent.boxImageAmala.amala2} />
                     </Box>
                 </Box>
             </Drawer>

@@ -7,10 +7,10 @@ import imgChallengeComplexity from "assets/img/background/solutions/image-soluti
 import imgChallengeGoLive from "assets/img/background/solutions/image-solutions-3.png";
 import imgLayers from "assets/asyst/img/background/product/overview/background-product.png";
 import imgProducts from "assets/asyst/img/background/HBNR-1.jpg";
-import imgDashboard from "assets/asyst/img/background/product/anteros/device-A.png";
+import imgDashboard from "assets/asyst/img/background/product/amala/device-A.png";
 import imgAirline from "assets/asyst/img/background/industry/airline-airport/airline.jpeg";
 import imgAirport from "assets/asyst/img/background/industry/airline-airport/airport.jpeg";
-import imgLoyalty from "assets/asyst/img/background/services-solutions/anteros2.png";
+import imgLoyalty from "assets/asyst/img/background/services-solutions/amala2.png";
 import imgCargo from "assets/asyst/img/background/services-solutions/cargo.png";
 import imgTravel from "assets/asyst/img/background/HBNR-3.jpg";
 
@@ -264,7 +264,7 @@ export const AviationDetailConst: IndustryDetailContent = {
                 title: "Digital Technology for Customer Loyalty",
                 description: "Build connected loyalty experiences that bring customer data, engagement, rewards and digital touchpoints closer together",
                 chips: aviationChips,
-                link: { label: "Explore Loyalty Platform", to: "/product/anteros" },
+                link: { label: "Explore Loyalty Platform", to: "/product/amala" },
                 image: imgLoyalty,
             },
             {

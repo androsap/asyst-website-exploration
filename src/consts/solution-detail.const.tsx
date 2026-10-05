@@ -8,7 +8,7 @@ import imgHero from "assets/img/background/solutions/image-solutions-1.png";
 import imgConnected from "assets/img/background/solutions/image-solutions-2.png";
 import imgVisibility from "assets/img/background/solutions/image-solutions-3.png";
 import imgOutcome from "assets/asyst/img/background/product/overview/background-product.png";
-import imgDashboard from "assets/asyst/img/background/product/anteros/device-A.png";
+import imgDashboard from "assets/asyst/img/background/product/amala/device-A.png";
 
 // Konten halaman detail solusi (desain revamp 2026). Satu objek per solusi, dirender oleh components/solution/detail.
 // Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.

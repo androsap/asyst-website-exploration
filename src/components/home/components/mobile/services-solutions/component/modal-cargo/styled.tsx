@@ -1,5 +1,5 @@
-import anteros1 from "assets/asyst/img/background/services-solutions/anteros1-mobile.png"
-import anteros2 from "assets/asyst/img/background/services-solutions/anteros2-mobile.png"
+import amala1 from "assets/asyst/img/background/services-solutions/amala1-mobile.png"
+import amala2 from "assets/asyst/img/background/services-solutions/amala2-mobile.png"
 
 export const styles = {
     paper: {
@@ -56,16 +56,16 @@ export const styles = {
                 justifyContent: "space-between",
                 paddingTop: "20px",
 
-                anteros1: {
+                amala1: {
                     height: "100px",
                     width: "159px",
-                    backgroundImage: `url(${anteros1})`,
+                    backgroundImage: `url(${amala1})`,
                 },
 
-                anteros2: {
+                amala2: {
                     height: "100px",
                     width: "159px",
-                    backgroundImage: `url(${anteros2})`,
+                    backgroundImage: `url(${amala2})`,
                 }
             }
         },

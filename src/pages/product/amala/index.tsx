@@ -1,6 +1,6 @@
 import { lazy } from "react";
 import MainLayoutShared, { MainLayoutSharedProps } from "shared/layout/main-layout";
-const MainComponent = lazy(() => import("components/product/anteros"));
+const MainComponent = lazy(() => import("components/product/amala"));
 
 const props: MainLayoutSharedProps = {
     title: "PT Aero Systems Indonesia",

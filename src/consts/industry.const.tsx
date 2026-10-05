@@ -10,7 +10,7 @@ import imgIntro from "assets/asyst/img/background/services-solutions/cargo.png";
 import imgAirline from "assets/asyst/img/background/industry/airline-airport/airline.jpeg";
 import imgAirport from "assets/asyst/img/background/industry/airline-airport/airport.jpeg";
 import imgGround from "assets/asyst/img/background/services-solutions/products-and-services.png";
-import imgLoyalty from "assets/asyst/img/background/services-solutions/anteros2.png";
+import imgLoyalty from "assets/asyst/img/background/services-solutions/amala2.png";
 import imgEcosystem from "assets/asyst/img/background/industry/industry-detail.jpeg";
 
 // Konten statis halaman Industries (desain revamp 2026).
@@ -72,7 +72,7 @@ export const IndustryIntroConst: IndustryIntroContent = {
     image: imgIntro,
 }
 
-// TODO: baru Aviation yang punya halaman detail; Loyalty diarahkan ke produk Anteros, Industry Ecosystem sementara ke halaman ini
+// TODO: baru Aviation yang punya halaman detail; Loyalty diarahkan ke produk Amala, Industry Ecosystem sementara ke halaman ini
 export const IndustryExpertiseConst: IndustryCardsContent = {
     title: "Explore Our Industry Expertise",
     description: "From aviation and airport operations to loyalty and connected industry ecosystems, ASYST applies enterprise technology, software, integration and operational expertise to industry-specific challenges",
@@ -106,7 +106,7 @@ export const IndustryExpertiseConst: IndustryCardsContent = {
             title: "Digital Technology for Customer Loyalty",
             description: "Build connected loyalty experiences that bring customer data, engagement, rewards and digital touchpoints closer together",
             chips: ["Commercial", "Operations", "Passenger", "Enterprise Systems", "Integration", "Data"],
-            link: { label: "Explore Loyalty Solutions", to: "/product/anteros" },
+            link: { label: "Explore Loyalty Solutions", to: "/product/amala" },
             image: imgLoyalty,
         },
         {
@@ -136,7 +136,7 @@ export const IndustryFaqConst: SolutionFaqContent = {
     items: [
         { question: "What industries does ASYST serve?", answer: "ASYST's current public website identifies Airline, Airport, Ground Handler, Loyalty and Industry Ecosystem as industry areas" },
         { question: "Does ASYST only provide technology for aviation?", answer: "No. Aviation is where ASYST has long-running domain experience, but its enterprise software, integration, infrastructure and professional services are applied to other industries and connected business ecosystems as well" },
-        { question: "Can Anteros integrate with existing enterprise systems?", answer: "Yes. Anteros is designed to connect with existing customer, commercial, partner and enterprise systems through APIs and integration services" },
+        { question: "Can Amala integrate with existing enterprise systems?", answer: "Yes. Amala is designed to connect with existing customer, commercial, partner and enterprise systems through APIs and integration services" },
         { question: "Can ASYST integrate existing enterprise systems?", answer: "Yes. ASYST connects applications, data, infrastructure and third-party platforms so existing systems can work together as a more connected technology environment" },
         { question: "Does ASYST provide custom technology solutions?", answer: "Yes. Alongside its products, ASYST provides custom development and professional services for requirements that are specific to an organization or industry" },
         { question: "Can ASYST support implementation after creating the strategy?", answer: "Yes. ASYST supports the journey from technology strategy and architecture through implementation, integration and operational adoption" },

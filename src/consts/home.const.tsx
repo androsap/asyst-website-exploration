@@ -20,7 +20,7 @@ import logoGaruda from "assets/asyst/img/trusted-by/trusted-garuda-indonesia.png
 import logoSabre from "assets/asyst/img/trusted-by/trusted-sabre.png";
 import logoAxa from "assets/asyst/img/trusted-by/trusted-axa.png";
 
-import imgProductMockup1 from "assets/asyst/img/background/services-solutions/anteros1.png";
+import imgProductMockup1 from "assets/asyst/img/background/services-solutions/amala1.png";
 import imgProductMockup2 from "assets/asyst/img/background/services-solutions/hermes1.png";
 import imgPartnerProduct from "assets/asyst/img/background/partner/partner-product.jpg";
 import imgPartnerIntegration from "assets/asyst/img/background/partner/partner-integration.jpg";

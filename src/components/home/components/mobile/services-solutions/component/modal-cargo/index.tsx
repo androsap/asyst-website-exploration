@@ -16,8 +16,8 @@ const ModalCargoComponent: React.FC<ModalCargoProps> = ({ }) => {
                 <Typography sx={styles.paper.boxContent.title}>Loyalty Apps</Typography>
                 <Typography sx={styles.paper.boxContent.text}>Loyalty Platform Solution can increase repeat sales for your company by engaging and build strong customer interaction. Create and manage personalized loyalty programs to boost your revenue.</Typography>
                 <Box sx={styles.paper.boxContent.boxImage}>
-                    <Box sx={styles.paper.boxContent.boxImage.anteros1} />
-                    <Box sx={styles.paper.boxContent.boxImage.anteros2} />
+                    <Box sx={styles.paper.boxContent.boxImage.amala1} />
+                    <Box sx={styles.paper.boxContent.boxImage.amala2} />
                 </Box>
             </Box>
         </Box>

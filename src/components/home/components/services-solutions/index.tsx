@@ -96,7 +96,7 @@ export default function ServicesSolutionsHomeComponent() {
         setActiveIndustry(title_en);
     }
     const handleProductsClick = (link: string, title: string) => {
-        if (title.toLowerCase() === 'anteros') {
+        if (title.toLowerCase() === 'amala') {
             navigate(link)
         } else {
             window.location.href = link;

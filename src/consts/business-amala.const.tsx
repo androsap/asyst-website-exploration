@@ -1,7 +1,7 @@
-import businessOwner from "assets/asyst/img/background/product/anteros/business-owner.png"
-import loyaltyUnit from "assets/asyst/img/background/product/anteros/loyalty-unit.png"
-import loyaltyStaff from "assets/asyst/img/background/product/anteros/loyalty-staff.png"
-import loyaltyMember from "assets/asyst/img/background/product/anteros/loyalty-member.png"
+import businessOwner from "assets/asyst/img/background/product/amala/business-owner.png"
+import loyaltyUnit from "assets/asyst/img/background/product/amala/loyalty-unit.png"
+import loyaltyStaff from "assets/asyst/img/background/product/amala/loyalty-staff.png"
+import loyaltyMember from "assets/asyst/img/background/product/amala/loyalty-member.png"
 
 type BusinessType = "Owner" | "Unit" | "Staff" | "Member" ;
 

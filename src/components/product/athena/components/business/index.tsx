@@ -3,11 +3,11 @@ import Typography from '@mui/material/Typography';
 import { styles } from './styled';
 import { Children, useState, useEffect } from "react"
 import Button from '@mui/material/Button';
-import business from "assets/asyst/img/background/product/anteros/business.png"
+import business from "assets/asyst/img/background/product/amala/business.png"
 import './index.scss'
-import { BusinessModel } from "models/anteros/business.model";
+import { BusinessModel } from "models/amala/business.model";
 import BusinessHelper from 'helper/athena/BusinessHelper';
-import { CardBusinessModel } from "models/anteros/cardbusiness.model";
+import { CardBusinessModel } from "models/amala/cardbusiness.model";
 import CardBusinessHelper from 'helper/athena/CardBusinessHelper';
 import he from 'he'
 

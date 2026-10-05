@@ -16,8 +16,8 @@ const ModalLoyaltyComponent: React.FC<ModalLoyaltyProps> = ({ }) => {
                 <Typography sx={styles.paper.boxContent.title}>Logistic Apps</Typography>
                 <Typography sx={styles.paper.boxContent.text}>Cargo Management is a robust cargo platform and empowers freight forwarders through technology and allows them to evolve into the digital forwarders that the future needs.</Typography>
                 <Box sx={styles.paper.boxContent.boxImage}>
-                    <Box sx={styles.paper.boxContent.boxImage.anteros1} />
-                    <Box sx={styles.paper.boxContent.boxImage.anteros2} />
+                    <Box sx={styles.paper.boxContent.boxImage.amala1} />
+                    <Box sx={styles.paper.boxContent.boxImage.amala2} />
                 </Box>
             </Box>
         </Box>

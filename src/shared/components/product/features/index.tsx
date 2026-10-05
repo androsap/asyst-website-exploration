@@ -9,9 +9,9 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/pagination'
 import 'swiper/css/mousewheel'
-import { FeaturesModel } from "models/anteros/features.model"
-import background from "assets/asyst/img/background/product/anteros/feature.png"
-import frame from "assets/asyst/img/background/product/anteros/feature-frame.png"
+import { FeaturesModel } from "models/amala/features.model"
+import background from "assets/asyst/img/background/product/amala/feature.png"
+import frame from "assets/asyst/img/background/product/amala/feature-frame.png"
 import he from 'he'
 import { formatPaginationBullet } from 'components/home'
 import { RefObject, useEffect, useRef, useState } from 'react'
