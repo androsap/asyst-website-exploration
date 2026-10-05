@@ -7,16 +7,18 @@ import imgReza from "assets/asyst/img/background/about-us/leadership-team/mohama
 import imgRindra from "assets/asyst/img/background/about-us/leadership-team/rindra-putra.png";
 import imgDitya from "assets/asyst/img/background/about-us/leadership-team/ditya-firmansyah.png";
 
-import logoGaruda from "assets/asyst/img/logo/ga-logo-color.png";
-import logoCitilink from "assets/asyst/img/logo/citilink-logo-color.png";
-import logoPelni from "assets/asyst/img/logo/pelni-logo.png";
-import logoKai from "assets/asyst/img/logo/kai-logo.png";
-import logoBukopin from "assets/asyst/img/logo/bukopin-logo.png";
-import logoAxa from "assets/asyst/img/logo/axa-logo.png";
-import logoPelitaAir from "assets/asyst/img/logo/pelita-air-logo-color.png";
-import logoLufthansa from "assets/asyst/img/logo/lufthansa-logo-color.png";
-import logoAirFrance from "assets/asyst/img/logo/airfrance-logo-color.png";
-import logoSouthwest from "assets/asyst/img/logo/southwest-logo-color.png";
+import logoPerseroBatam from "assets/asyst/img/about-us/clients/client-persero-batam.png";
+import logoSabre from "assets/asyst/img/about-us/clients/client-sabre.png";
+import logoAxa from "assets/asyst/img/about-us/clients/client-axa.png";
+import logoKai from "assets/asyst/img/about-us/clients/client-kai.png";
+import logoPelindo from "assets/asyst/img/about-us/clients/client-pelindo.png";
+import logoKemenparekraf from "assets/asyst/img/about-us/clients/client-kemenparekraf.png";
+import logoCitilink from "assets/asyst/img/about-us/clients/client-citilink.png";
+import logoGaruda from "assets/asyst/img/about-us/clients/client-garuda-indonesia.png";
+import logoNokia from "assets/asyst/img/about-us/clients/client-nokia.png";
+import logoOjk from "assets/asyst/img/about-us/clients/client-ojk.png";
+import logoPelni from "assets/asyst/img/about-us/clients/client-pelni.png";
+import logoXlAxiata from "assets/asyst/img/about-us/clients/client-xl-axiata.png";
 
 // Konten statis halaman About Us (desain revamp 2026).
 // Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
@@ -98,18 +100,19 @@ export const PrinciplesConst = {
 export const ClientsConst = {
     title: "Trusted clients for tech leaders",
     description: "With 10+ years of expertise, Asyst empowers companies with custom software solutions, driving innovation, seamless integration, and business growth in a dynamic digital landscape.",
-    // TODO: logo Nokia, OJK, XL Axiata & instansi pemerintah di desain belum ada di repo
     items: [
-        { name: "Garuda Indonesia", logo: logoGaruda },
-        { name: "Citilink", logo: logoCitilink },
-        { name: "PELNI", logo: logoPelni },
-        { name: "KAI", logo: logoKai },
-        { name: "Bukopin", logo: logoBukopin },
+        { name: "Persero Batam", logo: logoPerseroBatam },
+        { name: "Sabre", logo: logoSabre },
         { name: "AXA", logo: logoAxa },
-        { name: "Pelita Air", logo: logoPelitaAir },
-        { name: "Lufthansa", logo: logoLufthansa },
-        { name: "Air France", logo: logoAirFrance },
-        { name: "Southwest", logo: logoSouthwest },
+        { name: "KAI", logo: logoKai },
+        { name: "Pelindo", logo: logoPelindo },
+        { name: "Kemenparekraf/Baparekraf", logo: logoKemenparekraf },
+        { name: "Citilink", logo: logoCitilink },
+        { name: "Garuda Indonesia", logo: logoGaruda },
+        { name: "Nokia", logo: logoNokia },
+        { name: "OJK", logo: logoOjk },
+        { name: "PELNI", logo: logoPelni },
+        { name: "XL Axiata", logo: logoXlAxiata },
     ] as { name: string; logo: string }[],
 }
 

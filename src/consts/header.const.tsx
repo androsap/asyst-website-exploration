@@ -1,6 +1,8 @@
 // Menu header (desain revamp 2026). Sementara hardcode; nanti bisa diganti data dari API.
 // `link` kosong = halaman tujuan belum ada (item tetap tampil tapi tidak bisa diklik).
 
+import imgFeatured from "assets/asyst/img/background/services-solutions/amala1.png";
+
 export interface HeaderLinkItem {
     label: string;
     link?: string;
@@ -14,6 +16,8 @@ export interface HeaderProductItem {
 
 export interface HeaderProductCategory {
     label: string;
+    /** Label singkat untuk badge di menu mobile. */
+    shortLabel?: string;
     title: string;
     description: string;
     items: HeaderProductItem[];
@@ -53,6 +57,7 @@ export const HeaderProductsConst: HeaderProductCategory[] = [
     },
     {
         label: "Commercial Solutions",
+        shortLabel: "Commercial",
         title: "Turn commercial processes into connected digital workflows",
         description: "Support sales, customer, transaction, and commercial processes with technology designed around your organization's operating model",
         items: [
@@ -61,6 +66,7 @@ export const HeaderProductsConst: HeaderProductCategory[] = [
     },
     {
         label: "Operations Solutions",
+        shortLabel: "Operations",
         title: "Run complex operations with better visibility",
         description: "Connect operational processes, assets, people, schedules, and data to help teams monitor performance and make informed decisions",
         items: [
@@ -69,6 +75,7 @@ export const HeaderProductsConst: HeaderProductCategory[] = [
     },
     {
         label: "Cargo Solutions",
+        shortLabel: "Cargo",
         title: "Connect cargo operations from booking to delivery",
         description: "Digitize cargo sales, reservations, regulated-agent processes, warehouse management, shipment tracking, and operational visibility",
         items: [
@@ -77,6 +84,7 @@ export const HeaderProductsConst: HeaderProductCategory[] = [
     },
     {
         label: "IT Service Assistant",
+        shortLabel: "IT Assistant",
         title: "Make IT service management simpler",
         description: "Automate service requests, tickets, SLAs, support workflows, knowledge management, and service analytics through an integrated ITSM experience",
         items: [
@@ -127,5 +135,13 @@ export const HeaderCompanyConst: HeaderGroup = {
 };
 
 export const HeaderNewsLink = "/news";
+
+/** Kartu "Featured" di menu mobile. */
+export const HeaderFeaturedConst = {
+    label: "Product",
+    title: "Loyalty Platform",
+    image: imgFeatured,
+    link: "/product/amala",
+};
 
 export const HeaderLanguagesConst = ["ID", "EN"] as const;
