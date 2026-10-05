@@ -3,7 +3,9 @@ import MainLayoutShared, { MainLayoutSharedProps } from "shared/layout/main-layo
 const MainComponent = lazy(() => import("components/industry"));
 
 const props: MainLayoutSharedProps = {
-    title: "PT Aero Systems Indonesia"
+    title: "PT Aero Systems Indonesia",
+    // Hero baru berlatar terang: navbar selalu versi putih agar menu terbaca
+    defaultNav: true
 }
 
 export default function DashboardPages() {

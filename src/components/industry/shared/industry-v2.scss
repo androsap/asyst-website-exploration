@@ -1,0 +1,454 @@
+// Halaman Industries & detail industri (revamp 2026).
+// Tambahan di atas components/product/shared/product-v2.scss dan components/solution/shared/solution-v2.scss
+$navy: #0E1E2F;
+$navy-2: #163A5F;
+$blue: #2672B8;
+$text: #3F4650;
+$muted: #5B6470;
+$border: #E4E8EE;
+$surface: #F6F8FB;
+$surface-soft: #FAFBFD;
+$check: #7AB648;
+$font-heading: "Inter", sans-serif;
+
+$tablet: 1023px;
+$mobile: 599px;
+
+.industry-v2 {
+    // ---------- hero ----------
+    .iv-hero {
+        background:
+            radial-gradient(ellipse 45% 55% at 20% 20%, rgba(220, 238, 214, 0.55) 0%, rgba(255, 255, 255, 0) 70%),
+            radial-gradient(ellipse 45% 50% at 80% 40%, rgba(214, 228, 250, 0.7) 0%, rgba(255, 255, 255, 0) 70%),
+            linear-gradient(180deg, #F7FAFE 0%, #FFFFFF 100%);
+    }
+
+    // ---------- teks kiri + gambar kanan ----------
+    .iv-intro {
+        align-items: center;
+
+        .pv-heading {
+            margin-bottom: 28px;
+        }
+
+        .pv-heading__title {
+            font-size: 36px;
+
+            @media (max-width: $mobile) {
+                font-size: 26px;
+            }
+        }
+
+        &__media {
+            min-width: 0;
+
+            img {
+                display: block;
+                width: 100%;
+                max-height: 420px;
+                object-fit: cover;
+                border-radius: 12px;
+                box-shadow: 0 12px 32px rgba(14, 30, 47, 0.08);
+            }
+        }
+    }
+
+    // ---------- kartu industri (dengan filter) ----------
+    .iv-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: $mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .iv-card {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        border: 1px solid $border;
+        border-radius: 12px;
+        background: #fff;
+        min-width: 0;
+
+        @media (max-width: $mobile) {
+            padding: 20px;
+        }
+
+        &__title {
+            margin-top: 14px;
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        &__description {
+            margin-top: 12px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: $text;
+        }
+
+        &__chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+
+            .sv-chip {
+                padding: 4px 12px;
+                font-size: 13px;
+            }
+        }
+
+        &__link {
+            margin: 20px 0 16px;
+            color: $blue;
+            font-family: $font-heading;
+            font-size: 15px;
+            font-weight: 600;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &__image {
+            width: 100%;
+            height: 210px;
+            margin-top: auto;
+            border-radius: 8px;
+            background-color: $surface;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    // ---------- detail: tantangan ----------
+    .iv-cross-list {
+        margin: 20px 0 0;
+        padding: 0;
+        list-style: none;
+        font-size: 16px;
+        line-height: 1.6;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            & + li {
+                margin-top: 8px;
+            }
+        }
+
+        svg {
+            font-size: 18px;
+            color: $muted;
+        }
+    }
+
+    // ---------- detail: layer teknologi (accordion dua kolom) ----------
+    .iv-layers {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px 32px;
+        margin-top: 40px;
+        align-items: start;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: 1fr;
+        }
+
+        &__column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+
+    .iv-layer {
+        border: 1px solid $border;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 2px 6px rgba(14, 30, 47, 0.04);
+        overflow: hidden;
+
+        .pv-accordion {
+            border-bottom: 0;
+        }
+
+        // ikon di kiri judul
+        .pv-accordion__header {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 10px;
+            padding: 18px 20px;
+        }
+
+        .pv-accordion__title {
+            color: $navy-2;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .pv-accordion__icon {
+            color: $navy-2;
+        }
+
+        .pv-accordion.open .pv-accordion__header {
+            border-bottom: 1px solid $border;
+        }
+
+        .pv-accordion__body {
+            padding: 20px;
+        }
+
+        &__description {
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        &__details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 20px;
+
+            @media (max-width: $mobile) {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .pv-list {
+                margin-top: 4px;
+                font-size: 15px;
+                line-height: 1.7;
+            }
+        }
+
+        &__label {
+            font-family: $font-heading;
+            color: $text;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        &__value {
+            margin-top: 4px;
+            font-size: 15px;
+            line-height: 1.65;
+        }
+    }
+
+    // ---------- detail: value chain ----------
+    .iv-chain {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 0;
+        padding: 0 0 4px;
+        list-style: none;
+        overflow-x: auto;
+
+        // garis penghubung antar langkah
+        &::before {
+            content: "";
+            position: absolute;
+            top: 23px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: $border;
+        }
+
+        &__step {
+            position: relative;
+            flex: 1 0 auto;
+            padding: 12px 16px;
+            border: 1px solid $border;
+            border-radius: 8px;
+            background: #fff;
+            text-align: center;
+            font-size: 15px;
+            color: $text;
+            white-space: nowrap;
+        }
+
+        @media (max-width: $tablet) {
+            flex-wrap: wrap;
+            justify-content: center;
+
+            &::before {
+                display: none;
+            }
+
+            &__step {
+                flex: 0 0 auto;
+            }
+        }
+    }
+
+    // ---------- detail: domain operasi ----------
+    .iv-domains {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: $mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .iv-domain {
+        &__icon {
+            font-size: 28px;
+            color: $navy-2;
+            margin-bottom: 16px;
+        }
+
+        &__description {
+            margin-top: 8px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid $border;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        &__points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+            margin: 16px 0 0;
+            padding: 0;
+            list-style: none;
+            font-size: 15px;
+
+            li {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+
+                &::before {
+                    content: "";
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: $text;
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
+
+    // ---------- detail: prioritas bisnis ----------
+    .iv-priority {
+        display: grid;
+        grid-template-columns: minmax(300px, 1fr) 2fr;
+        border: 1px solid $border;
+        border-radius: 12px;
+        overflow: hidden;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: 1fr;
+        }
+
+        &__list {
+            padding: 12px 24px;
+            border-right: 1px solid $border;
+
+            @media (max-width: $tablet) {
+                border-right: 0;
+                border-bottom: 1px solid $border;
+            }
+
+            @media (max-width: $mobile) {
+                padding: 8px 20px;
+            }
+
+            .pv-accordion:last-child {
+                border-bottom: 0;
+            }
+        }
+
+        &__points {
+            margin-top: -8px;
+            font-size: 15px;
+        }
+
+        &__matrix {
+            padding: 24px;
+            min-width: 0;
+            overflow-x: auto;
+
+            @media (max-width: $mobile) {
+                padding: 16px;
+            }
+        }
+    }
+
+    .iv-matrix {
+        width: 100%;
+        min-width: 480px;
+        border-collapse: separate;
+        border-spacing: 0;
+        border: 1px solid $border;
+        border-radius: 12px;
+        overflow: hidden;
+
+        th,
+        td {
+            padding: 18px 20px;
+            text-align: center;
+        }
+
+        th:first-child,
+        td:first-child {
+            text-align: left;
+        }
+
+        th {
+            background: $surface-soft;
+            border-bottom: 1px solid $border;
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        td {
+            font-size: 16px;
+            color: $text;
+        }
+
+        tbody tr:nth-child(even) td {
+            background: $surface-soft;
+        }
+
+        &__check {
+            color: $check;
+            font-size: 24px;
+            vertical-align: middle;
+        }
+
+        &__empty {
+            color: $border;
+            font-size: 22px;
+            vertical-align: middle;
+        }
+    }
+}

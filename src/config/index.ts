@@ -33,6 +33,7 @@ export const api = {
     productSlider           : `${URL_API_ASYST}product-overview/productslider`,
     allProduct              : `${URL_API_ASYST}product-overview/allproduct`,
     cardoverview            : `${URL_API_ASYST}product-overview/cardoverview`,
+    news                    : `${URL_API_ASYST}news/`,
     industryOverview        : {
         mainBanner          : `${URL_API_ASYST}industry-overview/main-banner`,
         industries          : `${URL_API_ASYST}industry-overview/industries`,

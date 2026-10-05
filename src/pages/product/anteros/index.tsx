@@ -4,7 +4,8 @@ const MainComponent = lazy(() => import("components/product/anteros"));
 
 const props: MainLayoutSharedProps = {
     title: "PT Aero Systems Indonesia",
-    blurNav: true
+    // Hero baru berlatar terang: navbar selalu versi putih agar menu terbaca
+    defaultNav: true
 }
 
 export default function DashboardPages() {

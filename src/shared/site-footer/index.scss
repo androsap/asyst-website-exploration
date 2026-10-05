@@ -1,0 +1,145 @@
+// Footer revamp 2026
+$bg: #0E2238;
+$text: #E8EDF3;
+$muted: #C9D3DF;
+$font-heading: "Inter", sans-serif;
+$font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
+
+.site-footer {
+    margin-top: 80px;
+    padding: 36px 0 20px;
+    background: $bg;
+    color: $text;
+    font-family: $font-body;
+
+    a {
+        color: inherit;
+    }
+
+    &__top {
+        display: grid;
+        // Kolom company + 5 kolom link (lihat FooterColumnsConst)
+        grid-template-columns: minmax(0, 2.4fr) repeat(5, minmax(0, 1fr));
+        gap: 32px;
+
+        @media (max-width: 1023px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media (max-width: 599px) {
+            gap: 28px 20px;
+        }
+    }
+
+    &__company {
+        display: flex;
+        gap: 32px;
+
+        @media (max-width: 1023px) {
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 599px) {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+
+    &__logo {
+        width: 94px;
+        height: auto;
+        align-self: flex-start;
+        flex-shrink: 0;
+    }
+
+    &__title {
+        font-family: $font-heading;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 14px;
+    }
+
+    &__address {
+        max-width: 280px;
+        font-style: normal;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-top: -6px;
+    }
+
+    &__contact {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+        font-size: 15px;
+
+        svg {
+            font-size: 18px;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+
+        .site-footer__title {
+            margin-bottom: 4px;
+        }
+    }
+
+    &__link {
+        font-size: 15px;
+        color: $text;
+        width: fit-content;
+
+        &:not(.is-disabled):hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        &.is-disabled {
+            cursor: default;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 44px;
+        font-size: 15px;
+    }
+
+    &__legal,
+    &__social {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+    }
+
+    &__social {
+        gap: 14px;
+
+        a {
+            display: flex;
+
+            svg {
+                font-size: 26px;
+            }
+
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
+}

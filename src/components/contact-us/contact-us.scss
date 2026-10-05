@@ -1,0 +1,293 @@
+// Tambahan gaya halaman Contact Us (revamp 2026). Token mengikuti components/product/shared/product-v2.scss
+$navy: #0E1E2F;
+$blue: #2672B8;
+$text: #3F4650;
+$border: #E4E8EE;
+$placeholder: #B4BBC5;
+$font-heading: "Inter", sans-serif;
+
+$tablet: 1023px;
+$mobile: 599px;
+
+.contact-v2 {
+
+    // ---------- hero ----------
+    .cv-hero {
+        padding: 190px 0 110px;
+        text-align: center;
+        background:
+            radial-gradient(ellipse 45% 70% at 10% 10%, rgba(226, 240, 236, 0.7) 0%, rgba(255, 255, 255, 0) 70%),
+            radial-gradient(ellipse 60% 80% at 75% 20%, rgba(214, 228, 244, 0.75) 0%, rgba(255, 255, 255, 0) 75%),
+            linear-gradient(180deg, #EAF1F8 0%, #F3F7FB 100%);
+
+        @media (max-width: $tablet) {
+            padding: 130px 0 64px;
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+
+            @media (max-width: $mobile) {
+                font-size: 34px;
+            }
+        }
+
+        &__description {
+            margin: 24px auto 0;
+            max-width: 660px;
+            font-size: 20px;
+            line-height: 1.45;
+            color: $text;
+
+            span {
+                display: block;
+            }
+
+            @media (max-width: $mobile) {
+                font-size: 17px;
+            }
+        }
+    }
+
+    // ---------- shared ----------
+    .cv-title {
+        font-family: $font-heading;
+        color: $navy;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 1.25;
+
+        @media (max-width: $mobile) {
+            font-size: 30px;
+        }
+    }
+
+    // ---------- contact form ----------
+    .cv-contact.MuiContainer-root {
+        padding-top: 32px;
+        display: grid;
+        grid-template-columns: minmax(0, 665px) minmax(0, 525px);
+        justify-content: space-between;
+        column-gap: 64px;
+        row-gap: 46px;
+        align-items: start;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: 1fr;
+            row-gap: 32px;
+        }
+    }
+
+    .cv-contact__heading {
+        grid-column: 1 / -1;
+        max-width: 665px;
+    }
+
+    .cv-intro {
+        margin-top: 24px;
+        font-size: 20px;
+        line-height: 1.4;
+        color: $text;
+
+        @media (max-width: $mobile) {
+            font-size: 17px;
+        }
+
+        &__link.MuiLink-root {
+            font: inherit;
+            color: $blue;
+            vertical-align: baseline;
+        }
+    }
+
+    .cv-form {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        &__row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+
+            @media (max-width: $mobile) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &__alert {
+            font-family: inherit;
+        }
+
+        &__submit.MuiButton-root {
+            margin-top: 16px;
+            padding: 10px 24px;
+        }
+    }
+
+    .cv-field {
+        .MuiOutlinedInput-root {
+            font-family: inherit;
+            font-size: 16px;
+            color: $navy;
+            border-radius: 4px;
+            background: #fff;
+
+            fieldset {
+                border-color: $border;
+            }
+
+            &:hover fieldset {
+                border-color: darken($border, 12%);
+            }
+
+            &.Mui-focused fieldset {
+                border-color: $blue;
+                border-width: 1px;
+            }
+
+            &.Mui-error fieldset {
+                border-color: #D32F2F;
+            }
+        }
+
+        .MuiOutlinedInput-input {
+            padding: 9px 16px;
+
+            &::placeholder {
+                color: $placeholder;
+                opacity: 1;
+            }
+        }
+
+        .MuiInputBase-multiline {
+            padding: 14px 16px;
+
+            .MuiOutlinedInput-input {
+                padding: 0;
+            }
+        }
+
+        .MuiFormHelperText-root {
+            font-family: inherit;
+            margin-left: 2px;
+        }
+    }
+
+    // ---------- what next ----------
+    .cv-next {
+        border: 1px solid $border;
+        border-radius: 12px;
+        padding: 28px 32px 24px 24px;
+        background: #fff;
+
+        @media (max-width: $mobile) {
+            padding: 24px 20px;
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        &__list {
+            margin: 24px 0 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        &__item {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        &__number {
+            width: 46px;
+            height: 46px;
+            min-width: 46px;
+            border-radius: 50%;
+            border: 1px solid $border;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            color: $text;
+        }
+
+        &__text {
+            font-size: 16px;
+            line-height: 1.5;
+            color: $text;
+        }
+    }
+
+    // ---------- office location ----------
+    .cv-office {
+        padding-top: 72px;
+        padding-bottom: 120px;
+
+        @media (max-width: $mobile) {
+            padding-top: 40px;
+            padding-bottom: 64px;
+        }
+
+        &__grid {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 92px;
+
+            @media (max-width: $tablet) {
+                gap: 24px;
+            }
+
+            @media (max-width: $mobile) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &__card {
+            border: 1px solid $border;
+            border-radius: 12px;
+            padding: 28px 24px;
+            background: #fff;
+        }
+
+        &__name {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        &__address {
+            margin-top: 18px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: $navy;
+
+            span {
+                display: block;
+            }
+        }
+
+        &__map.MuiLink-root {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 16px;
+            color: $blue;
+        }
+    }
+}

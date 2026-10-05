@@ -1,0 +1,409 @@
+// Halaman About Us (revamp 2026). Tambahan di atas components/home/sections/home.scss
+$navy: #0E1E2F;
+$navy-2: #163A5F;
+$blue: #2672B8;
+$text: #3F4650;
+$muted: #5B6470;
+$border: #E4E8EE;
+$surface: #F6F8FB;
+$font-heading: "Inter", sans-serif;
+
+$tablet: 1023px;
+$mobile: 599px;
+
+.about-v2 {
+    .about-btn--blue.MuiButton-root {
+        background: $blue;
+        color: #fff;
+
+        &:hover {
+            background: #1F5F9A;
+        }
+    }
+
+    // ---------- hero (foto tim di belakang overlay putih) ----------
+    .about-hero {
+        position: relative;
+        padding: 170px 0 150px;
+        background-size: cover;
+        background-position: center 30%;
+        text-align: center;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.9) 70%, #fff 100%);
+        }
+
+        @media (max-width: $tablet) {
+            padding: 120px 0 80px;
+        }
+
+        .MuiContainer-root {
+            position: relative;
+        }
+
+        &__content {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.25;
+
+            @media (max-width: $tablet) {
+                font-size: 38px;
+            }
+
+            @media (max-width: $mobile) {
+                font-size: 30px;
+            }
+        }
+
+        &__description {
+            max-width: 620px;
+            margin: 20px auto 36px;
+            font-family: $font-heading;
+            font-size: 19px;
+            line-height: 1.6;
+
+            @media (max-width: $mobile) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    // ---------- intro ----------
+    .about-intro {
+        .home-heading {
+            max-width: 900px;
+        }
+
+        .home-heading__description {
+            margin-top: 28px;
+            font-family: inherit;
+            font-size: 16px;
+            color: $muted;
+        }
+    }
+
+    // judul rata kiri (Clients, Consulting areas)
+    .about-left-heading {
+        margin-bottom: 32px;
+
+        &__description {
+            max-width: 900px;
+            margin-top: 16px;
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+        &--with-nav {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+
+            @media (max-width: $mobile) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    }
+
+    // ---------- leaders ----------
+    .about-leaders {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: $mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .about-leader {
+        display: flex;
+        flex-direction: column;
+        border-radius: 16px;
+        overflow: hidden;
+        background: $blue;
+        color: #fff;
+
+        &__photo {
+            aspect-ratio: 1 / 1;
+            background: #fff;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: top;
+                display: block;
+            }
+        }
+
+        &__info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        &__name {
+            font-family: $font-heading;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        &__position {
+            margin-top: 8px;
+            font-size: 15px;
+            line-height: 1.55;
+            opacity: 0.9;
+        }
+
+        &__linkedin {
+            display: inline-flex;
+            margin-top: auto;
+            padding-top: 20px;
+            color: #fff;
+            width: fit-content;
+
+            svg {
+                font-size: 24px;
+            }
+        }
+    }
+
+    // ---------- vision / mission / values ----------
+    .about-principles__tabs {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 48px;
+    }
+
+    .about-principles__tab {
+        min-width: 100px;
+        padding: 10px 24px;
+        border-radius: 6px;
+        background: #E8F1FA;
+        color: $blue;
+        font-family: $font-heading;
+        font-size: 15px;
+        font-weight: 600;
+
+        &.active {
+            background: $blue;
+            color: #fff;
+        }
+    }
+
+    .about-principles {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        &__item {
+            padding: 24px 0;
+
+            & + & {
+                border-top: 1px solid $border;
+            }
+
+            &:first-of-type {
+                padding-top: 0;
+            }
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        &__description {
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        &__video {
+            aspect-ratio: 16 / 9;
+            border-radius: 4px;
+            overflow: hidden;
+            background: $navy;
+
+            iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+        }
+
+        &__thumbnail {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: brightness(0.8);
+            }
+        }
+
+        &__play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 72px;
+            color: #FF0000;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+        }
+    }
+
+    // ---------- clients ----------
+    .about-clients__swiper {
+        padding-bottom: 44px;
+
+        .swiper-pagination-bullet {
+            background: #C9D3E0;
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: $blue;
+        }
+    }
+
+    .about-clients__logo {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        border: 1px solid $border;
+        border-radius: 8px;
+        background: #fff;
+
+        img {
+            max-width: 100%;
+            max-height: 56px;
+            object-fit: contain;
+        }
+
+        @media (max-width: $mobile) {
+            height: 80px;
+        }
+    }
+
+    // ---------- consulting areas ----------
+    .about-areas__swiper .swiper-slide {
+        height: auto;
+    }
+
+    .about-area {
+        height: 100%;
+        box-sizing: border-box;
+        padding: 24px;
+        border: 1px solid $border;
+        border-radius: 8px;
+
+        &__title {
+            font-family: $font-heading;
+            color: $blue;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        &__description {
+            margin-top: 16px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+    }
+
+    // ---------- join our team ----------
+    .about-join {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.4fr;
+        gap: 24px;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: 1fr 1fr;
+
+            .about-join__card {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: $mobile) {
+            grid-template-columns: 1fr;
+
+            .about-join__card {
+                grid-column: auto;
+            }
+        }
+
+        &__image {
+            min-height: 300px;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center;
+
+            @media (max-width: $mobile) {
+                min-height: 220px;
+            }
+        }
+
+        &__card {
+            display: flex;
+            flex-direction: column;
+            padding: 32px;
+            border-radius: 8px;
+            background: $surface;
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        &__description {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        &__link {
+            margin-top: auto;
+            padding-top: 28px;
+            font-size: 16px;
+            font-weight: 600;
+            width: fit-content;
+        }
+    }
+}

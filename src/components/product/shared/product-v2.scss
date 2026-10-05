@@ -1,0 +1,900 @@
+// Halaman Products & detail produk (revamp 2026). Token mengikuti components/home/sections/home.scss
+$navy: #0E1E2F;
+$navy-2: #163A5F;
+$blue: #2672B8;
+$text: #3F4650;
+$muted: #5B6470;
+$border: #E4E8EE;
+$surface: #F6F8FB;
+$surface-soft: #FAFBFD;
+$font-heading: "Inter", sans-serif;
+$font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
+
+$tablet: 1023px;
+$mobile: 599px;
+
+.product-v2 {
+    color: $text;
+    font-family: $font-body;
+    background: #fff;
+
+    .MuiTypography-root {
+        font-family: inherit;
+    }
+
+    // ---------- shared ----------
+    .pv-section {
+        padding: 56px 0;
+
+        // footer bersama sudah punya margin-top besar
+        &--last {
+            padding-bottom: 0;
+        }
+
+        @media (max-width: $mobile) {
+            padding: 40px 0;
+        }
+    }
+
+    // target scroll dari tombol hero; beri ruang untuk navbar fixed
+    .pv-anchor {
+        scroll-margin-top: 80px;
+    }
+
+    .pv-heading {
+        margin-bottom: 32px;
+
+        &--center {
+            max-width: 1120px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+
+            .pv-heading__description {
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.25;
+
+            @media (max-width: $mobile) {
+                font-size: 26px;
+            }
+        }
+
+        &__description {
+            margin-top: 12px;
+            font-size: 17px;
+            line-height: 1.65;
+            color: $text;
+
+            @media (max-width: $mobile) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .pv-subheading {
+        font-family: $font-heading;
+        color: $navy;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    .pv-paragraph {
+        margin-top: 16px;
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .pv-heading + .pv-paragraph {
+        margin-top: -12px;
+    }
+
+    .pv-btn.MuiButton-root {
+        font-family: $font-heading;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: none;
+        border-radius: 8px;
+        padding: 12px 28px;
+        line-height: 1.4;
+        box-shadow: none;
+    }
+
+    .pv-btn--primary.MuiButton-root {
+        background: linear-gradient(180deg, #2E80CC 0%, #2569AB 100%);
+        color: #fff;
+
+        &:hover {
+            background: #225F9B;
+        }
+    }
+
+    .pv-btn--outline.MuiButton-root {
+        border: 1px solid $blue;
+        color: $blue;
+        background: rgba(255, 255, 255, 0.6);
+
+        &:hover {
+            background: rgba(38, 114, 184, 0.06);
+        }
+    }
+
+    .pv-btn--white.MuiButton-root {
+        background: #fff;
+        color: $blue;
+        padding: 14px 36px;
+        flex-shrink: 0;
+
+        &:hover {
+            background: #EEF4FB;
+        }
+    }
+
+    .pv-icon-tile {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        border-radius: 10px;
+        border: 1px solid $border;
+        background: #fff;
+        color: $navy-2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            font-size: 28px;
+        }
+    }
+
+    .pv-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+    }
+
+    .pv-chip {
+        border: 1px solid $blue;
+        border-radius: 999px;
+        padding: 6px 16px;
+        font-size: 15px;
+        color: $blue;
+        white-space: nowrap;
+        transition: background .2s;
+
+        &:hover {
+            background: rgba(38, 114, 184, 0.06);
+        }
+    }
+
+    .pv-list {
+        margin: 16px 0 0;
+        padding-left: 22px;
+        font-size: 16px;
+        line-height: 1.75;
+        list-style: disc;
+    }
+
+    .pv-media {
+        border: 1px solid $border;
+        border-radius: 12px;
+        background: $surface;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        min-width: 0;
+
+        img {
+            width: 100%;
+            max-height: 440px;
+            object-fit: contain;
+        }
+    }
+
+    .pv-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+
+        &--media-first {
+            grid-template-columns: 1.15fr 1fr;
+        }
+
+        @media (max-width: $tablet) {
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+    }
+
+    .pv-grid {
+        display: grid;
+        gap: 24px;
+
+        &--4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        &--5 {
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: $tablet) {
+            &--4,
+            &--5 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: $mobile) {
+            &--4,
+            &--5 {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    .pv-card {
+        padding: 28px;
+        border: 1px solid $border;
+        border-radius: 12px;
+        background: #fff;
+
+        &--soft {
+            background: $surface-soft;
+        }
+
+        &__icon {
+            font-size: 30px;
+            color: $navy-2;
+            margin-bottom: 24px;
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy-2;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        &__description {
+            margin-top: 14px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: $mobile) {
+            padding: 20px;
+        }
+    }
+
+    // ---------- tabs ----------
+    .pv-tabs {
+        display: flex;
+        max-width: 100%;
+        overflow-x: auto;
+        box-sizing: border-box;
+
+        &__item {
+            font-family: $font-heading;
+            font-size: 16px;
+            font-weight: 500;
+            color: $blue;
+            white-space: nowrap;
+        }
+
+        &--pill {
+            gap: 4px;
+            width: fit-content;
+            margin: 0 auto 40px;
+            padding: 6px;
+            border: 1px solid $border;
+            border-radius: 999px;
+
+            .pv-tabs__item {
+                padding: 10px 22px;
+                border-radius: 999px;
+
+                &.active {
+                    background: $navy-2;
+                    color: #fff;
+                }
+            }
+        }
+
+        &--underline {
+            width: fit-content;
+            margin: 0 auto 40px;
+            border-bottom: 3px solid $border;
+
+            .pv-tabs__item {
+                padding: 12px 28px;
+                margin-bottom: -3px;
+                border-bottom: 3px solid transparent;
+                font-weight: 600;
+
+                &.active {
+                    color: $navy-2;
+                    border-color: $navy-2;
+                }
+            }
+        }
+
+        &--segment {
+            border-bottom: 1px solid $border;
+
+            .pv-tabs__item {
+                flex: 1;
+                padding: 14px 20px;
+                font-weight: 600;
+
+                &.active {
+                    background: $surface;
+                    color: $navy-2;
+                }
+            }
+        }
+    }
+
+    // ---------- hero ----------
+    .pv-hero {
+        padding: 150px 0 56px;
+        background:
+            radial-gradient(ellipse 45% 50% at 40% 25%, rgba(206, 222, 246, 0.7) 0%, rgba(255, 255, 255, 0) 70%),
+            radial-gradient(ellipse 40% 40% at 75% 75%, rgba(222, 236, 250, 0.7) 0%, rgba(255, 255, 255, 0) 70%),
+            linear-gradient(180deg, #F7FAFE 0%, #FFFFFF 100%);
+
+        @media (max-width: $tablet) {
+            padding-top: 110px;
+        }
+
+        // hero halaman Products: mockup terpotong di batas bawah section
+        &--with-image {
+            padding-bottom: 0;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse 45% 50% at 50% 20%, rgba(214, 228, 250, 0.7) 0%, rgba(255, 255, 255, 0) 70%),
+                radial-gradient(ellipse 35% 35% at 10% 85%, rgba(220, 238, 214, 0.6) 0%, rgba(255, 255, 255, 0) 70%),
+                linear-gradient(180deg, #F7FAFE 0%, #FFFFFF 100%);
+        }
+
+        &__content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        &__eyebrow {
+            font-family: $font-heading;
+            font-size: 14px;
+            font-weight: 500;
+            color: $navy-2;
+            margin-bottom: 16px;
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+
+            @media (max-width: $tablet) {
+                font-size: 38px;
+            }
+
+            @media (max-width: $mobile) {
+                font-size: 30px;
+            }
+        }
+
+        &__description {
+            max-width: 880px;
+            margin: 24px auto 0;
+            font-family: $font-heading;
+            font-size: 19px;
+            line-height: 1.6;
+            color: $text;
+
+            @media (max-width: $mobile) {
+                font-size: 16px;
+            }
+        }
+
+        &__actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 36px;
+        }
+
+        &__mockup {
+            max-width: 1040px;
+            max-height: 420px;
+            margin: 56px auto 0;
+            overflow: hidden;
+
+            img {
+                display: block;
+                width: 100%;
+                filter: drop-shadow(0 12px 32px rgba(14, 30, 47, 0.12));
+            }
+
+            @media (max-width: $mobile) {
+                max-height: 220px;
+                margin-top: 40px;
+            }
+        }
+    }
+
+    .pv-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1100px;
+        margin: 64px auto 0;
+        border: 1px solid $border;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(6px);
+
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+
+            & + & {
+                border-left: 1px solid $border;
+            }
+
+            @media (max-width: $tablet) {
+                &:nth-child(3) {
+                    border-left: 0;
+                }
+
+                &:nth-child(n + 3) {
+                    border-top: 1px solid $border;
+                }
+            }
+
+            @media (max-width: $mobile) {
+                padding: 16px;
+                gap: 10px;
+            }
+        }
+
+        &__icon {
+            font-size: 28px;
+            color: $navy-2;
+        }
+
+        &__value {
+            font-family: $font-heading;
+            color: $navy-2;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.2;
+
+            @media (max-width: $mobile) {
+                font-size: 18px;
+            }
+        }
+
+        &__label {
+            font-family: $font-heading;
+            color: $navy-2;
+            font-size: 15px;
+            font-weight: 600;
+
+            @media (max-width: $mobile) {
+                font-size: 13px;
+            }
+        }
+    }
+
+    // ---------- products catalog ----------
+    .pv-catalog {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        border: 1px solid $border;
+        border-radius: 12px;
+        overflow: hidden;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: 1fr;
+        }
+
+        &__menu {
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid $border;
+
+            @media (max-width: $tablet) {
+                flex-direction: row;
+                overflow-x: auto;
+                border-right: 0;
+                border-bottom: 1px solid $border;
+            }
+        }
+
+        &__menu-item {
+            justify-content: flex-start;
+            padding: 18px 20px;
+            border-bottom: 1px solid $border;
+            text-align: left;
+            font-family: $font-heading;
+            font-size: 15px;
+            font-weight: 600;
+            color: $blue;
+
+            &.active {
+                color: $navy;
+                background: $surface;
+            }
+
+            &:hover:not(.active) {
+                background: $surface-soft;
+            }
+
+            @media (max-width: $tablet) {
+                flex-shrink: 0;
+                border-bottom: 0;
+                white-space: nowrap;
+            }
+        }
+
+        &__panel {
+            padding: 28px;
+            min-width: 0;
+
+            @media (max-width: $mobile) {
+                padding: 20px;
+            }
+        }
+
+        &__eyebrow {
+            font-family: $font-heading;
+            font-size: 14px;
+            font-weight: 600;
+            color: $navy-2;
+        }
+
+        &__title {
+            margin-top: 10px;
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        &__description {
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0 28px;
+
+            @media (max-width: $tablet) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width: $mobile) {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    .pv-catalog-card {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border: 1px solid $border;
+        border-radius: 10px;
+        background: $surface-soft;
+        transition: box-shadow .2s, transform .2s;
+
+        &:hover {
+            box-shadow: 0 10px 24px rgba(14, 30, 47, 0.08);
+            transform: translateY(-2px);
+        }
+
+        &__name {
+            font-family: $font-heading;
+            font-size: 14px;
+            font-weight: 600;
+            color: $navy;
+        }
+
+        &__title {
+            margin-top: 12px;
+            font-family: $font-heading;
+            color: $navy-2;
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        &__description {
+            margin-top: 12px;
+            font-size: 15px;
+            line-height: 1.65;
+            color: $muted;
+        }
+
+        &__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: 16px 0 20px;
+            color: $blue;
+            font-family: $font-heading;
+            font-size: 14px;
+            font-weight: 500;
+
+            svg {
+                font-size: 16px;
+            }
+        }
+
+        &__image {
+            margin-top: auto;
+            height: 140px;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    .pv-catalog__button {
+        display: inline-flex;
+    }
+
+    // ---------- enterprise experience ----------
+    .pv-experience {
+        &__illustration {
+            height: 140px;
+            margin-bottom: 24px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, #EEF4FB 0%, #F6FAF0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $blue;
+
+            svg {
+                font-size: 64px;
+            }
+        }
+    }
+
+    // ---------- solve ----------
+    .pv-solve {
+        border: 1px solid $border;
+        border-radius: 12px;
+        overflow: hidden;
+
+        &__panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 28px;
+
+            @media (max-width: $tablet) {
+                grid-template-columns: 1fr;
+            }
+
+            @media (max-width: $mobile) {
+                padding: 20px;
+            }
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        &__description {
+            margin-top: 12px;
+            font-size: 16px;
+            line-height: 1.7;
+
+            strong {
+                color: $navy;
+                font-weight: 700;
+            }
+        }
+
+        &__subtitle {
+            margin-top: 24px;
+            font-family: $font-heading;
+            color: $navy-2;
+            font-size: 17px;
+            font-weight: 700;
+        }
+    }
+
+    // ---------- detail: overview ----------
+    .pv-overview__challenges {
+        margin-top: 64px;
+
+        @media (max-width: $mobile) {
+            margin-top: 40px;
+        }
+    }
+
+    // ---------- detail: lifecycle & how it works ----------
+    .pv-lifecycle,
+    .pv-how {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+    // ---------- detail: features ----------
+    .pv-features {
+        display: grid;
+        grid-template-columns: minmax(300px, 1fr) 2fr;
+        border: 1px solid $border;
+        border-radius: 12px;
+        overflow: hidden;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: 1fr;
+        }
+
+        &__list {
+            padding: 12px 28px;
+            border-right: 1px solid $border;
+
+            @media (max-width: $tablet) {
+                border-right: 0;
+                border-bottom: 1px solid $border;
+            }
+
+            @media (max-width: $mobile) {
+                padding: 8px 20px;
+            }
+
+            .pv-accordion:last-child {
+                border-bottom: 0;
+            }
+        }
+
+        &__media {
+            padding: 28px;
+            background: $surface-soft;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 0;
+
+            img {
+                width: 100%;
+                max-height: 560px;
+                object-fit: contain;
+                border-radius: 10px;
+            }
+
+            @media (max-width: $mobile) {
+                padding: 16px;
+            }
+        }
+    }
+
+    // ---------- accordion (features & FAQ) ----------
+    .pv-accordion {
+        border-bottom: 1px solid $border;
+
+        &__header {
+            width: 100%;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 0;
+            text-align: left;
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $blue;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        &__icon {
+            color: $blue;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        &.open .pv-accordion__title,
+        &.open .pv-accordion__icon {
+            color: $navy-2;
+        }
+
+        &__body {
+            padding-bottom: 22px;
+        }
+
+        &__text {
+            margin-top: -8px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+    }
+
+    // ---------- detail: business models ----------
+    .pv-model {
+        padding: 20px;
+
+        .pv-icon-tile {
+            margin-bottom: 18px;
+        }
+
+        .pv-list {
+            margin-top: 12px;
+            font-size: 16px;
+        }
+    }
+
+    // ---------- CTA ----------
+    .pv-cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+        padding: 52px 56px;
+        border-radius: 14px;
+        background: linear-gradient(180deg, #2A78BE 0%, #2566A6 100%);
+        color: #fff;
+
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 32px 24px;
+        }
+
+        &__title {
+            font-family: $font-heading;
+            font-size: 28px;
+            font-weight: 700;
+
+            @media (max-width: $mobile) {
+                font-size: 22px;
+            }
+        }
+
+        &__description {
+            margin-top: 14px;
+            max-width: 920px;
+            font-size: 17px;
+            line-height: 1.65;
+        }
+    }
+}

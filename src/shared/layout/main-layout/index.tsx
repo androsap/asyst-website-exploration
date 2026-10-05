@@ -1,9 +1,9 @@
 import Box from "@mui/material/Box";
 import { PropsWithChildren, useEffect, useState } from "react";
-import MainNavigationShared from "shared/navigation/main-navigation";
+import HeaderShared from "shared/navigation/header";
 import LayoutShared, { LayoutSharedProps } from "..";
 import "./index.scss";
-import FooterShared from "shared/footer/index";
+import SiteFooterShared from "shared/site-footer";
 // import HomeProvider, { useHomeContext } from "components/home/components/provider";
 import Typography from "@mui/material/Typography";
 import Slide from "@mui/material/Slide";
@@ -24,7 +24,8 @@ export default function MainLayoutShared({ showMenuNavigation = true, defaultNav
         {...others}
         render={() => <>
             {/* <HomeProvider> */}
-                {showMenuNavigation && <MainNavigationShared defaultNav={defaultNav} blurNav={blurNav}  />}
+                {/* Navbar lama (shared/navigation/main-navigation) diganti header revamp 2026 */}
+                {showMenuNavigation && <HeaderShared />}
                 <ChildComponent {...others} />
             {/* </HomeProvider> */}
             {/* {showLiveChat && <LiveChat />} */}
@@ -49,7 +50,8 @@ const ChildComponent = ({ children }: PropsWithChildren<ChildComponentProps>) =>
             </Box>
         </section>
         {/* {!focus && <footer> */}
-            <FooterShared></FooterShared>
+            <SiteFooterShared />
+
             {/* <FooterShared showDetail={showDetailFooter} hideDetailLogo={hideDetailLogoFooter} /> */}
         {/* </footer>} */}
         <Slide in={show} direction="up" unmountOnExit>

@@ -56,7 +56,7 @@ export const FooterIndustrialSegments: FooterLabelConst[] = [{
 
 export const FooterAsyst: FooterLabelConst[] = [{
     text: "About us",
-    link: "https://www.asyst.co.id/about-us"
+    link: "/about"
 }, {
     text: "Careers",
     link: "https://www.asyst.co.id/career"
@@ -65,7 +65,7 @@ export const FooterAsyst: FooterLabelConst[] = [{
     link: "#"
 }, {
     text: "Contact",
-    link: "https://www.asyst.co.id/contact-us"
+    link: "/contact-us"
 }, {
     text: "Customers",
     link: "#"

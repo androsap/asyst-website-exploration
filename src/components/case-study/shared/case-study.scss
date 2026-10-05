@@ -1,0 +1,949 @@
+// Halaman Case Study & detail (revamp 2026). Dipakai bersama product-v2.scss (pv-section, pv-btn, pv-heading, pv-tabs).
+// Token mengikuti components/product/shared/product-v2.scss
+$navy: #0E1E2F;
+$navy-2: #163A5F;
+$blue: #2672B8;
+$text: #3F4650;
+$muted: #5B6470;
+$border: #E4E8EE;
+$surface: #F6F8FB;
+$surface-soft: #FAFBFD;
+$font-heading: "Inter", sans-serif;
+
+$tablet: 1023px;
+$mobile: 599px;
+
+.case-study-v2 {
+
+    // ---------- shared ----------
+    .cs-eyebrow {
+        font-family: $font-heading;
+        font-size: 14px;
+        font-weight: 600;
+        color: $blue;
+        margin-bottom: 8px;
+
+        &--dark {
+            color: $navy-2;
+        }
+    }
+
+    .pv-btn.cs-btn--small.MuiButton-root {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+
+    .cs-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .cs-tag {
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: #EEF4FB;
+        color: $blue;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .cs-tags--outline .cs-tag {
+        background: transparent;
+        border: 1px solid #B9D3EC;
+    }
+
+    .cs-slider-arrow.MuiIconButton-root {
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border: 1px solid $border;
+        color: $blue;
+        box-shadow: 0 6px 16px rgba(14, 30, 47, 0.12);
+
+        &:hover {
+            background: #EEF4FB;
+        }
+    }
+
+    .cs-slider-arrow--prev.MuiIconButton-root {
+        left: 8px;
+    }
+
+    .cs-slider-arrow--next.MuiIconButton-root {
+        right: 8px;
+    }
+
+    .cs-slider-arrow--dark.MuiIconButton-root {
+        background: rgba(14, 30, 47, 0.35);
+        border-color: rgba(255, 255, 255, 0.7);
+        color: #fff;
+
+        &:hover {
+            background: rgba(14, 30, 47, 0.6);
+        }
+    }
+
+    // ---------- hero ----------
+    .cs-hero {
+        position: relative;
+        overflow: hidden;
+        padding: 160px 0 110px;
+        background: linear-gradient(180deg, #F7FAFE 0%, #FFFFFF 100%);
+
+        @media (max-width: $tablet) {
+            padding: 120px 0 64px;
+        }
+
+        &__backdrop {
+            position: absolute;
+            inset: 0 0 0 35%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.18;
+            filter: blur(2px);
+            // memudar ke kiri agar teks tetap terbaca
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 40%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 40%);
+        }
+
+        &__inner {
+            position: relative;
+        }
+
+        &__title {
+            max-width: 760px;
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 44px;
+            font-weight: 700;
+            line-height: 1.2;
+            white-space: pre-line;
+
+            @media (max-width: $tablet) {
+                font-size: 36px;
+            }
+
+            @media (max-width: $mobile) {
+                font-size: 28px;
+            }
+        }
+
+        &__description {
+            max-width: 720px;
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: $text;
+
+            @media (max-width: $mobile) {
+                font-size: 16px;
+            }
+        }
+
+        .cs-hero__button.MuiButton-root {
+            margin-top: 40px;
+        }
+
+        // varian detail: teks di tengah, gambar latar penuh
+        &--center {
+            text-align: center;
+
+            .cs-hero__backdrop {
+                inset: 0;
+                -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 100%);
+                mask-image: linear-gradient(180deg, #000 30%, transparent 100%);
+            }
+
+            .cs-hero__title {
+                max-width: 960px;
+                margin: 0 auto;
+            }
+
+            .cs-hero__description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cs-hero__button.MuiButton-root {
+                margin-top: 32px;
+            }
+        }
+    }
+
+    // ---------- main: featured ----------
+    .cs-featured {
+        margin-top: 64px;
+
+        @media (max-width: $mobile) {
+            margin-top: 40px;
+        }
+
+        &__card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            padding: 16px;
+            border: 1px solid $border;
+            border-radius: 12px;
+            background: #fff;
+
+            > :last-child {
+                padding: 12px 8px;
+            }
+
+            @media (max-width: $tablet) {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        &__image {
+            min-height: 360px;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+
+            @media (max-width: $mobile) {
+                min-height: 220px;
+            }
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        &__detail {
+            margin-top: 20px;
+        }
+
+        &__label {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        &__text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: $text;
+        }
+
+        .MuiButton-root {
+            margin-top: 24px;
+        }
+    }
+
+    // ---------- main: explorer ----------
+    .cs-explorer__toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+
+        .pv-tabs--pill {
+            margin: 0;
+        }
+    }
+
+    .cs-search {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        max-width: 300px;
+        padding: 8px 16px;
+        border: 1px solid $border;
+        border-radius: 999px;
+        background: $surface-soft;
+
+        @media (max-width: $mobile) {
+            max-width: none;
+        }
+
+        &__icon {
+            font-size: 20px;
+            color: $muted;
+        }
+
+        &__input {
+            flex: 1;
+            font-size: 15px;
+        }
+    }
+
+    .cs-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 24px 0 28px;
+    }
+
+    .cs-filter {
+        padding: 6px 12px;
+        border: 1px solid $border;
+        border-radius: 4px;
+        font-size: 14px;
+        color: $text;
+        transition: border-color .2s, color .2s;
+
+        &:hover,
+        &.active {
+            border-color: $navy-2;
+            color: $navy-2;
+        }
+
+        &.active {
+            font-weight: 600;
+        }
+    }
+
+    .cs-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: $mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .cs-card {
+        display: block;
+        padding: 12px 12px 24px;
+        border: 1px solid $border;
+        border-radius: 12px;
+        background: #fff;
+        color: inherit;
+        text-decoration: none;
+        transition: box-shadow .2s, transform .2s;
+
+        &--link:hover {
+            box-shadow: 0 10px 24px rgba(14, 30, 47, 0.08);
+            transform: translateY(-2px);
+        }
+
+        &__image {
+            aspect-ratio: 16 / 10;
+            border-radius: 8px;
+            background-color: $surface;
+            background-size: cover;
+            background-position: center;
+        }
+
+        &__title {
+            margin: 16px 8px 0;
+            font-family: $font-heading;
+            color: $blue;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .cs-tags {
+            margin: 16px 8px 0;
+        }
+    }
+
+    .cs-empty {
+        padding: 48px 0;
+        text-align: center;
+        color: $muted;
+    }
+
+    .cs-explorer__more {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    // ---------- main: testimonials ----------
+    .cs-testimonials {
+        padding-bottom: 40px;
+
+        .swiper-slide {
+            height: auto;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: $blue;
+        }
+    }
+
+    .cs-testimonial {
+        display: flex;
+        gap: 16px;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        border: 1px solid $border;
+        border-radius: 12px;
+
+        &__photo {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        &__name {
+            font-family: $font-heading;
+            color: $navy;
+            font-weight: 700;
+        }
+
+        &__role {
+            font-size: 14px;
+            color: $muted;
+        }
+
+        &__quote {
+            margin-top: 12px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+    }
+
+    // ---------- main: experience ----------
+    .cs-experience {
+        position: relative;
+
+        .swiper-slide {
+            height: auto;
+        }
+
+        &__card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 12px 12px 24px;
+            border: 1px solid $border;
+            border-radius: 12px;
+        }
+
+        &__image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        &__title {
+            margin-top: 16px;
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        &__description {
+            margin: 8px 0 24px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .MuiButton-root {
+            margin-top: auto;
+        }
+    }
+
+    // ---------- CTA ----------
+    .cs-cta {
+        margin-top: 56px;
+        padding: 64px 0;
+        background: $surface;
+
+        &__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+
+            @media (max-width: $tablet) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 32px;
+            font-weight: 700;
+
+            @media (max-width: $mobile) {
+                font-size: 24px;
+            }
+        }
+
+        &__description {
+            max-width: 720px;
+            margin-top: 16px;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .MuiButton-root {
+            flex-shrink: 0;
+        }
+    }
+
+    // ---------- detail: summary & challenge ----------
+    .cs-overview {
+        padding-top: 0;
+    }
+
+    .cs-summary {
+        display: grid;
+        grid-template-columns: 1.3fr repeat(4, 1fr);
+        align-items: center;
+        gap: 24px;
+        padding: 20px 28px;
+        border: 1px solid $border;
+        border-radius: 12px;
+        background: $surface;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
+
+            .cs-summary__logo {
+                grid-column: 1 / -1;
+            }
+        }
+
+        &__logo img {
+            max-width: 200px;
+            max-height: 48px;
+            object-fit: contain;
+        }
+
+        &__label {
+            font-family: $font-heading;
+            font-size: 13px;
+            color: $muted;
+        }
+
+        &__value {
+            margin-top: 4px;
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+
+    .cs-challenge {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 40px;
+        margin-top: 32px;
+        padding: 28px;
+        border: 1px solid $border;
+        border-radius: 12px;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: 1fr;
+        }
+
+        @media (max-width: $mobile) {
+            padding: 20px;
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+
+            @media (max-width: $mobile) {
+                font-size: 24px;
+            }
+        }
+
+        &__text {
+            font-size: 15px;
+            line-height: 1.7;
+
+            & + & {
+                margin-top: 16px;
+            }
+        }
+
+        &__image {
+            min-height: 280px;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    // ---------- detail: solution ----------
+    .cs-solution__heading {
+        margin-bottom: 32px;
+    }
+
+    .cs-solution {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        align-items: start;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: 1fr;
+        }
+
+        &__item + &__item {
+            margin-top: 20px;
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        &__text {
+            margin-top: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: $muted;
+        }
+    }
+
+    .cs-arch {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 32px 24px;
+        border-radius: 12px;
+        background: #EEF4FB;
+
+        @media (max-width: $mobile) {
+            padding: 24px 8px;
+        }
+
+        &__node {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: 1px solid #B9D3EC;
+            border-radius: 6px;
+            background: #fff;
+            font-family: $font-heading;
+            font-size: 14px;
+            font-weight: 600;
+            color: $navy;
+            text-align: center;
+
+            svg {
+                font-size: 18px;
+                color: $blue;
+            }
+
+            @media (max-width: $mobile) {
+                padding: 6px 8px;
+                font-size: 12px;
+            }
+
+            &--core {
+                padding: 16px 28px;
+                border: 2px solid $blue;
+                font-size: 17px;
+                font-weight: 700;
+                text-transform: uppercase;
+                max-width: 220px;
+            }
+        }
+
+        &__line {
+            width: 2px;
+            height: 20px;
+            background: #9DB8D6;
+        }
+
+        &__branches {
+            display: grid;
+            width: 100%;
+        }
+
+        // garis horizontal dari tengah cabang pertama ke tengah cabang terakhir
+        &__branch {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 6px 0;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                background: #9DB8D6;
+            }
+
+            &::before {
+                left: 0;
+                right: 0;
+                height: 2px;
+            }
+
+            &::after {
+                left: calc(50% - 1px);
+                width: 2px;
+                height: 20px;
+            }
+
+            &:first-child::before {
+                left: 50%;
+            }
+
+            &:last-child::before {
+                right: 50%;
+            }
+        }
+    }
+
+    // ---------- detail: technologies ----------
+    .cs-tech {
+        position: relative;
+        min-height: 480px;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        color: #fff;
+
+        &__slider {
+            position: absolute !important;
+            inset: 0;
+        }
+
+        &__image {
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        // gradasi gelap supaya kartu terbaca
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(14, 30, 47, 0.2) 0%, rgba(14, 30, 47, 0.9) 75%);
+        }
+
+        &__content {
+            position: relative;
+            z-index: 2;
+            padding-top: 160px;
+            padding-bottom: 48px;
+        }
+
+        &__title {
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            font-family: $font-heading;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+
+            @media (max-width: $tablet) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width: $mobile) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &__card {
+            padding: 16px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(6px);
+        }
+
+        &__label {
+            font-family: $font-heading;
+            font-weight: 700;
+        }
+
+        &__items {
+            margin-top: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .cs-slider-arrow {
+            top: 45%;
+        }
+
+        .cs-slider-arrow--next.MuiIconButton-root {
+            right: 24px;
+        }
+
+        .cs-slider-arrow--prev.MuiIconButton-root {
+            left: 24px;
+        }
+    }
+
+    // ---------- detail: approach ----------
+    .cs-approach {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 48px;
+        align-items: start;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        &__intro {
+            position: sticky;
+            top: 100px;
+
+            @media (max-width: $tablet) {
+                position: static;
+            }
+        }
+    }
+
+    .cs-step {
+        border-bottom: 1px solid $border;
+
+        &__header {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 76px 1fr 24px;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 0;
+            text-align: left;
+        }
+
+        &__number {
+            font-family: $font-heading;
+            color: $navy-2;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.1;
+
+            small {
+                display: block;
+                margin-top: 2px;
+                font-size: 12px;
+                font-weight: 600;
+                color: $blue;
+            }
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $blue;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        &__icon {
+            color: $blue;
+        }
+
+        &.open .cs-step__title {
+            color: $navy-2;
+        }
+
+        &__text {
+            margin: -8px 0 0 88px;
+            padding-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.7;
+
+            @media (max-width: $mobile) {
+                margin-left: 0;
+            }
+        }
+    }
+
+    // ---------- detail: outcome & related ----------
+    .cs-outcome {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 28px;
+        border: 1px solid $border;
+        border-radius: 12px;
+
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: $mobile) {
+            grid-template-columns: 1fr;
+        }
+
+        &__item {
+            padding: 20px 24px;
+        }
+
+        &__title {
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        &__text {
+            margin-top: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: $muted;
+        }
+    }
+
+    .cs-related {
+        margin-top: 72px;
+
+        .pv-heading__title {
+            margin-bottom: 28px;
+        }
+
+        @media (max-width: $mobile) {
+            margin-top: 48px;
+        }
+    }
+}
