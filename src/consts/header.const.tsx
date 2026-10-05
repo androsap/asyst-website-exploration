@@ -36,12 +36,13 @@ export const HeaderProductsConst: HeaderProductCategory[] = [
         title: "Enterprise software for complex business operations",
         description: "ASYST develops modular enterprise software products that help organizations manage critical processes, connect operational data, and build more efficient digital workflows",
         items: [
-            { name: "Apollo", description: "Apollo brings core business processes integrate platform", link: "/product/apollo" },
             { name: "Anteros", description: "Anteros provides a configurable loyalty platform for organizations", link: "/product/anteros" },
             { name: "Chronus", description: "Chronus brings fleet acquisition, maintenance, operational monitoring", link: "/product/chronus" },
             { name: "Hermes", description: "Hermes brings cargo sales, shipment management", link: "/product/hermes" },
             { name: "Elea", description: "Elea helps IT teams manage requests, tickets", link: "/product/elea" },
-            { name: "Document System", description: "Document helps IT teams and corporate to manage files" },
+            { name: "Smart Document", description: "Smart Document makes every company document searchable and answerable with AI", link: "/product/smart-document" },
+            { name: "Project Management", description: "Project Management keeps people and AI agents working from one plan", link: "/product/project-management" },
+            { name: "E-Procurement", description: "E-Procurement connects buyers and suppliers in one purchasing platform", link: "/product/e-procurement" },
         ],
     },
     {

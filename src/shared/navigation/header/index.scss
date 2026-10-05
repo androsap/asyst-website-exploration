@@ -327,11 +327,15 @@ $header-height: 84px;
     }
 
     &__description {
-        display: block;
+        display: -webkit-box;
         margin-top: 4px;
         color: $text;
         font-size: 16px;
         line-height: 1.65;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        overflow: hidden;
     }
 }
 

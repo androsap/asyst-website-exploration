@@ -91,22 +91,22 @@ export default function HeaderShared() {
             <div className="header__actions">
                 {/* TODO: fitur pencarian belum ada */}
                 <IconButton aria-label="Search" className="header__icon-btn"><SearchRoundedIcon /></IconButton>
-                {!isMobile && <>
-                    <button type="button" className="header__lang" aria-haspopup="menu" onClick={e => setLangAnchor(e.currentTarget)}>
+                {isMobile
+                    ? <IconButton aria-label={`Language: ${language}`} aria-haspopup="menu" className="header__icon-btn" onClick={e => setLangAnchor(e.currentTarget)}><LanguageRoundedIcon /></IconButton>
+                    : <button type="button" className="header__lang" aria-haspopup="menu" onClick={e => setLangAnchor(e.currentTarget)}>
                         <LanguageRoundedIcon />
                         {language}
                         <KeyboardArrowDownRoundedIcon className="header__lang-caret" />
-                    </button>
-                    <Menu anchorEl={langAnchor} open={!!langAnchor} onClose={() => setLangAnchor(null)} disableScrollLock>
-                        {HeaderLanguagesConst.map(lang => (
-                            <MenuItem key={lang} selected={lang === language} onClick={() => { setLanguage(lang); setLangAnchor(null); }} className="header__lang-option">
-                                <LanguageFlag lang={lang} />
-                                {lang}
-                            </MenuItem>
-                        ))}
-                    </Menu>
-                    <button type="button" className="header__cta" onClick={talkToExpert}>Talk to expert</button>
-                </>}
+                    </button>}
+                <Menu anchorEl={langAnchor} open={!!langAnchor} onClose={() => setLangAnchor(null)} disableScrollLock>
+                    {HeaderLanguagesConst.map(lang => (
+                        <MenuItem key={lang} selected={lang === language} onClick={() => { setLanguage(lang); setLangAnchor(null); }} className="header__lang-option">
+                            <LanguageFlag lang={lang} />
+                            {lang}
+                        </MenuItem>
+                    ))}
+                </Menu>
+                {!isMobile && <button type="button" className="header__cta" onClick={talkToExpert}>Talk to expert</button>}
                 {isMobile && <IconButton aria-label="Open menu" className="header__icon-btn" onClick={() => setMobileOpen(true)}><MenuRoundedIcon /></IconButton>}
             </div>
         </Container>

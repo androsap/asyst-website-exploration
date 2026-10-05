@@ -20,7 +20,7 @@ export default function NewsSection() {
                 <Typography variant="h2" className="home-heading__title">News</Typography>
                 <CarouselNav {...navProps} variant="arrow" size="large" />
             </Box>
-            <Swiper {...swiperProps} className="home-news__swiper" spaceBetween={20} slidesPerView={1.15} breakpoints={{ 600: { slidesPerView: 2.1 }, 1024: { slidesPerView: 3.2 } }}>
+            <Swiper {...swiperProps} className="home-news__swiper" spaceBetween={16} slidesPerView={1} breakpoints={{ 600: { slidesPerView: 2.1, spaceBetween: 20 }, 1024: { slidesPerView: 3.2, spaceBetween: 20 } }}>
                 {NewsConst.map(({ type, img, title }) => (
                     <SwiperSlide key={title}>
                         <Link to={NEWS_BASE_PATH} className="home-news-card" style={{ backgroundImage: `url(${img})` }}>

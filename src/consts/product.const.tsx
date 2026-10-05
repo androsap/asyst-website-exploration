@@ -4,7 +4,7 @@ import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import RocketLaunchOutlinedIcon from "@mui/icons-material/RocketLaunchOutlined";
 
-import imgHeroMockup from "assets/asyst/img/background/product/anteros/device-A.png";
+import imgHeroMockup from "assets/asyst/img/background/product/product-hero.png";
 import imgProductCard1 from "assets/asyst/img/background/services-solutions/hermes2.png";
 import imgProductCard2 from "assets/asyst/img/background/services-solutions/anteros2.png";
 import imgSolveMockup from "assets/asyst/img/background/product/anteros/device-A.png";
@@ -50,7 +50,9 @@ export const ProductCatalogConst = {
             products: [
                 { name: "Apollo", title: "Enterprise Resource Planning", description: "Apollo brings core business processes into an integrated enterprise platform", image: imgProductCard1, link: "/product/apollo" },
                 { name: "Amala", title: "Loyalty & Customer Engagement Platform", description: "Amala brings loyalty programs, rewards and customer engagement into one connected platform", image: imgProductCard2, link: "/product/anteros" },
-                { name: "Doc", title: "Smart Document with AI", description: "Doc brings business documents into an intelligent, searchable and connected workspace", image: imgProductCard1, link: "/product" },
+                { name: "Doc", title: "Smart Document with AI", description: "Doc brings business documents into an intelligent, searchable and connected workspace", image: imgProductCard1, link: "/product/smart-document" },
+                { name: "Project Management", title: "AI Project Management", description: "Project Management keeps streams, deliverables, tasks and hours in one plan, with AI agents writing the status reports", image: imgProductCard2, link: "/product/project-management" },
+                { name: "E-Procurement", title: "E-Procurement Solution", description: "E-Procurement centralizes and automates purchasing, connecting buyers and suppliers in one environment", image: imgProductCard1, link: "/product/e-procurement" },
             ],
             button: { label: "Explore Enterprise Products", link: "/product" },
         },

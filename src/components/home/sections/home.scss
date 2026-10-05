@@ -26,13 +26,20 @@ $mobile: 599px;
     .home-section {
         padding: 56px 0;
 
-        // footer bersama sudah punya margin-top besar
-        &--last {
-            padding-bottom: 0;
-        }
-
         @media (max-width: $mobile) {
             padding: 40px 0;
+        }
+
+        // footer bersama sudah punya margin-top besar
+        // (ditulis setelah media query di atas agar padding-bottom: 0 tidak tertimpa di mobile)
+        &--last {
+            padding-bottom: 0;
+
+            // Mobile: CTA menempel ke footer, batalkan margin-top .site-footer (80px)
+            @media (max-width: $mobile) {
+                padding: 8px 0 0;
+                margin-bottom: -80px;
+            }
         }
     }
 
@@ -49,7 +56,8 @@ $mobile: 599px;
             line-height: 1.25;
 
             @media (max-width: $mobile) {
-                font-size: 26px;
+                font-size: 24px;
+                line-height: 1.35;
             }
         }
 
@@ -62,7 +70,7 @@ $mobile: 599px;
             line-height: 1.6;
 
             @media (max-width: $mobile) {
-                font-size: 16px;
+                line-height: 1.55;
             }
         }
     }
@@ -136,11 +144,21 @@ $mobile: 599px;
         font-size: 15px;
         color: $text;
         white-space: nowrap;
+
+        @media (max-width: $mobile) {
+            padding: 6px 12px;
+            font-size: 14px;
+        }
     }
 
     .home-chips--filled .home-chip {
         border-color: transparent;
         background: #F1F3F6;
+
+        @media (max-width: $mobile) {
+            padding: 7px 18px;
+            font-size: 15px;
+        }
     }
 
     .home-link {
@@ -173,6 +191,11 @@ $mobile: 599px;
         &--large .MuiIconButton-root {
             width: 52px;
             height: 52px;
+
+            @media (max-width: $mobile) {
+                width: 40px;
+                height: 40px;
+            }
         }
     }
 
@@ -192,6 +215,12 @@ $mobile: 599px;
 
         @media (max-width: $tablet) {
             padding-top: 110px;
+        }
+
+        // Mobile: tinggi mengikuti konten, section berikutnya langsung menyusul.
+        @media (max-width: $mobile) {
+            min-height: 0;
+            padding: 112px 0 8px;
         }
 
         > .MuiContainer-root {
@@ -218,7 +247,8 @@ $mobile: 599px;
             }
 
             @media (max-width: $mobile) {
-                font-size: 28px;
+                font-size: 26px;
+                line-height: 1.3;
             }
         }
 
@@ -233,6 +263,7 @@ $mobile: 599px;
             @media (max-width: $mobile) {
                 margin-top: 24px;
                 font-size: 16px;
+                line-height: 1.5;
             }
         }
 
@@ -242,6 +273,20 @@ $mobile: 599px;
             flex-wrap: wrap;
             gap: 16px;
             margin-top: 40px;
+
+            // Mobile: tombol ditumpuk selebar layar
+            @media (max-width: $mobile) {
+                flex-direction: column;
+                gap: 24px;
+                margin-top: 48px;
+
+                .home-btn.MuiButton-root {
+                    width: 100%;
+                    padding: 16px 28px;
+                    font-size: 18px;
+                    border-radius: 10px;
+                }
+            }
         }
 
         &__awards {
@@ -251,6 +296,10 @@ $mobile: 599px;
             gap: 16px 36px;
             margin-top: 40px;
             text-align: left;
+
+            @media (max-width: $mobile) {
+                display: none;
+            }
         }
     }
 
@@ -298,11 +347,20 @@ $mobile: 599px;
             gap: 20px;
         }
 
+        @media (max-width: $mobile) {
+            margin-top: 40px;
+            gap: 16px;
+        }
+
         &__label {
             font-family: $font-heading;
             font-size: 16px;
             color: $navy;
             white-space: nowrap;
+
+            @media (max-width: $mobile) {
+                font-size: 18px;
+            }
         }
 
         &__logos {
@@ -316,25 +374,66 @@ $mobile: 599px;
                 grid-template-columns: repeat(4, 1fr);
             }
 
+            // Mobile: satu baris yang bisa di-scroll horizontal sampai tepi layar
             @media (max-width: $mobile) {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: none;
+                grid-auto-flow: column;
+                grid-auto-columns: 72px;
                 gap: 12px;
+                // parent flex column rata tengah; tanpa stretch baris ini melebar ke kedua sisi
+                align-self: stretch;
+                width: auto;
+                margin: 0 -16px;
+                padding: 0 16px 4px;
+                overflow-x: auto;
+                scrollbar-width: none;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
             }
         }
 
-        // Aset logo sudah berupa tile kotak (background + rounded corner), jadi card cukup membungkus gambar.
+        // Card kaca (glass) sesuai Figma: padding 23px 17px, background putih 10%, blur 17px,
+        // border 1px gradient (#FFFFFF 51% -> #E9E9E9 29%).
         &__logo {
-            aspect-ratio: 1 / 1;
-            max-width: 112px;
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 146px;
             width: 100%;
             justify-self: center;
-            border-radius: 12px;
-            overflow: hidden;
+            padding: 23px 17px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(17px);
+            -webkit-backdrop-filter: blur(17px);
+
+            // Border gradient: pseudo-element dengan mask agar hanya garis 1px yang terlihat.
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                padding: 1px;
+                border-radius: inherit;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.51) 0%, rgba(233, 233, 233, 0.29) 100%);
+                -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+                pointer-events: none;
+            }
+
+            @media (max-width: $mobile) {
+                padding: 10px 8px;
+            }
 
             img {
                 display: block;
                 width: 100%;
-                height: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
                 object-fit: contain;
             }
         }
@@ -390,11 +489,17 @@ $mobile: 599px;
             margin-top: 14px;
             font-size: 16px;
             line-height: 1.75;
+
+            @media (max-width: $mobile) {
+                margin-top: 16px;
+                line-height: 1.5;
+            }
         }
 
+        // Mobile: ikon tetap di samping judul
         @media (max-width: $mobile) {
-            flex-direction: column;
-            padding: 20px;
+            gap: 16px;
+            padding: 24px;
         }
     }
 
@@ -415,6 +520,20 @@ $mobile: 599px;
         // center + overflow memotong tab pertama saat discroll
         @media (max-width: $tablet) {
             justify-content: flex-start;
+        }
+
+        // Mobile: bar tab memanjang sampai tepi layar
+        @media (max-width: $mobile) {
+            width: auto;
+            max-width: none;
+            margin: 0 -16px 24px;
+            padding: 8px;
+            background: $surface;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
         }
 
         &__item {
@@ -443,8 +562,22 @@ $mobile: 599px;
             grid-template-columns: repeat(2, 1fr);
         }
 
+        // Mobile: satu kartu per layar, geser horizontal (kartu berikutnya mengintip di tepi kanan)
         @media (max-width: $mobile) {
-            grid-template-columns: 1fr;
+            grid-template-columns: none;
+            grid-auto-flow: column;
+            grid-auto-columns: 100%;
+            gap: 12px;
+            margin: 0 -16px;
+            padding: 0 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-padding: 0 16px;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
         }
     }
 
@@ -464,12 +597,27 @@ $mobile: 599px;
             transform: translateY(-2px);
         }
 
+        @media (max-width: $mobile) {
+            padding: 48px 16px 0;
+            scroll-snap-align: start;
+
+            // terpotong oleh container scroll horizontal
+            &:hover {
+                box-shadow: none;
+                transform: none;
+            }
+        }
+
         &__title {
             font-family: $font-heading;
             color: $blue;
             font-size: 24px;
             font-weight: 600;
             line-height: 1.3;
+
+            @media (max-width: $mobile) {
+                font-size: 20px;
+            }
         }
 
         &__description {
@@ -477,17 +625,30 @@ $mobile: 599px;
             font-size: 16px;
             line-height: 1.75;
             color: $text;
+
+            @media (max-width: $mobile) {
+                margin-top: 16px;
+                line-height: 1.5;
+            }
         }
 
         &__preview {
             margin-top: auto;
             padding-top: 32px;
 
+            @media (max-width: $mobile) {
+                padding: 40px 18px 0;
+            }
+
             img {
                 display: block;
                 width: 100%;
                 height: 180px;
                 object-fit: cover;
+
+                @media (max-width: $mobile) {
+                    height: 200px;
+                }
                 object-position: top;
                 background: #fff;
                 border: 1px solid $border;
@@ -523,6 +684,10 @@ $mobile: 599px;
             grid-template-columns: 1fr;
         }
 
+        @media (max-width: $mobile) {
+            gap: 32px;
+        }
+
         &__menu {
             display: flex;
             flex-direction: column;
@@ -534,6 +699,16 @@ $mobile: 599px;
             @media (max-width: $tablet) {
                 flex-direction: row;
                 overflow-x: auto;
+            }
+
+            // Mobile: daftar vertikal tanpa card, garis pemisah sampai tepi layar
+            @media (max-width: $mobile) {
+                flex-direction: column;
+                gap: 0;
+                margin: 0 -16px;
+                padding: 0;
+                border: 0;
+                border-radius: 0;
             }
         }
 
@@ -569,6 +744,24 @@ $mobile: 599px;
                 flex-shrink: 0;
                 max-width: 240px;
             }
+
+            @media (max-width: $mobile) {
+                max-width: none;
+                gap: 16px;
+                padding: 16px;
+                border-radius: 0;
+                font-size: 16px;
+
+                &:not(:first-child) {
+                    border-top: 1px solid $border;
+                }
+
+                .home-icon-tile {
+                    width: 48px;
+                    height: 48px;
+                    min-width: 48px;
+                }
+            }
         }
 
         &__detail {
@@ -582,6 +775,11 @@ $mobile: 599px;
             @media (max-width: $tablet) {
                 grid-template-columns: 1fr;
             }
+
+            @media (max-width: $mobile) {
+                gap: 32px;
+                padding: 16px;
+            }
         }
 
         &__title {
@@ -589,12 +787,22 @@ $mobile: 599px;
             color: $navy-2;
             font-size: 28px;
             font-weight: 600;
+
+            @media (max-width: $mobile) {
+                font-size: 20px;
+            }
         }
 
         &__description {
             margin: 16px 0 20px;
             font-size: 17px;
             line-height: 1.75;
+
+            @media (max-width: $mobile) {
+                margin: 16px 0;
+                font-size: 16px;
+                line-height: 1.5;
+            }
         }
 
         &__image {
@@ -604,6 +812,11 @@ $mobile: 599px;
             background: $surface;
             display: flex;
             align-items: center;
+
+            @media (max-width: $mobile) {
+                padding: 24px;
+                background: #fff;
+            }
 
             img {
                 width: 100%;
@@ -637,6 +850,12 @@ $mobile: 599px;
             gap: 20px;
         }
 
+        // Mobile: tinggi kartu mengikuti caption yang hampir memenuhi kartu
+        @media (max-width: $mobile) {
+            grid-auto-rows: auto;
+            gap: 18px;
+        }
+
         &__card {
             position: relative;
             border-radius: 16px;
@@ -646,6 +865,10 @@ $mobile: 599px;
             display: flex;
             align-items: flex-end;
             padding: 16px;
+
+            @media (max-width: $mobile) {
+                align-items: stretch;
+            }
         }
 
         &__caption {
@@ -656,18 +879,31 @@ $mobile: 599px;
             background: rgba(20, 30, 45, 0.45);
             backdrop-filter: blur(14px);
             color: #fff;
+
+            @media (max-width: $mobile) {
+                padding: 24px 16px;
+            }
         }
 
         &__title {
             font-family: $font-heading;
             font-size: 26px;
             font-weight: 600;
+
+            @media (max-width: $mobile) {
+                font-size: 20px;
+            }
         }
 
         &__description {
             margin-top: 12px;
             font-size: 17px;
             line-height: 1.65;
+
+            @media (max-width: $mobile) {
+                font-size: 16px;
+                line-height: 1.5;
+            }
         }
     }
 
@@ -690,6 +926,12 @@ $mobile: 599px;
             font-family: $font-heading;
             font-size: 19px;
             line-height: 1.65;
+
+            @media (max-width: $mobile) {
+                margin-top: 24px;
+                font-size: 18px;
+                line-height: 1.55;
+            }
         }
 
         &__actions {
@@ -734,12 +976,28 @@ $mobile: 599px;
             background-position: center;
         }
 
+        @media (max-width: $mobile) {
+            padding: 16px;
+        }
+
+        &__image {
+            @media (max-width: $mobile) {
+                height: 180px;
+            }
+        }
+
         &__title {
             margin-top: 22px;
             font-family: $font-heading;
             color: $blue;
             font-size: 28px;
             font-weight: 600;
+
+            @media (max-width: $mobile) {
+                margin-top: 28px;
+                padding: 0 8px;
+                font-size: 20px;
+            }
         }
 
         &__description {
@@ -747,6 +1005,13 @@ $mobile: 599px;
             font-size: 17px;
             line-height: 1.7;
             color: $muted;
+
+            @media (max-width: $mobile) {
+                margin: 12px 0 24px;
+                padding: 0 8px;
+                font-size: 16px;
+                line-height: 1.5;
+            }
         }
 
         .home-chips {
@@ -794,7 +1059,11 @@ $mobile: 599px;
         }
 
         @media (max-width: $mobile) {
-            height: 440px;
+            height: 380px;
+
+            &:hover {
+                transform: none;
+            }
         }
 
         &__tag {
@@ -806,6 +1075,10 @@ $mobile: 599px;
             backdrop-filter: blur(8px);
             color: #fff;
             font-size: 15px;
+
+            @media (max-width: $mobile) {
+                padding: 6px 18px;
+            }
         }
 
         &__title {
@@ -821,6 +1094,18 @@ $mobile: 599px;
             font-size: 24px;
             font-weight: 600;
             line-height: 1.35;
+
+            // Mobile: label putih solid dengan teks biru di tengah
+            @media (max-width: $mobile) {
+                padding: 16px;
+                background: #fff;
+                border-color: transparent;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                color: $blue;
+                font-size: 16px;
+                text-align: center;
+            }
         }
 
         // Clamp di elemen dalam agar baris ke-4 tidak bocor ke padding container
@@ -851,10 +1136,30 @@ $mobile: 599px;
             padding: 32px 24px;
         }
 
+        // Mobile: banner selebar layar, rata tengah, menempel ke footer
+        @media (max-width: $mobile) {
+            align-items: stretch;
+            gap: 40px;
+            margin: 0 -16px;
+            padding: 40px 24px;
+            border-radius: 0;
+            text-align: center;
+
+            .home-btn--white.MuiButton-root {
+                padding: 14px 28px;
+                font-size: 18px;
+            }
+        }
+
         &__title {
             font-family: $font-heading;
             font-size: 28px;
             font-weight: 700;
+
+            @media (max-width: $mobile) {
+                font-size: 24px;
+                line-height: 1.35;
+            }
         }
 
         &__description {
@@ -862,6 +1167,12 @@ $mobile: 599px;
             max-width: 920px;
             font-size: 17px;
             line-height: 1.65;
+
+            @media (max-width: $mobile) {
+                margin-top: 24px;
+                font-size: 16px;
+                line-height: 1.5;
+            }
         }
     }
 }

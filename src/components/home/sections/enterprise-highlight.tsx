@@ -18,9 +18,9 @@ export default function EnterpriseHighlightSection() {
                 className="home-highlight__swiper"
                 modules={[Pagination]}
                 pagination={{ clickable: true }}
-                spaceBetween={24}
-                slidesPerView={1.1}
-                breakpoints={{ 900: { slidesPerView: 2.15 } }}
+                spaceBetween={16}
+                slidesPerView={1}
+                breakpoints={{ 600: { slidesPerView: 1.1, spaceBetween: 24 }, 900: { slidesPerView: 2.15, spaceBetween: 24 } }}
             >
                 {items.map(({ icon: Icon, title, description }) => (
                     <SwiperSlide key={title}>

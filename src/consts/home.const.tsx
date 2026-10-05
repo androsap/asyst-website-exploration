@@ -22,10 +22,10 @@ import logoAxa from "assets/asyst/img/trusted-by/trusted-axa.png";
 
 import imgProductMockup1 from "assets/asyst/img/background/services-solutions/anteros1.png";
 import imgProductMockup2 from "assets/asyst/img/background/services-solutions/hermes1.png";
-import imgPartnerProduct from "assets/asyst/img/background/HBNR-3.jpg";
-import imgPartnerIntegration from "assets/asyst/img/background/product/overview/background-product.png";
-import imgPartnerImplementation from "assets/asyst/img/background/story/story-2.png";
-import imgPartnerServices from "assets/asyst/img/background/HBNR-2.jpg";
+import imgPartnerProduct from "assets/asyst/img/background/partner/partner-product.jpg";
+import imgPartnerIntegration from "assets/asyst/img/background/partner/partner-integration.jpg";
+import imgPartnerImplementation from "assets/asyst/img/background/partner/partner-implementation.jpg";
+import imgPartnerServices from "assets/asyst/img/background/partner/partner-services.jpg";
 import imgIndustryEnterprise from "assets/asyst/img/background/HBNR-3.jpg";
 import imgIndustryAviation from "assets/asyst/img/background/HBNR-1.jpg";
 import imgIndustryLogistic from "assets/asyst/img/background/services-solutions/cargo.png";
