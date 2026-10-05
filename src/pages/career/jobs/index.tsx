@@ -1,10 +1,10 @@
 import { lazy } from "react";
 import MainLayoutShared, { MainLayoutSharedProps } from "shared/layout/main-layout";
 import { CareerSeoConst } from "consts/career.const";
-const MainComponent = lazy(() => import("components/career"));
+const MainComponent = lazy(() => import("components/career/jobs"));
 
 const props: MainLayoutSharedProps = {
-    title: CareerSeoConst.career.title,
+    title: CareerSeoConst.jobs.title,
     // Hero baru berlatar terang: navbar selalu versi putih agar menu terbaca
     defaultNav: true
 }

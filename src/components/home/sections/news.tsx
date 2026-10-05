@@ -25,7 +25,9 @@ export default function NewsSection() {
                     <SwiperSlide key={title}>
                         <Link to={NEWS_BASE_PATH} className="home-news-card" style={{ backgroundImage: `url(${img})` }}>
                             <span className="home-news-card__tag">{type}</span>
-                            <span className="home-news-card__title">{title}</span>
+                            <span className="home-news-card__title">
+                                <span className="home-news-card__title-text" title={title}>{title}</span>
+                            </span>
                         </Link>
                     </SwiperSlide>
                 ))}
