@@ -126,6 +126,10 @@ $mobile: 599px;
         &__submit.MuiButton-root {
             margin-top: 16px;
             padding: 10px 24px;
+
+            @media (max-width: $mobile) {
+                padding: 16px 28px;
+            }
         }
     }
 

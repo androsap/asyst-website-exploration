@@ -115,6 +115,16 @@ $mobile: 599px;
         }
     }
 
+    // Mobile: ukuran tombol diseragamkan dengan tombol hero Home
+    @media (max-width: $mobile) {
+        .home-btn.MuiButton-root,
+        .home-btn--white.MuiButton-root {
+            padding: 16px 28px;
+            font-size: 18px;
+            border-radius: 10px;
+        }
+    }
+
     .home-icon-tile {
         width: 52px;
         height: 52px;
@@ -1145,10 +1155,6 @@ $mobile: 599px;
             border-radius: 0;
             text-align: center;
 
-            .home-btn--white.MuiButton-root {
-                padding: 14px 28px;
-                font-size: 18px;
-            }
         }
 
         &__title {

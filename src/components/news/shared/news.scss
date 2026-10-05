@@ -244,6 +244,11 @@ $mobile: 599px;
             background: $blue;
             border-radius: 6px;
             padding: 10px 28px;
+
+            @media (max-width: $mobile) {
+                padding: 16px 28px;
+                border-radius: 10px;
+            }
         }
     }
 
