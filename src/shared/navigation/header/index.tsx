@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, MouseEvent, Suspense, useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
@@ -18,7 +18,10 @@ import { GroupsPanel, ProductsPanel } from "./panels";
 import MobileMenu from "./mobile-menu";
 import MenuLink from "./menu-link";
 import LanguageFlag from "./flags";
+import type { SearchOverlayProps } from "./search-overlay";
 import "./index.scss";
+
+const SearchOverlay = lazy(() => import("./search-overlay"));
 
 type PanelKey = "products" | "solutions" | "company";
 
@@ -29,6 +32,8 @@ export default function HeaderShared() {
     const [panel, setPanel] = useState<PanelKey | null>(null);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [langAnchor, setLangAnchor] = useState<HTMLElement | null>(null);
+    const [searchOpen, setSearchOpen] = useState(false);
+    const [searchOrigin, setSearchOrigin] = useState<SearchOverlayProps["origin"] | null>(null);
     const language = useLanguage();
     const t = useT();
     const solutions = useLocalized(HeaderSolutionsConst);
@@ -44,6 +49,13 @@ export default function HeaderShared() {
     ];
 
     const closePanel = () => setPanel(null);
+
+    const openSearch = (e: MouseEvent<HTMLElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        setSearchOrigin({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
+        setSearchOpen(true);
+        closePanel();
+    };
 
     // Tutup menu saat pindah halaman / tekan Escape
     useEffect(() => {
@@ -92,8 +104,7 @@ export default function HeaderShared() {
             </nav>}
 
             <div className="header__actions">
-                {/* TODO: fitur pencarian belum ada */}
-                <IconButton aria-label={t("Search", "Cari")} className="header__icon-btn"><SearchRoundedIcon /></IconButton>
+                <IconButton aria-label={t("Search", "Cari")} aria-haspopup="dialog" aria-expanded={searchOpen} className="header__icon-btn" onClick={openSearch}><SearchRoundedIcon /></IconButton>
                 {isMobile
                     ? <IconButton aria-label={`${t("Language", "Bahasa")}: ${language}`} aria-haspopup="menu" className="header__icon-btn" onClick={e => setLangAnchor(e.currentTarget)}><LanguageRoundedIcon /></IconButton>
                     : <button type="button" className="header__lang" aria-haspopup="menu" onClick={e => setLangAnchor(e.currentTarget)}>
@@ -121,5 +132,10 @@ export default function HeaderShared() {
         </Container>}
 
         {isMobile && <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} onTalkToExpert={talkToExpert} logo={logoAsyst} />}
+
+        {/* Baru dimuat setelah tombol search pertama kali diklik */}
+        {searchOrigin && <Suspense fallback={null}>
+            <SearchOverlay open={searchOpen} origin={searchOrigin} onClose={() => setSearchOpen(false)} />
+        </Suspense>}
     </header>
 }

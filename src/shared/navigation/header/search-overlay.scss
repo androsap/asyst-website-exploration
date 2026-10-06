@@ -1,0 +1,201 @@
+// Overlay pencarian cepat dari tombol search header (revamp 2026). Dirender lewat portal, jadi font di-set sendiri.
+$ink: #101828;
+$blue: #2775BB;
+$navy: #123554;
+$text: #3F4650;
+$muted: #98A2B3;
+$border: #E4E8EE;
+$divider: #EEF0F3;
+$green: #6A9A25;
+$green-bg: #EEF6E7;
+$font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
+$mobile: 599px;
+
+.search-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    font-family: $font-body;
+
+    &__backdrop.MuiBackdrop-root {
+        background: rgba(16, 24, 40, 0.45);
+    }
+
+    // bingkai kaca di sekeliling panel
+    &__glass {
+        position: relative;
+        box-sizing: border-box;
+        width: 848px;
+        max-width: 100%;
+        padding: 24px;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(22px);
+        -webkit-backdrop-filter: blur(22px);
+        outline: 0;
+
+        @media (max-width: $mobile) {
+            padding: 12px;
+            border-radius: 18px;
+        }
+    }
+
+    &__panel {
+        background: #fff;
+        border-radius: 8px;
+        transition: padding .2s ease, border-radius .2s ease;
+
+        &.has-query {
+            padding: 16px;
+            border-radius: 16px;
+
+            .search-overlay__input {
+                border-color: $border;
+            }
+        }
+    }
+
+    // ---------- input ----------
+    &__input {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 64px;
+        padding: 0 24px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        transition: border-color .2s;
+
+        @media (max-width: $mobile) {
+            height: 56px;
+            padding: 0 16px;
+        }
+
+        &:focus-within {
+            border-color: $border;
+        }
+
+        input {
+            flex: 1;
+            min-width: 0;
+            height: 100%;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: $text;
+            font: inherit;
+            font-size: 18px;
+
+            &::-webkit-search-cancel-button {
+                display: none;
+            }
+
+            &::placeholder {
+                color: $muted;
+            }
+        }
+    }
+
+    &__input-icon.MuiSvgIcon-root {
+        color: $muted;
+        font-size: 22px;
+    }
+
+    // ---------- hasil ----------
+    &__results {
+        max-height: calc(100vh - 280px);
+        overflow-y: auto;
+        margin-top: 16px;
+    }
+
+    &__group {
+        & + & {
+            margin-top: 24px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 8px 0 0;
+            padding: 0;
+        }
+
+        li + li {
+            border-top: 1px solid $divider;
+        }
+    }
+
+    &__chip {
+        display: inline-block;
+        padding: 4px 14px;
+        border-radius: 6px;
+        background: $green-bg;
+        color: $green;
+        font-size: 14px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 16px;
+        color: $text;
+        font-size: 18px;
+        line-height: 1.4;
+        text-decoration: none;
+        transition: color .15s;
+
+        @media (max-width: $mobile) {
+            padding: 12px 8px;
+            font-size: 16px;
+        }
+
+        &.active {
+            color: $blue;
+        }
+    }
+
+    &__item-icon.MuiSvgIcon-root {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        padding: 1px;
+        border: 1.5px solid currentColor;
+        border-radius: 50%;
+        font-size: 16px;
+    }
+
+    &__empty {
+        margin: 8px 0 0;
+        padding: 16px;
+        color: $text;
+        font-size: 16px;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: center;
+        margin-top: 28px;
+        padding-bottom: 4px;
+    }
+
+    &__see-all.MuiButton-root {
+        padding: 10px 20px;
+        border-radius: 6px;
+        background: $blue;
+        color: #fff;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 400;
+        text-transform: none;
+        box-shadow: none;
+
+        &:hover {
+            background: $navy;
+        }
+    }
+}

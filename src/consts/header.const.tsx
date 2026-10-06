@@ -232,6 +232,8 @@ export const HeaderCompanyConst = localized<HeaderGroup>({
 
 export const HeaderNewsLink = "/news";
 
+export const HeaderSearchLink = "/search";
+
 /** Kartu "Featured" di menu mobile. */
 export const HeaderFeaturedConst = localized({
     label: "Product",
