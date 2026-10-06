@@ -62,7 +62,7 @@ export default function NavigationMobileComponent() {
                                     <Typography className="title-parent">Services</Typography>
                                     <Divider />
                                 </ListItemText>
-                                <ArrowForwardIosIcon sx={{ color: "#006CAE", height: "15px" }} />
+                                <ArrowForwardIosIcon sx={{ color: "#2775BB", height: "15px" }} />
                             </ListItemButton>
                         </ListItem>
                         <ListItem sx={{ padding: "0px" }}>
@@ -73,7 +73,7 @@ export default function NavigationMobileComponent() {
                                     <Typography className="title-parent">Business Solution</Typography>
                                     <Divider />
                                 </ListItemText>
-                                <ArrowForwardIosIcon sx={{ color: "#006CAE", height: "15px" }} />
+                                <ArrowForwardIosIcon sx={{ color: "#2775BB", height: "15px" }} />
                             </ListItemButton>
                         </ListItem>
                         <ListItem sx={{ padding: "0px" }}>
@@ -100,7 +100,7 @@ export default function NavigationMobileComponent() {
                                     <Typography className="title-parent">Company</Typography>
                                     <Divider />
                                 </ListItemText>
-                                <ArrowForwardIosIcon sx={{ color: "#006CAE", height: "15px" }} />
+                                <ArrowForwardIosIcon sx={{ color: "#2775BB", height: "15px" }} />
                             </ListItemButton>
                         </ListItem>
                     </List>

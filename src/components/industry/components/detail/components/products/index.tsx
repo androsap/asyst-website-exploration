@@ -27,7 +27,7 @@ export default function ProductComponent() {
                         <Paper sx={{ borderRadius: '20px', width: '392px', height: '392px' }}>
                             <Grid sx={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '74px' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '180px' }}>
-                                    <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#0069B3', textAlign: 'center', color: 'white' }}>
+                                    <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#2775BB', textAlign: 'center', color: 'white' }}>
                                         <Typography fontSize={12} paddingTop={0.2}>Products</Typography>
                                     </Box>
                                     <img className='img-products' src={Amala} alt="" />
@@ -42,7 +42,7 @@ export default function ProductComponent() {
                         <Paper sx={{ borderRadius: '20px', width: '392px', height: '392px' }}>
                             <Grid sx={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '74px' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '180px' }}>
-                                    <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#0069B3', textAlign: 'center', color: 'white' }}>
+                                    <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#2775BB', textAlign: 'center', color: 'white' }}>
                                         <Typography fontSize={12} paddingTop={0.2}>Products</Typography>
                                     </Box>
                                     <img className='img-products' src={Auxoshift} alt="" />
@@ -57,7 +57,7 @@ export default function ProductComponent() {
                         <Paper sx={{ borderRadius: '20px', width: '392px', height: '392px' }}>
                             <Grid sx={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '74px' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '180px' }}>
-                                    <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#0069B3', textAlign: 'center', color: 'white' }}>
+                                    <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#2775BB', textAlign: 'center', color: 'white' }}>
                                         <Typography fontSize={12} paddingTop={0.2}>Products</Typography>
                                     </Box>
                                     <img className='img-products' src={Athena} alt="" />
@@ -75,7 +75,7 @@ export default function ProductComponent() {
                         <Paper sx={{ borderRadius: '20px', width: '392px', height: '392px' }}>
                             <Grid sx={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '74px' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '180px' }}>
-                                    <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#0069B3', textAlign: 'center', color: 'white' }}>
+                                    <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#2775BB', textAlign: 'center', color: 'white' }}>
                                         <Typography fontSize={12} paddingTop={0.2}>Products</Typography>
                                     </Box>
                                     <img className='img-products' src={Hermes} alt="" />
@@ -90,7 +90,7 @@ export default function ProductComponent() {
                         <Paper sx={{ borderRadius: '20px', width: '392px', height: '392px' }}>
                             <Grid sx={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '74px' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '180px' }}>
-                                    <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#0069B3', textAlign: 'center', color: 'white' }}>
+                                    <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#2775BB', textAlign: 'center', color: 'white' }}>
                                         <Typography fontSize={12} paddingTop={0.2}>Products</Typography>
                                     </Box>
                                     <img className='img-products' src={Elea} alt="" />
@@ -105,7 +105,7 @@ export default function ProductComponent() {
                         <Paper sx={{ borderRadius: '20px', width: '392px', height: '392px' }}>
                             <Grid sx={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '74px' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '180px' }}>
-                                    <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#0069B3', textAlign: 'center', color: 'white' }}>
+                                    <Box sx={{ height: '28px', width: '84px', borderRadius: '55px', background: '#2775BB', textAlign: 'center', color: 'white' }}>
                                         <Typography fontSize={12} paddingTop={0.2}>Products</Typography>
                                     </Box>
                                     <img className='img-products' src={Apollo} alt="" />

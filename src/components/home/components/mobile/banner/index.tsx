@@ -68,7 +68,7 @@ const HomeBannerMobileComponent: React.FC<HomeBannerMobileProps> = ({ banner }) 
                                         fontWeight: '500'
                                     }}>{item.title}</Typography>
                                     <Typography sx={{
-                                        color: '#48BAFF',
+                                        color: '#89BA3A',
                                         textAlign: 'center',
                                         fontFamily: 'Inter',
                                         fontSize: '32px',
@@ -80,7 +80,7 @@ const HomeBannerMobileComponent: React.FC<HomeBannerMobileProps> = ({ banner }) 
                                         mt: '29px',
                                         mb: '75px',
                                         borderRadius: '55px',
-                                        background: 'linear-gradient(180deg, #0677BC 0%, #006CAE 100%)',
+                                        background: 'linear-gradient(180deg, #2775BB 0%, #2775BB 100%)',
                                         color: '#FFF',
                                         textAlign: 'center',
                                         fontFamily: 'Inter',

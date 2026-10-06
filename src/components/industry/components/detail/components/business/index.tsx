@@ -40,17 +40,17 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
 ))(({ theme }) => ({
     backgroundColor: '#fff',
     flexDirection: 'row',
-    color: '#006CAE',
+    color: '#2775BB',
     '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
         transform: 'rotate(180deg)',
-        color: '#002561'
+        color: '#123554'
     },
     '& .MuiAccordionSummary-expandIconWrapper': {
-        color: '#006CAE',
+        color: '#2775BB',
     },
     '& .MuiAccordionSummary-content.Mui-expanded': {
         marginLeft: theme.spacing(0),
-        color: '#002561',
+        color: '#123554',
     },
 }));
 

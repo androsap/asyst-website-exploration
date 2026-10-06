@@ -55,7 +55,7 @@
     }
 
     .read-more {
-        color: var(--Primary, #006CAE);
+        color: var(--color-primary, #2775BB);
         font-family: "Source Sans Pro";
         font-size: 14px;
         font-style: normal;
@@ -69,7 +69,7 @@
         width: 182px;
         border-radius: 100px;
         border: 1px solid rgba(226, 234, 241, 1);
-        color: #002663;
+        color: #123554;
         font-family: "Source Sans Pro";
         font-size: 16px;
         font-style: normal;
@@ -92,7 +92,7 @@
 
     .MuiButton-root.btn-more {
         border-radius: 8px;
-        background: linear-gradient(180deg, #0377BD 0%, #006CAE 100%);
+        background: linear-gradient(180deg, #2775BB 0%, #2775BB 100%);
         color: #fff;
         margin-top: 20px;
         font-size: 13px;
@@ -101,8 +101,8 @@
 
     .MuiButton-root.btn-industries {
         border-radius: 100px;
-        border: 1px solid #006CAE;
-        color: #006CAE;
+        border: 1px solid #2775BB;
+        color: #2775BB;
         font-family: "Source Sans Pro";
         font-size: 16px;
         font-style: normal;
@@ -111,33 +111,33 @@
         padding: 5px 25px;
 
         &:hover {
-            border-color: #006CAE;
-            background-color: #006CAE;
+            border-color: #2775BB;
+            background-color: #2775BB;
             color: #fff;
         }
 
         &:focus {
-            border-color: #006CAE;
-            background-color: #006CAE;
+            border-color: #2775BB;
+            background-color: #2775BB;
             color: #fff;
         }
         
         &.active {
-            border-color: #006CAE;
-            background-color: #006CAE !important;
+            border-color: #2775BB;
+            background-color: #2775BB !important;
             color: #fff;
         }
     }
 
     .box-solutions {
         border-radius: 20px;
-        border: 1px solid var(--Primary, #006CAE);
+        border: 1px solid var(--color-primary, #2775BB);
         width: 200px;
         height: 105%;
         // padding-bottom: 10px;
 
         &:hover {
-            background-color: #006CAE;
+            background-color: #2775BB;
 
             .MuiTypography-root.content-box-solutions {
                 color: #fff;
@@ -145,7 +145,7 @@
         }
 
         .content-box-solutions {
-            color: var(--Primary, #006CAE);
+            color: var(--color-primary, #2775BB);
             font-family: "Inter";
             font-size: 19px;
             font-style: normal;
@@ -159,7 +159,7 @@
             float: right;
             margin-right: 10px;
             margin-top: 10px;
-            background-color: #006CAE !important;
+            background-color: #2775BB !important;
             border-radius: 100%;
             background-size: 20px 20px;
             width: 40px;
@@ -204,7 +204,7 @@
             .highlight {
                 font-size: 14px;
                 font-weight: 600;
-                color: #006CAE;
+                color: #2775BB;
                 font-family: "Source Sans Pro";
 
                 .icon6 {
@@ -218,14 +218,14 @@
         border-radius: 20px;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
-        border: 1px solid var(--Primary, #006CAE);
+        border: 1px solid var(--color-primary, #2775BB);
         // width: 228px;
         width: auto;
         height: 225px;
         // margin-top: -24px;
 
         &:hover {
-            background-color: #006CAE;
+            background-color: #2775BB;
 
             .MuiTypography-root.title {
                 color: #fff;
@@ -256,7 +256,7 @@
         .name-product {
             padding-left: 15px;
             padding-bottom: 1px;
-            color: #006CAE;
+            color: #2775BB;
             font-family: "Inter";
             font-size: 20px;
             font-weight: 600;
@@ -274,7 +274,7 @@
         }
 
         .content-box-solutions {
-            color: var(--Primary, #006CAE);
+            color: var(--color-primary, #2775BB);
             font-family: "Inter";
             font-size: 15px;
             font-style: normal;
@@ -360,7 +360,7 @@
     }
 
     .highlight-solutions {
-        color: #002663;
+        color: #123554;
         font-family: "Inter";
         font-size: 20px;
         font-style: normal;
@@ -370,7 +370,7 @@
     }
 
     .MuiButton-root.btn-solutions {
-        color: #002663;
+        color: #123554;
         font-family: "Source Sans Pro";
         background-color: rgba(226, 234, 241, 1);
         width: 100%;
@@ -404,8 +404,8 @@
             border-radius: 100px;
             padding-left: 24px;
             padding-right: 24px;
-            border: 1px solid #006CAE;
-            color: #006CAE;
+            border: 1px solid #2775BB;
+            color: #2775BB;
             font-family: "Source Sans Pro";
             font-size: 14px;
             font-style: normal;
@@ -415,13 +415,13 @@
             height: 36px;
 
             &:hover {
-                border-color: #006CAE;
-                background-color: #006CAE;
+                border-color: #2775BB;
+                background-color: #2775BB;
                 color: #fff;
             }
 
             &:focus {
-                background-color: #0069B3;
+                background-color: #2775BB;
                 color: #fff;
                 box-shadow: none;
             }
@@ -482,7 +482,7 @@
                 }
 
                 .highlight {
-                    color: var(--Primary, #006CAE);
+                    color: var(--color-primary, #2775BB);
                     font-family: "Source Sans Pro";
                     font-size: 14px;
                     font-style: normal;
@@ -515,7 +515,7 @@
             }
 
             .highlight {
-                color: var(--Primary, #006CAE);
+                color: var(--color-primary, #2775BB);
                 font-family: "Source Sans Pro";
                 font-size: 16px;
                 font-style: normal;
@@ -531,7 +531,7 @@
             align-items: center;
             height: 36px;
             border-radius: 0px 0px 12px 12px;
-            background: var(--Primary, #006CAE);
+            background: var(--color-primary, #2775BB);
 
             .name-apps {
                 color: #FFF;
@@ -564,7 +564,7 @@
         width: 100%;
         height: 48px;
         border-radius: 8px;
-        background: linear-gradient(180deg, #0377BD 0%, #006CAE 100%);
+        background: linear-gradient(180deg, #2775BB 0%, #2775BB 100%);
         margin-bottom: 50px;
 
         .btn-text-more {
@@ -586,7 +586,7 @@
         .box-icon {
             float: right;
             margin-right: 9px;
-            background-color: #006CAE !important;
+            background-color: #2775BB !important;
             border-radius: 100%;
             background-size: 20px 20px;
             width: 48px;
@@ -596,7 +596,7 @@
         }
 
         .box-desc {
-            color: var(--Primary, #006CAE);
+            color: var(--color-primary, #2775BB);
             font-family: "Source Sans Pro";
             font-size: 16px;
             font-style: normal;

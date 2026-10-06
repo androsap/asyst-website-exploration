@@ -1,14 +1,14 @@
 // Halaman Industries & detail industri (revamp 2026).
 // Tambahan di atas components/product/shared/product-v2.scss dan components/solution/shared/solution-v2.scss
-$navy: #0E1E2F;
-$navy-2: #163A5F;
-$blue: #2672B8;
+$navy: #123554;
+$navy-2: #123554;
+$blue: #2775BB;
 $text: #3F4650;
 $muted: #5B6470;
 $border: #E4E8EE;
 $surface: #F6F8FB;
 $surface-soft: #FAFBFD;
-$check: #7AB648;
+$check: #89BA3A;
 $font-heading: "Inter", sans-serif;
 
 $tablet: 1023px;
@@ -48,7 +48,7 @@ $mobile: 599px;
                 max-height: 420px;
                 object-fit: cover;
                 border-radius: 12px;
-                box-shadow: 0 12px 32px rgba(14, 30, 47, 0.08);
+                box-shadow: 0 12px 32px rgba(18, 53, 84, 0.08);
             }
         }
     }
@@ -180,7 +180,7 @@ $mobile: 599px;
         border: 1px solid $border;
         border-radius: 12px;
         background: #fff;
-        box-shadow: 0 2px 6px rgba(14, 30, 47, 0.04);
+        box-shadow: 0 2px 6px rgba(18, 53, 84, 0.04);
         overflow: hidden;
 
         .pv-accordion {

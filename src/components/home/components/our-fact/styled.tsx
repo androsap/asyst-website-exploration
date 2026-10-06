@@ -56,11 +56,11 @@ export const styles = {
     button: {
         width: '190px',
         height: '44px',
-        background: 'linear-gradient(180deg, #0377BD 0%, #006CAE 100%)',
+        background: 'linear-gradient(180deg, #2775BB 0%, #2775BB 100%)',
         borderRadius: '8px',
         color: '#FFF',
         '&:hover': {
-            background: 'linear-gradient(180deg, #006CAE 0%, #0377BD 100%)',
+            background: 'linear-gradient(180deg, #2775BB 0%, #2775BB 100%)',
         },
         mt: '32px'
     },
@@ -79,7 +79,7 @@ export const styles = {
         fontStyle: 'normal',
         fontWeight: 700,
         lineHeight: '52px',
-        color: '#2AD4FA'
+        color: '#89BA3A'
     },
     contentDescription: {
         color: '#FFF',

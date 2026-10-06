@@ -176,7 +176,7 @@ function MainNavigationShared({ defaultNav = false, blurNav = false }: MainNavig
                                         MenuListProps={{ sx: { width: "120px" } }}
                                         anchorEl={anchorEl}
                                         open={!!anchorEl}
-                                        PaperProps={{ sx: { bgcolor: "#002561" } }}
+                                        PaperProps={{ sx: { bgcolor: "#123554" } }}
                                         onClose={handleClose}
                                     >
                                         <MenuItem sx={{ color: "#fff" }} onClick={handleClose}>Indonesian</MenuItem>

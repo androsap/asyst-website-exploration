@@ -42,7 +42,7 @@ export const styles = {
         lineHeight: "28px",
     },
     title: {
-        color: "#002561",
+        color: "#123554",
         textAlign: "left",
         fontFamily: "Inter",
         fontSize: "28px",

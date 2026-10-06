@@ -19,7 +19,7 @@
     margin-bottom: 17px;
 
     a {
-        color: #48BAFF !important;
+        color: #89BA3A !important;
     }
 }
 
@@ -44,7 +44,7 @@
         line-height: 19px;
         letter-spacing: 0em;
         text-align: left;
-        background: linear-gradient(180deg, #0482DB 0%, #0069B3 100%);
+        background: linear-gradient(180deg, #2775BB 0%, #2775BB 100%);
         width: 328px;
         height: 48px;
         line-height: 32px;
@@ -76,7 +76,7 @@
 
             &:hover,
             &:focus {
-                color: #002561;
+                color: #123554;
             }
         }
     }
@@ -250,14 +250,14 @@
 
 .MuiButton-root.btn-home {
     &:hover {
-        border: 1px solid #279DE4;
+        border: 1px solid #2775BB;
         color: #fff;
-        background: #279DE4;
+        background: #2775BB;
     }
 
     border-radius: 55px;
     border: 1px solid #fff;
-    // background-color: #279DE4 ;
+    // background-color: #2775BB ;
     color: #FFF;
     font-size: 13px;
     margin: 0px 15px 0px 0px;
@@ -266,8 +266,8 @@
 
 .MuiButton-root.btn-demo {
     border-radius: 55px;
-    border: 1px solid #279DE4;
-    background-color: #279DE4;
+    border: 1px solid #2775BB;
+    background-color: #2775BB;
     color: #FFF;
     font-size: 13px;
     margin: 0px 15px 0px 0px;

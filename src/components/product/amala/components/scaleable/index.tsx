@@ -34,7 +34,7 @@ export default function ScalableComponent() {
                         <div style={{ display: 'inline' }}>
                             <a
                                 style={{
-                                    color: 'var(--Primary, #006CAE)',
+                                    color: 'var(--color-primary, #2775BB)',
                                     display: 'inline',
                                 }}
                             >

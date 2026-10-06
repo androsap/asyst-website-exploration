@@ -37,9 +37,9 @@ export default function PageLoader({ open = true }: PageLoaderProps) {
                     sx={{
                         inset: 0,
                         borderRadius: "50%",
-                        border: "3px solid rgba(4, 55, 122, 0.1)",
-                        borderTopColor: "#04377a",
-                        borderRightColor: "#7ac143",
+                        border: "3px solid rgba(18, 53, 84, 0.1)",
+                        borderTopColor: "#123554",
+                        borderRightColor: "#89BA3A",
                         animation: `${spin} 1s linear infinite`
                     }}
                 />

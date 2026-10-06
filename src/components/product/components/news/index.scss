@@ -27,17 +27,17 @@
         padding-right: 24px;
 
         &.MuiButton-text {
-            color: #006CAE;
-            border: 1px solid var(--Primary, #006CAE);
+            color: #2775BB;
+            border: 1px solid var(--color-primary, #2775BB);
 
             &:hover {
-                background-color: #0069B3;
+                background-color: #2775BB;
                 color: #fff;
             }
         }
 
         &.MuiButton-contained {
-            background-color: #0069B3;
+            background-color: #2775BB;
             color: #fff;
             box-shadow: none;
         }
@@ -46,7 +46,7 @@
 }
 
 .discover {
-    color: var(--Primary, #006CAE);
+    color: var(--color-primary, #2775BB);
     font-family: Source Sans Pro;
     font-size: 16px;
     margin-right: 0% !important;
@@ -76,7 +76,7 @@
             background: rgba(244, 248, 255, 0.80);
             padding-left: 15px;
             padding-right: 15px;
-            color: #002663;
+            color: #123554;
             font-size: 12px;
             font-weight: 400;
         }

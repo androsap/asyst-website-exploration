@@ -21,7 +21,7 @@
     }
 
     .countdown-text.MuiTypography-root {
-        color: var(--link, #0069B3);
+        color: var(--link, #2775BB);
         text-align: right;
         font-family: Source Sans Pro;
         font-size: 12px;
@@ -30,7 +30,7 @@
     }
 
     .title.MuiTypography-root {
-        color: var(--title-navy-ga, #002561);
+        color: var(--title-navy-ga, #123554);
         text-align: center;
         font-family: Inter;
         font-size: 20px;
@@ -62,10 +62,10 @@
 
     .btn-new.MuiButtonBase-root {
         border-radius: 55px !important;
-        border: 1px solid #0069B3 !important;
+        border: 1px solid #2775BB !important;
         height: 44px !important;
         padding: 13px 15px !important;
-        color: #0069B3 !important;
+        color: #2775BB !important;
         text-align: center !important;
         font-size: 14px !important;
         // margin-right: 36px;
@@ -73,10 +73,10 @@
 
     .btn-new-mobile.MuiButtonBase-root {
         border-radius: 55px !important;
-        border: 1px solid #0069B3 !important;
+        border: 1px solid #2775BB !important;
         height: 44px !important;
         padding: 13px 15px !important;
-        color: #0069B3 !important;
+        color: #2775BB !important;
         text-align: center !important;
         font-size: 14px !important;
         margin-bottom: 16px;
@@ -90,7 +90,7 @@
         color: #ffffff !important;
         text-align: center !important;
         font-size: 14px !important;
-        background-color: #0069B3 !important;
+        background-color: #2775BB !important;
     }
 
     .btn-old-mobile.MuiButtonBase-root {
@@ -100,7 +100,7 @@
         color: #ffffff !important;
         text-align: center !important;
         font-size: 14px !important;
-        background-color: #0069B3 !important;
+        background-color: #2775BB !important;
         width: 250px;
     }
 }

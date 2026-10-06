@@ -4,7 +4,7 @@
         display: "flex";
         flex-direction: "row";
         align-items: "center";
-        background-color: #006CAE;
+        background-color: #2775BB;
         height: 56px;
 
         .logo-asyst {
@@ -62,7 +62,7 @@
     }
 
     .back-button {
-        color: var(--Primary, #006CAE);
+        color: var(--color-primary, #2775BB);
         font-family: "Source Sans Pro";
         font-size: 14px;
         font-style: normal;
@@ -80,7 +80,7 @@
     }
 
     .title-category {
-        color: var(--nuted-key-colors-tertiary, #002561);
+        color: var(--nuted-key-colors-tertiary, #123554);
         font-family: "Source Sans Pro";
         font-size: 14px;
         font-style: normal;

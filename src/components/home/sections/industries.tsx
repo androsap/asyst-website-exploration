@@ -23,7 +23,7 @@ export default function IndustriesSection() {
                     </Box>
                 </Box>
                 <Box className="home-industries__slider">
-                    <Swiper {...swiperProps} spaceBetween={16} slidesPerView={1} breakpoints={{ 600: { slidesPerView: 1.6, spaceBetween: 40 }, 1200: { slidesPerView: 2.25, spaceBetween: 40 } }}>
+                    <Swiper {...swiperProps} spaceBetween={16} slidesPerView={1} breakpoints={{ 600: { slidesPerView: 1.6, spaceBetween: 32 }, 1200: { slidesPerView: 2.25, spaceBetween: 32 } }}>
                         {IndustriesConst.items.map(({ title, description, image, tags }) => (
                             <SwiperSlide key={title}>
                                 <Box className="home-industry">

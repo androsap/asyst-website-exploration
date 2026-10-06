@@ -42,7 +42,7 @@ export const styles = {
         width: '250px',
         height: '46px',
         borderRadius: '55px',
-        background: 'var(--Primary, #006CAE)',
+        background: 'var(--color-primary, #2775BB)',
         gap: '10px'
     },
     textButton: {
@@ -77,7 +77,7 @@ export const styles = {
         gap: 4
     },
     contentTitle: {
-        color: '#002561',
+        color: '#123554',
         fontFamily: 'Inter',
         fontSize: '18px',
         fontWeight: 700,

@@ -2,11 +2,11 @@ import { SvgIconComponent } from "@mui/icons-material";
 import DashboardCustomizeOutlinedIcon from "@mui/icons-material/DashboardCustomizeOutlined";
 import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
 import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
-import ViewInArOutlinedIcon from "@mui/icons-material/ViewInArOutlined";
-import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
-import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
-import AdsClickOutlinedIcon from "@mui/icons-material/AdsClickOutlined";
-import DevicesOutlinedIcon from "@mui/icons-material/DevicesOutlined";
+import { ReactComponent as AutomateOperationsIcon } from "assets/asyst/img/icon/capabilities/automate-operations.svg";
+import { ReactComponent as ModernizeLegacyIcon } from "assets/asyst/img/icon/capabilities/modernize-legacy.svg";
+import { ReactComponent as ConnectEnterpriseIcon } from "assets/asyst/img/icon/capabilities/connect-enterprise.svg";
+import { ReactComponent as ImproveCustomerIcon } from "assets/asyst/img/icon/capabilities/improve-customer.svg";
+import { ReactComponent as BuildDigitalIcon } from "assets/asyst/img/icon/capabilities/build-digital.svg";
 
 import imgAwardAlibabaCloud from "assets/asyst/img/award/award-alibaba-cloud.png";
 import imgAwardIrca from "assets/asyst/img/award/award-irca.png";
@@ -22,6 +22,11 @@ import logoAxa from "assets/asyst/img/trusted-by/trusted-axa.png";
 
 import imgProductMockup1 from "assets/asyst/img/background/services-solutions/amala1.png";
 import imgProductMockup2 from "assets/asyst/img/background/services-solutions/hermes1.png";
+import imgCapAutomate from "assets/asyst/img/background/capabilities/automate-operations.png";
+import imgCapModernize from "assets/asyst/img/background/capabilities/modernize-legacy.png";
+import imgCapConnect from "assets/asyst/img/background/capabilities/connect-enterprise.png";
+import imgCapCustomer from "assets/asyst/img/background/capabilities/improve-customer.png";
+import imgCapBuild from "assets/asyst/img/background/capabilities/build-digital.png";
 import imgPartnerProduct from "assets/asyst/img/background/partner/partner-product.jpg";
 import imgPartnerIntegration from "assets/asyst/img/background/partner/partner-integration.jpg";
 import imgPartnerImplementation from "assets/asyst/img/background/partner/partner-implementation.jpg";
@@ -139,53 +144,58 @@ export const ProductsConst = {
 }
 
 export interface CapabilityItem {
-    icon: SvgIconComponent;
+    icon: React.FC<React.SVGProps<SVGSVGElement>>;
     label: string;
     title: string;
     description: string;
     tags: string[];
+    image: string;
 }
 
 export const CapabilitiesConst = {
     title: "Turn complex systems into measurable business progress",
     description: "Technology creates value when it helps people connect information, automate repetitive work, see what is happening, optimize decisions and scale operations",
-    image: imgProductMockup2,
     items: [
         {
-            icon: ViewInArOutlinedIcon,
+            icon: AutomateOperationsIcon,
             label: "Automate operations",
             title: "Automate Operations",
             description: "Turn repetitive and fragmented processes into connected digital workflows that help your teams work more efficiently, respond faster, and make better-informed decisions.",
             tags: ["Workflow Automation", "Enterprise Applications", "System Integration", "Operational Data"],
+            image: imgCapAutomate,
         },
         // TODO: desain hanya menampilkan isi "Automate Operations"; copy tab lain perlu dikonfirmasi
         {
-            icon: GridViewOutlinedIcon,
+            icon: ModernizeLegacyIcon,
             label: "Modernize legacy systems",
             title: "Modernize Legacy Systems",
             description: "Move critical business processes off aging platforms into modern, maintainable applications without disrupting day-to-day operations.",
             tags: ["Application Modernization", "Cloud Migration", "Enterprise Applications"],
+            image: imgCapModernize,
         },
         {
-            icon: ShareOutlinedIcon,
+            icon: ConnectEnterpriseIcon,
             label: "Connect enterprise systems",
             title: "Connect Enterprise Systems",
             description: "Link applications, APIs, data and infrastructure so information flows across departments instead of staying locked in separate systems.",
             tags: ["System Integration", "API Management", "Operational Data"],
+            image: imgCapConnect,
         },
         {
-            icon: AdsClickOutlinedIcon,
+            icon: ImproveCustomerIcon,
             label: "Improve customer experience",
             title: "Improve Customer Experience",
             description: "Give customers and members consistent, personalized digital journeys backed by connected data and reliable services.",
             tags: ["Loyalty", "Customer Engagement", "Digital Channels"],
+            image: imgCapCustomer,
         },
         {
-            icon: DevicesOutlinedIcon,
+            icon: BuildDigitalIcon,
             label: "Build new digital products",
             title: "Build New Digital Products",
             description: "Design, build and launch new digital products with a team that understands enterprise requirements from day one.",
             tags: ["Product Development", "Mobile & Web Apps", "Managed Services"],
+            image: imgCapBuild,
         },
     ] as CapabilityItem[],
 }

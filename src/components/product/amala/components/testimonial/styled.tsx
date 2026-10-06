@@ -48,7 +48,7 @@ export const styles = {
         height: '70px',
     },
     name: {
-        color: '#002663',
+        color: '#123554',
         fontFamily: 'Source Sans Pro',
         fontSize: '20px',
         fontStyle: 'normal',

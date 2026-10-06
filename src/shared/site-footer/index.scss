@@ -1,5 +1,5 @@
 // Footer revamp 2026
-$bg: #0E2238;
+$bg: #123554;
 $text: #E8EDF3;
 $muted: #C9D3DF;
 $font-heading: "Inter", sans-serif;
@@ -7,7 +7,7 @@ $font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
 
 .site-footer {
     margin-top: 80px;
-    padding: 36px 0 20px;
+    padding: 32px 0 20px;
     background: $bg;
     color: $text;
     font-family: $font-body;
@@ -18,8 +18,9 @@ $font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
 
     &__top {
         display: grid;
-        // Kolom company + 5 kolom link (lihat FooterColumnsConst)
-        grid-template-columns: minmax(0, 2.4fr) repeat(5, minmax(0, 1fr));
+        // Kolom company + 4 kolom link (lihat FooterColumnsConst), lebar mengikuti isi dan tersebar rata
+        grid-template-columns: repeat(5, auto);
+        justify-content: space-between;
         gap: 32px;
 
         @media (max-width: 1023px) {
@@ -62,9 +63,10 @@ $font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
     &__title {
         font-family: $font-heading;
         color: #fff;
-        font-size: 17px;
-        font-weight: 600;
-        margin-bottom: 14px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.445px;
 
         @media (max-width: 599px) {
             font-size: 18px;
@@ -74,9 +76,10 @@ $font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
     &__address {
         max-width: 280px;
         font-style: normal;
-        font-size: 15px;
-        line-height: 1.6;
-        margin-top: -6px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.62px;
 
         @media (max-width: 599px) {
             max-width: none;
@@ -87,9 +90,11 @@ $font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
     &__contact {
         display: flex;
         align-items: center;
-        gap: 8px;
-        margin-top: 10px;
-        font-size: 15px;
+        gap: 12px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.62px;
 
         @media (max-width: 599px) {
             gap: 12px;
@@ -101,6 +106,10 @@ $font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
             font-size: 18px;
         }
 
+        & + & {
+            margin-top: 8px;
+        }
+
         &:hover {
             text-decoration: underline;
         }
@@ -109,10 +118,10 @@ $font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
     &__column {
         display: flex;
         flex-direction: column;
-        gap: 18px;
+        gap: 16px;
 
         .site-footer__title {
-            margin-bottom: 4px;
+            margin-bottom: 0;
         }
     }
 
@@ -123,8 +132,11 @@ $font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
     }
 
     &__link {
-        font-size: 15px;
-        color: $text;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.62px;
+        color: #fff;
         width: fit-content;
 
         @media (max-width: 599px) {
@@ -147,8 +159,10 @@ $font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 16px;
-        margin-top: 44px;
-        font-size: 15px;
+        margin-top: 48px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.62px;
 
         // Mobile: rata tengah dengan garis pemisah selebar layar
         @media (max-width: 599px) {

@@ -66,13 +66,13 @@ const CustomStepConnector = styled(StepConnector)(() => ({
     [`&.${stepConnectorClasses.active}`]: {
         [`& .${stepConnectorClasses.line}`]: {
             background:
-                '#002561',
+                '#123554',
         },
     },
     [`&.${stepConnectorClasses.completed}`]: {
         [`& .${stepConnectorClasses.line}`]: {
             background:
-                '#002561',
+                '#123554',
         },
     },
     [`& .${stepConnectorClasses.line}`]: {
@@ -94,10 +94,10 @@ const ColorlibStepIconRoot = styled('div')<{
     height: 8,
     borderRadius: '50%',
     ...(ownerState.active && {
-        backgroundColor: '#006CAE'
+        backgroundColor: '#2775BB'
     }),
     ...(ownerState.completed && {
-        backgroundColor: '#002F5F',
+        backgroundColor: '#123554',
     }),
 }));
 

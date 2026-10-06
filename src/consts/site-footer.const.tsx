@@ -18,45 +18,40 @@ export const FooterColumnsConst: FooterColumn[] = [
     {
         items: [
             { label: "About Us", link: "/about" },
-            { label: "Leadership Team" },
-            { label: "Case Studies", link: "/case-study" },
-            { label: "News", link: "/news" },
             { label: "Careers", link: "/career" },
+            { label: "Help and Documents" },
             { label: "Contact Us", link: "/contact-us" },
         ],
     },
     {
-        title: "Explore",
+        title: "Products",
         items: [
-            { label: "Products", link: "/product" },
-            { label: "Solutions", link: "/solution" },
-            { label: "Industries", link: "/industry" },
-        ],
-    },
-    {
-        title: "IT Consulting",
-        items: [
-            { label: "IT Strategy" },
-            { label: "IT Assessment" },
-            { label: "Digital Transformation" },
-            { label: "Enterprise Architecture" },
-        ],
-    },
-    {
-        title: "Services",
-        items: [
-            { label: "Professional Services" },
-            { label: "Infrastructure" },
-            { label: "Managed Services" },
+            { label: "Enterprise", link: "/product" },
+            { label: "Travel Management", link: "/product/athena" },
+            { label: "Commercial" },
+            { label: "Operations", link: "/product/chronus" },
+            { label: "IT Service Assistant", link: "/product/elea" },
         ],
     },
     {
         title: "Solutions",
+        // Baru SOC yang punya halaman detail; lainnya ke halaman Solutions (sama seperti header.const)
         items: [
-            { label: "Airline" },
-            { label: "Loyalty" },
-            { label: "Airport" },
-            { label: "Ground Operations" },
+            { label: "Security Operation Center", link: "/solution/security-operations-center" },
+            { label: "Digital Business Consulting", link: "/solution" },
+            { label: "Infra, App, Platform Operation and ITSM", link: "/solution" },
+            { label: "Service Orchestration and Data management", link: "/solution" },
+            { label: "Application Modernization", link: "/solution" },
+        ],
+    },
+    {
+        title: "Industries",
+        items: [
+            { label: "Enterprise", link: "/industry" },
+            { label: "Government", link: "/industry" },
+            { label: "Aviation", link: "/industry/aviation" },
+            { label: "Transportation", link: "/industry" },
+            { label: "Other industries", link: "/industry" },
         ],
     },
 ]

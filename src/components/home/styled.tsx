@@ -1,6 +1,6 @@
 export const styles = {
     buttonBox: {
-        color: "#48BAFF",
+        color: "#89BA3A",
         fontFamily: "Source Sans Pro",
         fontSize: "14px",
         fontStyle: "normal",

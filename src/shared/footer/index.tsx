@@ -45,7 +45,7 @@ export default function FooterShared({ }: FooterSharedProps) {
     // ))(({theme}) => ({backgroundColor:
     //     theme.palette.mode === 'dark'
     //       ? 'rgba(255, 255, 255, .05)'
-    //       : 'rgba(0, 38, 76, 1)',
+    //       : 'rgba(18, 53, 84, 1)',
     //     padding: '0px !important',
     //     margin: '0px !important',
     //     '&:not(:last-child)': {
@@ -157,7 +157,7 @@ export default function FooterShared({ }: FooterSharedProps) {
             </Box>
         </Box>}
         {matches && <Box className="footer-mobile" sx={{ mt: "86px" }}>
-            <Box sx={{ mt: "36px", backgroundColor: "#006CAE" }}>
+            <Box sx={{ mt: "36px", backgroundColor: "#2775BB" }}>
                 <Accordion sx={{ boxShadow: "none" }}>
                     <AccordionSummary className="expand-footer" expandIcon={<ExpandMoreIcon />}>
                         <Typography className="summary-footer">Aero Systems Indonesia</Typography>

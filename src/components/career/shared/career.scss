@@ -1,9 +1,9 @@
 // Halaman Career, Jobs & detail lowongan (revamp 2026). Tambahan di atas components/product/shared/product-v2.scss
-$navy: #0E1E2F;
-$navy-2: #163A5F;
-$blue: #2672B8;
+$navy: #123554;
+$navy-2: #123554;
+$blue: #2775BB;
 $blue-soft: #EEF4FB;
-$green: #4F8A1F;
+$green: #89BA3A;
 $green-soft: #EEF6E6;
 $text: #3F4650;
 $muted: #5B6470;
@@ -216,7 +216,7 @@ $mobile: 599px;
         &--hero {
             max-width: 720px;
             margin: 36px auto 0;
-            box-shadow: 0 8px 24px rgba(14, 30, 47, 0.06);
+            box-shadow: 0 8px 24px rgba(18, 53, 84, 0.06);
         }
     }
 
@@ -542,7 +542,7 @@ $mobile: 599px;
         transition: box-shadow .2s;
 
         &:hover {
-            box-shadow: 0 12px 28px rgba(14, 30, 47, 0.08);
+            box-shadow: 0 12px 28px rgba(18, 53, 84, 0.08);
         }
 
         @media (max-width: $mobile) {

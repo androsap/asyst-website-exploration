@@ -88,7 +88,7 @@ export default function ServicesComponent() {
                                         className='category-industry'
                                         onClick={() => window.location.assign("https://www.asyst.co.id/our-products")}
                                     >
-                                        <Typography sx={{ color: "#002561" }} variant="body1">{item.title_id}</Typography>
+                                        <Typography sx={{ color: "#123554" }} variant="body1">{item.title_id}</Typography>
                                     </Button>
                                     <ArrowUpRight className="arrow-icon" />
                                 </Grid>

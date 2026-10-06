@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Container from "@mui/material/Container";
@@ -27,14 +27,17 @@ export default function ProductsSection() {
                     </ButtonBase>
                 ))}
             </Box>
-            <Box className="home-products">
-                {items.map(({ title, description, image, link }) => (
-                    <Link key={title} to={link} className="home-product">
+            {/* key = kategori aktif: grid di-remount tiap ganti tab supaya animasi masuk kartu diputar ulang */}
+            <Box key={active} className="home-products">
+                {items.map(({ title, description, image, link }, i) => (
+                    <Link key={title} to={link} className="home-product" style={{ "--i": i } as CSSProperties}>
                         <Typography className="home-product__title">{title}</Typography>
                         <Typography className="home-product__description">{description}</Typography>
                         <Box className="home-product__preview">
-                            <Box className="home-product__window-bar"><span /><span /></Box>
-                            <img src={image} alt={title} loading="lazy" />
+                            <Box className="home-product__frame">
+                                <Box className="home-product__window-bar"><span /><span /></Box>
+                                <img src={image} alt={title} loading="lazy" />
+                            </Box>
                         </Box>
                     </Link>
                 ))}

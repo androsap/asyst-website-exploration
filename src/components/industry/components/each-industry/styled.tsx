@@ -41,7 +41,7 @@ export const styles = {
         button: {
             mt: "6%",
             borderRadius: "8px",
-            background: "linear-gradient(180deg, #0279C1 0%, #006CAE 100%)",
+            background: "linear-gradient(180deg, #2775BB 0%, #2775BB 100%)",
             height: "56px",
             flexShrink: 0,
             display: "block"
@@ -88,7 +88,7 @@ export const styles = {
 
     bodyText: {
         marginInlineEnd: "auto",
-        color: "var(--nuted-sys-light-primary, #0061A6)",
+        color: "var(--nuted-sys-light-primary, #2775BB)",
         fontFamily: "Inter",
         fontSize: "22px",
         fontStyle: "normal",
@@ -98,7 +98,7 @@ export const styles = {
     },
 
     outwardIcon: {
-        color: "rgba(0, 108, 174, 1)",
+        color: "rgba(39, 117, 187, 1)",
         width: "1.2em",
         height: "1.2em",
         paddingTop: "14px"

@@ -196,7 +196,7 @@ export default function ServicesSolutionsHomeComponent() {
                                     <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', mt: '18px' }}>
                                         <Divider sx={{ flex: '1', mr: '2%' }} textAlign='left'>
                                             <Button className="btn-solutions custom">
-                                                <Box sx={{ borderRadius: "100%", mr: "9px", border: `1px solid #002663`, width: "23px", minWidth: "23px", height: "23px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <Box sx={{ borderRadius: "100%", mr: "9px", border: `1px solid #123554`, width: "23px", minWidth: "23px", height: "23px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                                                     <Icon2 />
                                                 </Box>
                                                 Products and Services
@@ -278,7 +278,7 @@ export default function ServicesSolutionsHomeComponent() {
                                     <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', mt: '18px' }}>
                                         <Divider sx={{ flex: '1', mr: '2%' }} textAlign='left'>
                                             <Button className="btn-solutions">
-                                                <Box sx={{ borderRadius: "100%", mr: "9px", border: `1px solid #002663`, width: "23px", minWidth: "23px", height: "23px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <Box sx={{ borderRadius: "100%", mr: "9px", border: `1px solid #123554`, width: "23px", minWidth: "23px", height: "23px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                                                     <Icon1 />
                                                 </Box>
                                                 Business Solution
@@ -348,7 +348,7 @@ export default function ServicesSolutionsHomeComponent() {
                             <Box sx={{ width: "40%" }}>
                                 <Box display="flex" flexDirection="column" justifyContent="space-between">
                                     <Box onClick={handleClose} display="flex" flexDirection="row" sx={{ margin: "5px 0px", cursor: "pointer" }}>
-                                        <Box sx={{ borderRadius: "100%", mr: "9px", mt: "-1px", border: "1px solid #0069B3", width: "20px", minWidth: "20px", height: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                        <Box sx={{ borderRadius: "100%", mr: "9px", mt: "-1px", border: "1px solid #2775BB", width: "20px", minWidth: "20px", height: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                                             <ArrowLeft />
                                         </Box>
                                         <Typography sx={styles.buttonBack}>Back</Typography>

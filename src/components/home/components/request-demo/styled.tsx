@@ -15,7 +15,7 @@ export const styles = {
         paddingTop: "20px",
         paddingBottom: "33px",
         heading: {
-            backgroundColor: "#006CAE",
+            backgroundColor: "#2775BB",
             paddingX: "20px",
             paddingY: "15px"
         },
@@ -29,13 +29,13 @@ export const styles = {
             mt: "20px"
         },
         buttonRequest: {
-            background: "linear-gradient(180deg, #0279C1 0%, #006CAE 100%)",
+            background: "linear-gradient(180deg, #2775BB 0%, #2775BB 100%)",
             height: "35px",
             flexShrink: 0,
             mr: "5px"
         },
         buttonCancel: {
-            background: "linear-gradient(180deg, #0279C1 0%, #006CAE 100%)",
+            background: "linear-gradient(180deg, #2775BB 0%, #2775BB 100%)",
             height: "35px",
             flexShrink: 0,
         }

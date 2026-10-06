@@ -46,7 +46,7 @@ export default function MenuCompanyComponent({ openCompany, setOpenCompany, setO
                     </Grid>
                 </Box>
                 <Box className="box-back" >
-                    <IconButton color="inherit" onClick={() => setOpenCompany(false)} ><ArrowBackIcon sx={{ color: "#006CAE", height: "15px" }} /></IconButton>
+                    <IconButton color="inherit" onClick={() => setOpenCompany(false)} ><ArrowBackIcon sx={{ color: "#2775BB", height: "15px" }} /></IconButton>
                     <Typography className="back-button">Back</Typography>
                 </Box>
                 <Box className="box-menu">
@@ -55,7 +55,7 @@ export default function MenuCompanyComponent({ openCompany, setOpenCompany, setO
                 </Box>
                 <Box className="header-category">
                     <Typography className="title-category">{CompanyConst[0].category}</Typography>
-                    <ArrowForwardIcon sx={{ color: "#002561", height: "15px" }} />
+                    <ArrowForwardIcon sx={{ color: "#123554", height: "15px" }} />
                 </Box>
                 <Divider sx={{ paddingTop: "10px", ml: "10px", mr: "15px" }} />
                 <Box>
@@ -76,17 +76,17 @@ export default function MenuCompanyComponent({ openCompany, setOpenCompany, setO
                 </Box>
                 <Box className="header-category">
                     <Link to="https://www.asyst.co.id/career"><Typography className="title-category">Career</Typography></Link>
-                    <ArrowForwardIcon sx={{ color: "#002561", height: "15px" }} />
+                    <ArrowForwardIcon sx={{ color: "#123554", height: "15px" }} />
                 </Box>
                 <Divider sx={{ paddingTop: "10px", ml: "10px", mr: "15px" }} />
                 <Box className="header-category">
                     <Link to="https://www.asyst.co.id/contact-us"><Typography className="title-category">Contact and Support</Typography></Link>
-                    <ArrowForwardIcon sx={{ color: "#002561", height: "15px" }} />
+                    <ArrowForwardIcon sx={{ color: "#123554", height: "15px" }} />
                 </Box>
                 <Divider sx={{ paddingTop: "10px", ml: "10px", mr: "15px" }} />
                 <Box className="header-category">
                     <Typography className="title-category" onClick={requestDemoModal}>Schedule a Demo</Typography>
-                    <ArrowForwardIcon sx={{ color: "#002561", height: "15px" }} />
+                    <ArrowForwardIcon sx={{ color: "#123554", height: "15px" }} />
                 </Box>
             </Box>
         </Drawer>

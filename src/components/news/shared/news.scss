@@ -1,7 +1,7 @@
 // Halaman News & detail news (revamp 2026). Tambahan di atas components/product/shared/product-v2.scss
-$navy: #0E1E2F;
-$navy-2: #163A5F;
-$blue: #2672B8;
+$navy: #123554;
+$navy-2: #123554;
+$blue: #2775BB;
 $blue-soft: #E8F1FA;
 $text: #3F4650;
 $muted: #5B6470;
@@ -135,7 +135,7 @@ $mobile: 599px;
         transition: box-shadow .2s;
 
         &:hover {
-            box-shadow: 0 12px 28px rgba(14, 30, 47, 0.08);
+            box-shadow: 0 12px 28px rgba(18, 53, 84, 0.08);
         }
 
         &__media {
@@ -244,6 +244,11 @@ $mobile: 599px;
             background: $blue;
             border-radius: 6px;
             padding: 10px 28px;
+            transition: background-color 0.3s ease-out;
+
+            &:hover {
+                background: $navy;
+            }
 
             @media (max-width: $mobile) {
                 padding: 16px 28px;

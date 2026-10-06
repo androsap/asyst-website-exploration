@@ -56,7 +56,7 @@ export const styles = {
         height: '40px',
         flexShrink: 0,
         borderRadius: '8px',
-        background: '#FFB443',
+        background: '#89BA3A',
         marginTop: '20px',
         marginBottom: '30px',
         boxShadow: '0px 7px 16px 0px rgba(0, 0, 0, 0.10)',

@@ -6,7 +6,7 @@ export const styles = {
         position: 'relative',
         backgroundSize: 'cover',
         height: '608px !important',
-        backgroundImage: `url(${img}), lightgray 50% / cover no-repeat, linear-gradient(208deg, #025B92 17.16%, #006CAE 89.13%)`,
+        backgroundImage: `url(${img}), lightgray 50% / cover no-repeat, linear-gradient(208deg, #123554 17.16%, #2775BB 89.13%)`,
 
     },
     overlayBox: {
@@ -20,7 +20,7 @@ export const styles = {
         width: '100%',
         height: '608px',
         opacity: 0.9,
-        backgroundImage: `linear-gradient(208deg, #025B92 17.16%, #006CAE 89.13%)`,
+        backgroundImage: `linear-gradient(208deg, #123554 17.16%, #2775BB 89.13%)`,
     },
     image: {
         height: '100%',
@@ -31,7 +31,7 @@ export const styles = {
         marginTop: '138px',
         justifyContent: 'flex-end',
         borderRadius: '80px 0px 0px 0px',
-        background: '#ED7D2B',
+        background: '#89BA3A',
         // width: '450px',
         height: '470px',
         flexShrink: 0
@@ -68,7 +68,7 @@ export const styles = {
         height: '56px',
         flexShrink: 0,
         borderRadius: '8px',
-        background: 'var(--Primary, #006CAE)',
+        background: 'var(--color-primary, #2775BB)',
         marginTop: '30px'
     },
     button: {

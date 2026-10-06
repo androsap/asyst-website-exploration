@@ -1,7 +1,7 @@
 // Halaman Products & detail produk (revamp 2026). Token mengikuti components/home/sections/home.scss
-$navy: #0E1E2F;
-$navy-2: #163A5F;
-$blue: #2672B8;
+$navy: #123554;
+$navy-2: #123554;
+$blue: #2775BB;
 $text: #3F4650;
 $muted: #5B6470;
 $border: #E4E8EE;
@@ -111,11 +111,11 @@ $mobile: 599px;
     }
 
     .pv-btn--primary.MuiButton-root {
-        background: linear-gradient(180deg, #2E80CC 0%, #2569AB 100%);
+        background: linear-gradient(180deg, #2775BB 0%, #2775BB 100%);
         color: #fff;
 
         &:hover {
-            background: #225F9B;
+            background: #123554;
         }
     }
 
@@ -123,9 +123,12 @@ $mobile: 599px;
         border: 1px solid $blue;
         color: $blue;
         background: rgba(255, 255, 255, 0.6);
+        transition: background-color 0.3s ease-out, border-color 0.3s ease-out, color 0.3s ease-out;
 
         &:hover {
-            background: rgba(38, 114, 184, 0.06);
+            background: $navy;
+            border-color: $navy;
+            color: #fff;
         }
     }
 
@@ -134,9 +137,11 @@ $mobile: 599px;
         color: $blue;
         padding: 14px 36px;
         flex-shrink: 0;
+        transition: background-color 0.3s ease-out, color 0.3s ease-out;
 
         &:hover {
-            background: #EEF4FB;
+            background: $navy;
+            color: #fff;
         }
     }
 
@@ -178,11 +183,11 @@ $mobile: 599px;
 
         .pv-btn--primary.MuiButton-root {
             &::before {
-                background: #225F9B;
+                background: #123554;
             }
 
             &:hover {
-                background: linear-gradient(180deg, #2E80CC 0%, #2569AB 100%);
+                background: linear-gradient(180deg, #2775BB 0%, #2775BB 100%);
             }
         }
 
@@ -190,12 +195,12 @@ $mobile: 599px;
             // menutupi border 1px supaya sudutnya tidak menyisakan garis terang
             &::before {
                 inset: -1px;
-                background: linear-gradient(180deg, #2E80CC 0%, #2569AB 100%);
+                background: $navy;
             }
 
             &:hover {
                 background: rgba(255, 255, 255, 0.6);
-                border-color: #2569AB;
+                border-color: $navy;
                 color: #fff;
             }
         }
@@ -235,7 +240,7 @@ $mobile: 599px;
         transition: background .2s;
 
         &:hover {
-            background: rgba(38, 114, 184, 0.06);
+            background: rgba(39, 117, 187, 0.06);
         }
     }
 
@@ -502,7 +507,7 @@ $mobile: 599px;
             img {
                 display: block;
                 width: 100%;
-                filter: drop-shadow(0 12px 32px rgba(14, 30, 47, 0.12));
+                filter: drop-shadow(0 12px 32px rgba(18, 53, 84, 0.12));
             }
 
             @media (max-width: $mobile) {
@@ -687,7 +692,7 @@ $mobile: 599px;
         transition: box-shadow .2s, transform .2s;
 
         &:hover {
-            box-shadow: 0 10px 24px rgba(14, 30, 47, 0.08);
+            box-shadow: 0 10px 24px rgba(18, 53, 84, 0.08);
             transform: translateY(-2px);
         }
 
@@ -939,7 +944,7 @@ $mobile: 599px;
         gap: 32px;
         padding: 52px 56px;
         border-radius: 14px;
-        background: linear-gradient(180deg, #2A78BE 0%, #2566A6 100%);
+        background: linear-gradient(180deg, #2775BB 0%, #2775BB 100%);
         color: #fff;
 
         @media (max-width: $tablet) {

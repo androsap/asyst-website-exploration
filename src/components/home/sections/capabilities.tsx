@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Container from "@mui/material/Container";
@@ -10,6 +10,14 @@ export default function CapabilitiesSection() {
     const [activeIndex, setActiveIndex] = useState(0);
     const active = CapabilitiesConst.items[activeIndex];
 
+    // Preload semua gambar tab supaya pergantian tidak kedip saat gambar baru dimuat
+    useEffect(() => {
+        CapabilitiesConst.items.forEach(({ image }) => {
+            const img = new Image();
+            img.src = image;
+        });
+    }, []);
+
     return <Box component="section" className="home-section">
         <Container maxWidth="xl">
             <SectionHeading title={CapabilitiesConst.title} description={CapabilitiesConst.description} />
@@ -19,6 +27,7 @@ export default function CapabilitiesSection() {
                         <ButtonBase
                             key={label}
                             role="tab"
+                            disableRipple
                             aria-selected={index === activeIndex}
                             className={`home-capabilities__menu-item ${index === activeIndex ? "active" : ""}`}
                             onClick={() => setActiveIndex(index)}
@@ -29,7 +38,7 @@ export default function CapabilitiesSection() {
                     ))}
                 </Box>
                 <Box className="home-capabilities__detail" role="tabpanel">
-                    <Box className="home-capabilities__text">
+                    <Box key={activeIndex} className="home-capabilities__text">
                         <Typography className="home-capabilities__title">{active.title}</Typography>
                         <Typography className="home-capabilities__description">{active.description}</Typography>
                         <Box className="home-chips">
@@ -37,7 +46,7 @@ export default function CapabilitiesSection() {
                         </Box>
                     </Box>
                     <Box className="home-capabilities__image">
-                        <img src={CapabilitiesConst.image} alt={active.title} loading="lazy" />
+                        <img key={active.image} src={active.image} alt={active.title} loading="lazy" />
                     </Box>
                 </Box>
             </Box>

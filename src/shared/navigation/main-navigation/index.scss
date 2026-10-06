@@ -9,13 +9,13 @@
 
     &.active {
         background: #fff !important;
-        color: #006CAE;
-        // background: linear-gradient(180deg, #002F5F 0%, #002D5B 100%) !important;
+        color: #2775BB;
+        // background: linear-gradient(180deg, #123554 0%, #123554 100%) !important;
     }
 
     &.hover {
         // background: #fff !important;
-        color: #006CAE;
+        color: #2775BB;
         background: #fff !important;
         box-shadow: 0px 4px 16px 0.2px rgba(55, 55, 55, 0.06);
     }
@@ -44,16 +44,16 @@
                     border: 1px solid #fff;
 
                     &.zero {
-                        border: 1px solid #0069B3;
+                        border: 1px solid #2775BB;
                     }
                 }
 
                 &:hover {
 
-                    color: #002561 !important;
+                    color: #123554 !important;
 
                     .rounded-btn {
-                        border: 1px solid #009EDB;
+                        border: 1px solid #2775BB;
                     }
                 }
 
@@ -67,7 +67,7 @@
         }
 
         .MuiButtonBase-root.menu-single-hover {
-            color: #009EDB !important;
+            color: #2775BB !important;
         }
 
         .main-logo {
@@ -80,8 +80,8 @@
 
         .MuiButton-root.btn-contact-us {
             &:hover {
-                border-color: #006CAE !important;
-                background-color: #006CAE !important;
+                border-color: #2775BB !important;
+                background-color: #2775BB !important;
             }
 
             border-radius: 55px;
@@ -93,9 +93,9 @@
         }
 
         .MuiButton-root.btn-contact-us-hover {
-            background-color: #006CAE !important;
+            background-color: #2775BB !important;
             border-radius: 55px;
-            border: #006CAE;
+            border: #2775BB;
             color: #FFF;
             font-size: 13px;
             margin: 0px 15px 0px 0px;
@@ -174,14 +174,14 @@
 
     .main-drawer {
         width: 360px;
-        background: linear-gradient(180deg, #0069B3 0%, #002561 100%);
+        background: linear-gradient(180deg, #2775BB 0%, #123554 100%);
         flex: auto;
     }
 
     .MuiButtonBase-root.btn-daftar {
         border-radius: 55px !important;
         background: #fff !important;
-        color: #0069B3;
+        color: #2775BB;
         font-family: Inter;
         font-size: 16px;
         font-style: normal;

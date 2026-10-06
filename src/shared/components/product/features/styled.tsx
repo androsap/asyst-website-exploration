@@ -85,7 +85,7 @@ export const styles = {
             '& .swiper-pagination-bullet-active': {
                 backgroundColor: '#fff',
                 border: '1px solid #fff',
-                color: '#006CAE'
+                color: '#2775BB'
             }
         }
     }

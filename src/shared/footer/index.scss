@@ -7,8 +7,8 @@
 
     .brand-footer {
         z-index: 3;
-        // background-color: #00264C;
-        background: linear-gradient(180deg, #006CAE 0%, #005589 100%);
+        // background-color: #123554;
+        background: linear-gradient(180deg, #2775BB 0%, #123554 100%);
 
         .MuiGrid-container {
             justify-content: flex-start;
@@ -73,7 +73,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    color: #1FC4F4 !important;
+                    color: #89BA3A !important;
                 }
             }
         }
@@ -85,7 +85,7 @@
         font-family: "Source Sans Pro" !important;
 
         &:hover {
-            color: #009edb !important;
+            color: #2775BB !important;
         }
     }
 
@@ -105,7 +105,7 @@
     }
 
     .award {
-        color: #0069B3;
+        color: #2775BB;
         text-align: center;
         font-size: 14px !important;
         font-weight: 600 !important;
@@ -123,7 +123,7 @@
         }
 
         &:hover {
-            color: #009edb !important;
+            color: #2775BB !important;
         }
 
     }
@@ -160,7 +160,7 @@
                 padding: 3px 0px !important;
 
                 &:hover {
-                    color: #009edb !important;
+                    color: #2775BB !important;
                 }
             }
 
@@ -185,7 +185,7 @@
     }
 
     .expand-footer {
-        background-color: #00264C;
+        background-color: #123554;
         padding: 0px !important;
         margin: 0px !important;
     }
@@ -204,7 +204,7 @@
         font-weight: 400 !important;
 
         &:hover {
-            color: #1FC4F4 !important;
+            color: #89BA3A !important;
         }
     }
 
@@ -297,7 +297,7 @@
 
     .brand-footer {
         z-index: 3;
-        // background-color: #00264C;
+        // background-color: #123554;
 
         .MuiGrid-container {
             justify-content: flex-start;
@@ -305,7 +305,7 @@
     }
 
     .expand-footer {
-        background-color: #006CAE;
+        background-color: #2775BB;
         padding-left: 16px;
         padding-right: 16px;
         margin: 0px !important;
@@ -332,7 +332,7 @@
     }
 
     .MuiAccordionDetails-root {
-        background-color: #006CAE;
+        background-color: #2775BB;
         padding: 0;
     }
 

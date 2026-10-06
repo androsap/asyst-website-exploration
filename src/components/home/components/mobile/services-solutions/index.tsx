@@ -81,7 +81,7 @@ const ServicesSolutionsMobileComponent: React.FC<ServicesSolutionsMobileProps> =
                     <Skeleton animation="wave" variant="text" width={'50%'} height={50} />
                 )}
                 <Button sx={{ display: "flex", justifyContent: "flex-start" }} className="btn-solutions custom">
-                    <Box sx={{ borderRadius: "100%", mr: "9px", border: `1px solid #002663`, width: "23px", minWidth: "23px", height: "23px", display: "flex", alignItems: "center", justifyContent: "center" }}><Icon2 /></Box>
+                    <Box sx={{ borderRadius: "100%", mr: "9px", border: `1px solid #123554`, width: "23px", minWidth: "23px", height: "23px", display: "flex", alignItems: "center", justifyContent: "center" }}><Icon2 /></Box>
                     Products and Services
                 </Button>
                 <Box className="btn-industries" display="flex" justifyContent="space-between">
@@ -146,7 +146,7 @@ const ServicesSolutionsMobileComponent: React.FC<ServicesSolutionsMobileProps> =
                     ))}
                 </Box>
                 <Button sx={{ display: "flex", justifyContent: "flex-start" }} className="btn-solutions custom">
-                    <Box sx={{ borderRadius: "100%", mr: "9px", border: `1px solid #002663`, width: "23px", minWidth: "23px", height: "23px", display: "flex", alignItems: "center", justifyContent: "center" }}><Icon1 /></Box>
+                    <Box sx={{ borderRadius: "100%", mr: "9px", border: `1px solid #123554`, width: "23px", minWidth: "23px", height: "23px", display: "flex", alignItems: "center", justifyContent: "center" }}><Icon1 /></Box>
                     Business Solution
                 </Button>
                 <Box>

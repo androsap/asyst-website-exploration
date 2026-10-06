@@ -54,7 +54,7 @@ export default function SolutionsComponent() {
                         <Paper style={styles.paperContainerSatu}>
                             <Grid sx={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '200px' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '180px' }}>
-                                    <Box sx={{ height: '28px', width: '131px', borderRadius: '55px', background: '#009EDB', textAlign: 'center', color: 'white' }}>
+                                    <Box sx={{ height: '28px', width: '131px', borderRadius: '55px', background: '#2775BB', textAlign: 'center', color: 'white' }}>
                                         <Typography fontSize={12} paddingTop={0.2}>Business Solutions</Typography>
                                     </Box>
                                 </Box>
@@ -67,7 +67,7 @@ export default function SolutionsComponent() {
                         <Paper style={styles.paperContainerDua}>
                             <Grid sx={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '200px' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '180px' }}>
-                                    <Box sx={{ height: '28px', width: '131px', borderRadius: '55px', background: '#009EDB', textAlign: 'center', color: 'white' }}>
+                                    <Box sx={{ height: '28px', width: '131px', borderRadius: '55px', background: '#2775BB', textAlign: 'center', color: 'white' }}>
                                         <Typography fontSize={12} paddingTop={0.2}>Business Solutions</Typography>
                                     </Box>
                                 </Box>
@@ -80,7 +80,7 @@ export default function SolutionsComponent() {
                         <Paper style={styles.paperContainerTiga}>
                             <Grid sx={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '200px' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '180px' }}>
-                                    <Box sx={{ height: '28px', width: '131px', borderRadius: '55px', background: '#009EDB', textAlign: 'center', color: 'white' }}>
+                                    <Box sx={{ height: '28px', width: '131px', borderRadius: '55px', background: '#2775BB', textAlign: 'center', color: 'white' }}>
                                         <Typography fontSize={12} paddingTop={0.2}>Business Solutions</Typography>
                                     </Box>
                                 </Box>

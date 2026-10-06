@@ -1,7 +1,7 @@
 // Header revamp 2026
-$navy: #0E1E2F;
-$navy-2: #163A5F;
-$blue: #2672B8;
+$navy: #123554;
+$navy-2: #123554;
+$blue: #2775BB;
 $text: #3F4650;
 $border: #E4E8EE;
 $surface: #F7F9FC;
@@ -171,10 +171,11 @@ $header-height: 84px;
     font-size: 17px;
     font-weight: 600;
     cursor: pointer;
-    transition: background .15s, color .15s;
+    transition: background .15s, color .15s, border-color .15s;
 
     &:hover {
-        background: $navy !important;
+        border-color: $blue !important;
+        background: $blue !important;
         color: #fff;
     }
 }
@@ -186,7 +187,7 @@ $header-height: 84px;
     padding: 28px 32px 32px;
     border-radius: 16px;
     background: #fff;
-    box-shadow: 0 12px 40px rgba(14, 30, 47, 0.12);
+    box-shadow: 0 12px 40px rgba(18, 53, 84, 0.12);
     font-family: $font-body;
 
     &__side {
@@ -386,7 +387,7 @@ $header-height: 84px;
 }
 
 // ---------- mobile drawer ----------
-$green: #7AB02B;
+$green: #89BA3A;
 
 .header-mobile.MuiPaper-root {
     width: 100vw;
@@ -601,7 +602,7 @@ $green: #7AB02B;
         cursor: pointer;
 
         &:hover {
-            background: darken($blue, 6%);
+            background: $navy;
         }
     }
 }

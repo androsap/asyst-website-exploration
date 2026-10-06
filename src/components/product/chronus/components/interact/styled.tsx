@@ -31,7 +31,7 @@ export const styles = {
         paddingBottom: '36px'
     },
     subtitle: {
-        color: '#002561',
+        color: '#123554',
         fontFamily: 'Inter',
         fontSize: '24px',
         fontStyle: 'normal',
@@ -71,7 +71,7 @@ export const styles = {
         height: '50px'
     },
     number: {
-        color: '#002561',
+        color: '#123554',
         fontFamily: 'Inter',
         fontSize: '45px',
         fontStyle: 'normal',

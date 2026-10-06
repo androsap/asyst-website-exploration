@@ -1,22 +1,38 @@
 //https://www.color-name.com/hex/{hex color}
 @use "sass:list";
 
-$baseColor: #EC1F5F;
-$baseAlt1Color: #00B6BD;
-$baseAlt2Color: #2AD088;
+// Brand colors
+$primaryColor: #2775BB;
+$secondaryColor: #123554;
+$tertiaryColor: #89BA3A;
+
+$baseColor: $primaryColor;
+$baseAlt1Color: $secondaryColor;
+$baseAlt2Color: $tertiaryColor;
 $baseAlt3Color: #909090;
 $txtHintColor: #666f75;
 $txtDanger: #ef4565;
 
+:root {
+    --color-primary: #{$primaryColor};
+    --color-secondary: #{$secondaryColor};
+    --color-tertiary: #{$tertiaryColor};
+    --color-primary-rgb: 39, 117, 187;
+    --color-secondary-rgb: 18, 53, 84;
+    --color-tertiary-rgb: 137, 186, 58;
+}
+
 $colors: (
-    "base-color",
-    $baseColor),
+    ("primary", $primaryColor),
+    ("secondary", $secondaryColor),
+    ("tertiary", $tertiaryColor),
+    ("base-color", $baseColor),
     ("base-alt1-color", $baseAlt1Color),
     ("base-alt2-color", $baseAlt2Color),
     ("base-alt3-color", $baseAlt3Color),
-    ("base-alt3-color", $baseAlt3Color),
     ("danger", $txtDanger),
-    ("hint-color", $txtHintColor);
+    ("hint-color", $txtHintColor)
+);
 
 @each $color in $colors {
     .bg-#{list.nth($color,1)} {

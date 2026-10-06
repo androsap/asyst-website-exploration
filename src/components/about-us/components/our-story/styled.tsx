@@ -25,7 +25,7 @@ export const styles = {
 
     },
     year: {
-        color: 'var(--nuted-key-colors-tertiary, #002561)',
+        color: 'var(--nuted-key-colors-tertiary, #123554)',
         fontFamily: 'Inter',
         fontSize: '45px',
         fontStyle: 'normal',
@@ -33,7 +33,7 @@ export const styles = {
         lineHeight: '52px'
     },
     text: {
-        color: 'var(--nuted-key-colors-tertiary, #002561)',
+        color: 'var(--nuted-key-colors-tertiary, #123554)',
         fontFamily: 'Inter',
         fontSize: '20px',
         fontStyle: 'normal',
@@ -45,7 +45,7 @@ export const styles = {
         height: '56px',
         flexShrink: 0,
         borderRadius: '8px',
-        background: 'var(--Primary, #006CAE)',
+        background: 'var(--color-primary, #2775BB)',
     },
     button: {
         display: 'flex', 

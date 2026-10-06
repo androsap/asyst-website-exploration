@@ -22,7 +22,7 @@ export const styles = {
         paddingRight: "16px",
 
         title: {
-            color: "#002663",
+            color: "#123554",
             fontFamily: "Inter",
             fontSize: "20px",
             fontStyle: "normal",

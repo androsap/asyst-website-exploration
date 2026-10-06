@@ -37,7 +37,7 @@ export const styles = {
             '.highlight': {
                 fontSize: '14px',
                 fontWeight: 600,
-                color: '#006CAE',
+                color: '#2775BB',
                 fontFamily: '"Source Sans Pro"',
                 '.icon6': {
                     paddingLeft: '40px',
@@ -54,24 +54,24 @@ export const styles = {
             borderRadius: '20px',
             borderBottomLeftRadius: '0px',
             borderBottomRightRadius: '0px',
-            border: '1px solid var(--Primary, #006CAE)',
+            border: '1px solid var(--color-primary, #2775BB)',
             width: 'auto',
             height: '225px',
             cursor: 'pointer',
 
             '&:hover': {
-                backgroundColor: '#006CAE',
+                backgroundColor: '#2775BB',
                 '& .MuiTypography-root': {
                     color: '#fff',
                     // cursor: 'context-menu',
                 },
             },
             title: { padding: '10px 15px', color: '#909090', fontFamily: 'Source Sans Pro', fontSize: '12px', fontStyle: 'normal' },
-            name: { padding: '1px 15px', color: '#006CAE', fontFamily: 'Inter', fontSize: '20px', fontWeight: 600 },
+            name: { padding: '1px 15px', color: '#2775BB', fontFamily: 'Inter', fontSize: '20px', fontWeight: 600 },
             highlight: { padding: '0px 15px 0px 15px', color: '#4A4A4A', fontFamily: 'Source Sans Pro', fontSize: '14px', fontWeight: 400, lineHeight: '24px' }
         },
         footer: {
-            backgroundColor: "#006CAE", color: "red", width: "100%", height: "45px", borderRadius: "0px 0px 19px 19px", position: "relative", cursor: 'pointer',
+            backgroundColor: "#2775BB", color: "red", width: "100%", height: "45px", borderRadius: "0px 0px 19px 19px", position: "relative", cursor: 'pointer',
             title: { paddingTop: "10px", paddingLeft: "20px", color: "white", fontSize: "14px" }
         },
         roundedSvgContainer: {
@@ -82,7 +82,7 @@ export const styles = {
             width: '46px',
             height: '46px',
             borderRadius: '50%',
-            backgroundColor: '#006CAE',
+            backgroundColor: '#2775BB',
             border: '4px solid white',
             display: 'flex',
             alignItems: 'center',
@@ -91,7 +91,7 @@ export const styles = {
                 backgroundColor: '#fff',
             },
             '&:hover svg': {
-                color: '#006CAE',
+                color: '#2775BB',
             },
         },
         arrowIcon: {
@@ -101,25 +101,25 @@ export const styles = {
 
     businessSolutionsBox: {
         borderRadius: '20px',
-        border: '1px solid var(--Primary, #006CAE)',
+        border: '1px solid var(--color-primary, #2775BB)',
         width: '200px',
         height: '105%',
 
         '&:hover': {
-            backgroundColor: '#006CAE',
+            backgroundColor: '#2775BB',
             '& .MuiTypography-root': {
                 color: '#fff',
             },
         },
         '&:hover svg': {
-            color: '#006CAE',
+            color: '#2775BB',
         },
         '&:hover .MuiBox-root': {
             bgcolor: 'white',
         },
 
         content: {
-            color: 'var(--Primary, #006CAE)',
+            color: 'var(--color-primary, #2775BB)',
             fontFamily: 'Inter',
             fontSize: '19px',
             fontStyle: 'normal',
@@ -137,7 +137,7 @@ export const styles = {
             mt: '10px',
             padding: '10px',
             borderRadius: '50%',
-            bgcolor: '#006CAE',
+            bgcolor: '#2775BB',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -148,7 +148,7 @@ export const styles = {
     },
 
     buttonBack: {
-        color: 'var(--Primary, #006CAE)',
+        color: 'var(--color-primary, #2775BB)',
         fontFamily: "Source Sans Pro",
         fontSize: '14px',
         fontStyle: 'normal',
@@ -157,7 +157,7 @@ export const styles = {
     },
 
     titleDrawer: {
-        color: '#002663',
+        color: '#123554',
         fontFamily: "Inter",
         fontSize: '28px',
         fontStyle: 'normal',

@@ -1,13 +1,13 @@
 // Halaman Solutions & detail solusi (revamp 2026). Tambahan di atas components/product/shared/product-v2.scss
-$navy: #0E1E2F;
-$navy-2: #163A5F;
-$blue: #2672B8;
+$navy: #123554;
+$navy-2: #123554;
+$blue: #2775BB;
 $text: #3F4650;
 $muted: #5B6470;
 $border: #E4E8EE;
 $surface: #F6F8FB;
 $green-bg: #EEF6E7;
-$green: #4E8A22;
+$green: #89BA3A;
 $font-heading: "Inter", sans-serif;
 
 $tablet: 1023px;
@@ -118,7 +118,7 @@ $mobile: 599px;
             border-radius: 16px;
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(6px);
-            box-shadow: 0 12px 32px rgba(14, 30, 47, 0.08);
+            box-shadow: 0 12px 32px rgba(18, 53, 84, 0.08);
             min-width: 0;
 
             img {
@@ -272,7 +272,7 @@ $mobile: 599px;
             border: 1px solid $border;
             border-radius: 8px;
             background: #fff;
-            box-shadow: 0 2px 6px rgba(14, 30, 47, 0.04);
+            box-shadow: 0 2px 6px rgba(18, 53, 84, 0.04);
             text-align: center;
             font-family: $font-heading;
             font-size: 15px;

@@ -25,7 +25,7 @@ export const styles = {
         flexShrink: 0
     },
     name: {
-        color: 'var(--Primary, #006CAE)',
+        color: 'var(--color-primary, #2775BB)',
         fontFamily: 'Inter',
         fontSize: '28px',
         fontStyle: 'normal',
@@ -45,7 +45,7 @@ export const styles = {
         height: '48px',
         flexShrink: 0,
         borderRadius: '12px',
-        // background: 'var(--Primary, #006CAE)'
+        // background: 'var(--color-primary, #2775BB)'
     },
     paragraph: {
         color: 'var(--nuted-extended-Bodytext-value, #42423B)',
@@ -60,7 +60,7 @@ export const styles = {
         height: '56px',
         flexShrink: 0,
         borderRadius: '8px',
-        background: 'var(--Primary, #006CAE)',
+        background: 'var(--color-primary, #2775BB)',
     },
     button: {
         display: 'flex', 

@@ -44,7 +44,7 @@ export default function MenuBusinessComponent({ openBusiness, setOpenBusiness, s
                     </Grid>
                 </Box>
                 <Box className="box-back" >
-                    <IconButton color="inherit" onClick={() => setOpenBusiness(false)} ><ArrowBackIcon sx={{ color: "#006CAE", height: "15px" }} /></IconButton>
+                    <IconButton color="inherit" onClick={() => setOpenBusiness(false)} ><ArrowBackIcon sx={{ color: "#2775BB", height: "15px" }} /></IconButton>
                     <Typography className="back-button">Back</Typography>
                 </Box>
                 <Box className="box-menu">
@@ -55,7 +55,7 @@ export default function MenuBusinessComponent({ openBusiness, setOpenBusiness, s
                     <Link to="https://www.asyst.co.id/our-services/category/professional-services">
                         <Typography className="title-category">{BusinessSolutionConst1[0].category}</Typography>
                     </Link>
-                    <ArrowForwardIcon sx={{ color: "#002561", height: "15px" }} />
+                    <ArrowForwardIcon sx={{ color: "#123554", height: "15px" }} />
                 </Box>
                 <Divider className="content-line" />
                 <Box>
@@ -79,7 +79,7 @@ export default function MenuBusinessComponent({ openBusiness, setOpenBusiness, s
                         <Link to="https://www.asyst.co.id/our-services/category/professional-services">
                             <Typography className="title-category">{BusinessSolutionConst2[0].category}</Typography>
                         </Link>
-                        <ArrowForwardIcon sx={{ color: "#002561", height: "15px" }} />
+                        <ArrowForwardIcon sx={{ color: "#123554", height: "15px" }} />
                     </Box>
                     <Divider className="content-line" />
                     {Children.toArray(BusinessSolutionConst2.map(({ subMenu }) =>
@@ -100,7 +100,7 @@ export default function MenuBusinessComponent({ openBusiness, setOpenBusiness, s
                 <Box>
                     <Box className="header-category">
                         <Link to="https://www.asyst.co.id/career"><Typography className="title-category">{BusinessSolutionConst3[0].category}</Typography></Link>
-                        <ArrowForwardIcon sx={{ color: "#002561", height: "15px" }} />
+                        <ArrowForwardIcon sx={{ color: "#123554", height: "15px" }} />
                     </Box>
                     <Divider className="content-line" />
                 </Box>

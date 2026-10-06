@@ -33,7 +33,7 @@ export const styles = {
         background: 'rgba(244, 248, 255, 0.80)',
         paddingLeft: '15px',
         paddingRight: '15px',
-        color: '#002663',
+        color: '#123554',
         fontSize: '12px',
         fontWeight: '400',
     },
@@ -49,7 +49,7 @@ export const styles = {
     },
     downloadBox: {
         borderRadius: '20px',
-        background: 'linear-gradient(180deg, #057CC5 0%, #006CAE 100%)',
+        background: 'linear-gradient(180deg, #2775BB 0%, #2775BB 100%)',
         width: '380px',
         height: 'auto',
         flexShrink: 0,

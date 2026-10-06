@@ -38,7 +38,7 @@ export const styles = {
         height: '56px',
         flexShrink: 0,
         borderRadius: '8px',
-        background: 'var(--Primary, #006CAE)',
+        background: 'var(--color-primary, #2775BB)',
     },
     button: {
         display: 'flex', 

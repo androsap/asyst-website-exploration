@@ -48,7 +48,7 @@ export default function MenuServicesComponent({ openServices, setOpenServices, s
                     </Grid>
                 </Box>
                 <Box className="box-back" >
-                    <IconButton color="inherit" onClick={() => setOpenServices(false)} ><ArrowBackIcon sx={{ color: "#006CAE", height: "15px" }} /></IconButton>
+                    <IconButton color="inherit" onClick={() => setOpenServices(false)} ><ArrowBackIcon sx={{ color: "#2775BB", height: "15px" }} /></IconButton>
                     <Typography className="back-button">Back</Typography>
                 </Box>
                 <Box className="box-menu">
@@ -57,7 +57,7 @@ export default function MenuServicesComponent({ openServices, setOpenServices, s
                 </Box>
                 <Box className="header-category">
                     <Link to="https://www.asyst.co.id/our-products"><Typography className="title-category">{ServicesConst[0].category}</Typography></Link>
-                    <ArrowForwardIcon sx={{ color: "#002561", height: "15px" }} />
+                    <ArrowForwardIcon sx={{ color: "#123554", height: "15px" }} />
                 </Box>
                 <Divider className="content-line"/>
                 <Box>
@@ -82,7 +82,7 @@ export default function MenuServicesComponent({ openServices, setOpenServices, s
                 </Box>
                 <Box className="header-category">
                     <Typography className="title-category" onClick={() => window.location.reload()}>{ServicesIndustryConst[0].category}</Typography>
-                    <ArrowForwardIcon sx={{ color: "#002561", height: "15px" }} />
+                    <ArrowForwardIcon sx={{ color: "#123554", height: "15px" }} />
                 </Box>
                 <Box>
                     <Divider className="content-line" />

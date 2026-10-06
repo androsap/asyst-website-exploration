@@ -3,6 +3,11 @@ import { createTheme } from "@mui/material/styles";
 import { tooltipClasses } from '@mui/material/Tooltip';
 
 const theme = createTheme({
+    palette: {
+        primary: { main: "#2775BB", contrastText: "#fff" },
+        secondary: { main: "#123554", contrastText: "#fff" },
+        success: { main: "#89BA3A", contrastText: "#fff" },
+    },
     spacing: 16,
     shape: {
         borderRadius: 8,

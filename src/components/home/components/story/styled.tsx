@@ -45,7 +45,7 @@ export const milestonesStyles = (activeIndex: number, milestoneIndex: number) =>
         margin: '5px',
         alignItems: 'center',
         backgroundColor: activeIndex === milestoneIndex ? '#fff' : 'transparent',
-        color: activeIndex === milestoneIndex ? '#002561' : '#fff',
+        color: activeIndex === milestoneIndex ? '#123554' : '#fff',
         border: '1px solid #FFF',
         borderRadius: '100px',
         cursor: 'pointer',
@@ -55,17 +55,17 @@ export const milestonesStyles = (activeIndex: number, milestoneIndex: number) =>
         lineHeight: '24px',
         '&:hover': {
             backgroundColor: activeIndex === milestoneIndex ? '#fff' : '#fff',
-            color: activeIndex === milestoneIndex ? '#002561' : '#002561',
+            color: activeIndex === milestoneIndex ? '#123554' : '#123554',
         },
         '&.active': {
             backgroundColor: '#fff',
-            color: '#002561',
+            color: '#123554',
         },
 
         stepper: {
             width: '10px',
             height: '10px',
-            backgroundColor: activeIndex === milestoneIndex ? '#006CAE' : '#fff',
+            backgroundColor: activeIndex === milestoneIndex ? '#2775BB' : '#fff',
             borderRadius: '50%',
             marginTop: '5px',
             cursor: 'pointer',

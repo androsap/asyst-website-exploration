@@ -8,7 +8,7 @@ export const styles = {
         mb: '6px'
     },
     title: {
-        color: '#002663',
+        color: '#123554',
         fontFamily: 'Inter',
         fontSize: '20px',
         fontWeight: 700,
@@ -36,7 +36,7 @@ export const styles = {
             lineHeight: '24px',
         },
 
-        backgroundColor: "#006CAE",
+        backgroundColor: "#2775BB",
         color: "white",
         display: 'flex',
         alignItems: 'center',
