@@ -14,6 +14,7 @@ import pelitaLogo from 'assets/asyst/img/logo/pelita-air-logo-color.png'
 import lufthansaLogo from 'assets/asyst/img/logo/lufthansa-logo-color.png'
 import southwestLogo from 'assets/asyst/img/logo/southwest-logo-color.png'
 import { contentStyles } from './styled';
+import { useT } from 'shared/i18n';
 
 const logoArray = [
     gaLogo,
@@ -31,12 +32,13 @@ const logoArray = [
 ];
 
 export default function IndustryDetailContentComponent() {
+    const t = useT();
     return (
         <>
             <Typography
                 sx={contentStyles.logoTitle}
             >
-                Trusted by Over 120 Airlines
+                {t("Trusted by Over 120 Airlines", "Dipercaya oleh Lebih dari 120 Maskapai")}
             </Typography>
             <div style={contentStyles.logoContainer}>
                 <Swiper

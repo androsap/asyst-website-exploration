@@ -11,17 +11,23 @@ import IconCardsSection from "./shared/icon-cards";
 import TabbedPanelSection from "./shared/tabbed-panel";
 import LayersSection from "./sections/layers";
 import { SOLUTION_SECTION_IDS } from "./shared/section-ids";
+import { useLocalized } from "shared/i18n";
 
 /** Halaman utama Solutions (revamp 2026). Memakai gaya dasar product-v2 + tambahan solution-v2. */
 export default function SolutionComponent({ }: MainLayoutSharedProps) {
     const talkToExpert = useTalkToExpert();
+    const hero = useLocalized(SolutionHeroConst);
+    const capabilities = useLocalized(SolutionCapabilitiesConst);
+    const value = useLocalized(SolutionValueConst);
+    const faq = useLocalized(SolutionFaqConst);
+    const cta = useLocalized(SolutionCtaConst);
 
     return <Box className="product-v2 solution-v2">
-        <SolutionHero content={SolutionHeroConst} onPrimary={requestDemoModal} onSecondary={() => scrollToSection(SOLUTION_SECTION_IDS.layers)} />
-        <IconCardsSection {...SolutionCapabilitiesConst} />
+        <SolutionHero content={hero} onPrimary={requestDemoModal} onSecondary={() => scrollToSection(SOLUTION_SECTION_IDS.layers)} />
+        <IconCardsSection {...capabilities} />
         <LayersSection />
-        <TabbedPanelSection {...SolutionValueConst} />
-        <FaqSection content={SolutionFaqConst} />
-        <CtaSection {...SolutionCtaConst} onClick={talkToExpert} />
+        <TabbedPanelSection {...value} />
+        <FaqSection content={faq} />
+        <CtaSection {...cta} onClick={talkToExpert} />
     </Box>
 }

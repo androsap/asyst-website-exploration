@@ -12,6 +12,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandCircleDown';
 import BusinessImage from 'assets/img/icon/Business/business.png';
 import { styled } from '@mui/material/styles';
 import React from "react";
+import { useT } from "shared/i18n";
 
 const Accordion = styled((props: AccordionProps) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -55,6 +56,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
 }));
 
 export default function BusinessComponent() {
+    const t = useT();
 
     const [expanded, setExpanded] = React.useState<string | false>('panel1');
 
@@ -69,8 +71,8 @@ export default function BusinessComponent() {
         <>
             <Box className='business'>
                 <Grid sx={{ display: 'flex', flexDirection: 'row', gap: '40px', paddingBottom: '32px' }}>
-                    <Typography variant='h1'>How we improve airline business</Typography>
-                    <Typography variant='h2'>The integration of technology in airlines has not only improved the passenger experience but also increased efficiency, and reduced costs</Typography>
+                    <Typography variant='h1'>{t("How we improve airline business", "Bagaimana kami meningkatkan bisnis maskapai")}</Typography>
+                    <Typography variant='h2'>{t("The integration of technology in airlines has not only improved the passenger experience but also increased efficiency, and reduced costs", "Integrasi teknologi di maskapai tidak hanya meningkatkan pengalaman penumpang, tetapi juga meningkatkan efisiensi dan menekan biaya")}</Typography>
                 </Grid>
                 <Divider />
                 <Grid sx={{ display: 'flex', flexDirection: 'row', gap: '40px', paddingBottom: '32px' }}>
@@ -80,11 +82,11 @@ export default function BusinessComponent() {
                                 aria-controls="panel1d-content" id="panel1d-header"
                                 expandIcon={<ExpandMoreIcon />}
                             >
-                                <Typography sx={{ fontSize: '22px', fontWeight: '700', }}>Increase Revenue and Customer Experience</Typography>
+                                <Typography sx={{ fontSize: '22px', fontWeight: '700', }}>{t("Increase Revenue and Customer Experience", "Tingkatkan Pendapatan dan Pengalaman Pelanggan")}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography variant="h4">
-                                    The airline industry adopting new technologies and methods to improve its services, fascinate more customers and avoid various maintenance issues.
+                                    {t("The airline industry adopting new technologies and methods to improve its services, fascinate more customers and avoid various maintenance issues.", "Industri penerbangan mengadopsi teknologi dan metode baru untuk meningkatkan layanan, menarik lebih banyak pelanggan, dan menghindari berbagai masalah perawatan.")}
                                 </Typography>
                             </AccordionDetails>
                             
@@ -96,7 +98,7 @@ export default function BusinessComponent() {
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
-                                <Typography sx={{ fontSize: '22px', fontWeight: '700', }}>Improve Operational Efficiency</Typography>
+                                <Typography sx={{ fontSize: '22px', fontWeight: '700', }}>{t("Improve Operational Efficiency", "Tingkatkan Efisiensi Operasional")}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography variant="h4">
@@ -112,7 +114,7 @@ export default function BusinessComponent() {
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
-                                <Typography sx={{ fontSize: '22px', fontWeight: '700', }}>Manage Risk of Airlines Issues</Typography>
+                                <Typography sx={{ fontSize: '22px', fontWeight: '700', }}>{t("Manage Risk of Airlines Issues", "Kelola Risiko Permasalahan Maskapai")}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography variant="h4">
@@ -128,7 +130,7 @@ export default function BusinessComponent() {
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
-                                <Typography sx={{ fontSize: '22px', fontWeight: '700', }}>Easy to auditing and reporting</Typography>
+                                <Typography sx={{ fontSize: '22px', fontWeight: '700', }}>{t("Easy to auditing and reporting", "Audit dan pelaporan yang mudah")}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography variant="h4">

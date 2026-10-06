@@ -1,10 +1,11 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import { useLocalized } from "shared/i18n";
 import { CareerApplyStepsConst } from "consts/career.const";
 
 export default function ApplyStepsSection() {
-    const { title, description, image, steps } = CareerApplyStepsConst;
+    const { title, description, image, steps } = useLocalized(CareerApplyStepsConst);
 
     return <Box component="section" className="pv-section">
         <Container maxWidth="xl" className="cr-steps">

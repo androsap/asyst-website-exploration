@@ -1,10 +1,11 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import { useLocalized } from "shared/i18n";
 import { CareerIndonesiaConst } from "consts/career.const";
 
 export default function IndonesiaSection() {
-    const { title, description, items } = CareerIndonesiaConst;
+    const { title, description, items } = useLocalized(CareerIndonesiaConst);
 
     return <Box component="section" className="pv-section">
         <Container maxWidth="xl" className="cr-indonesia">
@@ -13,8 +14,8 @@ export default function IndonesiaSection() {
                 <Typography className="cr-text">{description}</Typography>
             </Box>
             <Box component="dl" className="cr-facts">
-                {items.map(({ label, value }) => (
-                    <Box key={label} className="cr-facts__row">
+                {items.map(({ label, value }, index) => (
+                    <Box key={index} className="cr-facts__row">
                         <Typography component="dt" className="cr-facts__label">{label}</Typography>
                         <Typography component="dd" className="cr-facts__value">{value}</Typography>
                     </Box>

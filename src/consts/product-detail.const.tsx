@@ -21,9 +21,12 @@ import imgMultiTier from "assets/asyst/img/background/product/amala/multi-tier.p
 import imgPointExchange from "assets/asyst/img/background/product/amala/point-exchange.png";
 import imgPromoReward from "assets/asyst/img/background/product/amala/promo-and-reward.png";
 import imgBusinessOwner from "assets/asyst/img/background/product/amala/business-owner.png";
+import { localized } from "shared/i18n";
 
 // Konten halaman detail produk (desain revamp 2026). Satu objek per produk, dirender oleh components/product/detail.
 // Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
+// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
+// (teks saja, struktur & urutan sama).
 
 export interface IconTextItem {
     icon: SvgIconComponent;
@@ -82,7 +85,7 @@ export interface ProductDetailContent {
 
 const lifecycleDescription = "Amala brings core loyalty operations into a connected platform from member management and tiering to rewards, promotions, points, partner integration and analytics";
 
-export const AmalaDetailConst: ProductDetailContent = {
+const amalaDetailEn: ProductDetailContent = {
     hero: {
         title: "Enterprise Loyalty Platform for Customer Engagement & Growth",
         description: "Build personalized loyalty programs that connect customer data, rewards, promotions, partners and digital experiences in one scalable platform",
@@ -179,3 +182,99 @@ export const AmalaDetailConst: ProductDetailContent = {
         button: "Request product demo",
     },
 }
+
+// ---------- terjemahan ID (struktur & urutan sama dengan amalaDetailEn) ----------
+
+const lifecycleDescriptionId = "Amala menyatukan operasional inti program loyalitas dalam satu platform terhubung, mulai dari manajemen member dan tingkatan hingga reward, promosi, poin, integrasi mitra, dan analitik";
+
+export const AmalaDetailConst = localized(amalaDetailEn, {
+    hero: {
+        title: "Platform Loyalitas Enterprise untuk Keterlibatan & Pertumbuhan Pelanggan",
+        description: "Bangun program loyalitas yang personal dengan menghubungkan data pelanggan, reward, promosi, mitra, dan pengalaman digital dalam satu platform yang skalabel",
+        primaryButton: "Hubungi Ahli Loyalitas",
+        secondaryButton: "Jelajahi Platform Loyalitas",
+        stats: [
+            { label: "Member" },
+            { label: "Pengalaman Loyalitas" },
+            { value: "Integrasi", label: "API + Ekosistem" },
+            { value: "Fullcycle", label: "Implementasi" },
+        ],
+    },
+    overview: {
+        title: "Dibangun untuk Program Loyalitas Berskala Enterprise",
+        paragraphs: [
+            "Platform loyalitas enterprise adalah software yang membantu organisasi mengelola keanggotaan pelanggan, aturan loyalitas, poin, reward, promosi, tingkatan, hubungan dengan mitra, dan keterlibatan pelanggan di berbagai kanal.",
+            "Berbeda dengan aplikasi reward sederhana, platform loyalitas enterprise umumnya harus terhubung dengan sistem bisnis yang ada, data transaksi, dan mitra eksternal. Karena itu, integrasi, skalabilitas, keamanan, kemudahan konfigurasi, dan manajemen operasional menjadi pertimbangan penting saat memilih platform teknologi loyalitas.",
+        ],
+        challenges: [
+            { title: "Data Pelanggan Terfragmentasi", description: "Ciptakan lapisan loyalitas yang terhubung di seluruh ekosistem pelanggan dan transaksi" },
+            { title: "Aturan Program atau Platform yang Kompleks", description: "Konfigurasikan aturan loyalitas, bonus, dan penukaran tanpa membangun ulang seluruh platform" },
+            { title: "Ekosistem Mitra yang Terus Bertambah", description: "Hubungkan mitra melalui arsitektur loyalitas yang siap integrasi" },
+            { title: "Visibilitas Platform Terbatas", description: "Pusatkan pelaporan, analitik, dan intelijen loyalitas untuk member, poin, kampanye, dan lainnya" },
+        ],
+    },
+    lifecycle: {
+        title: "Satu Platform untuk Seluruh Siklus Loyalitas",
+        description: lifecycleDescriptionId,
+        items: [
+            { label: "Akuisisi", title: "Akuisisi Member", description: lifecycleDescriptionId },
+            { label: "Registrasi", title: "Registrasi Member", description: "Daftarkan member baru melalui kanal web, mobile, dan mitra dengan data profil dan aturan keanggotaan yang konsisten sejak hari pertama." },
+            { label: "Libatkan", title: "Libatkan Member", description: "Jangkau member dengan kampanye, promosi, dan komunikasi yang relevan berdasarkan profil, tingkatan, dan aktivitas mereka." },
+            { label: "Kumpulkan", title: "Kumpulkan Poin", description: "Berikan poin dari pembelian, penerbangan, transaksi mitra, dan aktivitas lain menggunakan aturan perolehan yang dapat dikonfigurasi." },
+            { label: "Beri Reward", title: "Beri Reward Member", description: "Apresiasi member dengan benefit tingkatan, bonus, dan reward personal yang memperkuat hubungan mereka dengan brand Anda." },
+            { label: "Tukarkan", title: "Tukarkan Reward", description: "Biarkan member menukarkan poin dengan produk, layanan, voucher, dan reward mitra melalui kanal penukaran yang terhubung." },
+            { label: "Pertahankan", title: "Pertahankan Member", description: "Jaga member tetap aktif dengan kualifikasi tingkatan, kampanye retensi, dan benefit yang mendorong keterlibatan berkelanjutan." },
+            { label: "Analisis", title: "Analisis Kinerja", description: "Pantau kinerja member, poin, kampanye, dan mitra dari laporan terpusat dan analitik loyalitas." },
+        ],
+    },
+    features: {
+        title: "Semua yang Anda Butuhkan untuk Menjalankan Program Loyalitas Modern",
+        items: [
+            { title: "Manajemen Member", description: "Kelola profil member, status loyalitas, dan informasi pelanggan dari lingkungan loyalitas yang terpusat" },
+            { title: "Loyalitas Multi-Tingkat", description: "Tentukan tingkatan keanggotaan dengan aturan kualifikasi, benefit, serta kriteria naik atau turun tingkat masing-masing" },
+            { title: "Manajemen Poin", description: "Atur cara poin diperoleh, ditransfer, kedaluwarsa, dan disesuaikan di berbagai produk, kanal, dan mitra" },
+            { title: "Promosi & Reward", description: "Buat promosi, kampanye bonus, dan katalog reward yang dapat ditargetkan ke member atau segmen tertentu" },
+            { title: "Mitra & Merchant", description: "Daftarkan mitra dan merchant, kelola perjanjian perolehan dan penukaran, serta selesaikan transaksi mitra" },
+            { title: "Platform Integrasi", description: "Hubungkan Amala dengan sistem bisnis yang ada, sumber transaksi, dan platform mitra melalui API" },
+            { title: "Poin Bonus Elite", description: "Berikan poin bonus dan benefit tambahan bagi member tingkat atas untuk mengapresiasi dan mempertahankan pelanggan paling berharga" },
+            { title: "Analitik Bisnis", description: "Pantau member, kewajiban poin, kampanye, dan kinerja mitra melalui laporan dan dashboard" },
+            { title: "Loyalitas Mobile", description: "Beri member akses ke profil, poin, reward, dan promosi melalui pengalaman loyalitas di perangkat mobile" },
+        ],
+    },
+    howItWorks: {
+        title: "Dari Aktivitas Pelanggan Menjadi Reward yang Bermakna",
+        items: [
+            { label: "Cara kerja", title: "Bagaimana software loyalitas bekerja", description: lifecycleDescriptionId },
+            { label: "Pengalaman Bisnis & Admin", title: "Dibangun untuk tim bisnis dan admin", description: "Program manager mengatur tingkatan, aturan perolehan, promosi, dan reward dari konsol admin, sementara tim operasional menangani layanan member, penyesuaian, dan persetujuan di platform yang sama." },
+            { label: "Integrasi", title: "Terintegrasi dengan sistem Anda yang sudah ada", description: "Amala terhubung ke sistem transaksi, sumber data pelanggan, dan platform mitra melalui API, sehingga aktivitas loyalitas tercatat di tempat terjadinya tanpa membangun ulang sistem yang ada." },
+        ],
+    },
+    businessModels: {
+        title: "Satu Platform Loyalitas untuk Berbagai Model Bisnis",
+        items: [
+            { title: "Maskapai & Perjalanan", points: ["program frequent flyer", "manajemen tingkatan", "reward mitra", "penukaran poin", "integrasi aliansi"] },
+            { title: "Perhotelan", points: ["loyalitas tamu", "tingkatan keanggotaan", "reward kamar/aktivitas", "benefit mitra", "promosi personal"] },
+            { title: "Perbankan & Keuangan", points: ["reward pelanggan", "poin berbasis transaksi", "reward mitra", "benefit tingkatan", "manajemen kampanye"] },
+            { title: "Ritel & Niaga", points: ["reward pembelian", "segmentasi member", "kampanye promosi", "ekosistem mitra", "retensi pelanggan"] },
+            { title: "Kesehatan", points: ["keterlibatan member", "reward kesehatan", "ekosistem mitra", "keterlibatan berbasis kampanye"] },
+        ],
+    },
+    faq: {
+        title: "FAQ Platform Loyalitas Enterprise",
+        items: [
+            { question: "Apa itu Amala?", answer: "Amala adalah platform loyalitas enterprise dari ASYST yang dirancang untuk mendukung keanggotaan pelanggan, program loyalitas, poin, reward, promosi, ekosistem mitra, analitik, dan pengalaman loyalitas digital." },
+            { question: "Industri apa saja yang dapat menggunakan Amala?", answer: "Amala dapat mendukung program loyalitas di industri maskapai dan perjalanan, perhotelan, perbankan dan jasa keuangan, ritel dan niaga, kesehatan, serta industri lain yang menjalankan program keanggotaan atau reward." },
+            { question: "Apakah Amala dapat terintegrasi dengan sistem enterprise yang sudah ada?", answer: "Ya. Amala dirancang untuk terhubung dengan sistem bisnis, sumber transaksi, dan platform mitra yang ada melalui API, sehingga aktivitas loyalitas dapat tercatat tanpa mengganti sistem Anda saat ini." },
+            { question: "Apakah Amala mendukung tingkatan loyalitas yang berbeda?", answer: "Ya. Amala mendukung program loyalitas multi-tingkat dengan aturan kualifikasi, benefit tingkatan, dan poin bonus elite yang dapat dikonfigurasi." },
+            { question: "Apakah bisnis dapat mengelola promosi dan reward?", answer: "Ya. Tim bisnis dapat membuat promosi, kampanye bonus, dan katalog reward, lalu menargetkannya ke member atau segmen tertentu dari konsol admin." },
+            { question: "Apakah ASYST dapat mendukung implementasi setelah strategi disusun?", answer: "Ya. ASYST mendukung seluruh siklus, mulai dari perancangan program dan implementasi hingga integrasi, go-live, dan dukungan operasional berkelanjutan." },
+            { question: "Apakah Amala mendukung program mitra dan merchant?", answer: "Ya. Amala memungkinkan Anda mendaftarkan mitra dan merchant, mengelola perjanjian perolehan dan penukaran, serta memantau transaksi mitra." },
+            { question: "Apakah member loyalitas dapat mengakses program melalui mobile?", answer: "Ya. Member dapat mengakses profil, poin, reward, dan promosi mereka melalui pengalaman loyalitas di perangkat mobile." },
+        ],
+    },
+    cta: {
+        title: "Siap Membangun Program Loyalitas yang Lebih Terhubung?",
+        description: "Diskusikan model bisnis, sistem yang ada, perjalanan pelanggan, dan tujuan loyalitas Anda bersama spesialis loyalitas dan teknologi enterprise kami",
+        button: "Minta demo produk",
+    },
+});

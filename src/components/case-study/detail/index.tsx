@@ -5,6 +5,7 @@ import "components/product/shared/product-v2.scss";
 import "../shared/case-study.scss";
 import { CASE_STUDY_BASE_PATH, CaseStudyDetailsConst } from "consts/case-study.const";
 import { scrollToSection } from "components/product/shared/page-actions";
+import { useLocalized } from "shared/i18n";
 import CaseStudyCta from "../shared/cta";
 import { CASE_STUDY_SECTION_IDS } from "../shared/section-ids";
 import OverviewSection from "./sections/overview";
@@ -16,7 +17,7 @@ import OutcomeSection from "./sections/outcome";
 /** Halaman detail case study (/case-study/:slug). Konten per case ada di consts/case-study.const. */
 export default function CaseStudyDetailComponent({ }: MainLayoutSharedProps) {
     const { slug = "" } = useParams();
-    const content = CaseStudyDetailsConst[slug];
+    const content = useLocalized(CaseStudyDetailsConst)[slug];
 
     if (!content) return <Navigate to={CASE_STUDY_BASE_PATH} replace />;
 

@@ -20,10 +20,13 @@ import imgContract from "assets/asyst/img/background/product/smart-document/cont
 import imgGraph from "assets/asyst/img/background/product/smart-document/graph.png";
 import imgAdmin from "assets/asyst/img/background/product/smart-document/admin.png";
 import { ProductDetailContent } from "consts/product-detail.const";
+import { localized } from "shared/i18n";
 
+// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
+// (teks saja, struktur & urutan sama).
 // Konten mengikuti smart-document.asyst.co.id/landing
 
-export const SmartDocumentDetailConst: ProductDetailContent = {
+const smartDocumentDetailEn: ProductDetailContent = {
     hero: {
         title: "Every Document Your Company Owns, Finally Answerable",
         description: "Asyst Smart Document parses, classifies and indexes every PDF you upload, then answers questions about them with citations, tracks contract expiries and keeps each answer inside the permissions your org chart already defines",
@@ -110,3 +113,92 @@ export const SmartDocumentDetailConst: ProductDetailContent = {
         button: "Request a walkthrough",
     },
 }
+
+// ---------- terjemahan ID (struktur & urutan sama dengan smartDocumentDetailEn) ----------
+
+export const SmartDocumentDetailConst = localized(smartDocumentDetailEn, {
+    hero: {
+        title: "Setiap Dokumen Milik Perusahaan Anda, Akhirnya Bisa Ditanya",
+        description: "Asyst Smart Document mengurai, mengklasifikasi, dan mengindeks setiap PDF yang Anda unggah, lalu menjawab pertanyaan tentang isinya lengkap dengan sitasi, memantau masa berlaku kontrak, dan menjaga setiap jawaban tetap dalam batas hak akses sesuai struktur organisasi Anda",
+        primaryButton: "Hubungi Ahli Document AI",
+        secondaryButton: "Jelajahi Smart Document",
+        stats: [
+            { label: "Dokumen per Deployment" },
+            { value: "4 Tingkat", label: "Kontrol Akses" },
+            { value: "Setiap Jawaban", label: "Bersitasi ke Halaman Sumber" },
+            { value: "Cloud Anda", label: "Deployment Privat" },
+        ],
+    },
+    overview: {
+        title: "Pengetahuan Perusahaan Tersimpan di PDF Sepuluh Tahun Terakhir, Bukan di Chatbot",
+        paragraphs: [
+            "Kontrak, tender, SOP, faktur, dan manual teknis tersebar di berbagai shared drive dan hanya bisa ditemukan oleh orang yang ingat nama berkasnya. Tools AI umum memang bisa merangkum berkas yang Anda berikan, tetapi tidak tahu mana dari 10.000 dokumen Anda yang penting, dan bisa saja membocorkan isi yang seharusnya tidak boleh dibaca seorang karyawan.",
+            "Asyst Smart Document dibangun dengan cara sebaliknya. Setiap unggahan melewati pipeline nyata (parse, klasifikasi, ekstraksi field, embedding, graph) dan setiap jawaban hanya diambil dari dokumen yang diizinkan untuk departemen, divisi, seksi, dan tingkat jabatan penanya. Di-deploy di cloud Anda sendiri, dengan model pilihan Anda (OpenAI atau Qwen).",
+        ],
+        challenges: [
+            { title: "Arsip yang Tersebar", description: "Dokumen tersebar di berbagai shared drive dan hanya bisa ditemukan lewat nama berkas" },
+            { title: "Jawaban Terkubur di PDF", description: "Pertanyaan sederhana berarti harus membuka beberapa PDF dan spreadsheet" },
+            { title: "Akses AI yang Tidak Terkendali", description: "Tools AI umum mengabaikan siapa yang sebenarnya boleh membaca apa" },
+            { title: "Tanggal Perpanjangan Terlewat", description: "Masa berlaku kontrak dipantau manual di spreadsheet, itu pun kalau ada" },
+        ],
+    },
+    lifecycle: {
+        title: "Satu Pipeline dari PDF Mentah hingga Jawaban yang Bisa Ditindaklanjuti",
+        description: "Setiap unggahan melewati pipeline yang sama, sehingga setiap dokumen menjadi mudah dicari, terstruktur, dan bisa ditanya sesuai aturan akses organisasi Anda",
+        items: [
+            { label: "Unggah", title: "Atur cakupan setiap unggahan", description: "Batasi dokumen ke departemen, divisi, seksi, atau tingkat jabatan minimum saat diunggah. Unggah ulang dokumen revisi dan dokumen itu menjadi versi baru, dengan notifikasi ke para watcher." },
+            { label: "Parse", title: "Baca setiap halaman dengan OCR", description: "PDF hasil pindaian maupun digital diurai menjadi teks, judul, dan potongan, dengan status, biaya token, dan kegagalan setiap langkah dilaporkan per dokumen." },
+            { label: "Klasifikasi", title: "Jenis dokumen yang dikenali otomatis", description: "Saat jenis dokumen baru pertama kali masuk, skema ekstraksinya ditemukan secara otomatis, tanpa membuat template dan tanpa proyek pemetaan field." },
+            { label: "Ekstraksi", title: "Field diekstraksi saat diunggah", description: "Pihak lawan kontrak, nomor kontrak, nilai, tanggal mulai, dan tanggal berakhir diambil langsung dari dokumen, sehingga tidak ada yang perlu mengetik ulang ke spreadsheet." },
+            { label: "Graph", title: "Knowledge graph, bukan kotak hitam", description: "Setiap dokumen dipecah menjadi judul dan potongan yang dapat Anda telusuri. Saat jawaban terlihat janggal, telusuri kembali melalui graph hingga ke bagian persis asal jawabannya." },
+            { label: "Tanya", title: "Tanya AI, berdasarkan berkas Anda sendiri", description: "Bertanya dalam Bahasa Indonesia atau Inggris. Jawaban disertai dokumen sumbernya, dan hanya dokumen yang boleh dilihat peran Anda yang akan diambil." },
+        ],
+    },
+    features: {
+        title: "Semua yang Anda Butuhkan agar Arsip Dokumen Benar-Benar Bermanfaat",
+        items: [
+            { title: "Tanya AI", description: "Bertanya dalam Bahasa Indonesia atau Inggris dan dapatkan jawaban beserta dokumen sumbernya. Pilih profil kecepatan per pertanyaan: Fast, Smart, atau Advanced" },
+            { title: "Radar Kontrak", description: "Ketentuan, pihak lawan, nomor kontrak, dan tanggal berakhir diekstraksi saat diunggah. Filter berdasarkan segera berakhir, sudah berakhir, atau aktif sebelum tanggal perpanjangan mengejutkan siapa pun" },
+            { title: "Jenis Dokumen yang Dikenali Otomatis", description: "Skema ekstraksi untuk jenis dokumen baru ditemukan secara otomatis, tanpa membuat template atau memetakan field" },
+            { title: "Pipeline yang Bisa Dipantau", description: "Parsing, klasifikasi, ekstraksi field, dan embedding masing-masing melaporkan status, biaya token, dan kegagalannya per dokumen" },
+            { title: "Peran, Struktur Organisasi & Agent", description: "Hak akses berupa kapabilitas tetap di dalam kode; admin menyusun peran, jabatan, dan persona Tanya AI kustom di atasnya" },
+            { title: "Versi & Watcher", description: "Unggah ulang dokumen revisi dan dokumen itu menjadi versi baru, dan para watcher mendapat notifikasi tanpa perlu mencari berkas terbaru" },
+            { title: "Penjelajah Knowledge Graph", description: "Telusuri setiap dokumen sebagai judul dan potongan, dan lacak jawaban apa pun hingga ke bagian persis asalnya" },
+        ],
+    },
+    howItWorks: {
+        title: "Apa pun Dokumen yang Menumpuk di Tim Anda, Smart Document Membacanya Lebih Dulu",
+        items: [
+            { label: "Kontrak & Pengadaan", title: "Tidak pernah lagi melewatkan tanggal perpanjangan", description: "Ketentuan kontrak diekstraksi saat diunggah, setiap kontrak dapat difilter berdasarkan segera berakhir, sudah berakhir, atau aktif, dan para watcher mendapat notifikasi sebelum tenggat lewat. Tanyakan vendor mana yang menawarkan SLA terpendek dari enam proposal dan dapatkan jawabannya lengkap dengan dokumen sumber masing-masing." },
+            { label: "Pengetahuan & Onboarding", title: "Jawabannya ada di SOP. Kini orang bisa menemukannya", description: "Karyawan baru bertanya dengan bahasa sehari-hari dan mendapat jawaban bersitasi, bukan utas chat dan menunggu dua hari. Admin menambahkan persona agent per tim, seperti reviewer yang lugas atau pemeriksa kepatuhan, dan percakapan tersimpan sehingga review panjang dapat dilanjutkan keesokan paginya." },
+            { label: "Tata Kelola & Audit", title: "Akses mengikuti struktur organisasi, bukan nama folder", description: "Setiap unggahan dibatasi ke departemen, divisi, seksi, atau tingkat jabatan. Peran disusun dari hak akses nyata yang didefinisikan dalam kode, sementara kode undangan, persetujuan anggota, dan kuota per perusahaan menjaga grup multi-entitas tetap terpisah." },
+        ],
+    },
+    businessModels: {
+        title: "Dibangun Bersama Tim yang Lebih Dulu Menghadapi Masalah Dokumen",
+        items: [
+            { title: "Layanan Penerbangan", points: ["manual teknis", "estimasi biaya", "SOP operasional", "jawaban dalam hitungan menit"] },
+            { title: "Pengadaan", points: ["perbandingan tender", "daftar kontrak", "peringatan masa berlaku", "tanpa pelacak manual"] },
+            { title: "Shared Services", points: ["satu portal untuk semua entitas", "kuota per perusahaan", "persetujuan anggota", "pencarian terpusat"] },
+            { title: "Pengetahuan & SDM", points: ["pencarian SOP", "onboarding karyawan", "percakapan tersimpan", "agent per tim"] },
+            { title: "Legal & Kepatuhan", points: ["akses sesuai peran", "riwayat versi", "hak akses siap audit", "jawaban bersitasi"] },
+        ],
+    },
+    faq: {
+        title: "FAQ Smart Document",
+        items: [
+            { question: "Apa itu Asyst Smart Document?", answer: "Asyst Smart Document adalah platform document intelligence berbasis peran dari ASYST. Platform ini mengurai, mengklasifikasi, dan mengindeks PDF Anda dengan RAG dan OCR, lalu menjawab pertanyaan dengan sitasi ke dokumen dan halaman sumbernya." },
+            { question: "Dalam bahasa apa saya bisa bertanya?", answer: "Anda dapat bertanya dalam Bahasa Indonesia atau Inggris." },
+            { question: "Siapa yang dapat melihat dokumen apa?", answer: "Setiap unggahan dapat dibatasi ke departemen, divisi, seksi, atau tingkat jabatan minimum, dan Tanya AI hanya mengambil dokumen yang boleh dilihat oleh peran penanya." },
+            { question: "Di mana platform ini di-deploy?", answer: "Smart Document di-deploy secara privat di cloud Anda sendiri, dengan model OpenAI atau Qwen." },
+            { question: "Apakah platform ini dapat memantau tanggal berakhirnya kontrak?", answer: "Bisa. Ketentuan kontrak, pihak lawan, nomor, dan tanggal berakhir diekstraksi saat diunggah, dan kontrak dapat difilter berdasarkan segera berakhir, sudah berakhir, atau aktif, dengan notifikasi ke para watcher." },
+            { question: "Apakah kami perlu membuat template untuk setiap jenis dokumen?", answer: "Tidak. Skema ekstraksi untuk jenis dokumen baru ditemukan secara otomatis saat pertama kali masuk." },
+            { question: "Bagaimana cara memverifikasi sebuah jawaban?", answer: "Setiap jawaban disertai sitasi ke dokumen sumbernya, dan knowledge graph memungkinkan Anda menelusurinya hingga ke bagian persis asal jawaban." },
+        ],
+    },
+    cta: {
+        title: "Manfaatkan Arsip Dokumen Anda Kuartal Ini",
+        description: "Mulai dengan satu folder kontrak. Unggah, tanyakan, dan lihat sendiri sitasinya",
+        button: "Minta walkthrough",
+    },
+});

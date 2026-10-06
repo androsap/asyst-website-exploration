@@ -183,7 +183,7 @@ $mobile: 599px;
 
         .pv-btn--primary.MuiButton-root {
             &::before {
-                background: #123554;
+                background: $blue;
             }
 
             &:hover {
@@ -195,12 +195,12 @@ $mobile: 599px;
             // menutupi border 1px supaya sudutnya tidak menyisakan garis terang
             &::before {
                 inset: -1px;
-                background: $navy;
+                background: $blue;
             }
 
             &:hover {
                 background: rgba(255, 255, 255, 0.6);
-                border-color: $navy;
+                border-color: $blue;
                 color: #fff;
             }
         }
@@ -689,11 +689,10 @@ $mobile: 599px;
         border: 1px solid $border;
         border-radius: 10px;
         background: $surface-soft;
-        transition: box-shadow .2s, transform .2s;
+        transition: border-color .2s;
 
         &:hover {
-            box-shadow: 0 10px 24px rgba(18, 53, 84, 0.08);
-            transform: translateY(-2px);
+            border-color: $blue;
         }
 
         &__name {

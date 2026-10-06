@@ -7,8 +7,9 @@ import Typography from "@mui/material/Typography";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import "components/product/shared/product-v2.scss";
 import "../shared/career.scss";
-import { CAREER_APPLY_LINK, CAREER_BASE_PATH, CAREER_JOBS_PATH, CareerFilterKey, CareerJob, CareerJobDetailConst, CareerJobDetailFaqConst, CareerJobsConst, careerJobLink } from "consts/career.const";
+import { CAREER_APPLY_LINK, CAREER_BASE_PATH, CAREER_JOBS_PATH, CareerFilterKey, CareerJob, CareerJobDetailConst, CareerJobDetailFaqConst, CareerJobsConst, careerJobLink, CareerSeoConst, CareerTermsConst } from "consts/career.const";
 import useSeo from "shared/head/seo";
+import { useLocalized, useT, useTerms } from "shared/i18n";
 import CareerBreadcrumb from "../shared/breadcrumb";
 import { breadcrumbSchema, jobPostingSchema } from "../shared/seo";
 import CareerFaq from "../shared/faq";
@@ -16,9 +17,9 @@ import JobSidebar from "../shared/job-sidebar";
 import { careerJobsLink } from "../shared/utils";
 
 /** Halaman detail lowongan (/career/jobs/:slug). Konten per lowongan ada di consts/career.const. */
-export default function CareerJobDetailComponent({ title }: MainLayoutSharedProps) {
+export default function CareerJobDetailComponent({ }: MainLayoutSharedProps) {
     const { slug = "" } = useParams();
-    const job = CareerJobsConst.find(item => item.slug === slug);
+    const job = useLocalized(CareerJobsConst).find(item => item.slug === slug);
 
     useEffect(() => {
         window.scrollTo({ top: 0 });
@@ -26,12 +27,17 @@ export default function CareerJobDetailComponent({ title }: MainLayoutSharedProp
 
     if (!job) return <Navigate to={CAREER_JOBS_PATH} replace />;
 
-    return <JobDetail job={job} title={title} />;
+    return <JobDetail job={job} />;
 }
 
-function JobDetail({ job, title }: { job: CareerJob; title: string }) {
+function JobDetail({ job }: { job: CareerJob }) {
     const navigate = useNavigate();
     const [keyword, setKeyword] = useState("");
+    const t = useT();
+    const term = useTerms(CareerTermsConst);
+    const detail = useLocalized(CareerJobDetailConst);
+    const faqContent = useLocalized(CareerJobDetailFaqConst);
+    const title = useLocalized(CareerSeoConst).jobDetail.title.replace("{title}", job.title);
 
     useSeo({
         title,
@@ -39,12 +45,12 @@ function JobDetail({ job, title }: { job: CareerJob; title: string }) {
         path: careerJobLink(job.slug),
         type: "article",
         jsonLd: [
-            jobPostingSchema(job, CareerJobDetailConst),
+            jobPostingSchema(job, detail),
             breadcrumbSchema([
-                { name: "Career", path: CAREER_BASE_PATH },
-                { name: "Jobs", path: CAREER_JOBS_PATH },
+                { name: t("Career", "Karier"), path: CAREER_BASE_PATH },
+                { name: t("Jobs", "Lowongan"), path: CAREER_JOBS_PATH },
                 { name: job.title, path: careerJobLink(job.slug) },
-            ]),
+            ], t("Home", "Beranda")),
         ],
     });
 
@@ -52,8 +58,8 @@ function JobDetail({ job, title }: { job: CareerJob; title: string }) {
     const openJobs = (key: CareerFilterKey, value?: string) => navigate(careerJobsLink({ [key]: value }));
 
     const faq = {
-        ...CareerJobDetailFaqConst,
-        items: CareerJobDetailFaqConst.items.map(item => ({ ...item, question: item.question.replace("{title}", job.title) })),
+        ...faqContent,
+        items: faqContent.items.map(item => ({ ...item, question: item.question.replace("{title}", job.title) })),
     };
 
     return <Box className="product-v2 career-v2">
@@ -79,32 +85,34 @@ function JobDetail({ job, title }: { job: CareerJob; title: string }) {
                 <Box>
                     <Typography className="cr-apply-bar__title">{job.title}</Typography>
                     <Typography className="cr-apply-bar__meta">
-                        {[job.experience, job.location, job.employmentType].map(text => <span key={text}>{text}</span>)}
+                        {[job.experience, job.location, job.employmentType].map(text => <span key={text}>{term(text)}</span>)}
                     </Typography>
                 </Box>
-                <Button component={Link} to={CAREER_APPLY_LINK} className="pv-btn pv-btn--primary">{CareerJobDetailConst.applyShort}</Button>
+                <Button component={Link} to={CAREER_APPLY_LINK} className="pv-btn pv-btn--primary">{detail.applyShort}</Button>
             </Container>
         </Box>
     </Box>
 }
 
 function DetailHero({ job }: { job: CareerJob }) {
-    const { apply, meta } = CareerJobDetailConst;
+    const t = useT();
+    const term = useTerms(CareerTermsConst);
+    const { apply, meta } = useLocalized(CareerJobDetailConst);
     const items = [
-        { label: meta.location, value: job.location },
-        { label: meta.type, value: job.employmentType },
-        { label: meta.experience, value: job.experience },
+        { label: meta.location, value: term(job.location) },
+        { label: meta.type, value: term(job.employmentType) },
+        { label: meta.experience, value: term(job.experience) },
     ];
 
     return <Box component="section" className="cr-hero cr-hero--detail">
         <Container maxWidth="xl" className="cr-hero__inner">
             <CareerBreadcrumb items={[
-                { label: "Career", to: CAREER_BASE_PATH },
-                { label: "Jobs", to: CAREER_JOBS_PATH },
+                { label: t("Career", "Karier"), to: CAREER_BASE_PATH },
+                { label: t("Jobs", "Lowongan"), to: CAREER_JOBS_PATH },
                 { label: job.title },
             ]} />
 
-            <span className="cr-badge cr-badge--neutral">{job.department}</span>
+            <span className="cr-badge cr-badge--neutral">{term(job.department)}</span>
             <Typography variant="h1" className="cr-hero__title">{job.title}</Typography>
             <Typography className="cr-hero__description">{job.summary}</Typography>
 
@@ -123,7 +131,7 @@ function DetailHero({ job }: { job: CareerJob }) {
 }
 
 function DetailContent({ job }: { job: CareerJob }) {
-    const { about, whyMatters, responsibilities, requirements, benefits, why, beforeApply } = CareerJobDetailConst;
+    const { about, whyMatters, responsibilities, requirements, benefits, why, beforeApply } = useLocalized(CareerJobDetailConst);
 
     return <Box className="cr-layout__main cr-detail">
         <Box>

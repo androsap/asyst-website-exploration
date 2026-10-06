@@ -4,9 +4,10 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { AboutHeroConst } from "consts/about-us.const";
+import { useLocalized } from "shared/i18n";
 
 export default function AboutHeroSection() {
-    const { title, description, button, image } = AboutHeroConst;
+    const { title, description, button, image } = useLocalized(AboutHeroConst);
 
     return <Box component="section" className="about-hero" sx={{ backgroundImage: `url(${image})` }}>
         <Container maxWidth="xl">

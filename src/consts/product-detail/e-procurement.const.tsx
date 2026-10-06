@@ -14,12 +14,15 @@ import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 
 import imgPlaceholder from "assets/asyst/img/background/product/overview/background-product.png";
 import { ProductDetailContent } from "consts/product-detail.const";
+import { localized } from "shared/i18n";
 
+// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
+// (teks saja, struktur & urutan sama).
 // Belum ada halaman sumber untuk E-Procurement. Copy disusun dari deskripsi "eProcurement Solution" di
 // product overview home.asyst.co.id dan poin procurement pada konten ERP.
 // TODO: konfirmasi copy, statistik & FAQ dengan tim produk; ganti gambar placeholder dengan screenshot e-Procurement.
 
-export const EProcurementDetailConst: ProductDetailContent = {
+const eProcurementDetailEn: ProductDetailContent = {
     hero: {
         title: "E-Procurement Platform for Transparent, Connected Purchasing",
         description: "A B2B digital platform that centralizes, automates and manages your organization's purchasing operations, connecting buyers and suppliers within a unified environment",
@@ -108,3 +111,94 @@ export const EProcurementDetailConst: ProductDetailContent = {
         button: "Request product demo",
     },
 }
+
+// ---------- terjemahan ID (struktur & urutan sama dengan eProcurementDetailEn) ----------
+
+export const EProcurementDetailConst = localized(eProcurementDetailEn, {
+    hero: {
+        title: "Platform E-Procurement untuk Pengadaan yang Transparan dan Terhubung",
+        description: "Platform digital B2B yang memusatkan, mengotomatiskan, dan mengelola operasional pengadaan organisasi Anda, menghubungkan pembeli dan pemasok dalam satu lingkungan terpadu",
+        primaryButton: "Hubungi Ahli Pengadaan",
+        secondaryButton: "Jelajahi E-Procurement",
+        stats: [
+            { label: "Portal Pembeli & Pemasok" },
+            { label: "Source-to-Pay" },
+            { value: "Integrasi", label: "ERP + API" },
+            { value: "Fullcycle", label: "Implementasi" },
+        ],
+    },
+    overview: {
+        title: "Dibangun untuk Tim Pengadaan yang Mengelola Banyak Vendor",
+        paragraphs: [
+            "Platform e-procurement mendigitalkan cara organisasi membeli barang dan jasa, mulai dari permintaan pembelian dan registrasi vendor hingga tender, evaluasi, purchase order, dan penagihan.",
+            "Dengan menyatukan pembeli dan pemasok dalam satu lingkungan dengan alur persetujuan otomatis, ASYST E-Procurement membantu organisasi mempersingkat siklus pengadaan, meningkatkan transparansi, dan memastikan setiap keputusan pengadaan dapat diaudit.",
+        ],
+        challenges: [
+            { title: "Persetujuan Manual", description: "Ganti persetujuan lewat email dan kertas dengan alur kerja otomatis berbasis aturan" },
+            { title: "Visibilitas Belanja Terbatas", description: "Lihat permintaan, komitmen, dan belanja lintas unit di satu tempat" },
+            { title: "Data Vendor Terfragmentasi", description: "Simpan profil, dokumen, dan evaluasi vendor dalam satu daftar" },
+            { title: "Siklus PO-ke-Faktur yang Lambat", description: "Hubungkan purchase order, penerimaan barang, dan faktur elektronik secara end-to-end" },
+        ],
+    },
+    lifecycle: {
+        title: "Satu Platform untuk Seluruh Siklus Pengadaan",
+        description: "ASYST E-Procurement menghubungkan setiap tahap pengadaan, dari permintaan hingga pembayaran, sehingga pembeli, pemberi persetujuan, dan pemasok bekerja dari informasi yang sama",
+        items: [
+            { label: "Permintaan", title: "Permintaan pembelian", description: "Unit bisnis mengajukan permintaan pembelian yang dicek terhadap anggaran dan diteruskan otomatis ke pemberi persetujuan yang tepat." },
+            { label: "Registrasi", title: "Registrasi vendor", description: "Pemasok mendaftar melalui portal swalayan, mengunggah dokumen perusahaan, dan menjaga profil tetap terbaru untuk kualifikasi." },
+            { label: "Sourcing", title: "Sourcing & tender", description: "Publikasikan permintaan penawaran harga dan tender kepada vendor yang memenuhi syarat, lalu terima penawaran secara elektronik sesuai jadwal." },
+            { label: "Evaluasi", title: "Evaluasi penawaran", description: "Bandingkan penawaran berdasarkan kriteria harga, teknis, dan administrasi melalui proses evaluasi yang terdokumentasi dan dapat diaudit." },
+            { label: "Penetapan", title: "Penetapan pemenang & kontrak", description: "Tetapkan vendor pemenang dan kelola kontrak yang dihasilkan, termasuk ketentuan, nilai, dan masa berlakunya." },
+            { label: "Pemesanan", title: "Purchase order", description: "Buat purchase order dari penawaran dan kontrak yang telah ditetapkan, dengan alur persetujuan otomatis sebelum dikirim ke pemasok." },
+            { label: "Faktur", title: "Penerimaan & faktur elektronik", description: "Cocokkan penerimaan barang dengan purchase order dan e-invoice pemasok untuk mempercepat verifikasi dan pembayaran." },
+            { label: "Analisis", title: "Analitik belanja & vendor", description: "Pantau belanja, waktu siklus, dan kinerja vendor dari laporan dan dashboard terpusat." },
+        ],
+    },
+    features: {
+        title: "Semua yang Anda Butuhkan untuk Menjalankan Pengadaan Digital",
+        items: [
+            { title: "Manajemen Vendor", description: "Kelola registrasi, kualifikasi, dokumen, dan evaluasi kinerja vendor dari satu daftar pemasok" },
+            { title: "E-Sourcing & E-Tender", description: "Jalankan permintaan penawaran harga, lelang, dan tender secara online dengan jadwal transparan dan pengajuan penawaran elektronik" },
+            { title: "Mesin Alur Persetujuan", description: "Atur aturan persetujuan bertingkat untuk permintaan, penetapan pemenang, dan purchase order tanpa pengembangan khusus" },
+            { title: "Manajemen Purchase Order", description: "Buat, setujui, kirim, dan pantau purchase order terhadap kontrak dan anggaran" },
+            { title: "Manajemen Kontrak", description: "Simpan ketentuan, nilai, dan masa berlaku kontrak di satu tempat dan bertindak sebelum kontrak berakhir" },
+            { title: "E-Invoicing", description: "Terima faktur pemasok secara elektronik dan cocokkan dengan purchase order dan penerimaan barang" },
+            { title: "Portal Pemasok", description: "Beri pemasok satu tempat untuk mendaftar, merespons tender, menerima pesanan, dan mengirim faktur" },
+            { title: "Analitik Pengadaan", description: "Pantau belanja, penghematan, waktu siklus, dan kinerja vendor melalui laporan dan dashboard" },
+        ],
+    },
+    howItWorks: {
+        title: "Dari Permintaan Pembelian hingga Pembayaran",
+        items: [
+            { label: "Pengalaman Pembeli", title: "Dibangun untuk tim pengadaan dan bisnis", description: "Pemohon, pembeli, dan pemberi persetujuan bekerja di platform yang sama, dengan alur kerja yang otomatis meneruskan setiap permintaan, tender, dan purchase order ke orang yang tepat." },
+            { label: "Pengalaman Pemasok", title: "Satu portal untuk pemasok", description: "Pemasok mendaftar, memperbarui dokumen, merespons tender, menerima purchase order, dan mengirim faktur melalui satu portal swalayan." },
+            { label: "Integrasi", title: "Terintegrasi dengan ERP dan sistem keuangan Anda", description: "E-Procurement terhubung dengan sistem ERP, penganggaran, dan keuangan melalui API, sehingga komitmen, penerimaan, dan faktur mengalir tanpa input ulang." },
+        ],
+    },
+    businessModels: {
+        title: "Satu Platform Pengadaan untuk Berbagai Industri",
+        items: [
+            { title: "Penerbangan", points: ["perawatan & suku cadang", "kualifikasi vendor", "manajemen tender", "pelacakan kontrak"] },
+            { title: "Badan Usaha Milik Negara", points: ["tender yang transparan", "kepatuhan regulasi", "jejak audit", "pengadaan multi-entitas"] },
+            { title: "Perbankan & Keuangan", points: ["risiko vendor", "tata kelola persetujuan", "pengendalian anggaran", "pelaporan belanja"] },
+            { title: "Manufaktur", points: ["sourcing bahan baku langsung", "purchase order", "kinerja pemasok", "pencocokan penerimaan barang"] },
+            { title: "Energi & Infrastruktur", points: ["pengadaan proyek", "e-tender", "manajemen kontrak", "e-invoicing"] },
+        ],
+    },
+    faq: {
+        title: "FAQ E-Procurement",
+        items: [
+            { question: "Apa itu ASYST E-Procurement?", answer: "ASYST E-Procurement adalah platform digital B2B yang memusatkan, mengotomatiskan, dan mengelola operasional pengadaan organisasi, menghubungkan pembeli dan pemasok dalam satu lingkungan terpadu." },
+            { question: "Proses pengadaan apa saja yang tercakup?", answer: "Permintaan pembelian, registrasi dan kualifikasi vendor, sourcing dan tender, evaluasi penawaran, penetapan pemenang, purchase order, kontrak, penerimaan barang, dan faktur elektronik." },
+            { question: "Apakah pemasok dapat mengakses platform?", answer: "Ya. Pemasok menggunakan portal swalayan untuk mendaftar, mengelola dokumen, merespons tender, menerima purchase order, dan mengirim faktur." },
+            { question: "Apakah alur persetujuan dapat dikonfigurasi?", answer: "Ya. Aturan persetujuan bertingkat dapat dikonfigurasi untuk permintaan, penetapan pemenang, dan purchase order." },
+            { question: "Apakah E-Procurement dapat terintegrasi dengan ERP kami?", answer: "Ya. Platform ini terhubung dengan sistem ERP, penganggaran, dan keuangan melalui API." },
+            { question: "Apakah ASYST dapat mendukung implementasi?", answer: "Ya. ASYST mendukung seluruh siklus, mulai dari perancangan proses dan implementasi hingga integrasi, go-live, dan dukungan berkelanjutan." },
+        ],
+    },
+    cta: {
+        title: "Siap Mendigitalkan Pengadaan Anda?",
+        description: "Diskusikan proses pengadaan, vendor, dan sistem yang ada bersama spesialis pengadaan dan teknologi enterprise kami",
+        button: "Minta demo produk",
+    },
+});

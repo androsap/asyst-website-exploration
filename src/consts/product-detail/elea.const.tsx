@@ -16,11 +16,14 @@ import imgBanner from "assets/asyst/img/background/product/elea/detail/banner-1.
 import imgBusiness from "assets/asyst/img/background/product/elea/detail/business-1.png";
 import imgPromotion from "assets/asyst/img/background/product/elea/detail/promotion-1.png";
 import { ProductDetailContent } from "consts/product-detail.const";
+import { localized } from "shared/i18n";
 
+// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
+// (teks saja, struktur & urutan sama).
 // Konten mengikuti home.asyst.co.id/product/elea (ERP Solution).
 // TODO: gambar masih screenshot CMS lama (Eleasoft); ganti dengan visual ERP dari desain.
 
-export const EleaDetailConst: ProductDetailContent = {
+const eleaDetailEn: ProductDetailContent = {
     hero: {
         title: "Unify Core Operations and Accelerate Enterprise Growth with Next-Gen ERP",
         description: "Break down operational silos and integrate finance, supply chain, HCM and CRM into a single source of truth, driving automation, compliance and end-to-end operational excellence",
@@ -107,3 +110,92 @@ export const EleaDetailConst: ProductDetailContent = {
         button: "Request product demo",
     },
 }
+
+// ---------- terjemahan ID (struktur & urutan sama dengan eleaDetailEn) ----------
+
+export const EleaDetailConst = localized(eleaDetailEn, {
+    hero: {
+        title: "Satukan Operasional Inti dan Percepat Pertumbuhan Perusahaan dengan ERP Generasi Baru",
+        description: "Hilangkan silo operasional dan integrasikan keuangan, rantai pasok, HCM, dan CRM menjadi satu sumber kebenaran untuk mendorong otomatisasi, kepatuhan, dan keunggulan operasional end-to-end",
+        primaryButton: "Hubungi Ahli ERP",
+        secondaryButton: "Jelajahi Elea",
+        stats: [
+            { label: "Keahlian Tersertifikasi" },
+            { value: "Satu Sumber Data", label: "Keuangan, SCM, HCM & CRM" },
+            { label: "Dukungan Terkelola" },
+            { value: "Fullcycle", label: "Implementasi" },
+        ],
+    },
+    overview: {
+        title: "Inti dari Operasional Perusahaan",
+        paragraphs: [
+            "ASYST menghadirkan solusi ERP menyeluruh yang menghubungkan perencanaan strategis, pengadaan, manufaktur, dan analitik dalam satu tulang punggung digital yang cerdas.",
+            "Modernisasi alur kerja, sederhanakan kepatuhan, dan ambil keputusan berbasis data dengan percaya diri menggunakan arsitektur yang telah terbukti di lingkungan penerbangan, korporat, dan aset negara yang kritis.",
+        ],
+        challenges: [
+            { title: "Silo Operasional", description: "Integrasikan keuangan, rantai pasok, HCM, dan CRM menjadi satu sumber kebenaran" },
+            { title: "Tutup Buku yang Lambat", description: "Percepat tutup buku bulanan dengan rekonsiliasi yang mulus di seluruh anak perusahaan" },
+            { title: "Tekanan Kepatuhan", description: "Tetap selaras dengan peraturan perpajakan lokal, standar IFRS, dan ketentuan audit" },
+            { title: "Sistem Lama", description: "Hubungkan ERP baru dengan sistem lama, gateway perbankan, dan pemasok" },
+        ],
+    },
+    lifecycle: {
+        title: "Kapabilitas Enterprise Menyeluruh untuk Setiap Fungsi",
+        description: "Menghubungkan departemen, mengotomatiskan proses berulang, dan memberdayakan tim di seluruh organisasi",
+        items: [
+            { label: "Inventaris", title: "Visibilitas inventaris & gudang end-to-end", description: "Pelacakan bahan baku dan barang jadi secara real-time di gudang multi-lokasi, menekan biaya penyimpanan dan mencegah kehabisan stok." },
+            { label: "Manufaktur", title: "Lean manufacturing & perencanaan sumber daya", description: "Optimalkan penjadwalan produksi, perencanaan kapasitas, dan pelacakan lantai produksi untuk waktu pengiriman yang konsisten dan kualitas output yang unggul." },
+            { label: "Pengadaan", title: "Pengadaan & manajemen vendor otomatis", description: "Sederhanakan purchase order, evaluasi vendor, dan manajemen kontrak dengan alur persetujuan otomatis dan faktur elektronik." },
+            { label: "Keuangan", title: "Satu sumber kebenaran finansial", description: "Konsolidasikan buku besar, utang usaha, piutang usaha, dan aset tetap dengan rekonsiliasi yang mulus di seluruh anak perusahaan." },
+            { label: "Tata Kelola", title: "Integritas & tata kelola keuangan yang siap audit", description: "Jaga kepatuhan berkelanjutan terhadap peraturan perpajakan lokal, standar IFRS, dan ketentuan audit institusi melalui log tata kelola otomatis." },
+            { label: "Anggaran", title: "Penganggaran strategis & proyeksi arus kas", description: "Percepat siklus tutup buku bulanan dan manfaatkan proyeksi arus kas prediktif untuk alokasi modal yang tepat." },
+            { label: "Penggajian", title: "Otomatisasi penggajian & kehadiran", description: "Pastikan perhitungan gaji, potongan pajak, dan pencatatan kehadiran yang akurat dan bebas kesalahan, terintegrasi langsung dengan keuangan perusahaan." },
+            { label: "Talenta", title: "Manajemen siklus talenta menyeluruh", description: "Digitalisasi rekrutmen, onboarding, penilaian kinerja, rencana pengembangan, dan pelacakan suksesi dalam satu portal terpadu." },
+            { label: "Swalayan", title: "Layanan mandiri karyawan & analitik tenaga kerja", description: "Beri karyawan tools mobile mandiri untuk pengajuan cuti dan slip gaji, sementara manajer HR mendapatkan analitik turnover secara real-time." },
+        ],
+    },
+    features: {
+        title: "Ekosistem ERP Cloud & Hybrid",
+        items: [
+            { title: "Implementasi & Advisory SAP", description: "Software aplikasi enterprise terdepan dengan arsitektur yang tangguh dan sangat skalabel untuk operasional bervolume tinggi dan kompleks" },
+            { title: "Oracle Fusion Cloud ERP", description: "Rangkaian aplikasi SaaS modern dan agile untuk manajemen keuangan yang terhubung, ketahanan rantai pasok, dan kelincahan tenaga kerja global" },
+            { title: "Odoo Enterprise Suite", description: "Aplikasi bisnis modular yang sangat mudah disesuaikan untuk mengotomatiskan fungsi inti dengan cepat dan hemat biaya bagi perusahaan yang sedang bertumbuh" },
+            { title: "Advisory, Deployment & Layanan Terkelola", description: "Baik Anda membutuhkan software enterprise global Tier-1 maupun suite terbuka yang agile, ASYST menghadirkan advisory tersertifikasi, deployment, dan layanan terkelola 24/7" },
+            { title: "Platform Teknologi Bisnis Khusus", description: "Implementasi end-to-end dan platform khusus yang memperluas ERP Anda untuk proses spesifik industri" },
+        ],
+    },
+    howItWorks: {
+        title: "Bagaimana ASYST Membuat Modernisasi Enterprise Sederhana dan Andal",
+        items: [
+            { label: "Pengalaman Pengguna", title: "Pengalaman pengguna yang intuitif & mudah diadopsi", description: "Dashboard berbasis peran yang rapi dan UI yang sederhana mempersingkat waktu pelatihan karyawan, meningkatkan akurasi data, dan mempercepat adopsi di seluruh perusahaan." },
+            { label: "Ketahanan Sistem", title: "Arsitektur tangguh & ketahanan sistem", description: "Protokol keamanan kelas enterprise, redundansi data berlapis, dan infrastruktur high-availability mendukung operasional bisnis tanpa henti 24/7." },
+            { label: "Integrasi", title: "Integrasi API & sistem lama yang mudah", description: "Middleware integrasi yang fleksibel menghubungkan ERP baru Anda dengan sistem lama, gateway perbankan, platform CRM, dan pemasok eksternal." },
+        ],
+    },
+    businessModels: {
+        title: "ERP yang Dibangun Sesuai Model Operasional Anda",
+        items: [
+            { title: "Penerbangan", points: ["operasional kritis", "keuangan multi-entitas", "pengadaan perawatan", "manajemen tenaga kerja"] },
+            { title: "Negara & BUMN", points: ["integritas keuangan yang ketat", "kepatuhan tata kelola", "pelaporan dana investasi", "kesiapan audit"] },
+            { title: "Manufaktur & Distribusi", points: ["penjadwalan produksi", "perencanaan kapasitas", "inventaris multi-gudang", "manajemen vendor"] },
+            { title: "Perusahaan Korporat", points: ["buku besar terkonsolidasi", "penganggaran & proyeksi", "penggajian & HCM", "layanan mandiri karyawan"] },
+            { title: "Perusahaan Bertumbuh", points: ["aplikasi Odoo modular", "otomatisasi cepat", "implementasi hemat biaya", "fondasi yang skalabel"] },
+        ],
+    },
+    faq: {
+        title: "FAQ Solusi ERP Elea",
+        items: [
+            { question: "Apa itu Elea?", answer: "Elea adalah solusi ERP dari ASYST yang mengintegrasikan keuangan, rantai pasok, manajemen sumber daya manusia, dan CRM menjadi satu sumber kebenaran untuk operasional perusahaan." },
+            { question: "Platform ERP apa saja yang didukung ASYST?", answer: "ASYST menghadirkan advisory tersertifikasi, deployment, dan layanan terkelola untuk SAP, Oracle Fusion Cloud ERP, dan Odoo Enterprise." },
+            { question: "Fungsi bisnis apa saja yang tercakup?", answer: "Rantai pasok dan operasional, keuangan dan akuntansi, serta manajemen sumber daya manusia, termasuk inventaris, manufaktur, pengadaan, buku besar, penganggaran, penggajian, dan manajemen talenta." },
+            { question: "Apakah Elea dapat terintegrasi dengan sistem lama kami?", answer: "Ya. Middleware integrasi menghubungkan ERP dengan sistem lama, gateway perbankan, platform CRM, dan pemasok eksternal." },
+            { question: "Apakah Elea mendukung kepatuhan regulasi?", answer: "Ya. Log tata kelola otomatis membantu menjaga kepatuhan terhadap peraturan perpajakan lokal, standar IFRS, dan ketentuan audit institusi." },
+            { question: "Apakah ASYST memberikan dukungan setelah go-live?", answer: "Ya. ASYST menyediakan implementasi end-to-end dan dukungan terkelola 24/7 untuk ekosistem SAP, Oracle Fusion, dan Odoo." },
+        ],
+    },
+    cta: {
+        title: "Siap Memodernisasi Inti Perusahaan Anda?",
+        description: "Diskusikan fungsi bisnis, sistem yang ada, dan roadmap transformasi Anda bersama spesialis ERP kami",
+        button: "Minta demo produk",
+    },
+});

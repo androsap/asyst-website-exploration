@@ -1,3 +1,4 @@
+import { useLocalized } from "shared/i18n";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -7,7 +8,7 @@ import { CareerInternshipConst } from "consts/career.const";
 import { careerJobsLink } from "../shared/utils";
 
 export default function InternshipSection() {
-    const { title, description, button, filter } = CareerInternshipConst;
+    const { title, description, button, filter } = useLocalized(CareerInternshipConst);
 
     return <Box component="section" className="pv-section">
         <Container maxWidth="xl" className="cr-internship">

@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import Fade from "@mui/material/Fade";
 import { keyframes } from "@emotion/react";
 import AsystSymbol from "assets/asyst/img/logo/asyst-symbol.png";
+import { useT } from "shared/i18n";
 
 const spin = keyframes`
     from { transform: rotate(0deg); }
@@ -18,6 +19,8 @@ interface PageLoaderProps {
 }
 
 export default function PageLoader({ open = true }: PageLoaderProps) {
+    const t = useT();
+
     return <Fade in={open} timeout={{ enter: 0, exit: 400 }} unmountOnExit>
         <Box
             position="fixed"
@@ -46,7 +49,7 @@ export default function PageLoader({ open = true }: PageLoaderProps) {
                 <Box
                     component="img"
                     src={AsystSymbol}
-                    alt="Loading"
+                    alt={t("Loading", "Memuat")}
                     sx={{ width: 52, height: "auto", animation: `${pulse} 1.4s ease-in-out infinite` }}
                 />
             </Box>

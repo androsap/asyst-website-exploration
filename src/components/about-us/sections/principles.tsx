@@ -5,10 +5,11 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { PrinciplesConst } from "consts/about-us.const";
+import { useLocalized } from "shared/i18n";
 
 /** Tab Vision / Mission / Values + video profil perusahaan. */
 export default function PrinciplesSection() {
-    const { tabs, defaultTab, videoEmbedUrl, videoThumbnail } = PrinciplesConst;
+    const { tabs, defaultTab, videoEmbedUrl, videoThumbnail, videoTitle, videoThumbnailAlt, playVideo } = useLocalized(PrinciplesConst);
     const [activeIndex, setActiveIndex] = useState(defaultTab);
     const [playing, setPlaying] = useState(false);
 
@@ -17,7 +18,7 @@ export default function PrinciplesSection() {
             <Box className="about-principles__tabs" role="tablist">
                 {tabs.map(({ label }, index) => (
                     <ButtonBase
-                        key={label}
+                        key={index}
                         role="tab"
                         aria-selected={index === activeIndex}
                         className={`about-principles__tab ${index === activeIndex ? "active" : ""}`}
@@ -29,8 +30,8 @@ export default function PrinciplesSection() {
             </Box>
             <Box className="about-principles">
                 <Box className="about-principles__list" role="tabpanel">
-                    {tabs[activeIndex].items.map(({ title, description }) => (
-                        <Box key={title} className="about-principles__item">
+                    {tabs[activeIndex].items.map(({ title, description }, index) => (
+                        <Box key={index} className="about-principles__item">
                             <Typography className="about-principles__title">{title}</Typography>
                             <Typography className="about-principles__description">{description}</Typography>
                         </Box>
@@ -40,7 +41,7 @@ export default function PrinciplesSection() {
                     {playing && videoEmbedUrl
                         ? <iframe
                             src={`${videoEmbedUrl}?autoplay=1`}
-                            title="Asyst company profile"
+                            title={videoTitle}
                             allow="autoplay; encrypted-media; picture-in-picture"
                             allowFullScreen
                         />
@@ -48,9 +49,9 @@ export default function PrinciplesSection() {
                             className="about-principles__thumbnail"
                             onClick={() => setPlaying(true)}
                             disabled={!videoEmbedUrl}
-                            aria-label="Play video"
+                            aria-label={playVideo}
                         >
-                            <img src={videoThumbnail} alt="Asyst office" loading="lazy" />
+                            <img src={videoThumbnail} alt={videoThumbnailAlt} loading="lazy" />
                             <YouTubeIcon className="about-principles__play" />
                         </ButtonBase>
                     }

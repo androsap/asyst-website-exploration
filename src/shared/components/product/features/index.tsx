@@ -16,6 +16,7 @@ import he from 'he'
 import { formatPaginationBullet } from 'components/home'
 import { RefObject, useEffect, useRef, useState } from 'react'
 import { scrollTo } from 'lib'
+import { useApiText, useT } from 'shared/i18n'
 
 interface FeatureContentBoxProps {
     feature: FeaturesModel['product']
@@ -35,6 +36,8 @@ const FeatureComponent: React.FC<FeaturesProps> = ({ feature, prevElement, nextE
     const [hasScrolledUpOnFirstSlide, setHasScrolledUpOnFirstSlide] = useState<boolean>(false)
     const [isVisible, setIsVisible] = useState<boolean>(false)
     const elementRef = useRef<HTMLDivElement>(null)
+    const apiText = useApiText()
+    const t = useT()
 
     const FeatureContentBox: React.FC<FeatureContentBoxProps> = ({ feature, sectionIndex }) => {
         const section = feature?.section?.[sectionIndex]
@@ -46,13 +49,13 @@ const FeatureComponent: React.FC<FeaturesProps> = ({ feature, prevElement, nextE
                 <Container maxWidth="xl">
                     <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" gap={5}>
                         <Box display="flex" flexDirection="column" width="90%">
-                            <Typography sx={styles.feature}>{feature?.product_name} Feature</Typography>
-                            <Typography sx={styles.title} dangerouslySetInnerHTML={{ __html: he.decode(section.title_id || '') }} />
-                            <Typography sx={styles.subtitle} dangerouslySetInnerHTML={{ __html: he.decode(section.subtitle_id || '') }} />
+                            <Typography sx={styles.feature}>{t(`${feature?.product_name} Feature`, `Fitur ${feature?.product_name}`)}</Typography>
+                            <Typography sx={styles.title} dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "title") || '') }} />
+                            <Typography sx={styles.subtitle} dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "subtitle") || '') }} />
                             {section.sub_section_1.map((subsection, index) => (
                                 <Box key={`subsection-${index}`}>
-                                    <Typography sx={styles.description}>{subsection.title_id}</Typography>
-                                    <Typography sx={styles.subdescription}>{subsection.description_id}</Typography>
+                                    <Typography sx={styles.description}>{apiText(subsection, "title")}</Typography>
+                                    <Typography sx={styles.subdescription}>{apiText(subsection, "description")}</Typography>
                                     {index + 1 !== section.sub_section_1.length && (
                                         <Box paddingBottom="15px">
                                             <Divider style={{ borderColor: '#FFFFFF1A' }} orientation="horizontal" flexItem />

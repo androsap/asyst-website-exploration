@@ -5,10 +5,11 @@ import Typography from "@mui/material/Typography";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { CaseStudyCtaConst } from "consts/case-study.const";
 import { requestDemoModal } from "components/product/shared/page-actions";
+import { useLocalized } from "shared/i18n";
 
 /** CTA berlatar abu-abu terang di atas footer (halaman Case Study & detail). */
 export default function CaseStudyCta() {
-    const { title, subtitle, description, button } = CaseStudyCtaConst;
+    const { title, subtitle, description, button } = useLocalized(CaseStudyCtaConst);
 
     return <Box component="section" className="cs-cta">
         <Container maxWidth="xl" className="cs-cta__inner">

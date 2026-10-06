@@ -6,10 +6,11 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { EnterpriseHighlightConst } from "consts/home.const";
+import { useLocalized } from "shared/i18n";
 import SectionHeading from "./section-heading";
 
 export default function EnterpriseHighlightSection() {
-    const { title, description, items } = EnterpriseHighlightConst;
+    const { title, description, items } = useLocalized(EnterpriseHighlightConst);
 
     return <Box component="section" className="home-section home-highlight__section">
         <Container maxWidth="xl">

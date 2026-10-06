@@ -4,15 +4,17 @@ import ButtonBase from "@mui/material/ButtonBase";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { CapabilitiesConst } from "consts/home.const";
+import { useLocalized } from "shared/i18n";
 import SectionHeading from "./section-heading";
 
 export default function CapabilitiesSection() {
     const [activeIndex, setActiveIndex] = useState(0);
-    const active = CapabilitiesConst.items[activeIndex];
+    const capabilities = useLocalized(CapabilitiesConst);
+    const active = capabilities.items[activeIndex];
 
     // Preload semua gambar tab supaya pergantian tidak kedip saat gambar baru dimuat
     useEffect(() => {
-        CapabilitiesConst.items.forEach(({ image }) => {
+        CapabilitiesConst.EN.items.forEach(({ image }) => {
             const img = new Image();
             img.src = image;
         });
@@ -20,12 +22,12 @@ export default function CapabilitiesSection() {
 
     return <Box component="section" className="home-section">
         <Container maxWidth="xl">
-            <SectionHeading title={CapabilitiesConst.title} description={CapabilitiesConst.description} />
+            <SectionHeading title={capabilities.title} description={capabilities.description} />
             <Box className="home-capabilities">
                 <Box className="home-capabilities__menu" role="tablist">
-                    {CapabilitiesConst.items.map(({ icon: Icon, label }, index) => (
+                    {capabilities.items.map(({ icon: Icon, label }, index) => (
                         <ButtonBase
-                            key={label}
+                            key={index}
                             role="tab"
                             disableRipple
                             aria-selected={index === activeIndex}

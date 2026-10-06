@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { ProductHeroConst } from "consts/product.const";
+import { useLocalized } from "shared/i18n";
 
 interface HeroSectionProps {
     onExplore: () => void;
@@ -10,7 +11,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onExplore, onTalkToExpert }: HeroSectionProps) {
-    const { eyebrow, title, description, primaryButton, secondaryButton, image } = ProductHeroConst;
+    const { eyebrow, title, description, primaryButton, secondaryButton, image } = useLocalized(ProductHeroConst);
 
     return <Box component="section" className="pv-hero pv-hero--with-image">
         <Container maxWidth="xl">

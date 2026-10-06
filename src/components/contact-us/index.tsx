@@ -11,22 +11,25 @@ import "components/product/shared/product-v2.scss";
 import "./contact-us.scss";
 import { ContactField, ContactFieldName, ContactFormConst, ContactHeroConst, ContactNextStepsConst, ContactOfficeConst } from "consts/contact-us.const";
 import { requestDemoModal } from "components/product/shared/page-actions";
+import { useLocalized } from "shared/i18n";
 
 type FormValues = Record<ContactFieldName, string>;
 type FormErrors = Partial<Record<ContactFieldName, string>>;
 
+type ContactFormContent = typeof ContactFormConst.EN;
+
 const initialValues: FormValues = { fullName: "", jobTitle: "", companyName: "", email: "", phone: "", message: "" };
-const allFields: ContactField[] = [...ContactFormConst.rows.flat(), ContactFormConst.message];
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_PATTERN = /^\+?[\d\s()-]{6,20}$/;
 
-const validate = (values: FormValues): FormErrors => {
+const validate = (values: FormValues, form: ContactFormContent): FormErrors => {
     const errors: FormErrors = {};
+    const allFields: ContactField[] = [...form.rows.flat(), form.message];
     allFields.forEach(({ name, placeholder, required }) => {
-        if (required && !values[name].trim()) errors[name] = `${placeholder} is required`;
+        if (required && !values[name].trim()) errors[name] = form.requiredError.replace("{field}", placeholder);
     });
-    if (values.email && !EMAIL_PATTERN.test(values.email.trim())) errors.email = "Please enter a valid email address";
-    if (values.phone && !PHONE_PATTERN.test(values.phone.trim())) errors.phone = "Please enter a valid phone number";
+    if (values.email && !EMAIL_PATTERN.test(values.email.trim())) errors.email = form.emailError;
+    if (values.phone && !PHONE_PATTERN.test(values.phone.trim())) errors.phone = form.phoneError;
     return errors;
 };
 
@@ -45,7 +48,7 @@ export default function ContactUsComponent({ }: MainLayoutSharedProps) {
 }
 
 function ContactHero() {
-    const { title, description } = ContactHeroConst;
+    const { title, description } = useLocalized(ContactHeroConst);
 
     return <Box component="section" className="cv-hero">
         <Container maxWidth="md">
@@ -61,6 +64,7 @@ function ContactForm() {
     const [values, setValues] = useState<FormValues>(initialValues);
     const [errors, setErrors] = useState<FormErrors>({});
     const [submitted, setSubmitted] = useState(false);
+    const form = useLocalized(ContactFormConst);
 
     const onChange = (name: ContactFieldName, value: string) => {
         setValues(prev => ({ ...prev, [name]: value }));
@@ -70,7 +74,7 @@ function ContactForm() {
 
     const onSubmit = (e: FormEvent) => {
         e.preventDefault();
-        const nextErrors = validate(values);
+        const nextErrors = validate(values, form);
         setErrors(nextErrors);
         if (Object.keys(nextErrors).length) return;
 
@@ -98,30 +102,30 @@ function ContactForm() {
 
     return <>
         <Box className="cv-contact__heading">
-            <Typography variant="h2" className="cv-title">{ContactFormConst.title}</Typography>
+            <Typography variant="h2" className="cv-title">{form.title}</Typography>
             <Typography className="cv-intro">
-                <Link component="button" type="button" underline="hover" className="cv-intro__link" onClick={requestDemoModal}>{ContactFormConst.bookCall}</Link>
-                {" "}{ContactFormConst.description}
+                <Link component="button" type="button" underline="hover" className="cv-intro__link" onClick={requestDemoModal}>{form.bookCall}</Link>
+                {" "}{form.description}
             </Typography>
         </Box>
 
         <Box component="form" noValidate onSubmit={onSubmit} className="cv-form">
-            {ContactFormConst.rows.map((row, i) => <Box key={i} className="cv-form__row">
+            {form.rows.map((row, i) => <Box key={i} className="cv-form__row">
                 {row.map(field => renderField(field))}
             </Box>)}
-            {renderField(ContactFormConst.message, true)}
+            {renderField(form.message, true)}
 
-            {submitted && <Alert severity="success" className="cv-form__alert">{ContactFormConst.successMessage}</Alert>}
+            {submitted && <Alert severity="success" className="cv-form__alert">{form.successMessage}</Alert>}
 
             <Box>
-                <Button type="submit" className="pv-btn pv-btn--primary cv-form__submit">{ContactFormConst.submit}</Button>
+                <Button type="submit" className="pv-btn pv-btn--primary cv-form__submit">{form.submit}</Button>
             </Box>
         </Box>
     </>
 }
 
 function NextSteps() {
-    const { title, steps } = ContactNextStepsConst;
+    const { title, steps } = useLocalized(ContactNextStepsConst);
 
     return <Box component="aside" className="cv-next">
         <Typography variant="h3" className="cv-next__title">{title}</Typography>
@@ -135,13 +139,13 @@ function NextSteps() {
 }
 
 function OfficeLocations() {
-    const { title, viewMap, offices } = ContactOfficeConst;
+    const { title, viewMap, offices } = useLocalized(ContactOfficeConst);
 
     return <Box component="section" className="pv-section cv-office">
         <Container maxWidth="xl">
             <Typography variant="h2" className="cv-title">{title}</Typography>
             <Box className="cv-office__grid">
-                {offices.map(office => <Box key={office.title} className="cv-office__card">
+                {offices.map(office => <Box key={office.mapLink} className="cv-office__card">
                     <Typography variant="h3" className="cv-office__name">{office.title}</Typography>
                     <Typography className="cv-office__address">
                         {office.address.map((line, i) => <span key={i}>{line}</span>)}

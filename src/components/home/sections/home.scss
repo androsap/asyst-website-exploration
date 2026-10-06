@@ -1092,11 +1092,28 @@ $mobile: 599px;
         }
 
         &__slider {
+            --industries-fade-width: 120px;
+            position: relative;
             min-width: 0;
+            // Area slider diperpanjang sampai tepi kanan layar agar mask tidak memotong kartu di kanan.
+            margin-right: -100vw;
+            padding-right: 100vw;
+            // Fade tepi kiri memakai mask (bukan overlay putih) supaya kartu memudar mulus tanpa garis.
+            // Hanya aktif setelah slider digeser supaya kartu pertama tidak ikut pudar.
+            -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, var(--industries-fade)) 0, #000 var(--industries-fade-width));
+            mask-image: linear-gradient(90deg, rgba(0, 0, 0, var(--industries-fade)) 0, #000 var(--industries-fade-width));
+            transition: --industries-fade .3s ease;
+
+            @media (max-width: $mobile) {
+                --industries-fade-width: 48px;
+            }
 
             .swiper {
                 overflow: visible;
-                clip-path: inset(0 -100vw 0 0);
+            }
+
+            &.is-scrolled {
+                --industries-fade: 0;
             }
 
             .swiper-slide {
@@ -1373,4 +1390,11 @@ $mobile: 599px;
         opacity: 1;
         transform: none;
     }
+}
+
+// Didaftarkan agar fade kiri slider industri bisa dianimasikan (1 = tanpa fade, 0 = pudar penuh).
+@property --industries-fade {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
 }

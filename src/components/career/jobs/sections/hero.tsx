@@ -7,13 +7,14 @@ import Select from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
-import { CAREER_BASE_PATH, CareerFilterGroupsConst, CareerFilterKey, CareerHeroConst, CareerJobsHeroConst, CareerPopularSkillsConst } from "consts/career.const";
+import { CAREER_BASE_PATH, CareerFilterGroupsConst, CareerFilterKey, CareerHeroConst, CareerJobsHeroConst, CareerPopularSkillsConst, CareerTermsConst } from "consts/career.const";
+import { useLanguage, useLocalized, useT, useTerms } from "shared/i18n";
 import CareerBreadcrumb from "../../shared/breadcrumb";
 import { CareerFilters } from "../../shared/utils";
 
 /** Urutan dropdown di hero (berbeda dengan urutan chip di sidebar) */
 const SELECT_ORDER: CareerFilterKey[] = ["department", "location", "experience", "type"];
-const SELECTS = CareerFilterGroupsConst
+const sortSelects = (groups: typeof CareerFilterGroupsConst.EN) => groups
     .filter(group => SELECT_ORDER.includes(group.key))
     .sort((a, b) => SELECT_ORDER.indexOf(a.key) - SELECT_ORDER.indexOf(b.key));
 
@@ -24,12 +25,16 @@ interface JobsHeroSectionProps {
 
 /** Hero halaman Jobs: pencarian, dropdown filter & chip "Popular skills". */
 export default function JobsHeroSection({ filters, onFilterChange }: JobsHeroSectionProps) {
-    const { title, description, searchPlaceholder, popularSkills, allSkills } = CareerJobsHeroConst;
+    const { title, description, searchPlaceholder, popularSkills, allSkills } = useLocalized(CareerJobsHeroConst);
+    const t = useT();
+    const term = useTerms(CareerTermsConst);
+    const language = useLanguage();
+    const selects = sortSelects(CareerFilterGroupsConst[language]);
 
     return <Box component="section" className="cr-hero cr-hero--jobs">
-        <Box className="cr-hero__backdrop" sx={{ backgroundImage: `url(${CareerHeroConst.image})` }} aria-hidden />
+        <Box className="cr-hero__backdrop" sx={{ backgroundImage: `url(${CareerHeroConst.EN.image})` }} aria-hidden />
         <Container maxWidth="xl" className="cr-hero__inner">
-            <CareerBreadcrumb items={[{ label: "Career", to: CAREER_BASE_PATH }, { label: "Jobs" }]} />
+            <CareerBreadcrumb items={[{ label: t("Career", "Karier"), to: CAREER_BASE_PATH }, { label: t("Jobs", "Lowongan") }]} />
 
             <Typography variant="h1" className="cr-hero__title">{title}</Typography>
             <Typography className="cr-hero__description">{description}</Typography>
@@ -46,7 +51,7 @@ export default function JobsHeroSection({ filters, onFilterChange }: JobsHeroSec
             </Box>
 
             <Box className="cr-selects">
-                {SELECTS.map(({ key, allLabel, options }) => (
+                {selects.map(({ key, allLabel, options }) => (
                     <Select
                         key={key}
                         value={filters[key] ?? ""}
@@ -57,7 +62,7 @@ export default function JobsHeroSection({ filters, onFilterChange }: JobsHeroSec
                         inputProps={{ "aria-label": allLabel }}
                     >
                         <MenuItem value="">{allLabel}</MenuItem>
-                        {options.map(option => <MenuItem key={option} value={option}>{option}</MenuItem>)}
+                        {options.map(option => <MenuItem key={option} value={option}>{term(option)}</MenuItem>)}
                     </Select>
                 ))}
             </Box>
@@ -72,7 +77,7 @@ export default function JobsHeroSection({ filters, onFilterChange }: JobsHeroSec
                         className={`cr-chip ${active ? "active" : ""}`}
                         onClick={() => onFilterChange("skill", skill ?? undefined)}
                     >
-                        {skill ?? allSkills}
+                        {skill ? term(skill) : allSkills}
                     </ButtonBase>
                 })}
             </Box>

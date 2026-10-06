@@ -4,20 +4,22 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { ProductSolveConst } from "consts/product.const";
+import { useLocalized } from "shared/i18n";
 import SectionHeading from "../shared/section-heading";
 import TabBar from "../shared/tab-bar";
 
 export default function SolveSection() {
     const [activeIndex, setActiveIndex] = useState(0);
-    const active = ProductSolveConst.items[activeIndex];
+    const solve = useLocalized(ProductSolveConst);
+    const active = solve.items[activeIndex];
 
     return <Box component="section" className="pv-section">
         <Container maxWidth="xl">
-            <SectionHeading title={ProductSolveConst.title} description={ProductSolveConst.description} align="left" />
+            <SectionHeading title={solve.title} description={solve.description} align="left" />
             <Box className="pv-solve">
                 <TabBar
                     variant="segment"
-                    labels={ProductSolveConst.items.map(x => x.label)}
+                    labels={solve.items.map(x => x.label)}
                     active={activeIndex}
                     onChange={setActiveIndex}
                 />

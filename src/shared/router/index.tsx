@@ -5,6 +5,7 @@ import AutoRoute from './AutoRoute';
 import router from "./router"
 import AnalyticsHelper from "helper/AnalyticsHelper";
 import PageLoader from "shared/page-loader";
+import { useLanguage } from "shared/i18n";
 
 export interface RouterProps {
     path: string;
@@ -19,18 +20,19 @@ const PAGE_LOADER_DURATION = 700;
 export default function MainApp() {
     const routers: RouterProps[] = router;
     const location = useLocation();
+    const language = useLanguage();
     const [pageLoading, setPageLoading] = useState<boolean>(true);
 
     useEffect(() => {
         AnalyticsHelper.handleRouteChange(location.pathname, location.search);
     }, [location.pathname, location.search]);
 
-    // useLayoutEffect agar loader muncul sebelum page baru sempat ter-paint
+    // useLayoutEffect agar loader muncul sebelum page baru / teks bahasa baru sempat ter-paint
     useLayoutEffect(() => {
         setPageLoading(true);
         const timer = setTimeout(() => setPageLoading(false), PAGE_LOADER_DURATION);
         return () => clearTimeout(timer);
-    }, [location.pathname]);
+    }, [location.pathname, language]);
 
     return (<>
         <PageLoader open={pageLoading} />

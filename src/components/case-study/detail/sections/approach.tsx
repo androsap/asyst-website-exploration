@@ -25,7 +25,7 @@ export default function ApproachSection({ content }: ApproachSectionProps) {
             <Box>
                 {content.steps.map(({ phase, title, description }, index) => {
                     const open = openIndex === index;
-                    return <Box key={title} className={`cs-step ${open ? "open" : ""}`}>
+                    return <Box key={index} className={`cs-step ${open ? "open" : ""}`}>
                         <ButtonBase className="cs-step__header" aria-expanded={open} onClick={() => setOpenIndex(open ? null : index)}>
                             <span className="cs-step__number">
                                 {String(index + 1).padStart(2, "0")}

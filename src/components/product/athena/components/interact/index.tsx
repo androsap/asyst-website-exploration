@@ -9,12 +9,14 @@ import { PromotionCardsModel } from "models/amala/promotionCards.model";
 import PromotionCardsHelper from 'helper/athena/PromotionCardsHelper';
 import { Children, useState, useEffect } from "react"
 import he from 'he'
+import { useApiText } from 'shared/i18n'
 
 export default function InteractComponent() {
     const [data, setData] = useState<PromotionModel>({} as PromotionModel)
     const [loading, setLoading] = useState<boolean>(true)
     const [dataCards, setDataCards] = useState<PromotionCardsModel>({} as PromotionCardsModel)
     const [loadingCards, setLoadingCards] = useState<boolean>(true)
+    const apiText = useApiText()
 
     useEffect(() => {
         getData()
@@ -41,16 +43,16 @@ export default function InteractComponent() {
         <Box sx={styles.mainBox}>
             <Box sx={styles.textContentBox}>
                 <Typography sx={styles.title}
-                    dangerouslySetInnerHTML={{ __html: he.decode(data.product?.section?.title_id || '') }} />
+                    dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
                 <Typography sx={styles.content}
-                    dangerouslySetInnerHTML={{ __html: he.decode(data.product?.section?.description_id || '') }} />
+                    dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "description") || '') }} />
                 {!loading && data.product?.section?.sub_section_1 && Children.toArray(data.product?.section?.sub_section_1.map(item =>
                     <>
                         <Typography sx={styles.subtitle}>
-                            {item.title_id}
+                            {apiText(item, "title")}
                         </Typography>
                         <Typography sx={styles.subcontent}>
-                            {item.description_id}
+                            {apiText(item, "description")}
                         </Typography>
                     </>
                 ))}
@@ -63,11 +65,11 @@ export default function InteractComponent() {
                     <Box display='flex' flexDirection='column' alignItems='center' sx={{ marginTop: '32px' }}>
                         <Box sx={styles.numberContentBox}>
                             <Typography sx={styles.number}
-                                dangerouslySetInnerHTML={{ __html: he.decode(section.title_id) }} />
+                                dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "title")) }} />
                         </Box>
                         <Box sx={{ height: '100px' }}>
                             <Typography sx={styles.text}
-                                dangerouslySetInnerHTML={{ __html: he.decode(section.subtitle_id) }} />
+                                dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "subtitle")) }} />
                         </Box>
                     </Box>
                     <Box>

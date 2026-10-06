@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
@@ -6,6 +6,7 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import { HeaderCompanyConst, HeaderFeaturedConst, HeaderNewsLink, HeaderProductsConst, HeaderSolutionsConst } from "consts/header.const";
+import { useLanguage, useLocalized, useT } from "shared/i18n";
 import MenuLink from "./menu-link";
 
 interface MobileMenuProps {
@@ -37,26 +38,29 @@ interface Section {
     links?: CardItem[];
 }
 
-const sections: Section[] = [
-    { label: "Home", link: "/" },
-    {
-        label: "Products",
-        categories: HeaderProductsConst.map(({ label, shortLabel, items }) => ({ label, badge: shortLabel || label, items })),
-    },
-    {
-        label: "Solutions",
-        categories: HeaderSolutionsConst.map(({ label, link, items }) => ({
-            label,
-            badge: label,
-            // Link overview grup jadi kartu pertama
-            items: [...(link ? [{ name: `All ${label.toLowerCase()}`, link }] : []), ...items.map(({ label, link }) => ({ name: label, link }))],
-        })),
-    },
-    { label: "News", link: HeaderNewsLink },
-    { label: "Company", links: HeaderCompanyConst.items.map(({ label, link }) => ({ name: label, link })) },
-];
-
 export default function MobileMenu({ open, onClose, onTalkToExpert, logo }: MobileMenuProps) {
+    const t = useT();
+    const language = useLanguage();
+    const featured = useLocalized(HeaderFeaturedConst);
+
+    const sections = useMemo<Section[]>(() => [
+        { label: t("Home", "Beranda"), link: "/" },
+        {
+            label: t("Products", "Produk"),
+            categories: HeaderProductsConst[language].map(({ label, shortLabel, items }) => ({ label, badge: shortLabel || label, items })),
+        },
+        {
+            label: t("Solutions", "Solusi"),
+            categories: HeaderSolutionsConst[language].map(({ label, link, items }) => ({
+                label,
+                badge: label,
+                // Link overview grup jadi kartu pertama
+                items: [...(link ? [{ name: t(`All ${label.toLowerCase()}`, `Semua ${label.toLowerCase()}`), link }] : []), ...items.map(({ label, link }) => ({ name: label, link }))],
+            })),
+        },
+        { label: t("News", "Berita"), link: HeaderNewsLink },
+        { label: t("Company", "Perusahaan"), links: HeaderCompanyConst[language].items.map(({ label, link }) => ({ name: label, link })) },
+    ], [language]);
     const [sectionIndex, setSectionIndex] = useState<number | null>(null);
     const [categoryIndex, setCategoryIndex] = useState<number | null>(null);
 
@@ -98,7 +102,7 @@ export default function MobileMenu({ open, onClose, onTalkToExpert, logo }: Mobi
 
         if (section) {
             return <>
-                {renderBack("Main menu", section.label, () => setSectionIndex(null))}
+                {renderBack(t("Main menu", "Menu utama"), section.label, () => setSectionIndex(null))}
                 <nav className="header-mobile__list">
                     {section.categories?.map((item, index) => (
                         <button key={item.label} type="button" className="header-mobile__item" onClick={() => setCategoryIndex(index)}>
@@ -124,11 +128,11 @@ export default function MobileMenu({ open, onClose, onTalkToExpert, logo }: Mobi
                 )}
             </nav>
             <div className="header-mobile__featured">
-                <div className="header-mobile__featured-title">Featured</div>
-                <Link to={HeaderFeaturedConst.link} className="header-mobile__featured-card" onClick={onClose} style={{ backgroundImage: `url(${HeaderFeaturedConst.image})` }}>
+                <div className="header-mobile__featured-title">{t("Featured", "Unggulan")}</div>
+                <Link to={featured.link} className="header-mobile__featured-card" onClick={onClose} style={{ backgroundImage: `url(${featured.image})` }}>
                     <span className="header-mobile__featured-overlay">
-                        <span className="header-mobile__badge">{HeaderFeaturedConst.label}</span>
-                        <span className="header-mobile__featured-name">{HeaderFeaturedConst.title}</span>
+                        <span className="header-mobile__badge">{featured.label}</span>
+                        <span className="header-mobile__featured-name">{featured.title}</span>
                     </span>
                 </Link>
             </div>
@@ -138,9 +142,9 @@ export default function MobileMenu({ open, onClose, onTalkToExpert, logo }: Mobi
     return <Drawer anchor="right" open={open} onClose={onClose} PaperProps={{ className: "header-mobile" }}>
         <div className="header-mobile__top">
             <img src={logo} alt="ASYST" className="header__logo" />
-            <IconButton aria-label="Close menu" onClick={onClose}><CloseRoundedIcon /></IconButton>
+            <IconButton aria-label={t("Close menu", "Tutup menu")} onClick={onClose}><CloseRoundedIcon /></IconButton>
         </div>
         <div className="header-mobile__body">{renderContent()}</div>
-        <button type="button" className="header-mobile__cta" onClick={() => { onClose(); onTalkToExpert(); }}>Talk to Expert</button>
+        <button type="button" className="header-mobile__cta" onClick={() => { onClose(); onTalkToExpert(); }}>{t("Talk to Expert", "Hubungi Ahli")}</button>
     </Drawer>
 }

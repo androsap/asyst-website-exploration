@@ -5,10 +5,12 @@ import { useState, useEffect, } from 'react'
 import { ScaleModel } from "models/amala/scale.model"
 import ScaleHelper from 'helper/apollo/ScaleHelper'
 import he from 'he'
+import { useApiText } from 'shared/i18n'
 
 export default function ScalableComponent() {
     const [data, setData] = useState<ScaleModel>({} as ScaleModel)
     const [loading, setLoading] = useState<boolean>(true)
+    const apiText = useApiText()
 
     useEffect(() => {
         getData()
@@ -26,11 +28,11 @@ export default function ScalableComponent() {
         {!loading && data && (
             <Box>
                 <Typography sx={styles.title}
-                    dangerouslySetInnerHTML={{ __html: he.decode(data.product?.section?.subtitle_id || '') }} />
+                    dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "subtitle") || '') }} />
                 <Box display='flex' flexDirection='row' justifyContent='space-between'>
                     <Box width='80%'>
                         <Typography sx={styles.subtitle}
-                            dangerouslySetInnerHTML={{ __html: he.decode(data.product?.section?.title_id || '') }} />
+                            dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
                         <div style={{ display: 'inline' }}>
                             <a
                                 style={{
@@ -46,7 +48,7 @@ export default function ScalableComponent() {
                                     display: 'inline'
                                 }}
                                 dangerouslySetInnerHTML={{
-                                    __html: he.decode(data.product?.section?.description_id || '')
+                                    __html: he.decode(apiText(data.product?.section, "description") || '')
                                 }}
                             />
                         </div>

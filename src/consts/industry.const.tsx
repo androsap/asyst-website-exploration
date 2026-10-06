@@ -12,9 +12,12 @@ import imgAirport from "assets/asyst/img/background/industry/airline-airport/air
 import imgGround from "assets/asyst/img/background/services-solutions/products-and-services.png";
 import imgLoyalty from "assets/asyst/img/background/services-solutions/amala2.png";
 import imgEcosystem from "assets/asyst/img/background/industry/industry-detail.jpeg";
+import { localized } from "shared/i18n";
 
 // Konten statis halaman Industries (desain revamp 2026).
 // Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
+// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
+// (teks saja, struktur & urutan sama).
 
 export interface IndustryHeroContent {
     eyebrow?: string;
@@ -50,7 +53,7 @@ export interface IndustryCardsContent {
 
 const AVIATION_LINK = "/industry/aviation";
 
-export const IndustryHeroConst: IndustryHeroContent = {
+const industryHeroEn: IndustryHeroContent = {
     title: "Technology Solutions Built Around Your Industry",
     description: "Every industry operates differently. Business processes, regulations, customer expectations, operational workflows and technology create different challenges",
     primaryButton: "Explore Industry Solutions",
@@ -63,7 +66,7 @@ export const IndustryHeroConst: IndustryHeroContent = {
     ],
 }
 
-export const IndustryIntroConst: IndustryIntroContent = {
+const industryIntroEn: IndustryIntroContent = {
     title: "Technology Works Better When It Understands the Business Behind It",
     paragraphs: [
         "A technology solution cannot be evaluated only by its technical architecture. It also needs to understand how people work, how processes operate, how services are delivered, how data moves, and what business outcomes matter.",
@@ -73,7 +76,7 @@ export const IndustryIntroConst: IndustryIntroContent = {
 }
 
 // TODO: baru Aviation yang punya halaman detail; Loyalty diarahkan ke produk Amala, Industry Ecosystem sementara ke halaman ini
-export const IndustryExpertiseConst: IndustryCardsContent = {
+const industryExpertiseEn: IndustryCardsContent = {
     title: "Explore Our Industry Expertise",
     description: "From aviation and airport operations to loyalty and connected industry ecosystems, ASYST applies enterprise technology, software, integration and operational expertise to industry-specific challenges",
     items: [
@@ -120,7 +123,7 @@ export const IndustryExpertiseConst: IndustryCardsContent = {
     ],
 }
 
-export const IndustryFoundationConst = {
+const industryFoundationEn = {
     title: "One Technology Foundation for Multiple Industry Applications",
     description: "Across industries, ASYST combines products, integration, digital solutions, infrastructure and professional services to address different business environments while maintaining a connected technology foundation",
     items: [
@@ -131,7 +134,7 @@ export const IndustryFoundationConst = {
     ] as SolutionIconCard[],
 }
 
-export const IndustryFaqConst: SolutionFaqContent = {
+const industryFaqEn: SolutionFaqContent = {
     title: "Industry FAQ",
     items: [
         { question: "What industries does ASYST serve?", answer: "ASYST's current public website identifies Airline, Airport, Ground Handler, Loyalty and Industry Ecosystem as industry areas" },
@@ -144,8 +147,103 @@ export const IndustryFaqConst: SolutionFaqContent = {
     ],
 }
 
-export const IndustryCtaConst: SolutionCtaContent = {
+const industryCtaEn: SolutionCtaContent = {
     title: "Discuss Your Technology Challenge",
     description: "ASYST combines local business and domain understanding with enterprise technology capabilities and global technology partnerships to deliver solutions designed around each organization's context",
     button: "Talk to Expert",
 }
+
+// ---------- konten dua bahasa (EN di atas, terjemahan ID di bawah) ----------
+
+export const IndustryHeroConst = localized(industryHeroEn, {
+    title: "Solusi Teknologi yang Dibangun Sesuai Industri Anda",
+    description: "Setiap industri beroperasi secara berbeda. Proses bisnis, regulasi, ekspektasi pelanggan, alur kerja operasional, dan teknologi menghadirkan tantangan yang berbeda pula",
+    primaryButton: "Jelajahi Solusi Industri",
+    secondaryButton: "Hubungi Ahli ASYST",
+    stats: [
+        { label: "Perjalanan Enterprise" },
+        { label: "Kapabilitas Produk" },
+        { value: "Integrasi", label: "Teknologi Terhubung" },
+        { value: "Keahlian", label: "Pengetahuan Industri" },
+    ],
+});
+
+export const IndustryIntroConst = localized(industryIntroEn, {
+    title: "Teknologi Bekerja Lebih Baik Saat Memahami Bisnis di Baliknya",
+    paragraphs: [
+        "Solusi teknologi tidak dapat dinilai hanya dari arsitektur teknisnya. Solusi juga harus memahami cara orang bekerja, cara proses berjalan, cara layanan diberikan, cara data bergerak, dan hasil bisnis apa yang penting.",
+        "Di situlah keahlian domain menjadi bernilai",
+    ],
+});
+
+export const IndustryExpertiseConst = localized(industryExpertiseEn, {
+    title: "Jelajahi Keahlian Industri Kami",
+    description: "Dari operasional penerbangan dan bandara hingga loyalitas dan ekosistem industri yang terhubung, ASYST menerapkan teknologi enterprise, software, integrasi, dan keahlian operasional untuk tantangan spesifik industri",
+    items: [
+        {
+            tag: "Maskapai",
+            title: "Teknologi Terhubung untuk Operasional Maskapai",
+            description: "Dukung operasional maskapai dengan teknologi terintegrasi di seluruh proses komersial, layanan penumpang, alur kerja operasional, data, dan sistem enterprise",
+            chips: ["Komersial", "Operasional", "Penumpang", "Sistem Enterprise", "Integrasi", "Data"],
+            link: { label: "Jelajahi Solusi Maskapai" },
+        },
+        {
+            tag: "Bandara",
+            title: "Teknologi untuk Operasional Bandara yang Terhubung",
+            description: "Hubungkan proses bandara, sistem operasional, stakeholder, dan data untuk mendukung operasional bandara yang efisien dan terkoordinasi",
+            chips: ["Operasional Bandara", "Penumpang", "Infrastruktur", "Data", "Integrasi", "Manajemen Layanan"],
+            link: { label: "Jelajahi Solusi Bandara" },
+        },
+        {
+            tag: "Ground Handler",
+            title: "Teknologi Terhubung untuk Operasional Darat",
+            description: "Mampukan organisasi ground handling menghubungkan proses operasional, tenaga kerja, sistem, dan informasi di seluruh aktivitas yang sangat bergantung pada waktu",
+            chips: ["alur kerja operasional", "koordinasi tenaga kerja", "proses turnaround", "integrasi sistem"],
+            link: { label: "Jelajahi Solusi Ground Handler" },
+        },
+        {
+            tag: "Loyalitas",
+            title: "Teknologi Digital untuk Loyalitas Pelanggan",
+            description: "Bangun pengalaman loyalitas yang terhubung dengan mendekatkan data pelanggan, keterlibatan, reward, dan titik kontak digital",
+            chips: ["Komersial", "Operasional", "Penumpang", "Sistem Enterprise", "Integrasi", "Data"],
+            link: { label: "Jelajahi Solusi Loyalitas" },
+        },
+        {
+            tag: "Ekosistem Industri",
+            title: "Hubungkan Ekosistem di Balik Bisnis",
+            description: "Bisnis modern jarang beroperasi melalui satu organisasi atau satu sistem. Pelanggan, mitra, pemasok, penyedia layanan, dan platform teknologi harus bekerja bersama",
+            chips: ["Komersial", "Operasional", "Penumpang", "Sistem Enterprise", "Integrasi", "Data"],
+            link: { label: "Jelajahi Solusi Ekosistem" },
+        },
+    ],
+});
+
+export const IndustryFoundationConst = localized(industryFoundationEn, {
+    title: "Satu Fondasi Teknologi untuk Berbagai Penerapan Industri",
+    description: "Di berbagai industri, ASYST memadukan produk, integrasi, solusi digital, infrastruktur, dan layanan profesional untuk menjawab lingkungan bisnis yang berbeda sambil menjaga fondasi teknologi yang terhubung",
+    items: [
+        { title: "Kapabilitas Produk Enterprise", description: "Bangun di atas kapabilitas teknologi yang dirancang dari kebutuhan operasional nyata" },
+        { title: "Kapabilitas Integrasi Produk", description: "Hubungkan produk, aplikasi, data, infrastruktur, dan sistem pihak ketiga" },
+        { title: "Keahlian Platform Enterprise", description: "Pahami proses, stakeholder, dan konteks operasional di balik teknologi" },
+        { title: "Delivery & Dukungan Jangka Panjang", description: "Dukung perjalanan setelah implementasi, mulai dari adopsi dan operasional hingga perbaikan" },
+    ],
+});
+
+export const IndustryFaqConst = localized(industryFaqEn, {
+    title: "FAQ Industri",
+    items: [
+        { question: "Industri apa saja yang dilayani ASYST?", answer: "Situs ASYST saat ini menyebutkan Maskapai, Bandara, Ground Handler, Loyalitas, dan Ekosistem Industri sebagai area industri" },
+        { question: "Apakah ASYST hanya menyediakan teknologi untuk penerbangan?", answer: "Tidak. Penerbangan adalah bidang tempat ASYST memiliki pengalaman domain yang panjang, tetapi software enterprise, integrasi, infrastruktur, dan layanan profesionalnya juga diterapkan di industri lain dan ekosistem bisnis yang terhubung" },
+        { question: "Apakah Amala dapat terintegrasi dengan sistem enterprise yang sudah ada?", answer: "Ya. Amala dirancang untuk terhubung dengan sistem pelanggan, komersial, mitra, dan enterprise yang ada melalui API dan layanan integrasi" },
+        { question: "Apakah ASYST dapat mengintegrasikan sistem enterprise yang sudah ada?", answer: "Ya. ASYST menghubungkan aplikasi, data, infrastruktur, dan platform pihak ketiga sehingga sistem yang ada dapat bekerja bersama sebagai lingkungan teknologi yang lebih terhubung" },
+        { question: "Apakah ASYST menyediakan solusi teknologi khusus?", answer: "Ya. Selain produknya, ASYST menyediakan pengembangan khusus dan layanan profesional untuk kebutuhan yang spesifik bagi suatu organisasi atau industri" },
+        { question: "Apakah ASYST dapat mendukung implementasi setelah strategi disusun?", answer: "Ya. ASYST mendukung perjalanan dari strategi dan arsitektur teknologi hingga implementasi, integrasi, dan adopsi operasional" },
+        { question: "Apakah ASYST dapat mendukung teknologi setelah implementasi?", answer: "Ya. ASYST menyediakan layanan terkelola, operasional IT, dan perbaikan berkelanjutan agar teknologi tetap andal setelah go-live" },
+    ],
+});
+
+export const IndustryCtaConst = localized(industryCtaEn, {
+    title: "Diskusikan Tantangan Teknologi Anda",
+    description: "ASYST memadukan pemahaman bisnis dan domain lokal dengan kapabilitas teknologi enterprise dan kemitraan teknologi global untuk menghadirkan solusi yang dirancang sesuai konteks setiap organisasi",
+    button: "Hubungi Ahli Kami",
+});

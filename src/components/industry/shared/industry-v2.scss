@@ -11,6 +11,7 @@ $surface-soft: #FAFBFD;
 $check: #89BA3A;
 $font-heading: "Inter", sans-serif;
 
+$laptop: 1279px;
 $tablet: 1023px;
 $mobile: 599px;
 
@@ -68,7 +69,10 @@ $mobile: 599px;
         }
     }
 
+    // seluruh kartu bisa diklik lewat ::after pada link "Explore ..."
     .iv-card {
+        position: relative;
+        cursor: pointer;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -77,6 +81,11 @@ $mobile: 599px;
         border-radius: 12px;
         background: #fff;
         min-width: 0;
+        transition: border-color .2s;
+
+        &:hover {
+            border-color: $blue;
+        }
 
         @media (max-width: $mobile) {
             padding: 20px;
@@ -116,6 +125,13 @@ $mobile: 599px;
             font-family: $font-heading;
             font-size: 15px;
             font-weight: 600;
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+            }
 
             &:hover {
                 text-decoration: underline;
@@ -250,7 +266,85 @@ $mobile: 599px;
         }
     }
 
+    // ---------- popover hover (value chain & kartu domain) ----------
+    // Muncul 10px di atas elemen pemicu; efek glass tanpa shadow
+    .iv-popover-trigger {
+        position: relative;
+        cursor: default;
+
+        &:hover,
+        &:focus-visible,
+        &:focus-within {
+            z-index: 2;
+            outline: none;
+
+            .iv-popover {
+                opacity: 1;
+                visibility: visible;
+                transform: translate(var(--iv-popover-x, 0), 0);
+            }
+        }
+    }
+
+    .iv-popover {
+        position: absolute;
+        bottom: calc(100% + 10px);
+        width: 262px;
+        padding: 18px 20px;
+        border: 1px solid rgba(220, 232, 245, 0.9);
+        border-radius: 12px;
+        background: rgba(246, 248, 251, 0.72);
+        -webkit-backdrop-filter: blur(12px) saturate(140%);
+        backdrop-filter: blur(12px) saturate(140%);
+        text-align: left;
+        white-space: normal;
+        color: $text;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translate(var(--iv-popover-x, 0), 6px);
+        transition: opacity .2s, transform .2s, visibility .2s;
+
+        &--start {
+            left: 0;
+        }
+
+        &--center {
+            left: 50%;
+            --iv-popover-x: -50%;
+        }
+
+        &--end {
+            right: 0;
+        }
+
+        @media (max-width: $mobile) {
+            width: 240px;
+        }
+
+        &__title {
+            margin: 0 0 10px;
+            font-family: $font-heading;
+            color: $navy;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        &__list {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 15px;
+            line-height: 1.6;
+
+            li + li {
+                margin-top: 2px;
+            }
+        }
+    }
+
     // ---------- detail: value chain ----------
+    // Tanpa overflow (auto/hidden) supaya popover di atas langkah tidak terpotong; baris dibungkus di bawah $laptop
     .iv-chain {
         position: relative;
         display: flex;
@@ -259,7 +353,6 @@ $mobile: 599px;
         margin: 0;
         padding: 0 0 4px;
         list-style: none;
-        overflow-x: auto;
 
         // garis penghubung antar langkah
         &::before {
@@ -283,9 +376,15 @@ $mobile: 599px;
             font-size: 15px;
             color: $text;
             white-space: nowrap;
+            transition: border-color .2s, color .2s;
+
+            &.iv-popover-trigger:is(:hover, :focus-visible, :focus-within) {
+                border-color: $blue;
+                color: $blue;
+            }
         }
 
-        @media (max-width: $tablet) {
+        @media (max-width: $laptop) {
             flex-wrap: wrap;
             justify-content: center;
 
@@ -315,8 +414,16 @@ $mobile: 599px;
     }
 
     .iv-domain {
+        transition: border-color .2s;
+
+        &.iv-popover-trigger:is(:hover, :focus-visible, :focus-within) {
+            border-color: $blue;
+        }
+
         &__icon {
-            font-size: 28px;
+            display: block;
+            width: 28px;
+            height: 28px;
             color: $navy-2;
             margin-bottom: 16px;
         }

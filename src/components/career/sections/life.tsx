@@ -1,11 +1,12 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import { useLocalized } from "shared/i18n";
 import { CareerLifeConst } from "consts/career.const";
 import SectionHeading from "components/product/shared/section-heading";
 
 /** Galeri: 2 foto di baris pertama (kiri lebih lebar), 3 foto di baris kedua. */
 export default function LifeSection() {
-    const { title, description, images } = CareerLifeConst;
+    const { title, description, images } = useLocalized(CareerLifeConst);
 
     return <Box component="section" className="pv-section">
         <Container maxWidth="xl">

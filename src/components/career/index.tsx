@@ -4,6 +4,7 @@ import "components/product/shared/product-v2.scss";
 import "./shared/career.scss";
 import { CAREER_BASE_PATH, CareerFaqConst, CareerHeroConst, CareerSeoConst } from "consts/career.const";
 import useSeo from "shared/head/seo";
+import { useLocalized, useT } from "shared/i18n";
 import CareerFaq from "./shared/faq";
 import { breadcrumbSchema, faqSchema } from "./shared/seo";
 import HeroSection from "./sections/hero";
@@ -16,13 +17,16 @@ import InternshipSection from "./sections/internship";
 
 /** Halaman utama Career (revamp 2026). Memakai gaya dasar product-v2 + tambahan career. */
 export default function CareerComponent({ }: MainLayoutSharedProps) {
+    const t = useT();
+    const faq = useLocalized(CareerFaqConst);
+
     useSeo({
-        ...CareerSeoConst.career,
+        ...useLocalized(CareerSeoConst).career,
         path: CAREER_BASE_PATH,
-        image: CareerHeroConst.image,
+        image: CareerHeroConst.EN.image,
         jsonLd: [
-            breadcrumbSchema([{ name: "Career", path: CAREER_BASE_PATH }]),
-            faqSchema(CareerFaqConst.items),
+            breadcrumbSchema([{ name: t("Career", "Karier"), path: CAREER_BASE_PATH }], t("Home", "Beranda")),
+            faqSchema(faq.items),
         ],
     });
 
@@ -34,6 +38,6 @@ export default function CareerComponent({ }: MainLayoutSharedProps) {
         <WhySection />
         <IndonesiaSection />
         <InternshipSection />
-        <CareerFaq {...CareerFaqConst} />
+        <CareerFaq {...faq} />
     </Box>
 }

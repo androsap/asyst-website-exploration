@@ -3,14 +3,17 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { LeadersConst } from "consts/about-us.const";
+import { useLocalized } from "shared/i18n";
 import SectionHeading from "components/home/sections/section-heading";
 
 export default function LeadersSection() {
+    const leaders = useLocalized(LeadersConst);
+
     return <Box component="section" className="home-section">
         <Container maxWidth="xl">
-            <SectionHeading title={LeadersConst.title} description={LeadersConst.description} />
+            <SectionHeading title={leaders.title} description={leaders.description} />
             <Box className="about-leaders">
-                {LeadersConst.items.map(({ name, position, image, linkedin }) => (
+                {leaders.items.map(({ name, position, image, linkedin }) => (
                     <Box key={name} className="about-leader">
                         <Box className="about-leader__photo">
                             <img src={image} alt={name} loading="lazy" />

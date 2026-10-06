@@ -1,16 +1,14 @@
-import dayjs from "dayjs";
 import he from "he";
 import { NEWS_BASE_PATH } from "consts/news-page.const";
+import { formatDate, Language } from "shared/i18n";
 
 export const newsDetailPath = (slug: string) => `${NEWS_BASE_PATH}/${slug}`;
 
 export const newsCategoryPath = (category: string) => `${NEWS_BASE_PATH}?category=${encodeURIComponent(category)}`;
 
 /** `created_date` dari API berformat "YYYY-MM-DD HH:mm:ss" */
-export const formatNewsDate = (date: string, format = "MMMM D, YYYY") => {
-    const parsed = dayjs(date);
-    return parsed.isValid() ? parsed.format(format) : "";
-};
+export const formatNewsDate = (date: string, language: Language, format = language === "ID" ? "D MMMM YYYY" : "MMMM D, YYYY") =>
+    formatDate(date, format, language);
 
 const DANGEROUS_TAGS = "script, style, object, embed, link, meta, form";
 

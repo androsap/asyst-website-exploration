@@ -12,6 +12,7 @@ import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import logoAsyst from "assets/img/logo/asyst-logo-color.svg";
 import { HeaderCompanyConst, HeaderLanguagesConst, HeaderNewsLink, HeaderSolutionsConst } from "consts/header.const";
+import { setLanguage, useLanguage, useLocalized, useT } from "shared/i18n";
 import { useTalkToExpert } from "components/product/shared/page-actions";
 import { GroupsPanel, ProductsPanel } from "./panels";
 import MobileMenu from "./mobile-menu";
@@ -21,13 +22,6 @@ import "./index.scss";
 
 type PanelKey = "products" | "solutions" | "company";
 
-const menus: { key?: PanelKey; label: string; link?: string }[] = [
-    { key: "products", label: "Products" },
-    { key: "solutions", label: "Solutions" },
-    { label: "News", link: HeaderNewsLink },
-    { key: "company", label: "Company" },
-];
-
 export default function HeaderShared() {
     const isMobile = useMediaQuery("(max-width:1023px)");
     const location = useLocation();
@@ -35,10 +29,19 @@ export default function HeaderShared() {
     const [panel, setPanel] = useState<PanelKey | null>(null);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [langAnchor, setLangAnchor] = useState<HTMLElement | null>(null);
-    // TODO: belum ada fitur multi-bahasa; pilihan hanya mengganti label
-    const [language, setLanguage] = useState<typeof HeaderLanguagesConst[number]>("ID");
+    const language = useLanguage();
+    const t = useT();
+    const solutions = useLocalized(HeaderSolutionsConst);
+    const company = useLocalized(HeaderCompanyConst);
     const closeTimer = useRef<number>();
     const talkToExpert = useTalkToExpert();
+
+    const menus: { key?: PanelKey; label: string; link?: string }[] = [
+        { key: "products", label: t("Products", "Produk") },
+        { key: "solutions", label: t("Solutions", "Solusi") },
+        { label: t("News", "Berita"), link: HeaderNewsLink },
+        { key: "company", label: t("Company", "Perusahaan") },
+    ];
 
     const closePanel = () => setPanel(null);
 
@@ -67,7 +70,7 @@ export default function HeaderShared() {
     // Transparan saat di paling atas; panel terbuka tetap pakai background agar terbaca
     return <header className={`header ${scrolled || panel ? "header--elevated" : "header--transparent"} ${panel ? "header--open" : ""}`} onMouseLeave={scheduleClose} onMouseEnter={() => window.clearTimeout(closeTimer.current)}>
         <Container maxWidth="xl" className="header__bar">
-            <Link to="/" className="header__brand" aria-label="ASYST home">
+            <Link to="/" className="header__brand" aria-label={t("ASYST home", "Beranda ASYST")}>
                 <img src={logoAsyst} alt="ASYST" className="header__logo" />
             </Link>
 
@@ -90,9 +93,9 @@ export default function HeaderShared() {
 
             <div className="header__actions">
                 {/* TODO: fitur pencarian belum ada */}
-                <IconButton aria-label="Search" className="header__icon-btn"><SearchRoundedIcon /></IconButton>
+                <IconButton aria-label={t("Search", "Cari")} className="header__icon-btn"><SearchRoundedIcon /></IconButton>
                 {isMobile
-                    ? <IconButton aria-label={`Language: ${language}`} aria-haspopup="menu" className="header__icon-btn" onClick={e => setLangAnchor(e.currentTarget)}><LanguageRoundedIcon /></IconButton>
+                    ? <IconButton aria-label={`${t("Language", "Bahasa")}: ${language}`} aria-haspopup="menu" className="header__icon-btn" onClick={e => setLangAnchor(e.currentTarget)}><LanguageRoundedIcon /></IconButton>
                     : <button type="button" className="header__lang" aria-haspopup="menu" onClick={e => setLangAnchor(e.currentTarget)}>
                         <LanguageRoundedIcon />
                         {language}
@@ -106,15 +109,15 @@ export default function HeaderShared() {
                         </MenuItem>
                     ))}
                 </Menu>
-                {!isMobile && <button type="button" className="header__cta" onClick={talkToExpert}>Talk to expert</button>}
-                {isMobile && <IconButton aria-label="Open menu" className="header__icon-btn" onClick={() => setMobileOpen(true)}><MenuRoundedIcon /></IconButton>}
+                {!isMobile && <button type="button" className="header__cta" onClick={talkToExpert}>{t("Talk to expert", "Hubungi ahli")}</button>}
+                {isMobile && <IconButton aria-label={t("Open menu", "Buka menu")} className="header__icon-btn" onClick={() => setMobileOpen(true)}><MenuRoundedIcon /></IconButton>}
             </div>
         </Container>
 
         {!isMobile && panel && <Container maxWidth="xl" className="header__dropdown">
             {panel === "products" && <ProductsPanel onNavigate={closePanel} />}
-            {panel === "solutions" && <GroupsPanel groups={HeaderSolutionsConst} onNavigate={closePanel} />}
-            {panel === "company" && <GroupsPanel groups={[HeaderCompanyConst]} onNavigate={closePanel} />}
+            {panel === "solutions" && <GroupsPanel groups={solutions} onNavigate={closePanel} />}
+            {panel === "company" && <GroupsPanel groups={[company]} onNavigate={closePanel} />}
         </Container>}
 
         {isMobile && <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} onTalkToExpert={talkToExpert} logo={logoAsyst} />}

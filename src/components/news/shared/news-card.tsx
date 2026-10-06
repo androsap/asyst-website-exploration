@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import NewsModel from "models/news.model";
+import { useLanguage, useT } from "shared/i18n";
 import { formatNewsDate, newsDetailPath, newsPlainText } from "./utils";
 
 interface NewsCardProps {
@@ -14,6 +15,8 @@ interface NewsCardProps {
 
 export default function NewsCard({ item }: NewsCardProps) {
     const { slug, title, image, content, created_date } = item;
+    const t = useT();
+    const language = useLanguage();
     const link = newsDetailPath(slug);
     // API belum punya field ringkasan; pakai potongan awal isi berita
     const excerpt = useMemo(() => newsPlainText(content), [content]);
@@ -28,10 +31,10 @@ export default function NewsCard({ item }: NewsCardProps) {
             <Box className="news-card__footer">
                 <span className="news-card__date">
                     <CalendarTodayOutlinedIcon />
-                    {formatNewsDate(created_date)}
+                    {formatNewsDate(created_date, language)}
                 </span>
                 <Link to={link} className="news-card__read">
-                    Read the post <ArrowForwardRoundedIcon />
+                    {t("Read the post", "Baca selengkapnya")} <ArrowForwardRoundedIcon />
                 </Link>
             </Box>
         </Box>

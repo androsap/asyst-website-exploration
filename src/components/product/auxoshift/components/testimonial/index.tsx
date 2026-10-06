@@ -10,6 +10,7 @@ import { styles } from './styled';
 import { ProductTestimonialModel } from "models/amala/testimonial.model";
 import { Children } from 'react';
 import he from 'he'
+import { useApiText, useT } from 'shared/i18n'
 import './index.scss';
 
 interface TestimonialProps {
@@ -17,11 +18,13 @@ interface TestimonialProps {
 }
 
 const TestimonialComponent: React.FC<TestimonialProps> = ({ testimonial }) => {
+    const apiText = useApiText()
+    const t = useT()
 
     return (
         <>
             <Typography sx={styles.title}>
-                What they said
+                {t("What they said", "Kata mereka")}
             </Typography>
             <div className="testimonials">
                 <Swiper
@@ -45,7 +48,7 @@ const TestimonialComponent: React.FC<TestimonialProps> = ({ testimonial }) => {
                                             <Grid item xs={12} sx={styles.quoteGrid}>
                                                 <Box className='box-review'>
                                                     <Typography sx={styles.quote}>
-                                                        {testimonial.review_id}
+                                                        {apiText(testimonial, "review")}
                                                     </Typography>
                                                 </Box>
                                             </Grid>

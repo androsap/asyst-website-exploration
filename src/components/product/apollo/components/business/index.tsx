@@ -10,6 +10,7 @@ import BusinessHelper from 'helper/apollo/BusinessHelper';
 import { CardBusinessModel } from "models/amala/cardbusiness.model";
 import CardBusinessHelper from 'helper/apollo/CardBusinessHelper';
 import he from 'he'
+import { useApiText } from 'shared/i18n'
 
 export default function BusinessComponent() {
     const [active, setActive] = useState<string>("1")
@@ -17,6 +18,7 @@ export default function BusinessComponent() {
     const [loading, setLoading] = useState<boolean>(true)
     const [dataCard, setDataCard] = useState<CardBusinessModel>({} as CardBusinessModel)
     const [loadingCard, setLoadingCard] = useState<boolean>(true)
+    const apiText = useApiText()
 
     useEffect(() => {
         getData()
@@ -45,9 +47,9 @@ export default function BusinessComponent() {
                 <Box>
                     <Box width="80%">
                         <Typography sx={styles.title}
-                            dangerouslySetInnerHTML={{ __html: he.decode(data.product?.section?.title_id || '') }} />
+                            dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
                         <Typography sx={styles.subtitle}
-                            dangerouslySetInnerHTML={{ __html: he.decode(data.product?.section?.description_id || '') }} />
+                            dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "description") || '') }} />
 
                     </Box>
                     <Box display='flex' flexDirection='row' gap='24px'>
@@ -58,12 +60,12 @@ export default function BusinessComponent() {
                                     <Box sx={styles.button} >
                                         <img src={business}></img>
                                         <Typography sx={styles.textButton}
-                                            dangerouslySetInnerHTML={{ __html: he.decode(item.title_id || '') }} />
+                                            dangerouslySetInnerHTML={{ __html: he.decode(apiText(item, "title") || '') }} />
                                     </Box>
                                 </Box>
                                 <Box>
                                     <Typography sx={styles.desc}
-                                        dangerouslySetInnerHTML={{ __html: he.decode(item.subtitle_id || '') }} />
+                                        dangerouslySetInnerHTML={{ __html: he.decode(apiText(item, "subtitle") || '') }} />
                                 </Box>
                             </Button>
                         ))}
@@ -76,8 +78,8 @@ export default function BusinessComponent() {
                                 <Box className='business-box'>
                                     {!loadingCard && Children.toArray(item.sub_section_1.map(sub_section =>
                                         <>
-                                            <Typography sx={styles.contentTitle}>{sub_section.title_id}</Typography>
-                                            <Typography sx={styles.contentSubtitle}>{sub_section.description_id}</Typography>
+                                            <Typography sx={styles.contentTitle}>{apiText(sub_section, "title")}</Typography>
+                                            <Typography sx={styles.contentSubtitle}>{apiText(sub_section, "description")}</Typography>
                                         </>
                                     ))}
                                 </Box>

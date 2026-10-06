@@ -6,7 +6,8 @@ import Container from "@mui/material/Container";
 import InputBase from "@mui/material/InputBase";
 import Typography from "@mui/material/Typography";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import { CaseStudiesConst, CaseStudyExplorerConst, CaseStudyFilterTabsConst, CaseStudyItem, CaseStudyFilterKey } from "consts/case-study.const";
+import { CaseStudiesConst, CaseStudyExplorerConst, CaseStudyFilterTabsConst, CaseStudyItem, CaseStudyFilterKey, CaseStudyTermsConst } from "consts/case-study.const";
+import { useLocalized, useTerms } from "shared/i18n";
 import TabBar from "components/product/shared/tab-bar";
 import CaseCard from "../shared/case-card";
 import { CASE_STUDY_SECTION_IDS } from "../shared/section-ids";
@@ -18,21 +19,24 @@ const matchesFilter = (item: CaseStudyItem, key: CaseStudyFilterKey, value: stri
 
 /** Tab dimensi (Industry/Solutions/Technology) + chip filter + pencarian + grid dengan "Load more". */
 export default function ExplorerSection() {
-    const { allLabel, searchPlaceholder, emptyText, loadMore, pageSize } = CaseStudyExplorerConst;
+    const { allLabel, searchPlaceholder, emptyText, loadMore, pageSize } = useLocalized(CaseStudyExplorerConst);
+    const filterTabs = useLocalized(CaseStudyFilterTabsConst);
+    const caseStudies = useLocalized(CaseStudiesConst);
+    const term = useTerms(CaseStudyTermsConst);
     const [tabIndex, setTabIndex] = useState(0);
     const [filter, setFilter] = useState<string | null>(null);
     const [search, setSearch] = useState("");
     const [visible, setVisible] = useState(pageSize);
 
-    const tab = CaseStudyFilterTabsConst[tabIndex];
+    const tab = filterTabs[tabIndex];
 
     const results = useMemo(() => {
         const keyword = search.trim().toLowerCase();
-        return CaseStudiesConst.filter(item =>
+        return caseStudies.filter(item =>
             (!filter || matchesFilter(item, tab.key, filter)) &&
-            (!keyword || [item.title, ...item.tags].some(text => text.toLowerCase().includes(keyword)))
+            (!keyword || [item.title, ...item.tags, ...item.tags.map(term)].some(text => text.toLowerCase().includes(keyword)))
         );
-    }, [tab.key, filter, search]);
+    }, [caseStudies, tab.key, filter, search, term]);
 
     // setiap perubahan filter mulai lagi dari halaman pertama
     const resetPaging = () => setVisible(pageSize);
@@ -51,7 +55,7 @@ export default function ExplorerSection() {
     return <Box component="section" id={CASE_STUDY_SECTION_IDS.explorer} className="pv-section pv-anchor">
         <Container maxWidth="xl">
             <Box className="cs-explorer__toolbar">
-                <TabBar variant="pill" labels={CaseStudyFilterTabsConst.map(x => x.label)} active={tabIndex} onChange={changeTab} />
+                <TabBar variant="pill" labels={filterTabs.map(x => x.label)} active={tabIndex} onChange={changeTab} />
                 <Box className="cs-search">
                     <SearchRoundedIcon className="cs-search__icon" />
                     <InputBase
@@ -72,7 +76,7 @@ export default function ExplorerSection() {
                         className={`cs-filter ${filter === option ? "active" : ""}`}
                         onClick={() => changeFilter(option)}
                     >
-                        {option ?? allLabel}
+                        {option ? term(option) : allLabel}
                     </ButtonBase>
                 ))}
             </Box>

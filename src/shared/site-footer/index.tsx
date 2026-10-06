@@ -6,10 +6,14 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import logoAsystWhite from "assets/asyst/img/logo/asyst-logo-white.png";
 import { FooterColumnsConst, FooterCompanyConst, FooterLegalConst, FooterSocialConst } from "consts/site-footer.const";
 import MenuLink from "shared/navigation/header/menu-link";
+import { useLocalized, useT } from "shared/i18n";
 import "./index.scss";
 
 export default function SiteFooterShared() {
-    const { title, address, phone, email } = FooterCompanyConst;
+    const t = useT();
+    const { title, address, phone, email } = useLocalized(FooterCompanyConst);
+    const columns = useLocalized(FooterColumnsConst);
+    const legal = useLocalized(FooterLegalConst);
 
     return <footer className="site-footer">
         <Container maxWidth="xl">
@@ -28,8 +32,8 @@ export default function SiteFooterShared() {
                     </div>
                 </div>
 
-                {FooterColumnsConst.map(({ title, items }, index) => (
-                    <nav key={title || index} className="site-footer__column" aria-label={title || "Company"}>
+                {columns.map(({ title, items }, index) => (
+                    <nav key={title || index} className="site-footer__column" aria-label={title || t("Company", "Perusahaan")}>
                         {title && <div className="site-footer__title">{title}</div>}
                         {items.map(({ label, link }) => (
                             <MenuLink key={label} link={link} className="site-footer__link">{label}</MenuLink>
@@ -40,13 +44,13 @@ export default function SiteFooterShared() {
 
             <div className="site-footer__bottom">
                 <div className="site-footer__legal">
-                    <span>© Aero Systems Indonesia {new Date().getFullYear()} | All Right Reserved</span>
-                    {FooterLegalConst.map(({ label, link }) => (
+                    <span>© Aero Systems Indonesia {new Date().getFullYear()} | {t("All Rights Reserved", "Hak Cipta Dilindungi")}</span>
+                    {legal.map(({ label, link }) => (
                         <MenuLink key={label} link={link} className="site-footer__link">{label}</MenuLink>
                     ))}
                 </div>
                 <div className="site-footer__social">
-                    <span>Let's Connect</span>
+                    <span>{t("Let's Connect", "Mari Terhubung")}</span>
                     <a href={FooterSocialConst.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><LinkedInIcon /></a>
                     <a href={FooterSocialConst.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><InstagramIcon /></a>
                 </div>

@@ -71,6 +71,15 @@ $font-body: "Source Sans 3", "Source Sans Pro", sans-serif;
         @media (max-width: 599px) {
             font-size: 18px;
         }
+
+        &--link {
+            width: fit-content;
+
+            &:hover {
+                color: #fff;
+                text-decoration: underline;
+            }
+        }
     }
 
     &__address {

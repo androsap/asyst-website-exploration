@@ -7,6 +7,7 @@ import { ReactComponent as ModernizeLegacyIcon } from "assets/asyst/img/icon/cap
 import { ReactComponent as ConnectEnterpriseIcon } from "assets/asyst/img/icon/capabilities/connect-enterprise.svg";
 import { ReactComponent as ImproveCustomerIcon } from "assets/asyst/img/icon/capabilities/improve-customer.svg";
 import { ReactComponent as BuildDigitalIcon } from "assets/asyst/img/icon/capabilities/build-digital.svg";
+import { localized } from "shared/i18n";
 
 import imgAwardAlibabaCloud from "assets/asyst/img/award/award-alibaba-cloud.png";
 import imgAwardIrca from "assets/asyst/img/award/award-irca.png";
@@ -37,13 +38,19 @@ import imgIndustryLogistic from "assets/asyst/img/background/services-solutions/
 
 // Konten statis homepage (desain revamp 2026).
 // Gambar & ikon sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
+// Tiap konten dua bahasa: argumen pertama `localized` = EN (lengkap), kedua = terjemahan ID (teks saja).
 
-export const HeroConst = {
+export const HeroConst = localized({
     title: "Enterprise software that connects complex business operations",
     description: "Build, integrate, and operate the digital systems your business depends on, from enterprise applications and workflow automation to system integration and managed technology services.",
     primaryButton: { label: "Explore Products", link: "/product" },
     secondaryButton: { label: "Talk to Expert" },
-}
+}, {
+    title: "Software enterprise yang menghubungkan operasional bisnis yang kompleks",
+    description: "Bangun, integrasikan, dan operasikan sistem digital yang menjadi tumpuan bisnis Anda, mulai dari aplikasi enterprise dan otomatisasi alur kerja hingga integrasi sistem dan layanan teknologi terkelola.",
+    primaryButton: { label: "Jelajahi Produk" },
+    secondaryButton: { label: "Hubungi Ahli" },
+})
 
 export interface AwardItem {
     image: string;
@@ -51,11 +58,15 @@ export interface AwardItem {
     subtitle: string;
 }
 
-export const AwardsConst: AwardItem[] = [
+export const AwardsConst = localized<AwardItem[]>([
     { image: imgAwardAlibabaCloud, title: "Indonet & Alibaba Cloud Award", subtitle: "Top-tier digital and IT" },
     { image: imgAwardIrca, title: "IRCA Award", subtitle: "Best Enterprise in Regulatory" },
     { image: imgAwardInsider, title: "Insider Award", subtitle: "The Most Breakthrough Growth" },
-]
+], [
+    { subtitle: "Digital dan IT kelas atas" },
+    { subtitle: "Perusahaan Terbaik dalam Kepatuhan Regulasi" },
+    { subtitle: "Pertumbuhan Paling Terobosan" },
+])
 
 export const TrustedByConst: { name: string; logo: string }[] = [
     { name: "KAI", logo: logoKai },
@@ -73,7 +84,7 @@ export interface HighlightItem {
     description: string;
 }
 
-export const EnterpriseHighlightConst = {
+export const EnterpriseHighlightConst = localized({
     title: "Built for complex enterprise environments",
     description: "Enterprise technology is not only about building software. It requires the ability to understand business processes, connect systems, deliver reliably, and support technology throughout its lifecycle.",
     items: [
@@ -94,11 +105,37 @@ export const EnterpriseHighlightConst = {
             description: "From implementation to managed services, ASYST supports enterprise technology so it keeps running reliably as the business grows.",
         },
     ] as HighlightItem[],
-}
+}, {
+    title: "Dibangun untuk lingkungan enterprise yang kompleks",
+    description: "Teknologi enterprise bukan sekadar membangun software. Dibutuhkan kemampuan memahami proses bisnis, menghubungkan sistem, menghadirkan solusi secara andal, dan mendukung teknologi sepanjang siklus hidupnya.",
+    items: [
+        {
+            title: "Software enterprise yang dibangun dari kebutuhan operasional nyata",
+            description: "ASYST menghadirkan produk di berbagai area seperti ERP, perjalanan korporat, ITSM, loyalitas, kargo, serta penjadwalan tenaga kerja dan sumber daya.",
+        },
+        {
+            title: "Teknologi yang menghubungkan ekosistem enterprise",
+            description: "Lingkungan enterprise jarang berjalan di atas satu sistem saja. ASYST memadukan aplikasi, API, data, infrastruktur, dan alur kerja bisnis untuk membantu organisasi memiliki teknologi yang lebih terhubung.",
+        },
+        {
+            title: "Implementasi dan dukungan di sepanjang siklus hidup",
+            description: "Dari implementasi hingga layanan terkelola, ASYST mendukung teknologi enterprise agar tetap berjalan andal seiring pertumbuhan bisnis.",
+        },
+    ],
+})
 
 export type ProductCategory = "Operations" | "Enterprise" | "Customer" | "Information and Technology";
 
 export const ProductCategoryConst: ("All Products" | ProductCategory)[] = ["All Products", "Operations", "Enterprise", "Customer", "Information and Technology"]
+
+/** Label ID untuk kategori produk (nilai kategori tetap dipakai sebagai key filter) */
+export const ProductCategoryTermsConst: Record<string, string> = {
+    "All Products": "Semua Produk",
+    "Operations": "Operasional",
+    "Enterprise": "Enterprise",
+    "Customer": "Pelanggan",
+    "Information and Technology": "Informasi & Teknologi",
+}
 
 export interface ProductItem {
     title: string;
@@ -108,7 +145,7 @@ export interface ProductItem {
     link: string;
 }
 
-export const ProductsConst = {
+export const ProductsConst = localized({
     title: "Software built for complex business operations",
     description: "Explore enterprise products designed to digitize workflows, connect business functions, improve visibility and support operational decision-making",
     items: [
@@ -141,7 +178,28 @@ export const ProductsConst = {
             link: "/product",
         },
     ] as ProductItem[],
-}
+}, {
+    title: "Software untuk operasional bisnis yang kompleks",
+    description: "Jelajahi produk enterprise yang dirancang untuk mendigitalkan alur kerja, menghubungkan fungsi bisnis, meningkatkan visibilitas, dan mendukung pengambilan keputusan operasional",
+    items: [
+        {
+            title: "Platform Manajemen Loyalitas",
+            description: "Buat dan kelola program loyalitas, reward, tingkatan member, integrasi mitra, dan keterlibatan pelanggan",
+        },
+        {
+            title: "ERP Enterprise & Manajemen Bisnis",
+            description: "Software manajemen bisnis terintegrasi yang menghubungkan proses front-office dan back-office melalui informasi bersama secara real-time",
+        },
+        {
+            title: "Smart Document Cerdas",
+            description: "Software manajemen dokumen bisnis terintegrasi yang menghubungkan dokumen melalui informasi bersama secara real-time",
+        },
+        {
+            title: "Manajemen Kargo Terintegrasi",
+            description: "Hubungkan proses penjualan kargo, reservasi, regulated agent, dan pergudangan dalam satu lingkungan kargo terintegrasi",
+        },
+    ],
+})
 
 export interface CapabilityItem {
     icon: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -152,7 +210,7 @@ export interface CapabilityItem {
     image: string;
 }
 
-export const CapabilitiesConst = {
+export const CapabilitiesConst = localized({
     title: "Turn complex systems into measurable business progress",
     description: "Technology creates value when it helps people connect information, automate repetitive work, see what is happening, optimize decisions and scale operations",
     items: [
@@ -198,7 +256,42 @@ export const CapabilitiesConst = {
             image: imgCapBuild,
         },
     ] as CapabilityItem[],
-}
+}, {
+    title: "Ubah sistem yang kompleks menjadi kemajuan bisnis yang terukur",
+    description: "Teknologi memberi nilai ketika membantu orang menghubungkan informasi, mengotomatiskan pekerjaan berulang, melihat apa yang sedang terjadi, mengoptimalkan keputusan, dan meningkatkan skala operasional",
+    items: [
+        {
+            label: "Otomatisasi operasional",
+            title: "Otomatisasi Operasional",
+            description: "Ubah proses yang berulang dan terfragmentasi menjadi alur kerja digital yang terhubung, sehingga tim Anda bekerja lebih efisien, merespons lebih cepat, dan mengambil keputusan yang lebih tepat.",
+            tags: ["Otomatisasi Alur Kerja", "Aplikasi Enterprise", "Integrasi Sistem", "Data Operasional"],
+        },
+        {
+            label: "Modernisasi sistem lama",
+            title: "Modernisasi Sistem Lama",
+            description: "Pindahkan proses bisnis penting dari platform yang sudah usang ke aplikasi modern yang mudah dirawat tanpa mengganggu operasional sehari-hari.",
+            tags: ["Modernisasi Aplikasi", "Migrasi Cloud", "Aplikasi Enterprise"],
+        },
+        {
+            label: "Hubungkan sistem enterprise",
+            title: "Hubungkan Sistem Enterprise",
+            description: "Hubungkan aplikasi, API, data, dan infrastruktur agar informasi mengalir antardepartemen, bukan terkunci di sistem yang terpisah-pisah.",
+            tags: ["Integrasi Sistem", "Manajemen API", "Data Operasional"],
+        },
+        {
+            label: "Tingkatkan pengalaman pelanggan",
+            title: "Tingkatkan Pengalaman Pelanggan",
+            description: "Berikan perjalanan digital yang konsisten dan personal bagi pelanggan dan member, didukung data yang terhubung dan layanan yang andal.",
+            tags: ["Loyalitas", "Keterlibatan Pelanggan", "Kanal Digital"],
+        },
+        {
+            label: "Bangun produk digital baru",
+            title: "Bangun Produk Digital Baru",
+            description: "Rancang, bangun, dan luncurkan produk digital baru bersama tim yang memahami kebutuhan enterprise sejak hari pertama.",
+            tags: ["Pengembangan Produk", "Aplikasi Mobile & Web", "Layanan Terkelola"],
+        },
+    ],
+})
 
 export interface PartnerItem {
     title: string;
@@ -206,7 +299,7 @@ export interface PartnerItem {
     image: string;
 }
 
-export const PartnerConst = {
+export const PartnerConst = localized({
     title: "One technology partner from product to Implementation",
     items: [
         { title: "Product", description: "Start with proven enterprise software designed around specific business workflows", image: imgPartnerProduct },
@@ -214,7 +307,15 @@ export const PartnerConst = {
         { title: "Implementation and Transform", description: "Redesign processes, operating models and digital workflows around measurable business priorities", image: imgPartnerImplementation },
         { title: "Services", description: "Extend your technology capability with implementation, professional services, infrastructure, managed services and operational support", image: imgPartnerServices },
     ] as PartnerItem[],
-}
+}, {
+    title: "Satu mitra teknologi dari produk hingga implementasi",
+    items: [
+        { title: "Produk", description: "Mulai dengan software enterprise teruji yang dirancang untuk alur kerja bisnis tertentu" },
+        { title: "Integrasi", description: "Hubungkan produk dengan sistem, API, data, dan infrastruktur yang sudah berjalan di organisasi Anda." },
+        { title: "Implementasi & Transformasi", description: "Rancang ulang proses, model operasional, dan alur kerja digital berdasarkan prioritas bisnis yang terukur" },
+        { title: "Layanan", description: "Perluas kapabilitas teknologi Anda dengan implementasi, layanan profesional, infrastruktur, layanan terkelola, dan dukungan operasional" },
+    ],
+})
 
 export interface IndustryItem {
     title: string;
@@ -223,21 +324,36 @@ export interface IndustryItem {
     tags: string[];
 }
 
-const industryDescription = "Powerful solutions frequently act as the core digital infrastructure of a company, ensuring that various departments can operate efficiently together, share data securely, and uphold consistent operational benchmarks";
+const industryDescription = localized(
+    "Powerful solutions frequently act as the core digital infrastructure of a company, ensuring that various departments can operate efficiently together, share data securely, and uphold consistent operational benchmarks",
+    "Solusi yang andal sering menjadi infrastruktur digital inti perusahaan, memastikan berbagai departemen dapat bekerja sama secara efisien, berbagi data dengan aman, dan menjaga standar operasional yang konsisten",
+);
 
-export const IndustriesConst = {
+export const IndustriesConst = localized({
     title: "Built for industries where operations matter",
     description: "Explore how ASYST capabilities can be applied across industries with complex workflows, systems and operational requirements",
     allLink: "/industry",
     items: [
-        { title: "Enterprise", description: industryDescription, image: imgIndustryEnterprise, tags: ["ERP", "ITSM", "Workforce"] },
-        { title: "Aviation", description: industryDescription, image: imgIndustryAviation, tags: ["ERP", "ITSM", "Workforce"] },
-        { title: "Logistic", description: industryDescription, image: imgIndustryLogistic, tags: ["ERP", "ITSM", "Workforce"] },
+        { title: "Enterprise", description: industryDescription.EN, image: imgIndustryEnterprise, tags: ["ERP", "ITSM", "Workforce"] },
+        { title: "Aviation", description: industryDescription.EN, image: imgIndustryAviation, tags: ["ERP", "ITSM", "Workforce"] },
+        { title: "Logistic", description: industryDescription.EN, image: imgIndustryLogistic, tags: ["ERP", "ITSM", "Workforce"] },
     ] as IndustryItem[],
-}
+}, {
+    title: "Dibangun untuk industri yang mengandalkan operasional",
+    description: "Lihat bagaimana kapabilitas ASYST diterapkan di berbagai industri dengan alur kerja, sistem, dan kebutuhan operasional yang kompleks",
+    items: [
+        { title: "Enterprise", description: industryDescription.ID, tags: ["ERP", "ITSM", "Tenaga Kerja"] },
+        { title: "Penerbangan", description: industryDescription.ID, tags: ["ERP", "ITSM", "Tenaga Kerja"] },
+        { title: "Logistik", description: industryDescription.ID, tags: ["ERP", "ITSM", "Tenaga Kerja"] },
+    ],
+})
 
-export const CtaConst = {
+export const CtaConst = localized({
     title: "Have a complex technology challenge?",
     description: "Tell us what you're trying to connect, automate, optimize or transform. Our team can help identify the right product, solution or technology approach for your organization.",
     button: "Talk to an Expert",
-}
+}, {
+    title: "Punya tantangan teknologi yang kompleks?",
+    description: "Ceritakan apa yang ingin Anda hubungkan, otomatiskan, optimalkan, atau transformasikan. Tim kami siap membantu menentukan produk, solusi, atau pendekatan teknologi yang tepat untuk organisasi Anda.",
+    button: "Hubungi Ahli Kami",
+})

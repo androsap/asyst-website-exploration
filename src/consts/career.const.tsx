@@ -15,10 +15,14 @@ import imgLife3 from "assets/asyst/img/background/career/teamwork.png";
 import imgLife4 from "assets/asyst/img/background/story/story-6.png";
 import imgLife5 from "assets/asyst/img/background/story/story-8.png";
 import imgApply from "assets/asyst/img/background/career/env2.png";
+import { localized } from "shared/i18n";
 
 // Konten statis halaman Career, daftar lowongan & detail lowongan (desain revamp 2026).
 // Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
-// Lowongan belum dari API: tambah/ubah lowongan cukup di CareerJobsConst.
+// Lowongan belum dari API: tambah/ubah lowongan cukup di careerJobsEn (+ terjemahannya di bagian bawah file).
+// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID (teks saja,
+// struktur & urutan sama). Nilai filter (departemen, lokasi, pengalaman, tipe kerja, skill) tetap bahasa Inggris karena dipakai
+// di URL; labelnya diterjemahkan lewat CareerTermsConst.
 
 export const CAREER_BASE_PATH = "/career";
 export const CAREER_JOBS_PATH = `${CAREER_BASE_PATH}/jobs`;
@@ -30,7 +34,7 @@ export const CAREER_APPLY_LINK = "/contact-us";
 
 // ---------- SEO (title ≤ ~60 karakter, description ~120-160 karakter) ----------
 
-export const CareerSeoConst = {
+const careerSeoEn = {
     career: {
         title: "Careers at ASYST | PT Aero Systems Indonesia",
         description: "Build your career at PT Aero Systems Indonesia (ASYST). Explore roles in software engineering, UI/UX, product, IT infrastructure and internships.",
@@ -65,7 +69,7 @@ export const CareerDepartmentsConst = [
 ];
 
 /** Filter berbentuk chip / dropdown; urutan = urutan tampil di sidebar */
-export const CareerFilterGroupsConst: { key: Exclude<CareerFilterKey, "skill">; label: string; allLabel: string; options: string[] }[] = [
+const careerFilterGroupsEn: { key: Exclude<CareerFilterKey, "skill">; label: string; allLabel: string; options: string[] }[] = [
     { key: "experience", label: "Experience", allLabel: "All experience", options: ["Internship", "Entry-level", "Junior", "Mid-level", "Senior", "Lead/Manager"] },
     { key: "location", label: "Work location", allLabel: "All locations", options: ["On-site", "Hybrid", "Remote"] },
     { key: "type", label: "Employment type", allLabel: "All work types", options: ["Contract", "Full-time", "Internship"] },
@@ -98,7 +102,7 @@ export interface CareerJob {
     requirements: string[];
 }
 
-export const CareerJobsConst: CareerJob[] = [
+const careerJobsEn: CareerJob[] = [
     {
         slug: "business-development-representative",
         title: "Business Development Representative",
@@ -349,14 +353,14 @@ export const CareerJobsConst: CareerJob[] = [
 
 // ---------- halaman utama /career ----------
 
-export const CareerHeroConst = {
+const careerHeroEn = {
     title: "Build Technology That Matters",
     description: "Join a team where software, design, data, infrastructure and business expertise come together to create technology that makes a difference",
     button: "Explore Open Positions",
     image: imgHero,
 }
 
-export const CareerValuesConst: { title: string; items: { title: string; subtitle: string; description: string; icon: SvgIconComponent }[] } = {
+const careerValuesEn: { title: string; items: { title: string; subtitle: string; description: string; icon: SvgIconComponent }[] } = {
     title: "How We Work Together",
     items: [
         { title: "Accountability", subtitle: "Own the outcome.", description: "We take responsibility for our decisions, actions and results", icon: AssignmentTurnedInOutlinedIcon },
@@ -367,20 +371,20 @@ export const CareerValuesConst: { title: string; items: { title: string; subtitl
     ],
 }
 
-export const CareerOpportunityConst = {
+const careerOpportunityEn = {
     title: "Your Next Opportunity",
     description: "Explore open positions across technology, product, design, business and project delivery. Find a role that matches your skills, experience and the kind of problems you want to solve",
     button: "Find Your Next Career at ASYST",
     limit: 6,
 }
 
-export const CareerLifeConst = {
+const careerLifeEn = {
     title: "Life at Asyst",
     description: "Work is only part of the experience. From collaborative workshops and team activities to company celebrations and industry visits, our people have opportunities to connect beyond their day-to-day roles",
     images: [imgLife1, imgLife2, imgLife3, imgLife4, imgLife5],
 }
 
-export const CareerWhyConst = {
+const careerWhyEn = {
     title: "Why Build Your Career at ASYST?",
     description: "Depending on your role, you may work on enterprise applications, digital experiences, system integration, data, infrastructure, and IT operations",
     items: [
@@ -392,7 +396,7 @@ export const CareerWhyConst = {
     ],
 }
 
-export const CareerIndonesiaConst = {
+const careerIndonesiaEn = {
     title: "Build Your Career From Indonesia, Work on Enterprise Technology",
     description: "ASYST is based in Indonesia and works within an enterprise technology ecosystem shaped by local expertise, international technology partnerships and complex business environments",
     items: [
@@ -403,7 +407,7 @@ export const CareerIndonesiaConst = {
     ],
 }
 
-export const CareerInternshipConst = {
+const careerInternshipEn = {
     title: "Start Your Technology Career",
     description: "Starting your career does not mean starting with small problems. At ASYST, interns and early-career talent can be introduced to real technology environments, collaborative teams and business challenges",
     button: "Explore Internship Opportunities",
@@ -411,7 +415,7 @@ export const CareerInternshipConst = {
     filter: { key: "type" as CareerFilterKey, value: "Internship" },
 }
 
-export const CareerFaqConst = {
+const careerFaqEn = {
     title: "Frequently Asked Questions",
     items: [
         { question: "What careers are available at ASYST?", answer: "ASYST's current Career page highlights opportunities including Software Developer, Analyst, UI/UX Design, Project Management and Internship. Open roles change based on current recruitment needs, so check the job list for the latest vacancies." },
@@ -425,7 +429,7 @@ export const CareerFaqConst = {
 
 // ---------- daftar lowongan /career/jobs ----------
 
-export const CareerJobsHeroConst = {
+const careerJobsHeroEn = {
     title: "Explore Career Opportunities at ASYST",
     description: "Discover opportunities to build enterprise software, design digital experiences, connect business systems and solve complex technology challenges",
     searchPlaceholder: "Search by role, skill or keyword...",
@@ -433,7 +437,7 @@ export const CareerJobsHeroConst = {
     allSkills: "All tags",
 }
 
-export const CareerJobListConst = {
+const careerJobListEn = {
     title: "Open Position",
     description: "Explore current opportunities across our teams. Each role includes its key responsibilities, required skills, experience level and work location to help you make an informed decision",
     emptyText: "No open position matches your filter.",
@@ -442,13 +446,13 @@ export const CareerJobListConst = {
     pageSize: 6,
 }
 
-export const CareerSidebarConst = {
+const careerSidebarEn = {
     browse: "Browse",
     filters: "Filters",
     searchPlaceholder: "Roles, Keywords...",
 }
 
-export const CareerConnectsConst = {
+const careerConnectsEn = {
     title: "Build Technology That Connects Business",
     paragraphs: [
         "At ASYST, technology is connected to the way businesses operate. Our work spans enterprise products, digital solutions, system integration and technology services, with experience in complex environments such as aviation.",
@@ -462,7 +466,7 @@ export const CareerConnectsConst = {
     ],
 }
 
-export const CareerApplyStepsConst = {
+const careerApplyStepsEn = {
     title: "What to Expect When You Apply",
     description: "Every role has its own requirements. The vacancy details will guide you through the relevant application steps and what information to prepare",
     image: imgApply,
@@ -475,7 +479,7 @@ export const CareerApplyStepsConst = {
     ],
 }
 
-export const CareerJobsFaqConst = {
+const careerJobsFaqEn = {
     title: "Frequently Asked Questions",
     items: [
         { question: "What positions are available at ASYST?", answer: "Available positions depend on current recruitment needs. ASYST's existing Career page highlights disciplines such as Software Developer, Analyst, UI/UX Design, Project Management and Internship. Candidates should refer to the live vacancy list for confirmed openings." },
@@ -489,7 +493,7 @@ export const CareerJobsFaqConst = {
 
 // ---------- detail lowongan /career/jobs/:slug ----------
 
-export const CareerJobDetailConst = {
+const careerJobDetailEn = {
     apply: "Apply for This Position",
     applyShort: "Apply Now",
     meta: { location: "Work Location", type: "Employment Type", experience: "Experience" },
@@ -537,7 +541,7 @@ export const CareerJobDetailConst = {
 }
 
 /** FAQ detail lowongan; `{title}` diganti judul lowongan */
-export const CareerJobDetailFaqConst = {
+const careerJobDetailFaqEn = {
     title: "Frequently Asked Questions",
     items: [
         { question: "What does a {title} at ASYST do?", answer: "The exact responsibilities depend on the vacancy. Software engineering roles can involve developing enterprise applications, working with APIs and integrations, collaborating with cross-functional teams and improving technology solutions." },
@@ -548,3 +552,434 @@ export const CareerJobDetailFaqConst = {
         { question: "Where is this position based?", answer: "The work location is shown at the top of this page. On-site roles are based at our office in the Soekarno-Hatta International Airport area, Cengkareng." },
     ],
 }
+
+// ---------- konten dua bahasa (EN di atas, terjemahan ID di bawah) ----------
+
+/** Label ID untuk nilai filter & chip skill (nilainya tetap dipakai sebagai key di URL dan data lowongan) */
+export const CareerTermsConst: Record<string, string> = {
+    // departemen
+    "Software Engineering": "Rekayasa Perangkat Lunak",
+    "Business Analysis": "Analisis Bisnis",
+    "Project Management": "Manajemen Proyek",
+    "IT & Infrastructure": "IT & Infrastruktur",
+    "IT Operations": "Operasional IT",
+    "Internship": "Magang",
+    "Sales & Business Development": "Penjualan & Pengembangan Bisnis",
+    "Corporate Functions": "Fungsi Korporat",
+    "Product": "Produk",
+    // pengalaman
+    "Entry-level": "Pemula",
+    "Mid-level": "Menengah",
+    "Lead/Manager": "Lead/Manajer",
+    // lokasi kerja
+    "On-site": "Di kantor",
+    // tipe kerja
+    "Contract": "Kontrak",
+    "Full-time": "Penuh waktu",
+    // skill
+    "Software Development": "Pengembangan Software",
+    "Enterprise Applications": "Aplikasi Enterprise",
+    "Stakeholder Management": "Manajemen Stakeholder",
+    "Analysis": "Analisis",
+    "Project Delivery": "Penyelesaian Proyek",
+    "Infrastructure": "Infrastruktur",
+    "Strategic & Analytical": "Strategis & Analitis",
+    "Proactive & Organized": "Proaktif & Terorganisir",
+    "Collaborative Team Player": "Kolaboratif dalam Tim",
+    "Cloud infrastructure": "Infrastruktur cloud",
+    "Integration": "Integrasi",
+    "Surveys": "Survei",
+    "Plan": "Perencanaan",
+    "Coordinate": "Koordinasi",
+    "Risks": "Manajemen Risiko",
+    "Monitoring": "Pemantauan",
+};
+
+export const CareerSeoConst = localized(careerSeoEn, {
+    career: {
+        title: "Karier di ASYST | PT Aero Systems Indonesia",
+        description: "Bangun karier Anda di PT Aero Systems Indonesia (ASYST). Temukan posisi di bidang software engineering, UI/UX, produk, infrastruktur IT, dan program magang.",
+    },
+    jobs: {
+        title: "Lowongan Tersedia | Karier ASYST",
+        description: "Lihat lowongan yang tersedia di ASYST. Saring berdasarkan departemen, skill, tingkat pengalaman, lokasi kerja, dan tipe pekerjaan, lalu lamar secara online.",
+    },
+    jobDetail: {
+        title: "{title} | Karier ASYST",
+        fallbackTitle: "Lowongan Tidak Ditemukan | Karier ASYST",
+    },
+});
+
+export const CareerFilterGroupsConst = localized(careerFilterGroupsEn, [
+    { label: "Pengalaman", allLabel: "Semua pengalaman" },
+    { label: "Lokasi kerja", allLabel: "Semua lokasi" },
+    { label: "Tipe pekerjaan", allLabel: "Semua tipe pekerjaan" },
+    { label: "Departemen", allLabel: "Semua departemen" },
+]);
+
+// Judul posisi tetap bahasa Inggris (lazim di lowongan IT); ringkasan & detail diterjemahkan
+export const CareerJobsConst = localized(careerJobsEn, [
+    {
+        summary: "Menjadi titik kontak pertama bagi calon mitra dan memperkenalkan solusi branded content kami yang inovatif.",
+        about: [
+            "Anda akan membuka percakapan dengan organisasi yang membutuhkan teknologi enterprise, memahami tantangan bisnis mereka, dan menghubungkan mereka dengan solusi serta spesialis ASYST yang tepat.",
+            "Peran ini memadukan riset, penjangkauan, dan membangun relasi, bekerja erat dengan tim solusi, konsultasi, dan delivery untuk mengubah ketertarikan awal menjadi peluang yang terkualifikasi.",
+        ],
+        responsibilities: [
+            "Mengidentifikasi dan meriset calon klien di sektor penerbangan, enterprise, dan publik",
+            "Menjangkau calon klien melalui telepon, email, acara, dan referensi",
+            "Mengkualifikasi peluang dan menyerahkannya kepada account manager dan tim solusi",
+            "Menyiapkan materi perkenalan dan ringkasan pertemuan",
+            "Menjaga catatan pipeline yang akurat di CRM",
+        ],
+        requirements: [
+            "S1 Bisnis, Pemasaran, Sistem Informasi, atau bidang terkait",
+            "Pengalaman 3+ tahun di penjualan B2B atau pengembangan bisnis, diutamakan di layanan IT",
+            "Kemampuan komunikasi dan presentasi yang baik dalam bahasa Indonesia dan Inggris",
+            "Terbiasa bekerja dengan target dan proses penjualan yang terstruktur",
+        ],
+    },
+    {
+        summary: "Menentukan arah produk, menetapkan indikator kesehatan dan keberhasilan produk yang jelas, serta bekerja erat dengan tim engineering dan lintas fungsi.",
+        about: [
+            "Anda akan membentuk roadmap produk platform dan otomatisasi internal kami, yaitu layanan bersama yang membantu tim ASYST membangun, men-deploy, dan mengoperasikan aplikasi enterprise lebih cepat.",
+            "Bersama tim engineering, desain, dan operasional, Anda akan menerjemahkan kebutuhan pengguna menjadi prioritas yang jelas dan mengukur apakah yang kita rilis benar-benar memperbaiki cara kerja tim.",
+        ],
+        responsibilities: [
+            "Mengumpulkan dan memprioritaskan kebutuhan dari tim engineering, delivery, dan operasional",
+            "Menulis product requirement, user story, dan acceptance criteria yang jelas",
+            "Menentukan metrik keberhasilan dan memantau kesehatan produk setelah rilis",
+            "Menjalankan sprint planning dan review bersama tim engineering",
+            "Mengomunikasikan roadmap dan pembaruan rilis kepada stakeholder",
+        ],
+        requirements: [
+            "Pengalaman 1-3 tahun di product management, analisis bisnis, atau peran teknis",
+            "Memahami API, layanan cloud, dan siklus pengembangan software",
+            "Berpikir terstruktur dan mampu menentukan prioritas dengan informasi yang belum lengkap",
+            "Berpengalaman bekerja dalam tim Agile",
+        ],
+    },
+    {
+        summary: "Membangun fitur end-to-end di seluruh stack kami dengan banyak memanfaatkan AI coding tools. Kami menghargai kemampuan beradaptasi, rasa kepemilikan, dan semangat belajar.",
+        about: [
+            "Anda akan merancang, membangun, dan memelihara aplikasi web secara end-to-end, mulai dari antarmuka pengguna hingga API, penyimpanan data, dan integrasi dengan sistem enterprise.",
+            "Anda akan menggunakan tooling modern, termasuk AI-assisted coding, untuk menghadirkan software yang andal bagi klien di industri penerbangan dan lingkungan enterprise lainnya.",
+        ],
+        responsibilities: [
+            "Mengembangkan fitur di sisi frontend (React.js / Next.js) dan backend (Node.js)",
+            "Merancang API dan model data, serta mengintegrasikan dengan sistem internal dan pihak ketiga",
+            "Menulis automated test dan melakukan code review untuk engineer lain",
+            "Memantau, menangani masalah, dan meningkatkan performa aplikasi di production",
+            "Membimbing engineer lain dan berkontribusi pada keputusan teknis",
+        ],
+        requirements: [
+            "Pengalaman 5+ tahun di pengembangan software profesional",
+            "Berpengalaman kuat dengan JavaScript/TypeScript, React.js, dan Node.js",
+            "Berpengalaman dengan MongoDB, Redis, atau database dan caching layer lainnya",
+            "Memahami CI/CD, container, dan lingkungan cloud",
+            "Terbiasa menggunakan AI coding tools dalam pekerjaan sehari-hari",
+        ],
+    },
+    {
+        summary: "Membangun dan memelihara aplikasi enterprise yang menghubungkan proses bisnis, sistem, dan data.",
+        about: [
+            "Anda akan menerjemahkan kebutuhan bisnis menjadi requirement yang jelas untuk aplikasi enterprise, menjembatani pengguna bisnis, engineer, dan project manager.",
+            "Peran ini memadukan analisis proses dengan pemahaman teknis yang kuat tentang bagaimana sistem, data, dan integrasi bekerja bersama.",
+        ],
+        responsibilities: [
+            "Menjalankan workshop dan wawancara untuk memahami proses saat ini dan kendalanya",
+            "Mendokumentasikan kebutuhan bisnis, alur proses, dan spesifikasi fungsional",
+            "Menganalisis data dengan SQL untuk memvalidasi kebutuhan dan mendukung keputusan",
+            "Menentukan kebutuhan integrasi antaraplikasi melalui API",
+            "Mendukung user acceptance testing dan aktivitas go-live",
+        ],
+        requirements: [
+            "Pengalaman 3-6 tahun sebagai Business Analyst atau System Analyst",
+            "Pemahaman yang baik tentang SQL, API, dan integrasi sistem",
+            "Memahami aplikasi enterprise berbasis Java menjadi nilai tambah",
+            "Kemampuan dokumentasi dan komunikasi dengan stakeholder yang baik",
+        ],
+    },
+    {
+        summary: "Melakukan riset end-to-end pada alur kerja klien dan internal yang kompleks, lalu mengubah temuan menjadi insight yang dapat ditindaklanjuti untuk meningkatkan pengalaman digital kami.",
+        about: [
+            "Anda akan bekerja dengan tim lintas fungsi untuk memahami kebutuhan, merancang solusi teknis, mengembangkan software, mengintegrasikan sistem, serta meningkatkan performa dan keandalan aplikasi. Peran ini memadukan eksekusi teknis dengan pemahaman tentang bagaimana software digunakan di lingkungan operasional nyata.",
+            "Di Asyst, kami berpegang pada prinsip \"Fokus pada pengguna, maka hal lain akan mengikuti.\" UX Researcher kami mengubah tugas yang kompleks menjadi pengalaman yang intuitif dan mudah digunakan bagi banyak orang. Mulai dari membuat user flow dan wireframe hingga mockup dan prototipe, Anda akan merancang dan mewujudkan pengalaman produk yang inspiratif, rapi, dan memikat. Anda akan bergabung dengan tim UX multidisiplin kami, berkolaborasi dengan Engineering dan Product Management, serta memanfaatkan insight pengguna untuk menciptakan produk terdepan di industrinya.",
+            "Sebagai UX Researcher, Anda akan menerapkan metode user-centered design untuk menghasilkan pengalaman pengguna terbaik dari konsep hingga eksekusi, bekerja sama dengan mitra desain untuk mengembangkan bahasa desain Asyst dan membangun produk yang indah dan inovatif.",
+        ],
+        responsibilities: [
+            "Memahami spesifikasi produk dan psikologi pengguna",
+            "Bekerja erat dengan tim marketing dan product management untuk mengidentifikasi topik riset",
+            "Merencanakan dan menerapkan strategi serta metode riset pengguna secara menyeluruh",
+            "Berpartisipasi dalam rekrutmen partisipan riset pengguna",
+            "Mengelola dan melaksanakan riset pengguna dengan berbagai metodologi kualitatif dan kuantitatif",
+            "Menganalisis dan menginterpretasikan data yang ada (misalnya web analytics, survei pengguna, panggilan customer support) serta data riset pengguna sebelumnya",
+            "Menginterpretasikan dan menyampaikan data riset menjadi insight bermakna yang berujung pada solusi, misalnya Empathy Map, Persona, User Story, User Journey Map, dan alat pendukung lainnya",
+            "Menyusun laporan dan mempresentasikan seluruh proses serta hasil riset kepada business/product owner dan tim terkait",
+            "Memilih metode evaluasi dan melakukan studi usability (tatap muka vs remote, remote moderated vs remote unmoderated, usability testing vs A/B testing, heuristic evaluation, dll.), lalu menganalisis dan menyusun rekomendasi berdasarkan hasilnya",
+            "Bekerja erat dan terlibat dalam sketsa, prototyping, dan sesekali user testing dalam tim multidisiplin, termasuk UI Designer, UX Designer, dan Business/Product Owner, sebelum desain diserahkan ke tim development",
+        ],
+        requirements: [
+            "S1 Ilmu Komputer, Psikologi, Manajemen, atau bidang terkait Statistik dan Metode Riset",
+            "Pengalaman 3-5 tahun sebagai UX Research Specialist atau peran serupa",
+            "Pemahaman dan pengalaman yang baik dalam merancang dan melaksanakan pendekatan riset kuantitatif dan kualitatif, baik untuk eksplorasi maupun evaluasi",
+            "Mampu memahami kebutuhan, perilaku, pengalaman, dan motivasi pengguna melalui berbagai metode riset",
+            "Mampu menyusun kriteria, persyaratan, dan kebutuhan (product requirement) agar produk menghasilkan perjalanan pengalaman pengguna yang diharapkan",
+            "Mampu merancang, merencanakan, dan melaksanakan usability testing dengan pengguna akhir untuk menguji hipotesis tentang desain, fitur, dan alur kerja produk",
+            "Terbiasa meluncurkan dan beriterasi dengan cepat serta menggunakan data",
+            "Berpikir kritis dan memiliki kemampuan pemecahan masalah",
+            "Mampu bekerja dalam tim dengan manajemen waktu yang baik",
+            "Kemampuan interpersonal dan komunikasi yang sangat baik",
+            "Soft skill: berpikir analitis, pemecahan masalah, komunikasi, empati",
+            "Memahami tools seperti TreeJack, dll.",
+            "Wajib melampirkan portofolio",
+        ],
+    },
+    {
+        summary: "Memimpin dan mengoordinasikan proyek IT agar selesai tepat waktu, sesuai anggaran, dan selaras dengan tujuan bisnis.",
+        about: [
+            "Anda akan memimpin proyek IT enterprise dari inisiasi hingga serah terima, mengoordinasikan engineer, analis, desainer, dan stakeholder klien.",
+            "Anda akan menjaga ruang lingkup, jadwal, anggaran, dan kualitas tetap terkendali sekaligus memastikan setiap proyek mencapai hasil bisnis yang menjadi tujuannya.",
+        ],
+        responsibilities: [
+            "Merencanakan ruang lingkup, timeline, sumber daya, dan anggaran proyek",
+            "Memimpin tim proyek dengan metode delivery Agile atau hybrid",
+            "Mengidentifikasi, memantau, dan memitigasi risiko serta isu proyek",
+            "Melaporkan progres kepada klien dan manajemen internal",
+            "Mengelola change request dan memastikan dokumentasi proyek yang memadai",
+        ],
+        requirements: [
+            "Pengalaman 6+ tahun di proyek IT, minimal 3 tahun sebagai project manager",
+            "Berpengalaman menangani proyek software enterprise atau integrasi sistem",
+            "Sertifikasi PMP, PRINCE2, atau Scrum menjadi nilai tambah",
+            "Kemampuan kepemimpinan, negosiasi, dan manajemen stakeholder yang kuat",
+        ],
+    },
+    {
+        summary: "Menjaga sistem enterprise yang kritis tetap berjalan andal dengan memantau, memelihara, dan meningkatkan infrastruktur serta layanan.",
+        about: [
+            "Anda akan mengoperasikan dan mendukung infrastruktur serta aplikasi yang diandalkan maskapai dan perusahaan setiap hari.",
+            "Peran ini berfokus pada stabilitas, respons insiden yang cepat, dan perbaikan berkelanjutan pada proses operasional.",
+        ],
+        responsibilities: [
+            "Memantau server, jaringan, dan aplikasi serta merespons alert",
+            "Menangani insiden dan permintaan layanan sesuai SLA yang disepakati",
+            "Melakukan perawatan rutin, patching, dan backup",
+            "Mendokumentasikan prosedur dan berkontribusi pada problem management",
+        ],
+        requirements: [
+            "Pengalaman 2-4 tahun di operasional IT atau administrasi sistem",
+            "Pengetahuan yang baik tentang server Linux/Windows dan dasar-dasar jaringan",
+            "Memahami praktik ITIL",
+            "Bersedia bekerja dengan sistem shift bila diperlukan",
+        ],
+    },
+    {
+        summary: "Belajar dengan membangun fitur nyata bersama engineer berpengalaman pada aplikasi enterprise yang digunakan pelanggan sungguhan.",
+        about: [
+            "Anda akan bergabung dengan tim engineering selama beberapa bulan dan berkontribusi pada proyek nyata dengan bimbingan mentor.",
+            "Ini kesempatan untuk mempelajari bagaimana software enterprise direncanakan, dibangun, diuji, dan dirilis.",
+        ],
+        responsibilities: [
+            "Mengembangkan dan menguji fitur kecil dengan bimbingan mentor",
+            "Memperbaiki bug dan menulis dokumentasi",
+            "Mengikuti kegiatan tim seperti stand-up, planning, dan review",
+            "Mempresentasikan hasil kerja di akhir masa magang",
+        ],
+        requirements: [
+            "Mahasiswa tingkat akhir atau lulusan baru Ilmu Komputer atau bidang terkait",
+            "Pengetahuan dasar pemrograman (JavaScript, Java, atau sejenisnya)",
+            "Memahami Git",
+            "Bersemangat belajar dan tidak ragu bertanya",
+        ],
+    },
+]);
+
+export const CareerHeroConst = localized(careerHeroEn, {
+    title: "Bangun Teknologi yang Berarti",
+    description: "Bergabunglah dengan tim tempat keahlian software, desain, data, infrastruktur, dan bisnis berpadu untuk menciptakan teknologi yang membawa perubahan",
+    button: "Lihat Lowongan Tersedia",
+});
+
+export const CareerValuesConst = localized(careerValuesEn, {
+    title: "Cara Kami Bekerja Bersama",
+    items: [
+        { title: "Akuntabilitas", subtitle: "Bertanggung jawab atas hasil.", description: "Kami bertanggung jawab atas keputusan, tindakan, dan hasil kerja kami" },
+        { title: "Saling Menghormati", subtitle: "Ruang untuk beragam sudut pandang.", description: "Teknologi yang baik bergantung pada orang-orang yang mau mendengarkan, berkomunikasi, dan berkolaborasi" },
+        { title: "Integritas", subtitle: "Melakukan hal yang benar.", description: "Kepercayaan sangat penting saat bekerja dengan pelanggan, rekan kerja, sistem, dan informasi" },
+        { title: "Kerja Sama Tim", subtitle: "Membangun bersama.", description: "Masalah teknologi yang kompleks jarang bisa diselesaikan oleh satu orang" },
+        { title: "Keunggulan", subtitle: "Terus berkembang.", description: "Kami menantang asumsi, belajar dari pengalaman, dan terus menyempurnakan apa yang kami bangun" },
+    ],
+});
+
+export const CareerOpportunityConst = localized(careerOpportunityEn, {
+    title: "Peluang Anda Berikutnya",
+    description: "Jelajahi lowongan di bidang teknologi, produk, desain, bisnis, dan delivery proyek. Temukan peran yang sesuai dengan skill, pengalaman, dan jenis masalah yang ingin Anda selesaikan",
+    button: "Temukan Karier Anda Berikutnya di ASYST",
+});
+
+export const CareerLifeConst = localized(careerLifeEn, {
+    title: "Kehidupan di Asyst",
+    description: "Pekerjaan hanyalah sebagian dari pengalaman. Mulai dari workshop kolaboratif dan kegiatan tim hingga perayaan perusahaan dan kunjungan industri, orang-orang kami punya kesempatan untuk terhubung di luar peran sehari-hari mereka",
+});
+
+export const CareerWhyConst = localized(careerWhyEn, {
+    title: "Mengapa Membangun Karier di ASYST?",
+    description: "Tergantung peran Anda, Anda dapat mengerjakan aplikasi enterprise, pengalaman digital, integrasi sistem, data, infrastruktur, dan operasional IT",
+    items: [
+        { title: "Membangun Teknologi Enterprise", description: "Kerjakan teknologi yang dirancang untuk mendukung proses bisnis nyata, bukan sekadar demo atau prototipe" },
+        { title: "Memecahkan Masalah Kompleks", description: "Lingkungan enterprise membutuhkan orang yang mampu memahami kompleksitas, mengajukan pertanyaan yang tepat, dan mengubah masalah menjadi solusi yang dapat dijalankan" },
+        { title: "Belajar Lintas Disiplin", description: "Berkolaborasi dengan engineer, desainer, analis, tim proyek, operasional, dan stakeholder bisnis" },
+        { title: "Berkembang dengan Mentoring", description: "Belajar dari rekan berpengalaman melalui code review, pairing, berbagi pengetahuan, dan bimbingan langsung di pekerjaan" },
+        { title: "Mengerjakan Sistem Kritis", description: "Berkontribusi pada platform yang diandalkan maskapai, bandara, dan perusahaan setiap hari" },
+    ],
+});
+
+export const CareerIndonesiaConst = localized(careerIndonesiaEn, {
+    title: "Bangun Karier dari Indonesia, Kerjakan Teknologi Enterprise",
+    description: "ASYST berbasis di Indonesia dan bekerja dalam ekosistem teknologi enterprise yang dibentuk oleh keahlian lokal, kemitraan teknologi internasional, dan lingkungan bisnis yang kompleks",
+    items: [
+        { label: "Lokasi", value: "Gedung Information Central Lantai 3 Garuda Indonesia\nArea Bandara Internasional Soekarno-Hatta, Cengkareng, Indonesia" },
+        { label: "Lingkungan Kerja", value: "Di kantor, hybrid, atau remote tergantung peran" },
+        { label: "Bahasa", value: "Indonesia / Inggris tergantung peran" },
+        { label: "Cakupan Karier", value: "Software · Desain · Data · Integrasi · Infrastruktur · Bisnis" },
+    ],
+});
+
+export const CareerInternshipConst = localized(careerInternshipEn, {
+    title: "Mulai Karier Teknologi Anda",
+    description: "Memulai karier bukan berarti memulai dengan masalah kecil. Di ASYST, peserta magang dan talenta awal karier dapat mengenal lingkungan teknologi nyata, tim yang kolaboratif, dan tantangan bisnis",
+    button: "Lihat Peluang Magang",
+});
+
+export const CareerFaqConst = localized(careerFaqEn, {
+    title: "Pertanyaan yang Sering Diajukan",
+    items: [
+        { question: "Karier apa saja yang tersedia di ASYST?", answer: "Halaman Karier ASYST saat ini menampilkan peluang seperti Software Developer, Analyst, UI/UX Design, Project Management, dan Magang. Posisi yang dibuka berubah sesuai kebutuhan rekrutmen, jadi periksa daftar lowongan untuk informasi terbaru." },
+        { question: "Apakah ASYST hanya merekrut untuk posisi teknologi penerbangan?", answer: "Tidak. Penerbangan adalah salah satu industri utama kami, tetapi tim kami juga membangun aplikasi enterprise, solusi digital, infrastruktur, dan layanan IT untuk sektor lain." },
+        { question: "Posisi teknologi apa saja yang tersedia di ASYST?", answer: "Posisi mencakup software engineering, UI/UX, analisis bisnis, manajemen proyek, infrastruktur IT, operasional IT, produk, dan fungsi bisnis." },
+        { question: "Apakah ASYST membuka program magang?", answer: "Ya. Lowongan magang dipublikasikan bersama lowongan lainnya. Gunakan filter Magang di daftar lowongan untuk melihat posisi yang sedang dibuka." },
+        { question: "Di mana lokasi ASYST?", answer: "Kantor kami berada di Gedung Information Central, lantai 3, Garuda Indonesia, Area Bandara Internasional Soekarno-Hatta, Cengkareng, Indonesia. Beberapa posisi dapat bekerja secara hybrid atau remote." },
+        { question: "Bagaimana cara melamar pekerjaan di ASYST?", answer: "Buka lowongan yang Anda minati, pelajari persyaratannya, lalu klik \"Lamar Posisi Ini\" dan ikuti instruksi yang diberikan." },
+    ],
+});
+
+export const CareerJobsHeroConst = localized(careerJobsHeroEn, {
+    title: "Jelajahi Peluang Karier di ASYST",
+    description: "Temukan peluang untuk membangun software enterprise, merancang pengalaman digital, menghubungkan sistem bisnis, dan memecahkan tantangan teknologi yang kompleks",
+    searchPlaceholder: "Cari berdasarkan posisi, skill, atau kata kunci...",
+    popularSkills: "Skill populer",
+    allSkills: "Semua tag",
+});
+
+export const CareerJobListConst = localized(careerJobListEn, {
+    title: "Lowongan Tersedia",
+    description: "Jelajahi peluang yang tersedia di berbagai tim kami. Setiap posisi mencantumkan tanggung jawab utama, skill yang dibutuhkan, tingkat pengalaman, dan lokasi kerja untuk membantu Anda mengambil keputusan",
+    emptyText: "Tidak ada lowongan yang sesuai dengan filter Anda.",
+    resetFilter: "Atur ulang filter",
+    loadMore: "Muat Lebih Banyak",
+});
+
+export const CareerSidebarConst = localized(careerSidebarEn, {
+    browse: "Telusuri",
+    filters: "Filter",
+    searchPlaceholder: "Posisi, kata kunci...",
+});
+
+export const CareerConnectsConst = localized(careerConnectsEn, {
+    title: "Bangun Teknologi yang Menghubungkan Bisnis",
+    paragraphs: [
+        "Di ASYST, teknologi terhubung dengan cara bisnis beroperasi. Pekerjaan kami mencakup produk enterprise, solusi digital, integrasi sistem, dan layanan teknologi, dengan pengalaman di lingkungan yang kompleks seperti penerbangan.",
+        "Portofolio kami meliputi solusi manajemen, manajemen perjalanan, solusi komersial, operasional maskapai dan darat, kargo udara, IT Service Assistant, infrastruktur dan layanan terkelola, serta layanan profesional.",
+    ],
+    items: [
+        { title: "Produk Enterprise", description: "Bangun dan kembangkan software yang mendukung proses bisnis." },
+        { title: "Solusi Digital", description: "Ciptakan teknologi yang menjawab kebutuhan bisnis yang terus berkembang." },
+        { title: "Layanan Teknologi", description: "Dukung implementasi, operasional, dan perbaikan berkelanjutan." },
+        { title: "Integrasi", description: "Hubungkan aplikasi, informasi, dan alur kerja" },
+    ],
+});
+
+export const CareerApplyStepsConst = localized(careerApplyStepsEn, {
+    title: "Yang Perlu Anda Ketahui Saat Melamar",
+    description: "Setiap posisi memiliki persyaratan masing-masing. Detail lowongan akan memandu Anda melalui tahapan lamaran yang relevan dan informasi yang perlu disiapkan",
+    steps: [
+        { title: "Pelajari posisi", description: "Tinjau tanggung jawab, skill yang dibutuhkan, tingkat pengalaman, dan lokasi kerja" },
+        { title: "Kirim lamaran Anda", description: "Ikuti instruksi pada lowongan terkait dan lengkapi informasi yang relevan" },
+        { title: "Terhubung dengan tim rekrutmen", description: "Jika lolos seleksi awal, pelajari lebih lanjut tentang posisi dan tahap berikutnya" },
+        { title: "Diskusikan pengalaman Anda", description: "Ceritakan skill, pengalaman kerja, dan cara Anda memecahkan masalah melalui tahap asesmen yang relevan" },
+        { title: "Terima hasilnya", description: "Dapatkan informasi lebih lanjut tentang keputusan rekrutmen dan langkah berikutnya" },
+    ],
+});
+
+export const CareerJobsFaqConst = localized(careerJobsFaqEn, {
+    title: "Pertanyaan yang Sering Diajukan",
+    items: [
+        { question: "Posisi apa saja yang tersedia di ASYST?", answer: "Posisi yang tersedia bergantung pada kebutuhan rekrutmen saat ini. Halaman Karier ASYST menampilkan bidang seperti Software Developer, Analyst, UI/UX Design, Project Management, dan Magang. Kandidat sebaiknya merujuk ke daftar lowongan terkini untuk posisi yang pasti dibuka." },
+        { question: "Bisakah saya mencari lowongan berdasarkan skill?", answer: "Bisa. Ketik skill atau kata kunci di kolom pencarian, atau pilih salah satu skill populer untuk mempersempit daftar." },
+        { question: "Di mana lokasi kerja lowongan ASYST?", answer: "Sebagian besar posisi berbasis di kantor kami di area Bandara Internasional Soekarno-Hatta, Cengkareng. Setiap lowongan mencantumkan apakah posisinya di kantor, hybrid, atau remote." },
+        { question: "Apakah ASYST membuka program magang?", answer: "Ya. Pilih \"Magang\" pada filter tipe pekerjaan untuk melihat posisi magang yang sedang dibuka." },
+        { question: "Bagaimana cara melamar pekerjaan di ASYST?", answer: "Buka lowongan, pelajari detailnya, lalu klik \"Lamar Posisi Ini\". Lowongan tersebut menjelaskan apa saja yang perlu disiapkan." },
+        { question: "Bisakah saya melamar jika tidak punya pengalaman di bidang penerbangan?", answer: "Bisa. Pengalaman di bidang penerbangan membantu untuk beberapa posisi, tetapi tidak diwajibkan untuk sebagian besar posisi. Kami mencari skill yang relevan dan kemauan untuk mempelajari domainnya." },
+    ],
+});
+
+export const CareerJobDetailConst = localized(careerJobDetailEn, {
+    apply: "Lamar Posisi Ini",
+    applyShort: "Lamar Sekarang",
+    meta: { location: "Lokasi Kerja", type: "Tipe Pekerjaan", experience: "Pengalaman" },
+    about: "Tentang Posisi",
+    whyMatters: {
+        title: "Mengapa Posisi Ini Penting",
+        paragraphs: [
+            "Software enterprise jarang berdiri sendiri. Ia menjadi bagian dari lingkungan yang lebih besar, tempat orang, proses, data, dan sistem harus bekerja bersama.",
+            "Pekerjaan Anda di ASYST dapat berkontribusi pada teknologi yang menghubungkan proses bisnis, memperbaiki alur kerja operasional, dan membantu organisasi memanfaatkan sistem digital dengan lebih baik",
+        ],
+    },
+    responsibilities: "Yang Akan Anda Kerjakan",
+    requirements: "Yang Kami Cari",
+    benefits: {
+        title: "Benefit",
+        items: [
+            "Paket kompensasi menarik berupa gaji pokok dan potensi bonus signifikan untuk kinerja terbaik",
+            "Kesempatan memberi dampak nyata di perusahaan terdepan dengan pertumbuhan tinggi",
+            "Asuransi kesehatan",
+            "Tanggung jawab sejak hari pertama serta pengembangan profesional dan pribadi",
+            "Lingkungan kerja yang menyenangkan bersama tim muda, internasional, dan berbakat",
+        ],
+    },
+    why: {
+        title: "Mengapa Membangun Karier di ASYST?",
+        items: [
+            { title: "Teknologi Enterprise", description: "Bekerja di lingkungan tempat teknologi terhubung dengan proses bisnis nyata" },
+            { title: "Keahlian Domain", description: "Belajar dari lingkungan operasional yang kompleks, termasuk penerbangan" },
+            { title: "Kapabilitas Produk", description: "Bangun dan kembangkan solusi yang menjadi bagian dari lingkungan teknologi enterprise" },
+            { title: "Delivery Jangka Panjang", description: "ASYST telah mengembangkan kapabilitas teknologinya selama lebih dari dua dekade" },
+            { title: "Integrasi", description: "Pahami bagaimana sistem, aplikasi, dan proses bekerja bersama" },
+            { title: "Kolaborasi", description: "Membangun bersama orang-orang dari berbagai disiplin teknis, bisnis, dan operasional" },
+        ],
+    },
+    beforeApply: {
+        title: "Sebelum Melamar",
+        items: ["CV / resume terbaru", "Portofolio yang relevan, jika ada", "Pengalaman proyek yang relevan", "Sertifikasi teknis atau profesional, jika diminta", "Informasi kontak"],
+        note: "Tahapan rekrutmen dapat berbeda tergantung posisi. Tim rekrutmen akan menginformasikan langkah berikutnya jika lamaran Anda berlanjut.",
+        requireLabel: "Diperlukan:",
+        groups: [
+            { title: "Untuk posisi UI/UX", items: ["Portofolio", "Proses desain", "Tautan Figma / prototipe, jika relevan"] },
+            { title: "Untuk posisi Engineering", items: ["GitHub / contoh kode", "Contoh proyek teknis", "Contoh arsitektur atau sistem"] },
+        ],
+    },
+});
+
+/** FAQ detail lowongan; `{title}` diganti judul lowongan */
+export const CareerJobDetailFaqConst = localized(careerJobDetailFaqEn, {
+    title: "Pertanyaan yang Sering Diajukan",
+    items: [
+        { question: "Apa yang dikerjakan seorang {title} di ASYST?", answer: "Tanggung jawab persisnya bergantung pada lowongan. Posisi software engineering dapat mencakup pengembangan aplikasi enterprise, bekerja dengan API dan integrasi, berkolaborasi dengan tim lintas fungsi, dan meningkatkan solusi teknologi." },
+        { question: "Apakah saya perlu pengalaman di bidang penerbangan untuk bekerja di ASYST?", answer: "Tidak untuk sebagian besar posisi. Pengetahuan penerbangan menjadi nilai tambah untuk beberapa posisi, dan Anda akan mempelajari domainnya dari rekan yang berpengalaman." },
+        { question: "Teknologi apa yang digunakan ASYST?", answer: "Tim kami bekerja dengan teknologi seperti React.js, Next.js, Node.js, Java, Flutter, database SQL dan NoSQL, platform cloud, serta tools integrasi enterprise. Setiap lowongan mencantumkan skill yang dibutuhkan untuk posisinya." },
+        { question: "Apakah ASYST merekrut UI/UX Designer?", answer: "Ya. Posisi UI/UX dipublikasikan di departemen UI/UX setiap kali ada lowongan." },
+        { question: "Apakah ASYST membuka peluang magang?", answer: "Ya. Lowongan magang tercantum di halaman lowongan dengan tipe pekerjaan Magang." },
+        { question: "Di mana lokasi kerja posisi ini?", answer: "Lokasi kerja tercantum di bagian atas halaman ini. Posisi di kantor berbasis di kantor kami di area Bandara Internasional Soekarno-Hatta, Cengkareng." },
+    ],
+});

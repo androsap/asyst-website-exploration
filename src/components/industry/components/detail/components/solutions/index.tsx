@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import { useT } from 'shared/i18n';
 import Image1 from 'assets/img/background/solutions/image-solutions-1.png';
 import Image2 from 'assets/img/background/solutions/image-solutions-2.png';
 import Image3 from 'assets/img/background/solutions/image-solutions-3.png';
@@ -40,12 +41,13 @@ const styles = {
 }
 
 export default function SolutionsComponent() {
+    const t = useT();
     return (
         <>
             <Box className='Solution' >
                 <Grid sx={{ display: 'flex', flexDirection: 'row', gap: '40px', paddingBottom: '32px' }}>
-                    <Typography variant='h1'>Aero Systems Indonesia Solutions for Airline</Typography>
-                    <Typography variant='h2'>Revitalize and accelerate digital transformation initiatives to recover lost time, lower the cost of customer service and de-risk traditional business models. </Typography>
+                    <Typography variant='h1'>{t("Aero Systems Indonesia Solutions for Airline", "Solusi Aero Systems Indonesia untuk Maskapai")}</Typography>
+                    <Typography variant='h2'>{t("Revitalize and accelerate digital transformation initiatives to recover lost time, lower the cost of customer service and de-risk traditional business models. ", "Hidupkan kembali dan percepat inisiatif transformasi digital untuk mengejar waktu yang hilang, menekan biaya layanan pelanggan, dan mengurangi risiko model bisnis tradisional. ")}</Typography>
                 </Grid>
                 <Divider />
                 <Grid sx={{ display: 'flex', flexDirection: 'column', gap: '48px', paddingTop: '42px' }}>
@@ -55,12 +57,12 @@ export default function SolutionsComponent() {
                             <Grid sx={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '200px' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '180px' }}>
                                     <Box sx={{ height: '28px', width: '131px', borderRadius: '55px', background: '#2775BB', textAlign: 'center', color: 'white' }}>
-                                        <Typography fontSize={12} paddingTop={0.2}>Business Solutions</Typography>
+                                        <Typography fontSize={12} paddingTop={0.2}>{t("Business Solutions", "Solusi Bisnis")}</Typography>
                                     </Box>
                                 </Box>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                                    <Typography variant='h3'>Big Data and Analytics Solution</Typography>
-                                    <Button sx={{ width: '100px', height: '20px', color: '#fff' }}>Learn more</Button>
+                                    <Typography variant='h3'>{t("Big Data and Analytics Solution", "Solusi Big Data dan Analitik")}</Typography>
+                                    <Button sx={{ width: '100px', height: '20px', color: '#fff' }}>{t("Learn more", "Pelajari lebih lanjut")}</Button>
                                 </Box>
                             </Grid>
                         </Paper>
@@ -68,12 +70,12 @@ export default function SolutionsComponent() {
                             <Grid sx={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '200px' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '180px' }}>
                                     <Box sx={{ height: '28px', width: '131px', borderRadius: '55px', background: '#2775BB', textAlign: 'center', color: 'white' }}>
-                                        <Typography fontSize={12} paddingTop={0.2}>Business Solutions</Typography>
+                                        <Typography fontSize={12} paddingTop={0.2}>{t("Business Solutions", "Solusi Bisnis")}</Typography>
                                     </Box>
                                 </Box>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                                    <Typography variant='h3'>Application Management Service</Typography>
-                                    <Button sx={{ width: '100px', height: '20px', color: '#fff' }}>Learn more</Button>
+                                    <Typography variant='h3'>{t("Application Management Service", "Layanan Manajemen Aplikasi")}</Typography>
+                                    <Button sx={{ width: '100px', height: '20px', color: '#fff' }}>{t("Learn more", "Pelajari lebih lanjut")}</Button>
                                 </Box>
                             </Grid>
                         </Paper>
@@ -81,12 +83,12 @@ export default function SolutionsComponent() {
                             <Grid sx={{ padding: '28px', display: 'flex', flexDirection: 'column', gap: '200px' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '180px' }}>
                                     <Box sx={{ height: '28px', width: '131px', borderRadius: '55px', background: '#2775BB', textAlign: 'center', color: 'white' }}>
-                                        <Typography fontSize={12} paddingTop={0.2}>Business Solutions</Typography>
+                                        <Typography fontSize={12} paddingTop={0.2}>{t("Business Solutions", "Solusi Bisnis")}</Typography>
                                     </Box>
                                 </Box>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                                    <Typography variant='h3'>Portal and Airline Information Delivery</Typography>
-                                    <Button sx={{ width: '100px', height: '20px', color: '#fff' }}>Learn more</Button>
+                                    <Typography variant='h3'>{t("Portal and Airline Information Delivery", "Portal dan Penyampaian Informasi Maskapai")}</Typography>
+                                    <Button sx={{ width: '100px', height: '20px', color: '#fff' }}>{t("Learn more", "Pelajari lebih lanjut")}</Button>
                                 </Box>
                             </Grid>
                         </Paper>

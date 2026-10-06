@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { styles } from './styled';
-import moment from "moment";
+
 import img1 from 'assets/asyst/img/background/product/amala/resources-1.png';
 import img2 from 'assets/asyst/img/background/product/amala/resources-2.png';
 import arrow from 'assets/asyst/img/background/product/amala/vector.png';
@@ -12,6 +12,7 @@ import { ResourcesModel } from "models/amala/resources.model";
 import ResourcesHelper from 'helper/auxoshift/ResourceHelper';
 import { Link } from 'react-router-dom';
 import './index.scss';
+import { formatDate, useLanguage, useT } from 'shared/i18n';
 
 type Resources = {
     type: string;
@@ -21,23 +22,29 @@ type Resources = {
     author: string;
 }[]
 
-const resources: Resources = [{
-    type: "Loyalty",
+const getResources = (isId: boolean): Resources => [{
+    type: isId ? "Loyalitas" : "Loyalty",
     img: img1,
-    title: "The inauguration of the BRI Liga 1 Fans Corner and the press release of the LIB Super Apps.",
-    date: moment().format("MMMM DD, YYYY"),
+    title: isId
+        ? "Peresmian BRI Liga 1 Fans Corner dan rilis pers LIB Super Apps."
+        : "The inauguration of the BRI Liga 1 Fans Corner and the press release of the LIB Super Apps.",
+    date: formatDate(new Date().toISOString(), isId ? "DD MMMM YYYY" : "MMMM DD, YYYY", isId ? "ID" : "EN"),
     author: "Admin"
 }, {
-    type: "Expertise",
+    type: isId ? "Keahlian" : "Expertise",
     img: img2,
-    title: "Golden Loyalty Awards | Second place in the Excellence in Management category.",
-    date: moment().format("MMMM DD, YYYY"),
+    title: isId
+        ? "Golden Loyalty Awards | Juara kedua kategori Excellence in Management."
+        : "Golden Loyalty Awards | Second place in the Excellence in Management category.",
+    date: formatDate(new Date().toISOString(), isId ? "DD MMMM YYYY" : "MMMM DD, YYYY", isId ? "ID" : "EN"),
     author: "Admin"
 }]
 
 export default function ResourcesComponent() {
     const [data, setData] = useState<ResourcesModel>({} as ResourcesModel)
     const [loading, setLoading] = useState<boolean>(true)
+    const t = useT()
+    const resources = getResources(useLanguage() === "ID")
 
     useEffect(() => {
         getData()
@@ -70,7 +77,7 @@ export default function ResourcesComponent() {
 
     return (
         <>
-            <Typography sx={styles.title}>Resources</Typography>
+            <Typography sx={styles.title}>{t("Resources", "Sumber Daya")}</Typography>
             <Box display="flex" flexDirection="row" gap={3}>
                 {Children.toArray(resources.map(({ type, img, title, date, author }) =>
                     <Link to="https://www.asyst.co.id/news" style={styles.boxImages}>
@@ -98,14 +105,14 @@ export default function ResourcesComponent() {
                 <Box className='download-box'>
                     <Box className='vector-box' sx={styles.vectorBox}><img src={arrow} className='arrow-image' style={{ marginLeft: '35px', marginTop: '25px' }}></img></Box>
                     <Box sx={{ padding: '30px' }}>
-                        <Typography className='text1' sx={styles.text1}>Download Free {data?.product?.product_name} Document</Typography>
+                        <Typography className='text1' sx={styles.text1}>{t(`Download Free ${data?.product?.product_name ?? ""} Document`, `Unduh Dokumen ${data?.product?.product_name ?? ""} Gratis`)}</Typography>
                         <Box display='flex' flexDirection='row' gap='10px' paddingTop='20px' onClick={() => downloadBrochure()}>
                             <img src={pdf} style={{ width: '24px', height: '24px', cursor: 'pointer' }}></img>
-                            <Typography sx={styles.text2}><u>{data?.product?.product_name} product information.pdf</u></Typography>
+                            <Typography sx={styles.text2}><u>{t(`${data?.product?.product_name ?? ""} product information.pdf`, `informasi produk ${data?.product?.product_name ?? ""}.pdf`)}</u></Typography>
                         </Box>
                         <img src={divider} style={{ width: '332px', height: '1px', paddingBottom: '15px', paddingTop: '30px' }}></img>
-                        <Typography sx={styles.text1}>Looking for another Asyst media resources?</Typography>
-                        <Link to="https://www.asyst.co.id/news"><Typography sx={styles.text2} style={{ paddingTop: '30px' }}><u>View all media resources</u></Typography></Link>
+                        <Typography sx={styles.text1}>{t("Looking for another Asyst media resources?", "Mencari sumber media Asyst lainnya?")}</Typography>
+                        <Link to="https://www.asyst.co.id/news"><Typography sx={styles.text2} style={{ paddingTop: '30px' }}><u>{t("View all media resources", "Lihat semua sumber media")}</u></Typography></Link>
                     </Box>
                 </Box>
             </Box>

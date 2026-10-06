@@ -5,7 +5,8 @@ import InputBase from "@mui/material/InputBase";
 import Typography from "@mui/material/Typography";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import { CareerDepartmentsConst, CareerFilterGroupsConst, CareerFilterKey, CareerSidebarConst } from "consts/career.const";
+import { CareerDepartmentsConst, CareerFilterGroupsConst, CareerFilterKey, CareerSidebarConst, CareerTermsConst } from "consts/career.const";
+import { useLocalized, useTerms } from "shared/i18n";
 import { CareerFilters } from "./utils";
 
 interface JobSidebarProps {
@@ -20,6 +21,9 @@ interface JobSidebarProps {
 
 /** Kartu "Browse" (departemen) + kartu "Filters" (pencarian & chip). Dipakai di halaman Jobs & detail. */
 export default function JobSidebar({ filters, onFilterChange, keyword, onKeywordChange, onKeywordSubmit }: JobSidebarProps) {
+    const sidebar = useLocalized(CareerSidebarConst);
+    const filterGroups = useLocalized(CareerFilterGroupsConst);
+    const term = useTerms(CareerTermsConst);
     const toggle = (key: CareerFilterKey, value: string) => onFilterChange(key, filters[key] === value ? undefined : value);
 
     const submit = (e: FormEvent) => {
@@ -28,8 +32,8 @@ export default function JobSidebar({ filters, onFilterChange, keyword, onKeyword
     };
 
     return <Box component="aside" className="cr-sidebar">
-        <Box component="nav" className="cr-panel" aria-label={CareerSidebarConst.browse}>
-            <Typography className="cr-panel__title">{CareerSidebarConst.browse}</Typography>
+        <Box component="nav" className="cr-panel" aria-label={sidebar.browse}>
+            <Typography className="cr-panel__title">{sidebar.browse}</Typography>
             {CareerDepartmentsConst.map(department => (
                 <ButtonBase
                     key={department}
@@ -37,26 +41,26 @@ export default function JobSidebar({ filters, onFilterChange, keyword, onKeyword
                     className={`cr-browse ${filters.department === department ? "active" : ""}`}
                     onClick={() => toggle("department", department)}
                 >
-                    {department}
+                    {term(department)}
                     <ArrowForwardRoundedIcon />
                 </ButtonBase>
             ))}
         </Box>
 
         <Box className="cr-panel">
-            <Typography className="cr-panel__title">{CareerSidebarConst.filters}</Typography>
+            <Typography className="cr-panel__title">{sidebar.filters}</Typography>
             <Box component="form" className="cr-search cr-search--small" onSubmit={submit} role="search">
                 <SearchRoundedIcon className="cr-search__icon" />
                 <InputBase
                     className="cr-search__input"
-                    placeholder={CareerSidebarConst.searchPlaceholder}
+                    placeholder={sidebar.searchPlaceholder}
                     value={keyword}
                     onChange={e => onKeywordChange(e.target.value)}
-                    inputProps={{ "aria-label": CareerSidebarConst.searchPlaceholder }}
+                    inputProps={{ "aria-label": sidebar.searchPlaceholder }}
                 />
             </Box>
 
-            {CareerFilterGroupsConst.map(({ key, label, options }) => (
+            {filterGroups.map(({ key, label, options }) => (
                 <Box key={key} className="cr-filter-group" role="group" aria-label={label}>
                     <Typography className="cr-filter-group__title">{label}</Typography>
                     <Box className="cr-chips">
@@ -67,7 +71,7 @@ export default function JobSidebar({ filters, onFilterChange, keyword, onKeyword
                                 className={`cr-chip ${filters[key] === option ? "active" : ""}`}
                                 onClick={() => toggle(key, option)}
                             >
-                                {option}
+                                {term(option)}
                             </ButtonBase>
                         ))}
                     </Box>

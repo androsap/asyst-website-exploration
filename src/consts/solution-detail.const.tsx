@@ -9,9 +9,12 @@ import imgConnected from "assets/img/background/solutions/image-solutions-2.png"
 import imgVisibility from "assets/img/background/solutions/image-solutions-3.png";
 import imgOutcome from "assets/asyst/img/background/product/overview/background-product.png";
 import imgDashboard from "assets/asyst/img/background/product/amala/device-A.png";
+import { localized } from "shared/i18n";
 
 // Konten halaman detail solusi (desain revamp 2026). Satu objek per solusi, dirender oleh components/solution/detail.
 // Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
+// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
+// (teks saja, struktur & urutan sama).
 
 export interface SolutionChallengeItem {
     label: string;
@@ -58,7 +61,7 @@ const socOurSolution = { title: "Our solution", description: "Connect → Integr
 const socEventOutput = ["Source", "Time", "Asset", "User", "Activity", "Location", "Event Type", "Severity Context"];
 
 // TODO: desain hanya menampilkan isi tab pertama di tiap section bertab; copy tab lain perlu dikonfirmasi
-export const SocDetailConst: SolutionDetailContent = {
+const socDetailEn: SolutionDetailContent = {
     hero: {
         eyebrow: "Security Operation Center",
         title: "Security Operations Center for a More Visible, Resilient Enterprise",
@@ -248,3 +251,187 @@ export const SocDetailConst: SolutionDetailContent = {
         button: "Talk to Security Expert",
     },
 }
+
+// ---------- terjemahan ID (struktur & urutan sama dengan socDetailEn) ----------
+
+const socOurSolutionId = { title: "Solusi kami", description: "Hubungkan → Integrasikan → Orkestrasikan" };
+const socEventOutputId = ["Sumber", "Waktu", "Aset", "Pengguna", "Aktivitas", "Lokasi", "Jenis Event", "Konteks Tingkat Keparahan"];
+
+export const SocDetailConst = localized(socDetailEn, {
+    hero: {
+        eyebrow: "Security Operation Center",
+        title: "Security Operations Center untuk Perusahaan yang Lebih Terpantau dan Tangguh",
+        description: "Ancaman keamanan dapat bergerak di seluruh infrastruktur, aplikasi, jaringan, dan layanan digital. ASYST membantu organisasi membangun kapabilitas operasional keamanan yang lebih terhubung melalui pemantauan terpusat, visibilitas keamanan, respons insiden, dan integrasi dengan operasional IT enterprise",
+        primaryButton: "Hubungi Ahli Keamanan",
+        secondaryButton: "Jelajahi Kapabilitas Keamanan",
+    },
+    challenge: {
+        title: "Keamanan Bukan Lagi Fungsi IT yang Berdiri Sendiri",
+        description: "ASYST memadukan kapabilitas software, keahlian integrasi, pengetahuan domain, dan pengalaman delivery enterprise jangka panjang untuk menghubungkan inisiatif teknologi dengan kebutuhan operasional",
+        items: [
+            {
+                label: "Teknologi Terfragmentasi",
+                title: "Bisnis Anda Berjalan di Atas Sistem yang Tidak Selalu Saling Terhubung",
+                paragraphs: [
+                    "Seiring pertumbuhan organisasi, lingkungan teknologi sering menjadi semakin terfragmentasi: aplikasi, platform, infrastruktur, data, layanan cloud, dan sistem pihak ketiga dapat berkembang dengan kecepatan yang berbeda.",
+                    "Akibatnya, semakin banyak antarmuka yang harus dikelola, proses yang tumpang tindih, data yang terputus, dan visibilitas yang terbatas di seluruh bisnis.",
+                ],
+                solution: socOurSolutionId,
+            },
+            {
+                label: "Visibilitas Terbatas",
+                title: "Event Keamanan Sulit Terlihat di Lingkungan yang Tersebar",
+                paragraphs: [
+                    "Sinyal keamanan dihasilkan oleh jaringan, endpoint, aplikasi, layanan cloud, dan platform identitas, masing-masing dengan tools dan log-nya sendiri.",
+                    "Tanpa tampilan terpusat, aktivitas mencurigakan dapat luput dari perhatian dan tim keamanan menghabiskan lebih banyak waktu mengumpulkan informasi daripada bertindak.",
+                ],
+                solution: socOurSolutionId,
+            },
+            {
+                label: "Teknologi tanpa Hasil Bisnis",
+                title: "Tools Keamanan Saja Tidak Menjamin Ketahanan",
+                paragraphs: [
+                    "Organisasi sering berinvestasi pada teknologi keamanan tanpa menghubungkannya dengan proses operasional, prosedur respons, dan prioritas bisnis.",
+                    "Keamanan menjadi terukur ketika pemantauan, respons, dan perbaikan dikaitkan dengan layanan dan operasional yang diandalkan bisnis.",
+                ],
+                solution: socOurSolutionId,
+            },
+        ],
+    },
+    definition: {
+        title: "Apa Itu Security Operations Center?",
+        description: "Security Operations Center (SOC) adalah fungsi terpusat untuk memantau, mendeteksi, menyelidiki, dan merespons event keamanan di seluruh lingkungan teknologi organisasi",
+        items: [
+            {
+                label: "Pemantauan",
+                tag: "Pemantauan Keamanan",
+                title: "Visibilitas Keamanan Berkelanjutan",
+                description: "Bangun visibilitas terpusat di seluruh lingkungan teknologi yang relevan agar tim keamanan dapat mengidentifikasi event yang perlu ditangani",
+                pillars: ["Jaringan", "Endpoint", "Aplikasi", "Cloud", "Identitas", "Perangkat"],
+            },
+            {
+                label: "Deteksi",
+                tag: "Deteksi Ancaman",
+                title: "Identifikasi Aktivitas Mencurigakan Sejak Dini",
+                description: "Korelasikan event keamanan dan bandingkan dengan pola aktivitas normal untuk memunculkan ancaman yang perlu diselidiki",
+                pillars: ["Korelasi", "Anomali", "Threat Intel", "Alert", "Use Case", "Baseline"],
+            },
+            {
+                label: "Investigasi",
+                tag: "Investigasi Keamanan",
+                title: "Pahami Apa yang Terjadi dan Mengapa",
+                description: "Analisis alert dengan konteks aset, pengguna, dan aktivitas untuk menentukan cakupan, dampak, dan akar masalah",
+                pillars: ["Konteks", "Timeline", "Aset", "Pengguna", "Dampak", "Akar Masalah"],
+            },
+            {
+                label: "Respons",
+                tag: "Respons Insiden",
+                title: "Koordinasikan Respons Tepat Waktu",
+                description: "Tahan dan selesaikan insiden keamanan melalui prosedur yang ditetapkan serta koordinasi dengan tim IT dan bisnis",
+                pillars: ["Penahanan", "Eskalasi", "Playbook", "ITSM", "Komunikasi", "Pemulihan"],
+            },
+            {
+                label: "Perbaikan",
+                tag: "Perbaikan Berkelanjutan",
+                title: "Perkuat Keamanan dari Waktu ke Waktu",
+                description: "Gunakan pelaporan dan pembelajaran untuk menyempurnakan deteksi, prosedur respons, dan postur keamanan secara keseluruhan",
+                pillars: ["Pelaporan", "Metrik", "Pembelajaran", "Penyetelan", "Postur", "Kepatuhan"],
+            },
+        ],
+    },
+    howItWorks: {
+        title: "Bagaimana Operasional Keamanan Bekerja",
+        description: "Model operasional SOC yang direkomendasikan ASYST menghubungkan sinyal keamanan dengan operasional teknologi enterprise, membantu organisasi bergerak dari event keamanan menuju respons yang dapat ditindaklanjuti dan peningkatan operasional yang terukur",
+        items: [
+            {
+                label: "Pantau",
+                title: "Lihat apa yang terjadi di lingkungan teknologi Anda",
+                description: "Pemantauan adalah fondasi operasional keamanan. Model operasional dimulai dengan membangun visibilitas di seluruh lingkungan teknologi yang relevan dan mengumpulkan sinyal yang berkaitan dengan keamanan. Lapisan pemantauan SOC dapat mengamati sinyal dari",
+                points: ["Mengumpulkan event keamanan yang relevan", "Mengamati aktivitas sistem dan pengguna", "Menetapkan pola aktivitas normal", "Mengidentifikasi perubahan yang tidak biasa", "Menjaga visibilitas di seluruh lingkungan yang terhubung"],
+                subtitle: "Output Event Keamanan:",
+                subPoints: socEventOutputId,
+            },
+            {
+                label: "Deteksi",
+                title: "Kenali event yang mungkin mengindikasikan ancaman",
+                description: "Deteksi mengubah sinyal keamanan mentah menjadi alert yang bermakna dengan mengorelasikan event dan membandingkannya dengan ancaman yang diketahui dan perilaku normal.",
+                points: ["Mengorelasikan event dari berbagai sumber", "Menerapkan aturan deteksi dan use case", "Membandingkan aktivitas dengan pola normal", "Menghasilkan alert yang diprioritaskan"],
+                subtitle: "Output Deteksi:",
+                subPoints: ["Alert", "Aturan / Use Case", "Event Terkait", "Aset Terdampak", "Tingkat Keparahan Awal"],
+            },
+            {
+                label: "Triase",
+                title: "Prioritaskan yang perlu ditangani lebih dulu",
+                description: "Triase memvalidasi alert, menyaring false positive, dan menetapkan prioritas berdasarkan dampak bisnis agar tim fokus pada hal yang penting.",
+                points: ["Memvalidasi akurasi alert", "Menyaring false positive", "Menilai dampak bisnis", "Menetapkan prioritas dan penanggung jawab"],
+                subtitle: "Output Triase:",
+                subPoints: ["Alert Tervalidasi", "Prioritas", "Penanggung Jawab", "Tindakan Berikutnya"],
+            },
+            {
+                label: "Investigasi",
+                title: "Pahami cakupan dan penyebab insiden",
+                description: "Investigasi mengumpulkan konteks dari aset, pengguna, dan aktivitas untuk memahami apa yang terjadi, seberapa luas penyebarannya, dan mengapa.",
+                points: ["Menyusun timeline insiden", "Mengidentifikasi aset dan pengguna terdampak", "Menentukan akar masalah", "Menilai cakupan dan dampak"],
+                subtitle: "Output Investigasi:",
+                subPoints: ["Timeline Insiden", "Cakupan", "Akar Masalah", "Tindakan yang Direkomendasikan"],
+            },
+            {
+                label: "Respons",
+                title: "Tahan dan selesaikan insiden keamanan",
+                description: "Respons mengoordinasikan penahanan dan remediasi bersama operasional IT dan pemilik bisnis melalui prosedur yang ditetapkan.",
+                points: ["Menahan ancaman", "Berkoordinasi dengan IT dan manajemen layanan", "Meremediasi sistem terdampak", "Berkomunikasi dengan stakeholder"],
+                subtitle: "Output Respons:",
+                subPoints: ["Tindakan Penahanan", "Tiket Remediasi", "Pembaruan Status", "Catatan Eskalasi"],
+            },
+            {
+                label: "Pulihkan",
+                title: "Pulihkan layanan dan operasional normal",
+                description: "Pemulihan mengembalikan layanan terdampak ke operasional normal dan memverifikasi bahwa ancaman telah dihilangkan.",
+                points: ["Memulihkan layanan terdampak", "Memverifikasi sistem sudah bersih", "Memantau kemungkinan terulang", "Memastikan kelangsungan bisnis"],
+                subtitle: "Output Pemulihan:",
+                subPoints: ["Layanan Pulih", "Hasil Verifikasi", "Status Pemantauan"],
+            },
+            {
+                label: "Laporkan",
+                title: "Tampilkan kinerja keamanan secara transparan",
+                description: "Pelaporan memberi tim keamanan dan pimpinan gambaran yang jelas tentang insiden, kinerja respons, dan postur keamanan.",
+                points: ["Merangkum insiden dan tren", "Memantau metrik respons", "Melapor kepada stakeholder", "Mendukung kebutuhan kepatuhan"],
+                subtitle: "Output Laporan:",
+                subPoints: ["Ringkasan Insiden", "Metrik Respons", "Analisis Tren", "Bukti Kepatuhan"],
+            },
+            {
+                label: "Tingkatkan",
+                title: "Perkuat operasional keamanan secara berkelanjutan",
+                description: "Peningkatan memanfaatkan pembelajaran untuk menyetel deteksi, menyempurnakan prosedur, dan memperkuat postur keamanan secara keseluruhan.",
+                points: ["Mencatat pembelajaran", "Menyetel aturan deteksi", "Menyempurnakan playbook respons", "Menutup celah keamanan"],
+                subtitle: "Output Peningkatan:",
+                subPoints: ["Pembelajaran", "Aturan Diperbarui", "Playbook Diperbarui", "Rencana Peningkatan"],
+            },
+        ],
+    },
+    why: {
+        title: "Mengapa Menghubungkan Operasional Keamanan dengan ASYST?",
+        items: [
+            { title: "Konteks Teknologi Enterprise", description: "Keamanan dapat dipertimbangkan bersama infrastruktur, aplikasi, platform, dan sistem bisnis" },
+            { title: "Kapabilitas Integrasi Bisnis", description: "Hubungkan alur kerja keamanan dengan teknologi enterprise yang ada serta ekosistem dan platform bisnis Anda" },
+            { title: "Pengalaman Digital Operasional", description: "Portofolio ASYST yang lebih luas mencakup infrastruktur dan layanan terkelola yang dapat disesuaikan dengan model bisnis Anda." },
+            { title: "Delivery dan Dukungan Jangka Panjang", description: "ASYST adalah mitra teknologi yang merancang, membangun, dan mendukung sistem informasi" },
+        ],
+    },
+    faq: {
+        title: "FAQ Security Operation Center",
+        items: [
+            { question: "Apa itu Security Operations Center?", answer: "Security Operations Center (SOC) adalah fungsi keamanan terpusat yang bertanggung jawab memantau, mendeteksi, menyelidiki, dan merespons event keamanan" },
+            { question: "Apa yang dipantau oleh SOC?", answer: "SOC memantau sinyal terkait keamanan dari jaringan, endpoint, aplikasi, layanan cloud, platform identitas, dan perangkat di seluruh lingkungan teknologi" },
+            { question: "Apa perbedaan SOC dan SIEM?", answer: "SIEM adalah platform teknologi yang mengumpulkan dan mengorelasikan event keamanan. SOC adalah fungsi operasional — orang, proses, dan teknologi — yang menggunakan tools seperti SIEM untuk memantau, menyelidiki, dan merespons" },
+            { question: "Apakah SOC merespons insiden keamanan?", answer: "Ya. Selain pemantauan dan deteksi, SOC mengoordinasikan triase, investigasi, penahanan, dan pemulihan insiden keamanan bersama tim IT dan bisnis" },
+            { question: "Apakah SOC dapat terintegrasi dengan ITSM?", answer: "Ya. Integrasi SOC dengan manajemen layanan IT memungkinkan insiden keamanan masuk ke proses ticketing, eskalasi, dan remediasi yang sudah ada" },
+            { question: "Apakah ASYST dapat mengintegrasikan operasional keamanan dengan IT enterprise?", answer: "Ya. ASYST menghubungkan operasional keamanan dengan infrastruktur, aplikasi, platform, dan manajemen layanan sehingga keamanan ditangani sebagai bagian dari operasional IT enterprise" },
+        ],
+    },
+    cta: {
+        title: "Kekuatan Lingkungan Keamanan Anda Bergantung pada Visibilitas dan Respons",
+        description: "Diskusikan pemantauan keamanan, lingkungan IT, lanskap integrasi, dan kebutuhan operasional Anda saat ini bersama ASYST",
+        button: "Hubungi Ahli Keamanan",
+    },
+});

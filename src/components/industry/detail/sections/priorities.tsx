@@ -6,6 +6,7 @@ import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import { IndustryDetailContent } from "consts/industry-detail.const";
 import SectionHeading from "components/product/shared/section-heading";
 import AccordionItem from "components/product/shared/accordion";
+import { useT } from "shared/i18n";
 
 interface PrioritiesSectionProps {
     content: IndustryDetailContent["priorities"];
@@ -14,6 +15,7 @@ interface PrioritiesSectionProps {
 /** Accordion prioritas bisnis di kiri + matriks kapabilitas per segmen di kanan. */
 export default function PrioritiesSection({ content }: PrioritiesSectionProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const t = useT();
     const { columns, rows } = content.matrix;
 
     return <Box component="section" className="pv-section">
@@ -23,7 +25,7 @@ export default function PrioritiesSection({ content }: PrioritiesSectionProps) {
                 <Box className="iv-priority__list">
                     {content.items.map(({ title, points }, index) => (
                         <AccordionItem
-                            key={title}
+                            key={index}
                             title={title}
                             icon="circle"
                             open={index === openIndex}
@@ -39,19 +41,19 @@ export default function PrioritiesSection({ content }: PrioritiesSectionProps) {
                     <table className="iv-matrix">
                         <thead>
                             <tr>
-                                <th>Capability</th>
+                                <th>{t("Capability", "Kapabilitas")}</th>
                                 {columns.map(column => <th key={column}>{column}</th>)}
                             </tr>
                         </thead>
                         <tbody>
-                            {rows.map(({ label, values }) => (
-                                <tr key={label}>
+                            {rows.map(({ label, values }, rowIndex) => (
+                                <tr key={rowIndex}>
                                     <td>{label}</td>
                                     {values.map((value, index) => (
-                                        <td key={columns[index]}>
+                                        <td key={index}>
                                             {value
-                                                ? <CheckCircleRoundedIcon className="iv-matrix__check" aria-label="Yes" />
-                                                : <RemoveRoundedIcon className="iv-matrix__empty" aria-label="No" />}
+                                                ? <CheckCircleRoundedIcon className="iv-matrix__check" aria-label={t("Yes", "Ya")} />
+                                                : <RemoveRoundedIcon className="iv-matrix__empty" aria-label={t("No", "Tidak")} />}
                                         </td>
                                     ))}
                                 </tr>

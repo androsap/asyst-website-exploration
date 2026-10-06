@@ -10,17 +10,19 @@ import { Children } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { CustomersModel } from "models/amala/customers.model";
+import { useT } from "shared/i18n";
 
 interface CustomersProps {
     corporate: CustomersModel;
 }
 
 const CustomersComponent: React.FC<CustomersProps> = ({ corporate }) => {
+    const t = useT();
     // console.log("customer", corporate)
     return (
         <>
             <Typography sx={styles.title}>
-                Trusted by Leading Businesses
+                {t("Trusted by Leading Businesses", "Dipercaya oleh Bisnis Terkemuka")}
             </Typography>
             <Swiper
                 modules={[Virtual, Navigation]}

@@ -421,9 +421,12 @@ $mobile: 599px;
     }
 
     .cr-summary {
-        display: inline-grid;
+        // block (bukan inline) agar tombol Apply turun ke baris sendiri di bawahnya
+        display: grid;
         grid-template-columns: repeat(3, auto);
-        margin-top: 32px;
+        width: fit-content;
+        max-width: 100%;
+        margin: 32px auto 0;
         border: 1px solid $border;
         border-radius: 10px;
         background: rgba(255, 255, 255, 0.7);
@@ -528,6 +531,23 @@ $mobile: 599px;
         flex-direction: column;
         gap: 20px;
         margin-top: 28px;
+
+        // Muncul bergiliran saat filter/kategori berganti (--i = urutan kartu, diset dari jobs/index.tsx)
+        &--animated > .cr-job {
+            animation: cr-fade-in-up 0.4s ease both;
+            animation-delay: calc(var(--i, 0) * 60ms);
+        }
+    }
+
+    .cr-fade-in {
+        animation: cr-fade-in-up 0.4s ease both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .cr-job-list--animated > .cr-job,
+        .cr-fade-in {
+            animation: none;
+        }
     }
 
     .cr-job {
@@ -539,10 +559,10 @@ $mobile: 599px;
         border: 1px solid $border;
         border-radius: 10px;
         background: #fff;
-        transition: box-shadow .2s;
+        transition: border-color .2s;
 
         &:hover {
-            box-shadow: 0 12px 28px rgba(18, 53, 84, 0.08);
+            border-color: $blue;
         }
 
         @media (max-width: $mobile) {
@@ -846,6 +866,7 @@ $mobile: 599px;
         font-size: 14px;
         color: $blue;
         text-align: left;
+        transition: color .3s ease;
 
         &:last-child {
             border-bottom: 0;
@@ -1059,5 +1080,17 @@ $mobile: 599px;
                 flex-shrink: 0;
             }
         }
+    }
+}
+
+@keyframes cr-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
     }
 }

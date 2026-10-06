@@ -3,13 +3,14 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { CaseStudyHeroConst } from "consts/case-study.const";
+import { useLocalized } from "shared/i18n";
 
 interface HeroSectionProps {
     onExplore: () => void;
 }
 
 export default function HeroSection({ onExplore }: HeroSectionProps) {
-    const { title, description, button, image } = CaseStudyHeroConst;
+    const { title, description, button, image } = useLocalized(CaseStudyHeroConst);
 
     return <Box component="section" className="cs-hero">
         <Box className="cs-hero__backdrop" sx={{ backgroundImage: `url(${image})` }} aria-hidden />

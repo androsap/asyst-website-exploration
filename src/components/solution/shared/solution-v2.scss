@@ -163,6 +163,11 @@ $mobile: 599px;
         border: 1px solid $border;
         border-radius: 12px;
         background: #fff;
+        transition: border-color .2s;
+
+        &:hover {
+            border-color: $blue;
+        }
 
         @media (max-width: $mobile) {
             grid-template-columns: 1fr;

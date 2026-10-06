@@ -29,8 +29,8 @@ export default function OverviewSection({ hero, summary, challenge, onViewArchit
                     <Box className="cs-summary__logo">
                         <img src={summary.logo} alt={summary.client} />
                     </Box>
-                    {summary.items.map(({ label, value }) => (
-                        <Box key={label}>
+                    {summary.items.map(({ label, value }, index) => (
+                        <Box key={index}>
                             <Typography className="cs-summary__label">{label}</Typography>
                             <Typography className="cs-summary__value">{value}</Typography>
                         </Box>

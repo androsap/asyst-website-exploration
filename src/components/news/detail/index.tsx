@@ -18,7 +18,8 @@ import CarouselNav from "components/home/sections/carousel-nav";
 import useSwiperNav from "components/home/sections/use-swiper-nav";
 import NewsHelper from "helper/NewsHelper";
 import NewsModel from "models/news.model";
-import { NEWS_AUTHOR, NEWS_BASE_PATH, NEWS_RELATED_LIMIT, NewsDetailConst } from "consts/news-page.const";
+import { NEWS_AUTHOR, NEWS_BASE_PATH, NEWS_RELATED_LIMIT, NewsCategoryTermsConst, NewsDetailConst } from "consts/news-page.const";
+import { useLanguage, useLocalized, useT, useTerms } from "shared/i18n";
 import NewsCard from "../shared/news-card";
 import { decodeNewsHtml, formatNewsDate, newsCategoryPath, newsReadingMinutes } from "../shared/utils";
 
@@ -27,6 +28,8 @@ export default function NewsDetailComponent({ }: MainLayoutSharedProps) {
     const { slug = "" } = useParams();
     const [news, setNews] = useState<NewsModel | null>(null);
     const [loading, setLoading] = useState(true);
+    const t = useT();
+    const text = useLocalized(NewsDetailConst);
 
     useEffect(() => {
         let active = true;
@@ -48,11 +51,11 @@ export default function NewsDetailComponent({ }: MainLayoutSharedProps) {
     return <Box className="product-v2 news-v2">
         <Box className="nw-breadcrumb">
             <Container maxWidth="xl" className="nw-breadcrumb__inner">
-                <Link to="/" aria-label="Home"><HomeOutlinedIcon /></Link>
+                <Link to="/" aria-label={t("Home", "Beranda")}><HomeOutlinedIcon /></Link>
                 <ChevronRightRoundedIcon className="nw-breadcrumb__separator" />
-                <Link to={NEWS_BASE_PATH}>News</Link>
+                <Link to={NEWS_BASE_PATH}>{t("News", "Berita")}</Link>
                 <ChevronRightRoundedIcon className="nw-breadcrumb__separator" />
-                <span className="nw-breadcrumb__current">{news?.title || (loading ? "" : NewsDetailConst.notFoundTitle)}</span>
+                <span className="nw-breadcrumb__current">{news?.title || (loading ? "" : text.notFoundTitle)}</span>
             </Container>
         </Box>
 
@@ -70,6 +73,9 @@ function Article({ news }: { news: NewsModel }) {
     const { title, image, content, category, created_date } = news;
     const html = useMemo(() => decodeNewsHtml(content), [content]);
     const minutes = useMemo(() => newsReadingMinutes(content), [content]);
+    const language = useLanguage();
+    const text = useLocalized(NewsDetailConst);
+    const categoryLabel = useTerms(NewsCategoryTermsConst);
 
     return <>
         <Typography variant="h1" className="nw-article__title">{title}</Typography>
@@ -78,19 +84,19 @@ function Article({ news }: { news: NewsModel }) {
             <Box className="nw-meta__info">
                 <span className="nw-avatar" aria-hidden>{NEWS_AUTHOR.charAt(0)}</span>
                 <Typography className="nw-meta__text">
-                    {formatNewsDate(created_date, "MMMM D, YYYY [at] HH:mm:ss")}
+                    {formatNewsDate(created_date, language, text.dateFormat)}
                     <span className="nw-meta__divider">|</span>
-                    Posted by {NEWS_AUTHOR}
+                    {text.postedBy}
                     {category && <>
                         <span className="nw-meta__divider">|</span>
-                        Published at <Link to={newsCategoryPath(category)}>{category}</Link>
+                        {text.publishedAt} <Link to={newsCategoryPath(category)}>{categoryLabel(category)}</Link>
                     </>}
                 </Typography>
             </Box>
             <Box className="nw-meta__actions">
                 <ShareButton title={title} />
                 <span className="nw-meta__stat">
-                    <AccessTimeRoundedIcon /> {minutes} min{minutes > 1 ? "s" : ""}
+                    <AccessTimeRoundedIcon /> {(minutes > 1 ? text.readingTimePlural : text.readingTime).replace("{n}", String(minutes))}
                 </span>
             </Box>
         </Box>
@@ -100,15 +106,15 @@ function Article({ news }: { news: NewsModel }) {
         <Box className="nw-content" dangerouslySetInnerHTML={{ __html: html }} />
 
         {category && <Box className="nw-tags">
-            <Link to={newsCategoryPath(category)} className="nw-tag">{category}</Link>
+            <Link to={newsCategoryPath(category)} className="nw-tag">{categoryLabel(category)}</Link>
         </Box>}
 
         <Box className="nw-publisher">
             <span className="nw-avatar nw-avatar--large" aria-hidden>{NEWS_AUTHOR.charAt(0)}</span>
             <Box>
-                <Typography className="nw-publisher__name">{NewsDetailConst.publishedBy}</Typography>
+                <Typography className="nw-publisher__name">{text.publishedBy}</Typography>
                 <Typography className="nw-publisher__text">
-                    {NewsDetailConst.collaboration} <Link to={NewsDetailConst.contactLink}>{NewsDetailConst.contactLabel}</Link>
+                    {text.collaboration} <Link to={text.contactLink}>{text.contactLabel}</Link>
                 </Typography>
             </Box>
         </Box>
@@ -119,6 +125,7 @@ function Article({ news }: { news: NewsModel }) {
 
 function ShareButton({ title }: { title: string }) {
     const [copied, setCopied] = useState(false);
+    const text = useLocalized(NewsDetailConst);
 
     const share = async () => {
         const url = window.location.href;
@@ -133,7 +140,7 @@ function ShareButton({ title }: { title: string }) {
     };
 
     return <button type="button" className="nw-meta__share" onClick={share}>
-        <IosShareRoundedIcon /> {copied ? "Link copied" : "Share"}
+        <IosShareRoundedIcon /> {copied ? text.linkCopied : text.share}
     </button>
 }
 
@@ -141,6 +148,7 @@ function ShareButton({ title }: { title: string }) {
 function RelatedNews({ slug, category }: { slug: string; category: string }) {
     const [items, setItems] = useState<NewsModel[]>([]);
     const { swiperProps, navProps } = useSwiperNav();
+    const text = useLocalized(NewsDetailConst);
 
     useEffect(() => {
         let active = true;
@@ -163,7 +171,7 @@ function RelatedNews({ slug, category }: { slug: string; category: string }) {
 
     return <Box className="nw-related">
         <Box className="nw-related__header">
-            <Typography variant="h2" className="nw-related__title">{NewsDetailConst.relatedTitle}</Typography>
+            <Typography variant="h2" className="nw-related__title">{text.relatedTitle}</Typography>
             <CarouselNav {...navProps} />
         </Box>
         <Swiper {...swiperProps} spaceBetween={20} slidesPerView={1.1} breakpoints={{ 600: { slidesPerView: 2 } }}>
@@ -187,9 +195,11 @@ function ArticleSkeleton() {
 }
 
 function NotFound() {
+    const text = useLocalized(NewsDetailConst);
+
     return <Box className="nw-empty">
-        <Typography variant="h1" className="nw-article__title">{NewsDetailConst.notFoundTitle}</Typography>
-        <Typography>{NewsDetailConst.notFoundDescription}</Typography>
-        <Button component={Link} to={NEWS_BASE_PATH} className="pv-btn pv-btn--primary">Back to News</Button>
+        <Typography variant="h1" className="nw-article__title">{text.notFoundTitle}</Typography>
+        <Typography>{text.notFoundDescription}</Typography>
+        <Button component={Link} to={NEWS_BASE_PATH} className="pv-btn pv-btn--primary">{text.backToNews}</Button>
     </Box>
 }

@@ -6,10 +6,11 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { CaseStudyTestimonialsConst } from "consts/case-study.const";
+import { useLocalized } from "shared/i18n";
 import SectionHeading from "components/product/shared/section-heading";
 
 export default function TestimonialsSection() {
-    const { title, items } = CaseStudyTestimonialsConst;
+    const { title, items } = useLocalized(CaseStudyTestimonialsConst);
 
     return <Box component="section" className="pv-section">
         <Container maxWidth="xl">

@@ -1,5 +1,5 @@
-import dayjs from "dayjs";
 import { CAREER_JOBS_PATH, CareerFilterKey, CareerJob } from "consts/career.const";
+import { formatDate, Language } from "shared/i18n";
 
 /** Filter aktif di /career/jobs; disimpan sebagai query param (`q` = kata kunci) */
 export type CareerFilters = Partial<Record<CareerFilterKey | "q", string>>;
@@ -47,7 +47,4 @@ export const filterCareerJobs = (jobs: CareerJob[], filters: CareerFilters) => {
     );
 };
 
-export const formatJobDate = (date: string) => {
-    const parsed = dayjs(date);
-    return parsed.isValid() ? parsed.format("D MMMM YYYY") : "";
-};
+export const formatJobDate = (date: string, language: Language) => formatDate(date, "D MMMM YYYY", language);

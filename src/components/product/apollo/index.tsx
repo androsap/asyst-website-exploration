@@ -31,6 +31,7 @@ import TestimonialHelper from 'helper/amala/TestimonialHelper';
 import CustomersHelper from 'helper/apollo/CustomersHelper';
 import FeaturesHelper from 'helper/apollo/FeatureHelper';
 import he from 'he';
+import { useApiText, useT } from 'shared/i18n';
 import bannerBackground from 'assets/asyst/img/background/product/apollo/product-detail-apollo.png';
 
 const Loading = <Box width="100%" height="150px" display="flex" alignItems="center" justifyContent="center" position="relative">
@@ -56,6 +57,8 @@ export default function ApolloDetailComponent({ }: MainLayoutSharedProps) {
     const [featureData, setFeatureData] = useState<FeaturesModel>({} as FeaturesModel)
     const [loading, setLoading] = useState<boolean>(true)
     const prevElementRef = useRef<HTMLDivElement>(null)
+    const apiText = useApiText()
+    const t = useT()
     const nextElementRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
@@ -108,7 +111,7 @@ export default function ApolloDetailComponent({ }: MainLayoutSharedProps) {
                                 <BackCircleIcon />
                             </Link>
                             <Typography sx={styles.backNavContainer.text}>
-                                Product and Services
+                                {t("Product and Services", "Produk dan Layanan")}
                             </Typography>
                             <Typography>
                                 {data.product?.product_name}
@@ -120,12 +123,12 @@ export default function ApolloDetailComponent({ }: MainLayoutSharedProps) {
                         <Box display='flex' flexDirection='row'>
                             <Box className="left-banner" display='flex' flexDirection='column' justifyContent='flex-start'>
                                 <Typography sx={styles.title}
-                                    dangerouslySetInnerHTML={{ __html: he.decode(data.product?.section?.title_id || '') }} />
+                                    dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
                                 <Typography sx={styles.description}
-                                    dangerouslySetInnerHTML={{ __html: he.decode(data.product?.section?.description_id || '') }} />
+                                    dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "description") || '') }} />
                                 <Button sx={styles.buttonFrame} onClick={requestDemoModal}>
                                     <Box sx={styles.button}>
-                                        <Typography sx={styles.textButton}>Request Demo</Typography>
+                                        <Typography sx={styles.textButton}>{t("Request Demo", "Minta Demo")}</Typography>
                                     </Box>
                                 </Button>
                             </Box>

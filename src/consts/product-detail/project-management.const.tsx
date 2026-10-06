@@ -21,10 +21,13 @@ import imgReports from "assets/asyst/img/background/product/project-management/r
 import imgStreams from "assets/asyst/img/background/product/project-management/streams.png";
 import imgTimeline from "assets/asyst/img/background/product/project-management/timeline.png";
 import { ProductDetailContent } from "consts/product-detail.const";
+import { localized } from "shared/i18n";
 
+// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
+// (teks saja, struktur & urutan sama).
 // Konten mengikuti apm.asyst.co.id/landing
 
-export const ProjectManagementDetailConst: ProductDetailContent = {
+const projectManagementDetailEn: ProductDetailContent = {
     hero: {
         title: "People and AI Agents, Working from One Plan",
         description: "Asyst Project Management keeps streams, deliverables, tasks and logged hours in one place, and lets AI agents do the status reporting so your team can focus on decisions",
@@ -113,3 +116,94 @@ export const ProjectManagementDetailConst: ProductDetailContent = {
         button: "Request a demo",
     },
 }
+
+// ---------- terjemahan ID (struktur & urutan sama dengan projectManagementDetailEn) ----------
+
+export const ProjectManagementDetailConst = localized(projectManagementDetailEn, {
+    hero: {
+        title: "Manusia dan AI Agent, Bekerja dari Satu Rencana",
+        description: "Asyst Project Management menyatukan stream, deliverable, tugas, dan jam kerja di satu tempat, serta membiarkan AI agent menyusun laporan status agar tim Anda dapat fokus mengambil keputusan",
+        primaryButton: "Hubungi Ahli Proyek",
+        secondaryButton: "Jelajahi Project Management",
+        stats: [
+            { label: "Modul, Satu Sumber Kebenaran" },
+            { label: "Ringkasan & Deteksi Risiko" },
+            { label: "Progres Deliverable" },
+            { value: "Per Stream", label: "Timeline & Kepemilikan" },
+        ],
+    },
+    overview: {
+        title: "Dibangun untuk Program yang Terlalu Besar untuk Spreadsheet",
+        paragraphs: [
+            "Asyst Project Management adalah platform delivery dari PT Aero Systems Indonesia. Pekerjaan diatur sesuai cara program benar-benar berjalan: stream memiliki deliverable, deliverable berisi tugas, dan setiap jam kerja dicatat pada tugas terkait.",
+            "Karena datanya terstruktur, tampilan progres, timeline, dan produktivitas dihasilkan otomatis, bukan disusun manual setiap Senin. AI agent membaca data yang sama untuk menulis ringkasan, menandai risiko, dan mengusulkan langkah berikutnya.",
+        ],
+        challenges: [
+            { title: "Progres Real-Time", description: "Status deliverable dan tugas tanpa perlu rapat status" },
+            { title: "Jam Kerja di Tempat Pekerjaannya", description: "Setiap aktivitas dicatat pada tugas dan deliverable terkait" },
+            { title: "Timeline per Stream", description: "Dari tanggal mulai hingga target, dikelompokkan berdasarkan tim pemiliknya" },
+            { title: "Ringkasan & Risiko oleh AI", description: "Ditulis dari data Anda, lengkap dengan risiko yang teridentifikasi" },
+        ],
+    },
+    lifecycle: {
+        title: "Satu Rencana dari Stream hingga Laporan Steering",
+        description: "Stream memiliki deliverable, deliverable berisi tugas, dan setiap jam yang dicatat menjadi dasar tampilan progres, produktivitas, dan AI yang diandalkan stakeholder Anda",
+        items: [
+            { label: "Stream", title: "Semua stream dalam satu halaman", description: "Ruang lingkup, jumlah anggota, dan lead per stream, sehingga tidak perlu lagi mengejar pemilik untuk tahu siapa melaporkan apa." },
+            { label: "Deliverable", title: "Target besar yang terpantau", description: "Deliverable lengkap dengan pemilik, status, progres, dan tanggal target, dapat difilter berdasarkan stream, status, dan penanggung jawab, serta custom field sesuai proses Anda." },
+            { label: "Timeline", title: "Tanggal cutover yang dapat dipertanggungjawabkan", description: "Deliverable dipetakan dari tanggal mulai hingga target, dengan kode warna belum dimulai, berjalan, berisiko, dan selesai." },
+            { label: "Aktivitas Harian", title: "Jam kerja dicatat di tempat pekerjaannya", description: "Aktivitas harian menjadi sumber setiap metrik: jam kerja, cycle time, dan ringkasan AI semuanya membaca log yang sama." },
+            { label: "Kalender", title: "Kalender perusahaan & persetujuan", description: "Tampilan bulanan seluruh perusahaan untuk check-in, perjalanan dinas, dan cuti, dengan antrean persetujuan untuk para lead." },
+            { label: "AI Insights", title: "Ringkasan status yang ditulis untuk Anda", description: "Ringkasan status dan deteksi risiko sesuai kebutuhan, untuk seluruh perusahaan atau per stream, berisi capaian, risiko, dan rekomendasi yang didukung angka di baliknya." },
+            { label: "Laporan", title: "Laporan yang selalu terkini", description: "Pilih dimensi, metrik, filter, dan grafik, lalu simpan laporan dan bagikan ke seluruh perusahaan atau simpan secara privat." },
+        ],
+    },
+    features: {
+        title: "Tiga Belas Modul, Satu Sumber Kebenaran",
+        items: [
+            { title: "AI Insights", description: "Ringkasan status dan deteksi risiko sesuai kebutuhan, untuk seluruh perusahaan atau per stream. Capaian, risiko, dan rekomendasi disertai angka pendukungnya, sehingga update steering cukup beberapa menit, bukan satu pagi penuh" },
+            { title: "Dashboard Progres", description: "Progres deliverable, penyelesaian tugas, dan aktivitas tim dalam sekali lihat, diperbarui begitu tim mencatat pekerjaannya" },
+            { title: "Manajemen Tugas", description: "Tugas di bawah deliverable, lengkap dengan prioritas, penanggung jawab, dan status. Filter berdasarkan status dan lihat persis apa yang terhambat" },
+            { title: "Kalender & Persetujuan Cuti", description: "Tampilan bulanan seluruh perusahaan untuk check-in, perjalanan dinas, dan cuti, dengan antrean persetujuan untuk para lead" },
+            { title: "Metrik Produktivitas", description: "Throughput, tingkat ketepatan waktu, rata-rata cycle time, jam kerja tercatat, dan hari aktif per anggota, bukan sekadar jam kerja" },
+            { title: "Pembuat Laporan Kustom", description: "Pilih dimensi, metrik, filter, dan grafik, lalu simpan dan bagikan ke perusahaan atau simpan secara privat. Laporan selalu terkini dengan data yang sama" },
+            { title: "Ringkasan Stream", description: "Ruang lingkup, anggota, dan lead untuk setiap stream, sehingga kepemilikan portofolio selalu jelas" },
+            { title: "Timeline per Stream", description: "Deliverable dipetakan dari tanggal mulai hingga target dan dikelompokkan berdasarkan stream pemiliknya" },
+            { title: "Peran & Akses", description: "Setujui pendaftaran, tempatkan anggota ke stream, dan tetapkan peran Admin, Stream Lead, atau Member" },
+        ],
+    },
+    howItWorks: {
+        title: "Tiga Cara Tim Menjalankan Asyst Project Management",
+        items: [
+            { label: "Implementasi SAP / ERP", title: "Jaga rollout ERP tetap transparan, stream demi stream", description: "Stream Functional, Technical, Data Migration, Integration, dan Change Management masing-masing memiliki deliverable dan lead sendiri. Deliverable dipetakan ke tanggal cutover, dan tugas yang terhambat atau deliverable berisiko langsung masuk ke ringkasan risiko AI, bukan ke email status." },
+            { label: "Program Multi-Stream & PMO", title: "Beri PMO satu versi kebenaran", description: "Setiap stream ditampilkan dalam satu halaman dengan ruang lingkup, anggota, dan lead-nya. Susun laporan portofolio lintas stream berdasarkan dimensi dan metrik, lalu buat ringkasan untuk seluruh perusahaan atau per stream, tinjau, dan kirimkan." },
+            { label: "Proyek IT Internal", title: "Jalankan pekerjaan IT internal seperti sebuah program", description: "Pantau deliverable dengan pemilik, status, progres, dan tanggal target. Tambahkan custom field seperti kode anggaran, business owner, wave, atau dampak regulasi, serta jaga peran dan akses tetap terkendali." },
+        ],
+    },
+    businessModels: {
+        title: "Apa yang Berubah Saat Pelaporan Berjalan Otomatis",
+        items: [
+            { title: "Implementasi ERP", points: ["kepemilikan workstream", "timeline cutover", "deteksi hambatan", "ringkasan risiko AI"] },
+            { title: "PMO & Portofolio", points: ["satu tampilan lintas stream", "laporan portofolio", "materi steering", "metrik bersama"] },
+            { title: "IT Internal", points: ["pelacakan deliverable", "custom field", "akses berbasis peran", "dashboard progres"] },
+            { title: "Tim Delivery", points: ["log aktivitas harian", "jam kerja per tugas", "cycle time", "tingkat ketepatan waktu"] },
+            { title: "Pimpinan", points: ["status Senin tersusun otomatis", "lebih sedikit administrasi", "lebih banyak keputusan", "risiko teridentifikasi lebih awal"] },
+        ],
+    },
+    faq: {
+        title: "FAQ Asyst Project Management",
+        items: [
+            { question: "Apa itu Asyst Project Management?", answer: "Asyst Project Management adalah platform delivery dari PT Aero Systems Indonesia untuk program multi-stream. Platform ini menyatukan stream, deliverable, tugas, dan jam kerja di satu tempat, dengan AI agent yang menangani pelaporan status." },
+            { question: "Apa yang dilakukan AI agent?", answer: "AI agent membaca data proyek Anda untuk membuat ringkasan status untuk seluruh perusahaan atau per stream, menandai risiko, dan mengusulkan langkah berikutnya, lengkap dengan angka pendukungnya." },
+            { question: "Bagaimana pekerjaan distrukturkan?", answer: "Stream memiliki deliverable, deliverable berisi tugas, dan setiap jam kerja dicatat pada tugas terkait." },
+            { question: "Bisakah kami membuat laporan sendiri?", answer: "Bisa. Pembuat laporan kustom memungkinkan Anda memilih dimensi, metrik, filter, dan grafik, lalu menyimpan laporan dan membagikannya ke seluruh perusahaan atau menyimpannya secara privat." },
+            { question: "Bisakah kami menambahkan field khusus untuk proses kami?", answer: "Bisa. Tambahkan custom field seperti kode anggaran, business owner, wave, atau dampak regulasi, untuk semua deliverable atau satu stream tertentu." },
+            { question: "Bagaimana peran dan akses dikelola?", answer: "Admin menyetujui pendaftaran, menempatkan anggota ke stream, dan menetapkan setiap anggota sebagai Admin, Stream Lead, atau Member." },
+        ],
+    },
+    cta: {
+        title: "Lihat Program Anda dalam Satu Tampilan",
+        description: "Minta demo dengan struktur stream milik Anda sendiri",
+        button: "Minta demo",
+    },
+});

@@ -2,6 +2,7 @@ import { useState } from "react";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
 import { HeaderGroup, HeaderPanelSubtitle, HeaderProductsConst, HeaderProductsLink } from "consts/header.const";
+import { useLocalized, useT } from "shared/i18n";
 import MenuLink from "./menu-link";
 
 interface PanelProps {
@@ -28,11 +29,13 @@ function ProductIcon() {
 }
 
 function PanelSide({ title, link, onNavigate, tabs, active, onChange }: PanelSideProps) {
+    const subtitle = useLocalized(HeaderPanelSubtitle);
+
     return <div className="header-panel__side">
         {link
             ? <MenuLink link={link} className="header-panel__title" onClick={onNavigate}>{title}</MenuLink>
             : <div className="header-panel__title">{title}</div>}
-        <div className="header-panel__subtitle">{HeaderPanelSubtitle}</div>
+        <div className="header-panel__subtitle">{subtitle}</div>
         {tabs && <div className="header-panel__tabs" role="tablist">
             {tabs.map((label, index) => (
                 <button
@@ -54,10 +57,12 @@ function PanelSide({ title, link, onNavigate, tabs, active, onChange }: PanelSid
 
 export function ProductsPanel({ onNavigate }: PanelProps) {
     const [active, setActive] = useState(0);
-    const category = HeaderProductsConst[active];
+    const t = useT();
+    const categories = useLocalized(HeaderProductsConst);
+    const category = categories[active];
 
     return <div className="header-panel">
-        <PanelSide title="Products" link={HeaderProductsLink} onNavigate={onNavigate} tabs={HeaderProductsConst.map(x => x.label)} active={active} onChange={setActive} />
+        <PanelSide title={t("Products", "Produk")} link={HeaderProductsLink} onNavigate={onNavigate} tabs={categories.map(x => x.label)} active={active} onChange={setActive} />
         <div className="header-panel__content">
             <div className="header-panel__highlight">
                 <div className="header-panel__highlight-title">{category.title}</div>

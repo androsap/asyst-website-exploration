@@ -132,10 +132,10 @@ $mobile: 599px;
         border-radius: 8px;
         background: #fff;
         overflow: hidden;
-        transition: box-shadow .2s;
+        transition: border-color .2s;
 
         &:hover {
-            box-shadow: 0 12px 28px rgba(18, 53, 84, 0.08);
+            border-color: $blue;
         }
 
         &__media {

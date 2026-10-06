@@ -9,13 +9,17 @@ import "components/product/shared/product-v2.scss";
 import "./shared/news.scss";
 import NewsHelper from "helper/NewsHelper";
 import NewsModel from "models/news.model";
-import { NEWS_ALL_CATEGORY, NEWS_PAGE_SIZE, NewsCategoriesConst, NewsHeroConst } from "consts/news-page.const";
+import { NEWS_ALL_CATEGORY, NEWS_PAGE_SIZE, NewsCategoriesConst, NewsCategoryTermsConst, NewsHeroConst } from "consts/news-page.const";
+import { useLocalized, useT, useTerms } from "shared/i18n";
 import NewsCard, { NewsCardSkeleton } from "./shared/news-card";
 
 /** Halaman utama News (revamp 2026). Daftar news dari API, filter kategori disimpan di query `?category=`. */
 export default function NewsComponent({ }: MainLayoutSharedProps) {
     const [searchParams, setSearchParams] = useSearchParams();
     const category = searchParams.get("category") || NEWS_ALL_CATEGORY;
+    const t = useT();
+    const hero = useLocalized(NewsHeroConst);
+    const categoryLabel = useTerms(NewsCategoryTermsConst);
 
     const [items, setItems] = useState<NewsModel[]>([]);
     const [loading, setLoading] = useState(true);
@@ -55,14 +59,14 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
     return <Box className="product-v2 news-v2">
         <Box component="section" className="nw-hero">
             <Container maxWidth="md">
-                <Typography variant="h1" className="nw-hero__title">{NewsHeroConst.title}</Typography>
-                <Typography className="nw-hero__description">{NewsHeroConst.description}</Typography>
+                <Typography variant="h1" className="nw-hero__title">{hero.title}</Typography>
+                <Typography className="nw-hero__description">{hero.description}</Typography>
             </Container>
         </Box>
 
         <Box component="section" className="pv-section pv-section--last">
             <Container maxWidth="xl">
-                <Box className="nw-filters" role="tablist" aria-label="News category">
+                <Box className="nw-filters" role="tablist" aria-label={t("News category", "Kategori berita")}>
                     {NewsCategoriesConst.map(value => (
                         <button
                             key={value}
@@ -72,7 +76,7 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
                             className={`nw-filter ${value === category ? "active" : ""}`}
                             onClick={() => selectCategory(value)}
                         >
-                            {value}
+                            {categoryLabel(value)}
                         </button>
                     ))}
                 </Box>
@@ -84,14 +88,14 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
 
                 {!loading && !items.length && (
                     <Box className="nw-empty">
-                        <Typography>{error ? "Failed to load news." : "No news in this category yet."}</Typography>
-                        {error && <Button className="pv-btn pv-btn--outline" onClick={() => load(0)}>Try again</Button>}
+                        <Typography>{error ? t("Failed to load news.", "Gagal memuat berita.") : t("No news in this category yet.", "Belum ada berita di kategori ini.")}</Typography>
+                        {error && <Button className="pv-btn pv-btn--outline" onClick={() => load(0)}>{t("Try again", "Coba lagi")}</Button>}
                     </Box>
                 )}
 
                 {hasMore && !loading && (
                     <Box className="nw-more">
-                        <Button className="pv-btn pv-btn--primary nw-more__button" onClick={() => load(items.length)}>Show More</Button>
+                        <Button className="pv-btn pv-btn--primary nw-more__button" onClick={() => load(items.length)}>{t("Show More", "Tampilkan Lebih Banyak")}</Button>
                     </Box>
                 )}
             </Container>

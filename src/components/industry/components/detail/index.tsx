@@ -12,6 +12,7 @@ import BusinessComponent from './components/business';
 import SolutionsComponent from './components/solutions';
 import { styles } from './styled';
 import './index.scss';
+import { useT } from 'shared/i18n';
 
 import { ReactComponent as BackCircleIcon } from "assets/asyst/img/icon/industry/back-circle.svg";
 import { ReactComponent as LinkCircleIcon } from "assets/asyst/img/icon/industry/link-orange-circle.svg";
@@ -23,6 +24,7 @@ const Loading = <Box width="100%" height="150px" display="flex" alignItems="cent
 </Box>
 
 export default function IndustryDetailComponent({ }: MainLayoutSharedProps) {
+    const t = useT();
     return <Box className="container-industry-detail">
         <Element name="industry-detail">
             <Box sx={styles.mainBox}>
@@ -31,16 +33,16 @@ export default function IndustryDetailComponent({ }: MainLayoutSharedProps) {
                     <Box sx={styles.backNavContainer}>
                         <BackCircleIcon />
                         <Typography sx={styles.backNavContainer.text}>
-                            Airline
+                            {t("Airline", "Maskapai")}
                         </Typography>
                     </Box>
                     <Box sx={styles.headerBox}>
                         <div>
                             <Typography sx={styles.headerTitle}>
-                                Aero Systems Indonesia for Airlines
+                                {t("Aero Systems Indonesia for Airlines", "Aero Systems Indonesia untuk Maskapai")}
                             </Typography>
                             <Typography sx={styles.headerSubtitle}>
-                                The right balance of innovative technology and unrivalled understanding of industry, to develop and manage integrated solutions and services
+                                {t("The right balance of innovative technology and unrivalled understanding of industry, to develop and manage integrated solutions and services", "Perpaduan tepat antara teknologi inovatif dan pemahaman industri yang tak tertandingi untuk mengembangkan dan mengelola solusi serta layanan terintegrasi")}
                             </Typography>
                         </div>
                         <LinkCircleIcon style={styles.headerLinkIcon} />

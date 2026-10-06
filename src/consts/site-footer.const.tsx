@@ -1,20 +1,25 @@
 // Footer (desain revamp 2026). Sementara hardcode.
 // `link` kosong = halaman tujuan belum ada (tampil sebagai teks biasa).
+import { localized } from "shared/i18n";
 import { HeaderLinkItem } from "./header.const";
 
 export interface FooterColumn {
     title?: string;
+    link?: string;
     items: HeaderLinkItem[];
 }
 
-export const FooterCompanyConst = {
+export const FooterCompanyConst = localized({
     title: "Company",
     address: "Information System Building, 3rd floor, RT.001/RW.010, Pajang, Benda, Tangerang City, Banten 15126",
     phone: "+62 21 29356070",
     email: "sales@asyst.co.id",
-}
+}, {
+    title: "Perusahaan",
+    address: "Gedung Information System, Lantai 3, RT.001/RW.010, Pajang, Benda, Kota Tangerang, Banten 15126",
+})
 
-export const FooterColumnsConst: FooterColumn[] = [
+export const FooterColumnsConst = localized<FooterColumn[]>([
     {
         items: [
             { label: "About Us", link: "/about" },
@@ -25,6 +30,7 @@ export const FooterColumnsConst: FooterColumn[] = [
     },
     {
         title: "Products",
+        link: "/product",
         items: [
             { label: "Enterprise", link: "/product" },
             { label: "Travel Management", link: "/product/athena" },
@@ -54,12 +60,54 @@ export const FooterColumnsConst: FooterColumn[] = [
             { label: "Other industries", link: "/industry" },
         ],
     },
-]
+], [
+    {
+        items: [
+            { label: "Tentang Kami" },
+            { label: "Karier" },
+            { label: "Bantuan & Dokumen" },
+            { label: "Hubungi Kami" },
+        ],
+    },
+    {
+        title: "Produk",
+        items: [
+            { label: "Enterprise" },
+            { label: "Manajemen Perjalanan" },
+            { label: "Komersial" },
+            { label: "Operasional" },
+            { label: "Asisten Layanan IT" },
+        ],
+    },
+    {
+        title: "Solusi",
+        items: [
+            { label: "Security Operation Center" },
+            { label: "Konsultasi Bisnis Digital" },
+            { label: "Operasional Infra, Aplikasi, Platform & ITSM" },
+            { label: "Orkestrasi Layanan & Manajemen Data" },
+            { label: "Modernisasi Aplikasi" },
+        ],
+    },
+    {
+        title: "Industri",
+        items: [
+            { label: "Enterprise" },
+            { label: "Pemerintahan" },
+            { label: "Penerbangan" },
+            { label: "Transportasi" },
+            { label: "Industri lainnya" },
+        ],
+    },
+])
 
-export const FooterLegalConst: HeaderLinkItem[] = [
+export const FooterLegalConst = localized<HeaderLinkItem[]>([
     { label: "Privacy Policy" },
     { label: "Terms of Service" },
-]
+], [
+    { label: "Kebijakan Privasi" },
+    { label: "Ketentuan Layanan" },
+])
 
 export const FooterSocialConst = {
     linkedin: "https://www.linkedin.com/company/pt.-aero-systems-indonesia/",

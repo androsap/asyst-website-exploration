@@ -56,10 +56,10 @@ export const jobPostingSchema = (job: CareerJob, labels: { responsibilities: str
 });
 
 /** items: urutan dari Home; `path` item terakhir = halaman aktif */
-export const breadcrumbSchema = (items: { name: string; path: string }[]) => ({
+export const breadcrumbSchema = (items: { name: string; path: string }[], homeLabel = "Home") => ({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [{ name: "Home", path: "/" }, ...items].map(({ name, path }, index) => ({
+    itemListElement: [{ name: homeLabel, path: "/" }, ...items].map(({ name, path }, index) => ({
         "@type": "ListItem",
         position: index + 1,
         name,

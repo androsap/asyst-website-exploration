@@ -13,7 +13,7 @@ export default function TabBar({ labels, active, onChange, variant }: TabBarProp
     return <Box className={`pv-tabs pv-tabs--${variant}`} role="tablist">
         {labels.map((label, index) => (
             <ButtonBase
-                key={label}
+                key={index}
                 role="tab"
                 aria-selected={index === active}
                 className={`pv-tabs__item ${index === active ? "active" : ""}`}
