@@ -1,7 +1,7 @@
 import { styles } from './styled';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import image from "../../../../assets/asyst/img/background/about-us/jobs/staff.png"
+import image from "../../../../assets/asyst/img/background/about-us/jobs/staff.webp"
 
 export default function JobsComponent() {
 

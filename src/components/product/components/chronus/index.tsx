@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid'
-import Apollo from 'assets/img/icon/page-product/chronus 1.png';
-import apolloProfile from 'assets/img/icon/page-product/profile-chronus.png';
+import Apollo from 'assets/img/icon/page-product/chronus 1.webp';
+import apolloProfile from 'assets/img/icon/page-product/profile-chronus.webp';
 import './index.scss'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'

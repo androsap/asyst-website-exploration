@@ -1,5 +1,5 @@
 
-import bannerBackground from 'assets/img/background/product-page/background-product.png';
+import bannerBackground from 'assets/img/background/product-page/background-product.webp';
 
 export const styles = {
     backNavContainer: {

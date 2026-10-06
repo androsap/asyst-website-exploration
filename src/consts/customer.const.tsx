@@ -1,7 +1,7 @@
-import img1 from "assets/asyst/img/background/industry/img1.png";
-import img2 from "assets/asyst/img/background/industry/img2.png";
-import img3 from "assets/asyst/img/background/industry/img3.png";
-import img4 from "assets/asyst/img/background/industry/img4.png";
+import img1 from "assets/asyst/img/background/industry/img1.webp";
+import img2 from "assets/asyst/img/background/industry/img2.webp";
+import img3 from "assets/asyst/img/background/industry/img3.webp";
+import img4 from "assets/asyst/img/background/industry/img4.webp";
 
 interface CustomerConstProps {
     img: string;

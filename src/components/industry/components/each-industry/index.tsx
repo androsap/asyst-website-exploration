@@ -1,7 +1,7 @@
 import './index.scss'
 import Box from "@mui/material/Box";
 import { styles } from "./styled";
-import logo from 'assets/asyst/img/icon/industry/airline-airport/logo-asyst.png';
+import logo from 'assets/asyst/img/icon/industry/airline-airport/logo-asyst.webp';
 import Paper from '@mui/material/Paper';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from "@mui/material/Typography";

@@ -1,5 +1,5 @@
-import imageCEO from '../../../../assets/asyst/img/background/about-us/leadership-team/image-ceo.png'
-import imageCTO from '../../../../assets/asyst/img/background/about-us/leadership-team/image-cto.png'
+import imageCEO from '../../../../assets/asyst/img/background/about-us/leadership-team/image-ceo.webp'
+import imageCTO from '../../../../assets/asyst/img/background/about-us/leadership-team/image-cto.webp'
 
 export const styles = {
     title: {

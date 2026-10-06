@@ -12,13 +12,13 @@ import ApartmentOutlinedIcon from "@mui/icons-material/ApartmentOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import GavelOutlinedIcon from "@mui/icons-material/GavelOutlined";
 
-import imgDashboard from "assets/asyst/img/background/product/smart-document/dashboard.jpg";
-import imgAskAi from "assets/asyst/img/background/product/smart-document/ask-ai.png";
-import imgAskAiChat from "assets/asyst/img/background/product/smart-document/ask-ai-chat.png";
-import imgDocument from "assets/asyst/img/background/product/smart-document/document.png";
-import imgContract from "assets/asyst/img/background/product/smart-document/contract.png";
-import imgGraph from "assets/asyst/img/background/product/smart-document/graph.png";
-import imgAdmin from "assets/asyst/img/background/product/smart-document/admin.png";
+import imgDashboard from "assets/asyst/img/background/product/smart-document/dashboard.webp";
+import imgAskAi from "assets/asyst/img/background/product/smart-document/ask-ai.webp";
+import imgAskAiChat from "assets/asyst/img/background/product/smart-document/ask-ai-chat.webp";
+import imgDocument from "assets/asyst/img/background/product/smart-document/document.webp";
+import imgContract from "assets/asyst/img/background/product/smart-document/contract.webp";
+import imgGraph from "assets/asyst/img/background/product/smart-document/graph.webp";
+import imgAdmin from "assets/asyst/img/background/product/smart-document/admin.webp";
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 

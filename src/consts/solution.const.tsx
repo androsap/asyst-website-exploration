@@ -4,13 +4,13 @@ import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import RouteOutlinedIcon from "@mui/icons-material/RouteOutlined";
 
-import imgHero from "assets/asyst/img/background/services-solutions/products-and-services.png";
-import imgSecurity from "assets/img/background/solutions/image-solutions-1.png";
-import imgOperate from "assets/img/background/solutions/image-solutions-2.png";
-import imgConnect from "assets/img/background/solutions/image-solutions-3.png";
-import imgModernize from "assets/asyst/img/background/product/overview/background-product.png";
-import imgTransform from "assets/asyst/img/background/industry/industry-detail.jpeg";
-import imgSeat from "assets/asyst/img/background/industry/airline-airport/airline.jpeg";
+import imgHero from "assets/asyst/img/background/services-solutions/products-and-services.webp";
+import imgSecurity from "assets/img/background/solutions/image-solutions-1.webp";
+import imgOperate from "assets/img/background/solutions/image-solutions-2.webp";
+import imgConnect from "assets/img/background/solutions/image-solutions-3.webp";
+import imgModernize from "assets/asyst/img/background/product/overview/background-product.webp";
+import imgTransform from "assets/asyst/img/background/industry/industry-detail.webp";
+import imgSeat from "assets/asyst/img/background/industry/airline-airport/airline.webp";
 import { localized } from "shared/i18n";
 
 // Konten statis halaman Solutions (desain revamp 2026).

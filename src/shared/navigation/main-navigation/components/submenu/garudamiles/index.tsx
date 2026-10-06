@@ -2,8 +2,8 @@ import './index.scss';
 
 import { Children } from 'react';
 
-import img from 'assets/img/background/menu-navigation/miles-cards.png';
-import miles from 'assets/img/background/menu-navigation/miles-logo.png';
+import img from 'assets/img/background/menu-navigation/miles-cards.webp';
+import miles from 'assets/img/background/menu-navigation/miles-logo.webp';
 import GarudamilesConstProps from 'consts/main-navigation/garudamiles.const';
 import { Link } from 'react-router-dom';
 

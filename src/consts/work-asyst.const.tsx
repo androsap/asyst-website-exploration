@@ -6,7 +6,7 @@ import icon3 from "assets/asyst/img/icon/industry/work/icon-work-3.svg"
 import icon33 from "assets/asyst/img/icon/industry/work/icon-work-3.3.svg"
 import icon4 from "assets/asyst/img/icon/industry/work/icon-work-4.svg"
 import icon44 from "assets/asyst/img/icon/industry/work/icon-work-4.4.svg"
-import img1 from "assets/asyst/img/background/industry/work1.png"
+import img1 from "assets/asyst/img/background/industry/work1.webp"
 
 type WorkType = "discovery" | "design" | "development" | "test";
 

@@ -9,32 +9,32 @@ import { ReactComponent as ImproveCustomerIcon } from "assets/asyst/img/icon/cap
 import { ReactComponent as BuildDigitalIcon } from "assets/asyst/img/icon/capabilities/build-digital.svg";
 import { localized } from "shared/i18n";
 
-import imgAwardAlibabaCloud from "assets/asyst/img/award/award-alibaba-cloud.png";
-import imgAwardIrca from "assets/asyst/img/award/award-irca.png";
-import imgAwardInsider from "assets/asyst/img/award/award-insider.png";
+import imgAwardAlibabaCloud from "assets/asyst/img/award/award-alibaba-cloud.webp";
+import imgAwardIrca from "assets/asyst/img/award/award-irca.webp";
+import imgAwardInsider from "assets/asyst/img/award/award-insider.webp";
 
-import logoKai from "assets/asyst/img/trusted-by/trusted-kai.png";
-import logoPelindo from "assets/asyst/img/trusted-by/trusted-pelindo.png";
-import logoXlAxiata from "assets/asyst/img/trusted-by/trusted-xl-axiata.png";
-import logoPerseroBatam from "assets/asyst/img/trusted-by/trusted-persero-batam.png";
-import logoGaruda from "assets/asyst/img/trusted-by/trusted-garuda-indonesia.png";
-import logoSabre from "assets/asyst/img/trusted-by/trusted-sabre.png";
-import logoAxa from "assets/asyst/img/trusted-by/trusted-axa.png";
+import logoKai from "assets/asyst/img/trusted-by/trusted-kai.webp";
+import logoPelindo from "assets/asyst/img/trusted-by/trusted-pelindo.webp";
+import logoXlAxiata from "assets/asyst/img/trusted-by/trusted-xl-axiata.webp";
+import logoPerseroBatam from "assets/asyst/img/trusted-by/trusted-persero-batam.webp";
+import logoGaruda from "assets/asyst/img/trusted-by/trusted-garuda-indonesia.webp";
+import logoSabre from "assets/asyst/img/trusted-by/trusted-sabre.webp";
+import logoAxa from "assets/asyst/img/trusted-by/trusted-axa.webp";
 
-import imgProductMockup1 from "assets/asyst/img/background/services-solutions/amala1.png";
-import imgProductMockup2 from "assets/asyst/img/background/services-solutions/hermes1.png";
-import imgCapAutomate from "assets/asyst/img/background/capabilities/automate-operations.png";
-import imgCapModernize from "assets/asyst/img/background/capabilities/modernize-legacy.png";
-import imgCapConnect from "assets/asyst/img/background/capabilities/connect-enterprise.png";
-import imgCapCustomer from "assets/asyst/img/background/capabilities/improve-customer.png";
-import imgCapBuild from "assets/asyst/img/background/capabilities/build-digital.png";
-import imgPartnerProduct from "assets/asyst/img/background/partner/partner-product.jpg";
-import imgPartnerIntegration from "assets/asyst/img/background/partner/partner-integration.jpg";
-import imgPartnerImplementation from "assets/asyst/img/background/partner/partner-implementation.jpg";
-import imgPartnerServices from "assets/asyst/img/background/partner/partner-services.jpg";
-import imgIndustryEnterprise from "assets/asyst/img/background/HBNR-3.jpg";
-import imgIndustryAviation from "assets/asyst/img/background/HBNR-1.jpg";
-import imgIndustryLogistic from "assets/asyst/img/background/services-solutions/cargo.png";
+import imgProductMockup1 from "assets/asyst/img/background/services-solutions/amala1.webp";
+import imgProductMockup2 from "assets/asyst/img/background/services-solutions/hermes1.webp";
+import imgCapAutomate from "assets/asyst/img/background/capabilities/automate-operations.webp";
+import imgCapModernize from "assets/asyst/img/background/capabilities/modernize-legacy.webp";
+import imgCapConnect from "assets/asyst/img/background/capabilities/connect-enterprise.webp";
+import imgCapCustomer from "assets/asyst/img/background/capabilities/improve-customer.webp";
+import imgCapBuild from "assets/asyst/img/background/capabilities/build-digital.webp";
+import imgPartnerProduct from "assets/asyst/img/background/partner/partner-product.webp";
+import imgPartnerIntegration from "assets/asyst/img/background/partner/partner-integration.webp";
+import imgPartnerImplementation from "assets/asyst/img/background/partner/partner-implementation.webp";
+import imgPartnerServices from "assets/asyst/img/background/partner/partner-services.webp";
+import imgIndustryEnterprise from "assets/asyst/img/background/HBNR-3.webp";
+import imgIndustryAviation from "assets/asyst/img/background/HBNR-1.webp";
+import imgIndustryLogistic from "assets/asyst/img/background/services-solutions/cargo.webp";
 
 // Konten statis homepage (desain revamp 2026).
 // Gambar & ikon sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.

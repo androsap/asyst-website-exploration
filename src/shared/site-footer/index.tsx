@@ -3,7 +3,7 @@ import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import logoAsystWhite from "assets/asyst/img/logo/asyst-logo-white.png";
+import logoAsystWhite from "assets/asyst/img/logo/asyst-logo-white.webp";
 import { FooterColumnsConst, FooterCompanyConst, FooterLegalConst, FooterSocialConst } from "consts/site-footer.const";
 import MenuLink from "shared/navigation/header/menu-link";
 import { useLocalized, useT } from "shared/i18n";

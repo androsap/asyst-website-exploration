@@ -1,7 +1,7 @@
-// import bannerBackground from 'assets/asyst/img/background/about-us/background-about-us.png';
-import bannerBackgroundGradation from 'assets/asyst/img/background/about-us/background-gradation.png';
-import backgroundVector from 'assets/asyst/img/background/about-us/background-vector.png'
-import imageBanner from 'assets/asyst/img/background/about-us/image-banner.png';
+// import bannerBackground from 'assets/asyst/img/background/about-us/background-about-us.webp';
+import bannerBackgroundGradation from 'assets/asyst/img/background/about-us/background-gradation.webp';
+import backgroundVector from 'assets/asyst/img/background/about-us/background-vector.webp'
+import imageBanner from 'assets/asyst/img/background/about-us/image-banner.webp';
 
 export const styles = {
     mainBox: {

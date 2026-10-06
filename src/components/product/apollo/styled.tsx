@@ -1,4 +1,4 @@
-import bannerBackground from 'assets/asyst/img/background/product/apollo/product-detail-apollo.png';
+import bannerBackground from 'assets/asyst/img/background/product/apollo/product-detail-apollo.webp';
 
 export const styles = {
     backNavContainer: {

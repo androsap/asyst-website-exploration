@@ -1,5 +1,5 @@
-import amala1 from "assets/asyst/img/background/services-solutions/amala1-mobile.png"
-import amala2 from "assets/asyst/img/background/services-solutions/amala2-mobile.png"
+import amala1 from "assets/asyst/img/background/services-solutions/amala1-mobile.webp"
+import amala2 from "assets/asyst/img/background/services-solutions/amala2-mobile.webp"
 
 export const styles = {
     paper: {

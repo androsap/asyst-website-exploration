@@ -32,7 +32,7 @@ import CustomersHelper from 'helper/auxoshift/CustomersHelper';
 import FeaturesHelper from 'helper/auxoshift/FeatureHelper';
 import he from 'he';
 import { useApiText, useT } from 'shared/i18n';
-import bannerBackground from 'assets/asyst/img/background/product/auxoshift/auxoshift-background.png';
+import bannerBackground from 'assets/asyst/img/background/product/auxoshift/auxoshift-background.webp';
 
 
 const Loading = <Box width="100%" height="150px" display="flex" alignItems="center" justifyContent="center" position="relative">

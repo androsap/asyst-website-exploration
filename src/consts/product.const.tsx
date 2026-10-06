@@ -1,7 +1,7 @@
-import imgHeroMockup from "assets/asyst/img/background/product/product-hero.png";
-import imgProductCard1 from "assets/asyst/img/background/services-solutions/hermes2.png";
-import imgProductCard2 from "assets/asyst/img/background/services-solutions/amala2.png";
-import imgSolveMockup from "assets/asyst/img/background/product/amala/device-A.png";
+import imgHeroMockup from "assets/asyst/img/background/product/product-hero.webp";
+import imgProductCard1 from "assets/asyst/img/background/services-solutions/hermes2.webp";
+import imgProductCard2 from "assets/asyst/img/background/services-solutions/amala2.webp";
+import imgSolveMockup from "assets/asyst/img/background/product/amala/device-A.webp";
 import imgExperience from "assets/asyst/img/background/product/experience.svg";
 import { localized } from "shared/i18n";
 

@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid'
-import Apollo from 'assets/img/icon/products/Group 34.png';
-import apolloProfile from 'assets/img/icon/page-product/profile-auxoshift.png';
+import Apollo from 'assets/img/icon/products/Group 34.webp';
+import apolloProfile from 'assets/img/icon/page-product/profile-auxoshift.webp';
 import './index.scss'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'

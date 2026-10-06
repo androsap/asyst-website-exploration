@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid"
 import { ReactComponent as Icon1 } from "assets/asyst/img/icon/services-solutions/icon1.svg"
 import { ReactComponent as Icon2 } from "assets/asyst/img/icon/services-solutions/icon2.svg"
 import '../../services-solutions/index.scss'
-import image from 'assets/asyst/img/background/services-solutions/cargo.png'
+import image from 'assets/asyst/img/background/services-solutions/cargo.webp'
 import { ReactComponent as Icon6 } from "assets/asyst/img/icon/services-solutions/icon6.svg"
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import Divider from '@mui/material/Divider';

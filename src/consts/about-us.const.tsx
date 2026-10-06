@@ -1,24 +1,24 @@
-import imgHero from "assets/asyst/img/background/story/story-1.jpg";
-import imgVideoThumbnail from "assets/asyst/img/background/about-us/jobs/office.png";
-import imgCareer1 from "assets/asyst/img/background/story/story-2.jpg";
-import imgCareer2 from "assets/asyst/img/background/story/story-3.jpg";
-import imgHengki from "assets/asyst/img/background/about-us/leadership-team/hengki-m-sihombing.png";
-import imgReza from "assets/asyst/img/background/about-us/leadership-team/mohamad-reza-yunardi.png";
-import imgRindra from "assets/asyst/img/background/about-us/leadership-team/rindra-putra.png";
-import imgDitya from "assets/asyst/img/background/about-us/leadership-team/ditya-firmansyah.png";
+import imgHero from "assets/asyst/img/background/story/story-1-jpg.webp";
+import imgVideoThumbnail from "assets/asyst/img/background/about-us/jobs/office.webp";
+import imgCareer1 from "assets/asyst/img/background/story/story-2-jpg.webp";
+import imgCareer2 from "assets/asyst/img/background/story/story-3-jpg.webp";
+import imgHengki from "assets/asyst/img/background/about-us/leadership-team/hengki-m-sihombing.webp";
+import imgReza from "assets/asyst/img/background/about-us/leadership-team/mohamad-reza-yunardi.webp";
+import imgRindra from "assets/asyst/img/background/about-us/leadership-team/rindra-putra.webp";
+import imgDitya from "assets/asyst/img/background/about-us/leadership-team/ditya-firmansyah.webp";
 
-import logoPerseroBatam from "assets/asyst/img/about-us/clients/client-persero-batam.png";
-import logoSabre from "assets/asyst/img/about-us/clients/client-sabre.png";
-import logoAxa from "assets/asyst/img/about-us/clients/client-axa.png";
-import logoKai from "assets/asyst/img/about-us/clients/client-kai.png";
-import logoPelindo from "assets/asyst/img/about-us/clients/client-pelindo.png";
-import logoKemenparekraf from "assets/asyst/img/about-us/clients/client-kemenparekraf.png";
-import logoCitilink from "assets/asyst/img/about-us/clients/client-citilink.png";
-import logoGaruda from "assets/asyst/img/about-us/clients/client-garuda-indonesia.png";
-import logoNokia from "assets/asyst/img/about-us/clients/client-nokia.png";
-import logoOjk from "assets/asyst/img/about-us/clients/client-ojk.png";
-import logoPelni from "assets/asyst/img/about-us/clients/client-pelni.png";
-import logoXlAxiata from "assets/asyst/img/about-us/clients/client-xl-axiata.png";
+import logoPerseroBatam from "assets/asyst/img/about-us/clients/client-persero-batam.webp";
+import logoSabre from "assets/asyst/img/about-us/clients/client-sabre.webp";
+import logoAxa from "assets/asyst/img/about-us/clients/client-axa.webp";
+import logoKai from "assets/asyst/img/about-us/clients/client-kai.webp";
+import logoPelindo from "assets/asyst/img/about-us/clients/client-pelindo.webp";
+import logoKemenparekraf from "assets/asyst/img/about-us/clients/client-kemenparekraf.webp";
+import logoCitilink from "assets/asyst/img/about-us/clients/client-citilink.webp";
+import logoGaruda from "assets/asyst/img/about-us/clients/client-garuda-indonesia.webp";
+import logoNokia from "assets/asyst/img/about-us/clients/client-nokia.webp";
+import logoOjk from "assets/asyst/img/about-us/clients/client-ojk.webp";
+import logoPelni from "assets/asyst/img/about-us/clients/client-pelni.webp";
+import logoXlAxiata from "assets/asyst/img/about-us/clients/client-xl-axiata.webp";
 import { localized } from "shared/i18n";
 
 // Konten statis halaman About Us (desain revamp 2026).

@@ -12,16 +12,16 @@ import HotelOutlinedIcon from "@mui/icons-material/HotelOutlined";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlined";
 
-import imgAdmin from "assets/asyst/img/background/product/amala/device-A.png";
-import imgMobile from "assets/asyst/img/background/product/amala/device-B.png";
-import imgOverview from "assets/asyst/img/background/services-solutions/amala1.png";
-import imgLoyaltyMember from "assets/asyst/img/background/product/amala/loyalty-member.png";
-import imgLoyaltyStaff from "assets/asyst/img/background/product/amala/loyalty-staff.png";
-import imgLoyaltyUnit from "assets/asyst/img/background/product/amala/loyalty-unit.png";
-import imgMultiTier from "assets/asyst/img/background/product/amala/multi-tier.png";
-import imgPointExchange from "assets/asyst/img/background/product/amala/point-exchange.png";
-import imgPromoReward from "assets/asyst/img/background/product/amala/promo-and-reward.png";
-import imgBusinessOwner from "assets/asyst/img/background/product/amala/business-owner.png";
+import imgAdmin from "assets/asyst/img/background/product/amala/device-A.webp";
+import imgMobile from "assets/asyst/img/background/product/amala/device-B.webp";
+import imgOverview from "assets/asyst/img/background/services-solutions/amala1.webp";
+import imgLoyaltyMember from "assets/asyst/img/background/product/amala/loyalty-member.webp";
+import imgLoyaltyStaff from "assets/asyst/img/background/product/amala/loyalty-staff.webp";
+import imgLoyaltyUnit from "assets/asyst/img/background/product/amala/loyalty-unit.webp";
+import imgMultiTier from "assets/asyst/img/background/product/amala/multi-tier.webp";
+import imgPointExchange from "assets/asyst/img/background/product/amala/point-exchange.webp";
+import imgPromoReward from "assets/asyst/img/background/product/amala/promo-and-reward.webp";
+import imgBusinessOwner from "assets/asyst/img/background/product/amala/business-owner.webp";
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 

@@ -1,5 +1,5 @@
-import hermes1 from "assets/asyst/img/background/services-solutions/hermes1-mobile.png"
-import hermes2 from "assets/asyst/img/background/services-solutions/hermes2-mobile.png"
+import hermes1 from "assets/asyst/img/background/services-solutions/hermes1-mobile.webp"
+import hermes2 from "assets/asyst/img/background/services-solutions/hermes2-mobile.webp"
 
 export const styles = {
     paper: {

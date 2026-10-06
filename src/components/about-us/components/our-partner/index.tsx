@@ -6,8 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import ibm from '../../../../assets/asyst/img/background/about-us/our-partner/ibm.png';
-import hp from '../../../../assets/asyst/img/background/about-us/our-partner/hp.png'
+import ibm from '../../../../assets/asyst/img/background/about-us/our-partner/ibm.webp';
+import hp from '../../../../assets/asyst/img/background/about-us/our-partner/hp.webp'
 
 const partnersData = [
     {

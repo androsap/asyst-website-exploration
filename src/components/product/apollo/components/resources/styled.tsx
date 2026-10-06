@@ -1,4 +1,4 @@
-import download from 'assets/asyst/img/background/product/amala/intersect.png';
+import download from 'assets/asyst/img/background/product/amala/intersect.webp';
 
 export const styles = {
     title: {

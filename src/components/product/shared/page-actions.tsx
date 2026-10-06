@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { bgsModal } from "@andrydharmawan/bgs-component";
 import RequestDemoComponent from "components/home/components/request-demo";
+import { AskAsystTopic } from "consts/ask-asyst.const";
+import AskAsystModal from "./ask-asyst-modal";
 
 export const CONTACT_US_LINK = "/contact-us";
 
@@ -15,6 +17,15 @@ export const requestDemoModal = () => {
         isBlur: true,
         className: "customBgsModal",
         render: (e) => <RequestDemoComponent hide={e.hide} />
+    })
+};
+
+/** Modal "Let's Discuss your Business Challenge" (desain revamp 2026). */
+export const askAsystModal = (defaultTopic?: AskAsystTopic) => {
+    bgsModal({
+        isBlur: true,
+        className: "askAsystBgsModal",
+        render: (e) => <AskAsystModal hide={() => e.hide()}defaultTopic={defaultTopic} />
     })
 };
 

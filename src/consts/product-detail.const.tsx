@@ -13,14 +13,14 @@ import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlin
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import LocalHospitalOutlinedIcon from "@mui/icons-material/LocalHospitalOutlined";
 
-import imgAmalaAdmin from "assets/asyst/img/background/product/amala/device-A.png";
-import imgAmalaMobile from "assets/asyst/img/background/product/amala/device-B.png";
-import imgAmalaOverview from "assets/asyst/img/background/services-solutions/amala1.png";
-import imgLoyaltyMember from "assets/asyst/img/background/product/amala/loyalty-member.png";
-import imgMultiTier from "assets/asyst/img/background/product/amala/multi-tier.png";
-import imgPointExchange from "assets/asyst/img/background/product/amala/point-exchange.png";
-import imgPromoReward from "assets/asyst/img/background/product/amala/promo-and-reward.png";
-import imgBusinessOwner from "assets/asyst/img/background/product/amala/business-owner.png";
+import imgAmalaAdmin from "assets/asyst/img/background/product/amala/device-A.webp";
+import imgAmalaMobile from "assets/asyst/img/background/product/amala/device-B.webp";
+import imgAmalaOverview from "assets/asyst/img/background/services-solutions/amala1.webp";
+import imgLoyaltyMember from "assets/asyst/img/background/product/amala/loyalty-member.webp";
+import imgMultiTier from "assets/asyst/img/background/product/amala/multi-tier.webp";
+import imgPointExchange from "assets/asyst/img/background/product/amala/point-exchange.webp";
+import imgPromoReward from "assets/asyst/img/background/product/amala/promo-and-reward.webp";
+import imgBusinessOwner from "assets/asyst/img/background/product/amala/business-owner.webp";
 import { localized } from "shared/i18n";
 
 // Konten halaman detail produk (desain revamp 2026). Satu objek per produk, dirender oleh components/product/detail.

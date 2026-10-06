@@ -351,12 +351,29 @@ $mobile: 599px;
 
     // ---------- tabs ----------
     .pv-tabs {
+        position: relative;
         display: flex;
         max-width: 100%;
         overflow-x: auto;
         box-sizing: border-box;
 
+        // Latar/garis aktif yang bergeser antar tab (posisi diatur dari TabBar)
+        &__indicator {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+            transition: transform .45s cubic-bezier(0.4, 0, 0.2, 1), width .45s cubic-bezier(0.4, 0, 0.2, 1);
+
+            @media (prefers-reduced-motion: reduce) {
+                transition: none;
+            }
+        }
+
         &__item {
+            position: relative;
+            z-index: 1;
             font-family: $font-heading;
             font-size: 16px;
             font-weight: 500;
@@ -387,6 +404,17 @@ $mobile: 599px;
                     color: #fff;
                 }
             }
+
+            .pv-tabs__indicator {
+                top: 6px;
+                bottom: 6px;
+                border-radius: 999px;
+                background: $navy-2;
+            }
+
+            &.has-indicator .pv-tabs__item.active {
+                background: transparent;
+            }
         }
 
         &--underline {
@@ -407,6 +435,16 @@ $mobile: 599px;
                     border-color: $navy-2;
                 }
             }
+
+            .pv-tabs__indicator {
+                top: auto;
+                height: 3px;
+                background: $navy-2;
+            }
+
+            &.has-indicator .pv-tabs__item.active {
+                border-color: transparent;
+            }
         }
 
         &--segment {
@@ -421,6 +459,14 @@ $mobile: 599px;
                     background: $surface;
                     color: $navy-2;
                 }
+            }
+
+            .pv-tabs__indicator {
+                background: $surface;
+            }
+
+            &.has-indicator .pv-tabs__item.active {
+                background: transparent;
             }
         }
     }
@@ -794,6 +840,21 @@ $mobile: 599px;
             gap: 40px;
             padding: 28px;
 
+            // Panel di-remount tiap ganti tab (key) sehingga animasi masuk diputar ulang
+            > * {
+                animation: pv-tab-fade-in .45s cubic-bezier(0.4, 0, 0.2, 1) both;
+            }
+
+            > .pv-media {
+                animation-delay: .06s;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                > * {
+                    animation: none;
+                }
+            }
+
             @media (max-width: $tablet) {
                 grid-template-columns: 1fr;
             }
@@ -907,6 +968,13 @@ $mobile: 599px;
             gap: 16px;
             padding: 22px 0;
             text-align: left;
+
+            // Pengganti ripple: tanpa perubahan background, cukup outline saat fokus keyboard
+            &.Mui-focusVisible {
+                outline: 2px solid rgba(39, 117, 187, .4);
+                outline-offset: 2px;
+                border-radius: 4px;
+            }
         }
 
         &__title {
@@ -915,21 +983,74 @@ $mobile: 599px;
             font-size: 18px;
             font-weight: 600;
             line-height: 1.4;
+            transition: color .3s ease;
         }
 
         &__icon {
             color: $blue;
             font-size: 22px;
             flex-shrink: 0;
+            transition: color .3s ease;
+        }
+
+        // Ikon +/−: dua garis, garis vertikal berputar & memudar saat dibuka
+        &__toggle {
+            position: relative;
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            color: $blue;
+            transition: color .3s ease;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 16px;
+                height: 2px;
+                margin: -1px 0 0 -8px;
+                border-radius: 2px;
+                background: currentColor;
+                transition: transform .38s cubic-bezier(0.4, 0, 0.2, 1), opacity .3s ease;
+            }
+
+            &::after {
+                transform: rotate(90deg);
+            }
+        }
+
+        &.open .pv-accordion__toggle::after {
+            transform: rotate(180deg);
+            opacity: 0;
         }
 
         &.open .pv-accordion__title,
-        &.open .pv-accordion__icon {
+        &.open .pv-accordion__icon,
+        &.open .pv-accordion__toggle {
             color: $navy-2;
         }
 
         &__body {
             padding-bottom: 22px;
+            opacity: 0;
+            transform: translateY(-6px);
+            transition: opacity .25s ease, transform .3s ease;
+        }
+
+        &.open .pv-accordion__body {
+            opacity: 1;
+            transform: none;
+            transition: opacity .35s ease .08s, transform .38s cubic-bezier(0.4, 0, 0.2, 1) .04s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            &__toggle::before,
+            &__toggle::after,
+            &__body {
+                transition: none;
+            }
         }
 
         &__text {
@@ -986,5 +1107,17 @@ $mobile: 599px;
             font-size: 17px;
             line-height: 1.65;
         }
+    }
+}
+
+@keyframes pv-tab-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
     }
 }

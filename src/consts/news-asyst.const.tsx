@@ -1,7 +1,7 @@
-import img5 from "assets/asyst/img/background/news/v2ultah.png"
-import img6 from "assets/asyst/img/background/news/v2ibm.png";
-import img7 from "assets/asyst/img/background/news/v2lib.png";
-import img8 from "assets/asyst/img/background/news/v2baggage.png";
+import img5 from "assets/asyst/img/background/news/v2ultah.webp"
+import img6 from "assets/asyst/img/background/news/v2ibm.webp";
+import img7 from "assets/asyst/img/background/news/v2lib.webp";
+import img8 from "assets/asyst/img/background/news/v2baggage.webp";
 import moment from "moment";
 import { localized } from "shared/i18n";
 

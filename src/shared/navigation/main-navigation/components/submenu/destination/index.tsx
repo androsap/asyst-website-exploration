@@ -2,8 +2,8 @@ import './index.scss';
 
 import { Children } from 'react';
 
-import img1 from 'assets/img/background/menu-navigation/destination.jpeg';
-import img2 from 'assets/img/background/menu-navigation/destination2.jpeg';
+import img1 from 'assets/img/background/menu-navigation/destination.webp';
+import img2 from 'assets/img/background/menu-navigation/destination2.webp';
 import DestinationConst from 'consts/main-navigation/destination.const';
 import { Link } from 'react-router-dom';
 

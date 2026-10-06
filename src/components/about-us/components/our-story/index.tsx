@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import { styles } from "./styled";
 import Typography from "@mui/material/Typography";
 import StoryAboutUsConst from "../../../../consts/story-about-us.const";
-import imageStory from "../../../../assets/asyst/img/background/about-us/image-story.png";
+import imageStory from "../../../../assets/asyst/img/background/about-us/image-story.webp";
 
 export default function OurStoryComponent() {
 

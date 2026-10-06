@@ -1,4 +1,4 @@
-import img from 'assets/asyst/img/background/about-us/jobs/office.png';
+import img from 'assets/asyst/img/background/about-us/jobs/office.webp';
 
 export const styles = {
     mainBox: {

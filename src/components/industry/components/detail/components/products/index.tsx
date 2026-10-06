@@ -4,12 +4,12 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
-import Amala from 'assets/img/icon/products/Group 33.png';
-import Auxoshift from 'assets/img/icon/products/Group 34.png';
-import Athena from 'assets/img/icon/products/Group 35.png';
-import Hermes from 'assets/img/icon/products/Group 36.png';
-import Elea from 'assets/img/icon/products/Group 37.png';
-import Apollo from 'assets/img/icon/products/Group 38.png';
+import Amala from 'assets/img/icon/products/Group 33.webp';
+import Auxoshift from 'assets/img/icon/products/Group 34.webp';
+import Athena from 'assets/img/icon/products/Group 35.webp';
+import Hermes from 'assets/img/icon/products/Group 36.webp';
+import Elea from 'assets/img/icon/products/Group 37.webp';
+import Apollo from 'assets/img/icon/products/Group 38.webp';
 import Button from '@mui/material/Button';
 import { useT } from 'shared/i18n';
 

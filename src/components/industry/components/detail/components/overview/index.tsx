@@ -1,8 +1,8 @@
 import Grid from '@mui/material/Grid'
 import './index.scss'
 import Typography from '@mui/material/Typography'
-import OverViewA from 'assets/img/icon/overview/overview-image-1.png';
-import OverViewB from 'assets/img/icon/overview/overview-image-2.png';
+import OverViewA from 'assets/img/icon/overview/overview-image-1.webp';
+import OverViewB from 'assets/img/icon/overview/overview-image-2.webp';
 import Box from '@mui/material/Box'
 import { useT } from 'shared/i18n'
 

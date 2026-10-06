@@ -12,14 +12,14 @@ import ComputerOutlinedIcon from "@mui/icons-material/ComputerOutlined";
 import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 
-import imgDashboard from "assets/asyst/img/background/product/project-management/dashboard.png";
-import imgAiInsights from "assets/asyst/img/background/product/project-management/ai-insights.png";
-import imgCalendar from "assets/asyst/img/background/product/project-management/all-calendar.png";
-import imgDaily from "assets/asyst/img/background/product/project-management/daily.png";
-import imgDeliverables from "assets/asyst/img/background/product/project-management/deliverables.png";
-import imgReports from "assets/asyst/img/background/product/project-management/reports.png";
-import imgStreams from "assets/asyst/img/background/product/project-management/streams.png";
-import imgTimeline from "assets/asyst/img/background/product/project-management/timeline.png";
+import imgDashboard from "assets/asyst/img/background/product/project-management/dashboard.webp";
+import imgAiInsights from "assets/asyst/img/background/product/project-management/ai-insights.webp";
+import imgCalendar from "assets/asyst/img/background/product/project-management/all-calendar.webp";
+import imgDaily from "assets/asyst/img/background/product/project-management/daily.webp";
+import imgDeliverables from "assets/asyst/img/background/product/project-management/deliverables.webp";
+import imgReports from "assets/asyst/img/background/product/project-management/reports.webp";
+import imgStreams from "assets/asyst/img/background/product/project-management/streams.webp";
+import imgTimeline from "assets/asyst/img/background/product/project-management/timeline.webp";
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 

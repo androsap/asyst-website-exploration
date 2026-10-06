@@ -1,4 +1,4 @@
-import quote from "assets/asyst/img/background/industry/testimonials-quote.png"
+import quote from "assets/asyst/img/background/industry/testimonials-quote.webp"
 
 export const styles = {
     title: {

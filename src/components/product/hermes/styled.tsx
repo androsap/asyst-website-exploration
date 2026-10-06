@@ -1,4 +1,4 @@
-import bannerBackground from 'assets/asyst/img/background/product/hermes/hermes-background.png';
+import bannerBackground from 'assets/asyst/img/background/product/hermes/hermes-background.webp';
 
 export const styles = {
     backNavContainer: {

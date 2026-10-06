@@ -6,10 +6,10 @@ import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { useT } from 'shared/i18n';
-import Image1 from 'assets/img/background/solutions/image-solutions-1.png';
-import Image2 from 'assets/img/background/solutions/image-solutions-2.png';
-import Image3 from 'assets/img/background/solutions/image-solutions-3.png';
-// import Apollo from 'assets/img/icon/products/Group 38.png';
+import Image1 from 'assets/img/background/solutions/image-solutions-1.webp';
+import Image2 from 'assets/img/background/solutions/image-solutions-2.webp';
+import Image3 from 'assets/img/background/solutions/image-solutions-3.webp';
+// import Apollo from 'assets/img/icon/products/Group 38.webp';
 
 const styles = {
     paperContainerSatu: {

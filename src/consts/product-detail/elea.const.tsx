@@ -12,9 +12,9 @@ import FactoryOutlinedIcon from "@mui/icons-material/FactoryOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 
-import imgBanner from "assets/asyst/img/background/product/elea/detail/banner-1.png";
-import imgBusiness from "assets/asyst/img/background/product/elea/detail/business-1.png";
-import imgPromotion from "assets/asyst/img/background/product/elea/detail/promotion-1.png";
+import imgBanner from "assets/asyst/img/background/product/elea/detail/banner-1.webp";
+import imgBusiness from "assets/asyst/img/background/product/elea/detail/business-1.webp";
+import imgPromotion from "assets/asyst/img/background/product/elea/detail/promotion-1.webp";
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 

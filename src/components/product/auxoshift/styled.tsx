@@ -1,4 +1,4 @@
-import bannerBackground from 'assets/asyst/img/background/product/auxoshift/auxoshift-background.png';
+import bannerBackground from 'assets/asyst/img/background/product/auxoshift/auxoshift-background.webp';
 
 export const styles = {
     backNavContainer: {

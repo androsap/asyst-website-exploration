@@ -1,4 +1,4 @@
-import bannerBackground from 'assets/asyst/img/background/product/elea/elea-background.png';
+import bannerBackground from 'assets/asyst/img/background/product/elea/elea-background.webp';
 
 export const styles = {
     backNavContainer: {

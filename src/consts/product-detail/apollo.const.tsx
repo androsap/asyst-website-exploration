@@ -11,7 +11,7 @@ import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
 
-import imgPlaceholder from "assets/asyst/img/background/product/overview/background-product.png";
+import imgPlaceholder from "assets/asyst/img/background/product/overview/background-product.webp";
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 

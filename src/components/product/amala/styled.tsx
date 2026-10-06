@@ -1,4 +1,4 @@
-import bannerBackground from 'assets/asyst/img/background/product/amala/product-detail-amala.png';
+import bannerBackground from 'assets/asyst/img/background/product/amala/product-detail-amala.webp';
 
 export const styles = {
     backNavContainer: {

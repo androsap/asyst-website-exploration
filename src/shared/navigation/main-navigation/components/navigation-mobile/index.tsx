@@ -17,7 +17,7 @@ import MenuServicesComponent from "./menu-services";
 import MenuBusinessComponent from "./menu-business";
 import MenuCompanyComponent from "./menu-company";
 import Grid from "@mui/material/Grid";
-import logoAsyst from "assets/asyst/img/logo/asyst-logo-white.png";
+import logoAsyst from "assets/asyst/img/logo/asyst-logo-white.webp";
 
 export default function NavigationMobileComponent() {
     const [open, setOpen] = useState(false);

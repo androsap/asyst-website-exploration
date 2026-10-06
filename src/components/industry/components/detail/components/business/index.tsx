@@ -9,7 +9,7 @@ import MuiAccordionSummary, {
 } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandCircleDown';
-import BusinessImage from 'assets/img/icon/Business/business.png';
+import BusinessImage from 'assets/img/icon/Business/business.webp';
 import { styled } from '@mui/material/styles';
 import React from "react";
 import { useT } from "shared/i18n";

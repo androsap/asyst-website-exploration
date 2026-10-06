@@ -1,7 +1,7 @@
 // Menu header (desain revamp 2026). Sementara hardcode; nanti bisa diganti data dari API.
 // `link` kosong = halaman tujuan belum ada (item tetap tampil tapi tidak bisa diklik).
 
-import imgFeatured from "assets/asyst/img/background/services-solutions/amala1.png";
+import imgFeatured from "assets/asyst/img/background/services-solutions/amala1.webp";
 import { LANGUAGES, localized } from "shared/i18n";
 
 export interface HeaderLinkItem {
@@ -44,8 +44,8 @@ export const HeaderProductsConst = localized<HeaderProductCategory[]>([
         description: "ASYST develops modular enterprise software products that help organizations manage critical processes, connect operational data, and build more efficient digital workflows",
         items: [
             { name: "Apollo", description: "Apollo brings core business processes integrate platform", link: "/product/apollo" },
-            // Anteros = platform loyalty (halaman masih di /product/amala)
-            { name: "Anteros", description: "Anteros provides a configurable loyalty platform for organizations", link: "/product/amala" },
+            // Amala = platform loyalty
+            { name: "Amala", description: "Amala provides a configurable loyalty platform for organizations", link: "/product/amala" },
             { name: "Chronus", description: "Chronus brings fleet acquisition, maintenance, operational monitoring", link: "/product/chronus" },
             { name: "Hermes", description: "Hermes brings cargo sales, shipment management", link: "/product/hermes" },
             { name: "Elea", description: "Elea helps IT teams manage requests, tickets", link: "/product/elea" },
@@ -103,7 +103,7 @@ export const HeaderProductsConst = localized<HeaderProductCategory[]>([
         description: "ASYST mengembangkan produk software enterprise modular yang membantu organisasi mengelola proses penting, menghubungkan data operasional, dan membangun alur kerja digital yang lebih efisien",
         items: [
             { description: "Apollo mengintegrasikan proses bisnis inti dalam satu platform" },
-            { description: "Anteros menyediakan platform loyalitas yang dapat dikonfigurasi untuk organisasi" },
+            { description: "Amala menyediakan platform loyalitas yang dapat dikonfigurasi untuk organisasi" },
             { description: "Chronus mencakup akuisisi armada, perawatan, dan pemantauan operasional" },
             { description: "Hermes mencakup penjualan kargo dan manajemen pengiriman" },
             { description: "Elea membantu tim IT mengelola permintaan dan tiket" },

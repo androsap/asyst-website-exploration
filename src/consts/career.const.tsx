@@ -8,13 +8,13 @@ import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import DevicesOutlinedIcon from "@mui/icons-material/DevicesOutlined";
 import SettingsSuggestOutlinedIcon from "@mui/icons-material/SettingsSuggestOutlined";
 import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import imgHero from "assets/asyst/img/background/career/env1.png";
-import imgLife1 from "assets/asyst/img/background/career/env2.png";
-import imgLife2 from "assets/asyst/img/background/career/env1.png";
-import imgLife3 from "assets/asyst/img/background/career/teamwork.png";
-import imgLife4 from "assets/asyst/img/background/story/story-6.png";
-import imgLife5 from "assets/asyst/img/background/story/story-8.png";
-import imgApply from "assets/asyst/img/background/career/env2.png";
+import imgHero from "assets/asyst/img/background/career/env1.webp";
+import imgLife1 from "assets/asyst/img/background/career/env2.webp";
+import imgLife2 from "assets/asyst/img/background/career/env1.webp";
+import imgLife3 from "assets/asyst/img/background/career/teamwork.webp";
+import imgLife4 from "assets/asyst/img/background/story/story-6.webp";
+import imgLife5 from "assets/asyst/img/background/story/story-8.webp";
+import imgApply from "assets/asyst/img/background/career/env2.webp";
 import { localized } from "shared/i18n";
 
 // Konten statis halaman Career, daftar lowongan & detail lowongan (desain revamp 2026).

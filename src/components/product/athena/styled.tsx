@@ -1,4 +1,4 @@
-import bannerBackground from 'assets/asyst/img/background/product/athena/athena-background.png';
+import bannerBackground from 'assets/asyst/img/background/product/athena/athena-background.webp';
 
 export const styles = {
     backNavContainer: {

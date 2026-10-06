@@ -1,5 +1,5 @@
 
-import bannerBackground from 'assets/asyst/img/background/industry/industry-detail.jpeg';
+import bannerBackground from 'assets/asyst/img/background/industry/industry-detail.webp';
 
 export const styles = {
     backNavContainer: {

@@ -6,8 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import gia from '../../../../assets/asyst/img/background/about-us/our-customer/gia.png';
-import citilink from '../../../../assets/asyst/img/background/about-us/our-customer/citilink.png'
+import gia from '../../../../assets/asyst/img/background/about-us/our-customer/gia.webp';
+import citilink from '../../../../assets/asyst/img/background/about-us/our-customer/citilink.webp'
 
 const customersData = [
     {

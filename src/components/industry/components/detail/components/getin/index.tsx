@@ -3,7 +3,7 @@ import './index.scss'
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import Dec from "assets/img/icon/dec-download-resource.svg";
-import backgroundImage from "assets/img/background/bg-download-resource.png";
+import backgroundImage from "assets/img/background/bg-download-resource.webp";
 import Typography from "@mui/material/Typography";
 import { useT } from "shared/i18n";
 

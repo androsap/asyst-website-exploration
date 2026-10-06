@@ -1,6 +1,6 @@
-import imgCareer from 'assets/img/icon/navbar/career.png';
-import imgContact from 'assets/img/icon/navbar/contact.png';
-import imgDemo from 'assets/img/icon/navbar/demo.png';
+import imgCareer from 'assets/img/icon/navbar/career.webp';
+import imgContact from 'assets/img/icon/navbar/contact.webp';
+import imgDemo from 'assets/img/icon/navbar/demo.webp';
 
 interface CompanyImgConstProps {
     img: string;

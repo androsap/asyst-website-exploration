@@ -10,8 +10,8 @@ import 'swiper/css/free-mode'
 import 'swiper/css/pagination'
 import 'swiper/css/mousewheel'
 import { FeaturesModel } from "models/amala/features.model"
-import background from "assets/asyst/img/background/product/amala/feature.png"
-import frame from "assets/asyst/img/background/product/amala/feature-frame.png"
+import background from "assets/asyst/img/background/product/amala/feature.webp"
+import frame from "assets/asyst/img/background/product/amala/feature-frame.webp"
 import he from 'he'
 import { formatPaginationBullet } from 'components/home'
 import { RefObject, useEffect, useRef, useState } from 'react'

@@ -1,18 +1,18 @@
 import { IndustryCardsContent, IndustryHeroContent, IndustryIntroContent } from "./industry.const";
 import { SolutionCtaContent, SolutionFaqContent, SolutionTabPanelItem } from "./solution.const";
 
-import imgEnterprise from "assets/asyst/img/background/services-solutions/products-and-services.png";
-import imgChallengeConnected from "assets/img/background/solutions/image-solutions-1.png";
-import imgChallengeComplexity from "assets/img/background/solutions/image-solutions-2.png";
-import imgChallengeGoLive from "assets/img/background/solutions/image-solutions-3.png";
-import imgLayers from "assets/asyst/img/background/product/overview/background-product.png";
-import imgProducts from "assets/asyst/img/background/HBNR-1.jpg";
-import imgDashboard from "assets/asyst/img/background/product/amala/device-A.png";
-import imgAirline from "assets/asyst/img/background/industry/airline-airport/airline.jpeg";
-import imgAirport from "assets/asyst/img/background/industry/airline-airport/airport.jpeg";
-import imgLoyalty from "assets/asyst/img/background/services-solutions/amala2.png";
-import imgCargo from "assets/asyst/img/background/services-solutions/cargo.png";
-import imgTravel from "assets/asyst/img/background/HBNR-3.jpg";
+import imgEnterprise from "assets/asyst/img/background/services-solutions/products-and-services.webp";
+import imgChallengeConnected from "assets/img/background/solutions/image-solutions-1.webp";
+import imgChallengeComplexity from "assets/img/background/solutions/image-solutions-2.webp";
+import imgChallengeGoLive from "assets/img/background/solutions/image-solutions-3.webp";
+import imgLayers from "assets/asyst/img/background/product/overview/background-product.webp";
+import imgProducts from "assets/asyst/img/background/HBNR-1.webp";
+import imgDashboard from "assets/asyst/img/background/product/amala/device-A.webp";
+import imgAirline from "assets/asyst/img/background/industry/airline-airport/airline.webp";
+import imgAirport from "assets/asyst/img/background/industry/airline-airport/airport.webp";
+import imgLoyalty from "assets/asyst/img/background/services-solutions/amala2.webp";
+import imgCargo from "assets/asyst/img/background/services-solutions/cargo.webp";
+import imgTravel from "assets/asyst/img/background/HBNR-3.webp";
 import { localized } from "shared/i18n";
 
 // Konten halaman detail industri (desain revamp 2026). Satu objek per industri, dirender oleh components/industry/detail.

@@ -1,7 +1,7 @@
 import { styles } from './styled';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import image from "../../../../assets/asyst/img/background/about-us/our-culture/image.png"
+import image from "../../../../assets/asyst/img/background/about-us/our-culture/image.webp"
 
 export default function OurPartnerComponent() {
 

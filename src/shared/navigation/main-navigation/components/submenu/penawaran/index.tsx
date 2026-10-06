@@ -2,8 +2,8 @@ import './index.scss';
 
 import { Children } from 'react';
 
-import miles from 'assets/img/background/menu-navigation/miles-logo.png';
-import img from 'assets/img/background/menu-navigation/penawaran.jpeg';
+import miles from 'assets/img/background/menu-navigation/miles-logo.webp';
+import img from 'assets/img/background/menu-navigation/penawaran.webp';
 import PenawaranConst from 'consts/main-navigation/penawaran.const';
 import { Link } from 'react-router-dom';
 

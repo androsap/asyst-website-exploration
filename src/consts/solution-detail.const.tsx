@@ -4,11 +4,11 @@ import DashboardCustomizeOutlinedIcon from "@mui/icons-material/DashboardCustomi
 import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
 import { SolutionCtaContent, SolutionFaqContent, SolutionHeroContent, SolutionIconCard, SolutionTabPanelItem } from "./solution.const";
 
-import imgHero from "assets/img/background/solutions/image-solutions-1.png";
-import imgConnected from "assets/img/background/solutions/image-solutions-2.png";
-import imgVisibility from "assets/img/background/solutions/image-solutions-3.png";
-import imgOutcome from "assets/asyst/img/background/product/overview/background-product.png";
-import imgDashboard from "assets/asyst/img/background/product/amala/device-A.png";
+import imgHero from "assets/img/background/solutions/image-solutions-1.webp";
+import imgConnected from "assets/img/background/solutions/image-solutions-2.webp";
+import imgVisibility from "assets/img/background/solutions/image-solutions-3.webp";
+import imgOutcome from "assets/asyst/img/background/product/overview/background-product.webp";
+import imgDashboard from "assets/asyst/img/background/product/amala/device-A.webp";
 import { localized } from "shared/i18n";
 
 // Konten halaman detail solusi (desain revamp 2026). Satu objek per solusi, dirender oleh components/solution/detail.

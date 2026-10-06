@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Fade from "@mui/material/Fade";
 import { keyframes } from "@emotion/react";
-import AsystSymbol from "assets/asyst/img/logo/asyst-symbol.png";
+import AsystSymbol from "assets/asyst/img/logo/asyst-symbol.webp";
 import { useT } from "shared/i18n";
 
 const spin = keyframes`

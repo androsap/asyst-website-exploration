@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import { styles } from './styled';
 import { Children, useState, useEffect } from "react"
 import Button from '@mui/material/Button';
-import business from "assets/asyst/img/background/product/amala/business.png"
+import business from "assets/asyst/img/background/product/amala/business.webp"
 import './index.scss'
 import { BusinessModel } from "models/amala/business.model";
 import BusinessHelper from 'helper/amala/BusinessHelper';

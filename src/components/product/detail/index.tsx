@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import "../shared/product-v2.scss";
 import { ProductDetailContent } from "consts/product-detail.const";
-import { requestDemoModal, scrollToSection, SECTION_IDS, useTalkToExpert } from "../shared/page-actions";
+import { askAsystModal, scrollToSection, SECTION_IDS, useTalkToExpert } from "../shared/page-actions";
 import CtaSection from "../shared/cta";
 import HeroSection from "./sections/hero";
 import OverviewSection from "./sections/overview";
@@ -27,6 +27,6 @@ export default function ProductDetail({ content }: ProductDetailProps) {
         <HowItWorksSection content={content.howItWorks} />
         <BusinessModelsSection content={content.businessModels} />
         <FaqSection content={content.faq} />
-        <CtaSection {...content.cta} onClick={requestDemoModal} />
+        <CtaSection {...content.cta} onClick={() => askAsystModal("product-demo")} />
     </Box>
 }

@@ -6,12 +6,12 @@ import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
 import { SolutionCtaContent, SolutionFaqContent, SolutionIconCard } from "./solution.const";
 
-import imgIntro from "assets/asyst/img/background/services-solutions/cargo.png";
-import imgAirline from "assets/asyst/img/background/industry/airline-airport/airline.jpeg";
-import imgAirport from "assets/asyst/img/background/industry/airline-airport/airport.jpeg";
-import imgGround from "assets/asyst/img/background/services-solutions/products-and-services.png";
-import imgLoyalty from "assets/asyst/img/background/services-solutions/amala2.png";
-import imgEcosystem from "assets/asyst/img/background/industry/industry-detail.jpeg";
+import imgIntro from "assets/asyst/img/background/services-solutions/cargo.webp";
+import imgAirline from "assets/asyst/img/background/industry/airline-airport/airline.webp";
+import imgAirport from "assets/asyst/img/background/industry/airline-airport/airport.webp";
+import imgGround from "assets/asyst/img/background/services-solutions/products-and-services.webp";
+import imgLoyalty from "assets/asyst/img/background/services-solutions/amala2.webp";
+import imgEcosystem from "assets/asyst/img/background/industry/industry-detail.webp";
 import { localized } from "shared/i18n";
 
 // Konten statis halaman Industries (desain revamp 2026).

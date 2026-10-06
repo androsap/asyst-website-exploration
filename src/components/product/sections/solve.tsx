@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -13,6 +13,11 @@ export default function SolveSection() {
     const solve = useLocalized(ProductSolveConst);
     const active = solve.items[activeIndex];
 
+    // Preload gambar semua tab supaya saat berpindah gambar tidak muncul terlambat
+    useEffect(() => {
+        solve.items.forEach(({ image }) => { new Image().src = image; });
+    }, [solve.items]);
+
     return <Box component="section" className="pv-section">
         <Container maxWidth="xl">
             <SectionHeading title={solve.title} description={solve.description} align="left" />
@@ -23,7 +28,7 @@ export default function SolveSection() {
                     active={activeIndex}
                     onChange={setActiveIndex}
                 />
-                <Box className="pv-solve__panel" role="tabpanel">
+                <Box key={activeIndex} className="pv-solve__panel" role="tabpanel">
                     <Box>
                         <Typography className="pv-solve__title">{active.title}</Typography>
                         <Typography className="pv-solve__description">{active.description}</Typography>
@@ -37,7 +42,7 @@ export default function SolveSection() {
                         </Box>
                     </Box>
                     <Box className="pv-media">
-                        <img src={active.image} alt={active.title} loading="lazy" />
+                        <img src={active.image} alt={active.title} />
                     </Box>
                 </Box>
             </Box>

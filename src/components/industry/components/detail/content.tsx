@@ -7,12 +7,12 @@ import Typography from '@mui/material/Typography';
 // import { styles } from './styled';
 // import './index.scss';
 
-import gaLogo from 'assets/asyst/img/logo/ga-logo-color.png'
-import citilinkLogo from 'assets/asyst/img/logo/citilink-logo-color.png'
-import airfranceLogo from 'assets/asyst/img/logo/airfrance-logo-color.png'
-import pelitaLogo from 'assets/asyst/img/logo/pelita-air-logo-color.png'
-import lufthansaLogo from 'assets/asyst/img/logo/lufthansa-logo-color.png'
-import southwestLogo from 'assets/asyst/img/logo/southwest-logo-color.png'
+import gaLogo from 'assets/asyst/img/logo/ga-logo-color.webp'
+import citilinkLogo from 'assets/asyst/img/logo/citilink-logo-color.webp'
+import airfranceLogo from 'assets/asyst/img/logo/airfrance-logo-color.webp'
+import pelitaLogo from 'assets/asyst/img/logo/pelita-air-logo-color.webp'
+import lufthansaLogo from 'assets/asyst/img/logo/lufthansa-logo-color.webp'
+import southwestLogo from 'assets/asyst/img/logo/southwest-logo-color.webp'
 import { contentStyles } from './styled';
 import { useT } from 'shared/i18n';
 

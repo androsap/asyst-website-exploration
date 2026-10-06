@@ -1,5 +1,5 @@
 
-// import img from 'assets/asyst/img/background/our-fact/our-fact.jpeg';
+// import img from 'assets/asyst/img/background/our-fact/our-fact.webp';
 
 export const backgroundColor = '#0f1011';
 

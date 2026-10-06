@@ -9,9 +9,9 @@ import Grid from '@mui/material/Grid';
 import { styles } from './styled';
 import './index.scss';
 
-import profile1 from 'assets/asyst/img/background/industry/testimonials-profile-1.png'
-import profile2 from 'assets/asyst/img/background/industry/testimonials-profile-2.png'
-import profile3 from 'assets/asyst/img/background/industry/testimonials-profile-3.png'
+import profile1 from 'assets/asyst/img/background/industry/testimonials-profile-1.webp'
+import profile2 from 'assets/asyst/img/background/industry/testimonials-profile-2.webp'
+import profile3 from 'assets/asyst/img/background/industry/testimonials-profile-3.webp'
 
 const testimonialsData = [
     {

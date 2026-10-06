@@ -18,8 +18,8 @@ import EmailIcon from '@mui/icons-material/Email';
 import LanguageIcon from '@mui/icons-material/Language';
 import { ReactComponent as TwitterX } from "assets/asyst/img/icon/footer/twitter.svg"
 import { ReactComponent as PhonesIcon } from "assets/asyst/img/icon/footer/phones.svg"
-import AsystLogo from "assets/asyst/img/logo/asyst-logo-white.png"
-import AsystLogoMobile from "assets/asyst/img/logo/asyst-logo-white.png"
+import AsystLogo from "assets/asyst/img/logo/asyst-logo-white.webp"
+import AsystLogoMobile from "assets/asyst/img/logo/asyst-logo-white.webp"
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";

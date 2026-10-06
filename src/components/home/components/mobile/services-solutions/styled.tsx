@@ -1,7 +1,7 @@
-import amala1 from "assets/asyst/img/background/services-solutions/amala1-mobile.png"
-import amala2 from "assets/asyst/img/background/services-solutions/amala2-mobile.png"
-import hermes1 from "assets/asyst/img/background/services-solutions/hermes1-mobile.png"
-import hermes2 from "assets/asyst/img/background/services-solutions/hermes2-mobile.png"
+import amala1 from "assets/asyst/img/background/services-solutions/amala1-mobile.webp"
+import amala2 from "assets/asyst/img/background/services-solutions/amala2-mobile.webp"
+import hermes1 from "assets/asyst/img/background/services-solutions/hermes1-mobile.webp"
+import hermes2 from "assets/asyst/img/background/services-solutions/hermes2-mobile.webp"
 
 export const styles = {
     box: {

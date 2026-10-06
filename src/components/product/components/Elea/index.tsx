@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import './index.scss'
 import Grid from "@mui/material/Grid";
-import Apollo from 'assets/img/icon/products/Group 37.png';
-import apolloProfile from 'assets/img/icon/page-product/profile-elea.png';
+import Apollo from 'assets/img/icon/products/Group 37.webp';
+import apolloProfile from 'assets/img/icon/page-product/profile-elea.webp';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';

@@ -4,7 +4,7 @@ import Button from "@mui/material/Button"
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Link from '@mui/material/Link'
-import image from 'assets/asyst/img/background/services-solutions/cargo.png'
+import image from 'assets/asyst/img/background/services-solutions/cargo.webp'
 import { ReactComponent as Icon1 } from "assets/asyst/img/icon/services-solutions/icon1.svg"
 import { ReactComponent as Icon2 } from "assets/asyst/img/icon/services-solutions/icon2.svg"
 import { ReactComponent as Icon6 } from "assets/asyst/img/icon/services-solutions/icon6.svg"

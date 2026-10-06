@@ -12,7 +12,7 @@ import FactoryOutlinedIcon from "@mui/icons-material/FactoryOutlined";
 import ApartmentOutlinedIcon from "@mui/icons-material/ApartmentOutlined";
 import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 
-import imgPlaceholder from "assets/asyst/img/background/product/overview/background-product.png";
+import imgPlaceholder from "assets/asyst/img/background/product/overview/background-product.webp";
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 
