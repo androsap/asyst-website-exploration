@@ -1,13 +1,8 @@
-import { SvgIconComponent } from "@mui/icons-material";
-import WidgetsOutlinedIcon from "@mui/icons-material/WidgetsOutlined";
-import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import RocketLaunchOutlinedIcon from "@mui/icons-material/RocketLaunchOutlined";
-
 import imgHeroMockup from "assets/asyst/img/background/product/product-hero.png";
 import imgProductCard1 from "assets/asyst/img/background/services-solutions/hermes2.png";
 import imgProductCard2 from "assets/asyst/img/background/services-solutions/amala2.png";
 import imgSolveMockup from "assets/asyst/img/background/product/amala/device-A.png";
+import imgExperience from "assets/asyst/img/background/product/experience.svg";
 import { localized } from "shared/i18n";
 
 // Konten statis halaman Products (desain revamp 2026).
@@ -109,7 +104,7 @@ const productCatalogEn = {
 }
 
 export interface ExperienceItem {
-    icon: SvgIconComponent;
+    image: string;
     title: string;
     description: string;
 }
@@ -117,12 +112,12 @@ export interface ExperienceItem {
 const productExperienceEn = {
     title: "Software built from real enterprise experience",
     description: "ASYST combines product development with decades of enterprise delivery experience. That means our products are shaped not only by technology, but by the operational realities, integration requirements, and business processes that organizations depend on every day",
-    // TODO: desain memakai ilustrasi isometrik; sementara memakai ikon
+    // Sementara satu ilustrasi untuk semua kartu; ganti per kartu kalau aset final sudah ada
     items: [
-        { icon: WidgetsOutlinedIcon, title: "Product Capability", description: "Build software for real enterprise workflows" },
-        { icon: HubOutlinedIcon, title: "Integration Enterprise", description: "Connect complex enterprise environments" },
-        { icon: PsychologyOutlinedIcon, title: "Expertise", description: "Understand complex industries and solving" },
-        { icon: RocketLaunchOutlinedIcon, title: "Enterprise Delivery", description: "Implement, support and evolve at scale" },
+        { image: imgExperience, title: "Product Capability", description: "Build software for real enterprise workflows" },
+        { image: imgExperience, title: "Integration Enterprise", description: "Connect complex enterprise environments" },
+        { image: imgExperience, title: "Expertise", description: "Understand complex industries and solving" },
+        { image: imgExperience, title: "Enterprise Delivery", description: "Implement, support and evolve at scale" },
     ] as ExperienceItem[],
 }
 

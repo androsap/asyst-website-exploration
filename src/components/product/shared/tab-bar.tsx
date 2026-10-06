@@ -14,6 +14,7 @@ export default function TabBar({ labels, active, onChange, variant }: TabBarProp
         {labels.map((label, index) => (
             <ButtonBase
                 key={index}
+                disableRipple
                 role="tab"
                 aria-selected={index === active}
                 className={`pv-tabs__item ${index === active ? "active" : ""}`}

@@ -1,4 +1,5 @@
 {
+    "selfDestroying": true,
     "registerType": "prompt",
     "includeAssets": [
         "icon.png"

@@ -11,6 +11,9 @@ import { useLocalized, useT } from "shared/i18n";
 import SectionHeading from "../shared/section-heading";
 import { SECTION_IDS } from "../shared/page-actions";
 
+// Tampil satu baris saja; sisanya lewat tombol "Explore ..."
+const CATALOG_VISIBLE = 3;
+
 export default function CatalogSection() {
     const [activeIndex, setActiveIndex] = useState(0);
     const t = useT();
@@ -39,7 +42,7 @@ export default function CatalogSection() {
                     <Typography className="pv-catalog__title">{active.title}</Typography>
                     <Typography className="pv-catalog__description">{active.description}</Typography>
                     <Box className="pv-catalog__grid">
-                        {active.products.map(({ name, title, description, image, link }) => (
+                        {active.products.slice(0, CATALOG_VISIBLE).map(({ name, title, description, image, link }) => (
                             <Link key={name} to={link} className="pv-catalog-card">
                                 <Typography className="pv-catalog-card__name">{name}</Typography>
                                 <Typography className="pv-catalog-card__title">{title}</Typography>
@@ -49,9 +52,9 @@ export default function CatalogSection() {
                             </Link>
                         ))}
                     </Box>
-                    <Link to={active.button.link}>
+                    {active.products.length > CATALOG_VISIBLE && <Link to={active.button.link}>
                         <Button className="pv-btn pv-btn--primary pv-catalog__button">{active.button.label}</Button>
-                    </Link>
+                    </Link>}
                 </Box>
             </Box>
         </Container>

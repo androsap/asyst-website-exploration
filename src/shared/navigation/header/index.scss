@@ -201,12 +201,6 @@ $header-height: 84px;
         color: $navy;
         font-size: 20px;
         font-weight: 700;
-        text-decoration: none;
-        transition: color .15s;
-    }
-
-    a#{&}__title:hover {
-        color: $blue;
     }
 
     &__subtitle {
@@ -214,6 +208,24 @@ $header-height: 84px;
         color: $text;
         font-size: 14px;
         line-height: 1.6;
+    }
+
+    &__button {
+        display: inline-block;
+        margin-top: 16px;
+        padding: 9px 16px;
+        border-radius: 6px;
+        background: $blue;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background .15s;
+
+        &:hover {
+            background: $navy;
+            color: #fff;
+        }
     }
 
     &__tabs {

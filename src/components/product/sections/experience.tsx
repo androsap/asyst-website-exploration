@@ -12,10 +12,10 @@ export default function ExperienceSection() {
         <Container maxWidth="xl">
             <SectionHeading title={experience.title} description={experience.description} align="left" />
             <Box className="pv-grid pv-grid--4">
-                {experience.items.map(({ icon: Icon, title, description }, index) => (
+                {experience.items.map(({ image, title, description }, index) => (
                     <Box key={index} className="pv-card pv-experience">
-                        <Box className="pv-experience__illustration"><Icon /></Box>
-                        <Typography className="pv-card__title">{title}</Typography>
+                        <Box className="pv-experience__illustration"><img src={image} alt="" /></Box>
+                        <Typography className="pv-card__title pv-experience__title">{title}</Typography>
                         <Typography className="pv-card__description">{description}</Typography>
                     </Box>
                 ))}

@@ -28,6 +28,8 @@ export interface HeaderGroup {
     label: string;
     /** Halaman overview grup (judul panel jadi link ke sini). */
     link?: string;
+    /** Label tombol primary di sidebar panel (ke `link`). */
+    linkLabel?: string;
     items: HeaderLinkItem[];
 }
 
@@ -158,6 +160,7 @@ export const HeaderSolutionsConst = localized<HeaderGroup[]>([
     {
         label: "Solutions",
         link: "/solution",
+        linkLabel: "All Solutions",
         // Baru SOC yang punya halaman detail; lainnya ke halaman Solutions (sama seperti consts/solution.const)
         items: [
             { label: "Security Operation Center", link: "/solution/security-operations-center" },
@@ -171,6 +174,7 @@ export const HeaderSolutionsConst = localized<HeaderGroup[]>([
     {
         label: "Industries",
         link: "/industry",
+        linkLabel: "All Industries",
         items: [
             { label: "Enterprise", link: "/industry" },
             { label: "Aviation", link: "/industry/aviation" },
@@ -183,6 +187,7 @@ export const HeaderSolutionsConst = localized<HeaderGroup[]>([
 ], [
     {
         label: "Solusi",
+        linkLabel: "Semua Solusi",
         items: [
             { label: "Security Operation Center" },
             { label: "Operasional Infra, Aplikasi, Platform & ITSM" },
@@ -194,6 +199,7 @@ export const HeaderSolutionsConst = localized<HeaderGroup[]>([
     },
     {
         label: "Industri",
+        linkLabel: "Semua Industri",
         items: [
             { label: "Enterprise" },
             { label: "Penerbangan" },
