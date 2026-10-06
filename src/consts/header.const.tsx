@@ -25,7 +25,7 @@ export interface HeaderProductCategory {
 
 export interface HeaderGroup {
     label: string;
-    /** Halaman overview grup (ditampilkan sebagai "View all" di panel). */
+    /** Halaman overview grup (judul panel jadi link ke sini). */
     link?: string;
     items: HeaderLinkItem[];
 }
@@ -40,11 +40,13 @@ export const HeaderProductsConst: HeaderProductCategory[] = [
         title: "Enterprise software for complex business operations",
         description: "ASYST develops modular enterprise software products that help organizations manage critical processes, connect operational data, and build more efficient digital workflows",
         items: [
-            { name: "Amala", description: "Amala provides a configurable loyalty platform for organizations", link: "/product/amala" },
+            { name: "Apollo", description: "Apollo brings core business processes integrate platform", link: "/product/apollo" },
+            // Anteros = platform loyalty (halaman masih di /product/amala)
+            { name: "Anteros", description: "Anteros provides a configurable loyalty platform for organizations", link: "/product/amala" },
+            { name: "Chronus", description: "Chronus brings fleet acquisition, maintenance, operational monitoring", link: "/product/chronus" },
             { name: "Hermes", description: "Hermes brings cargo sales, shipment management", link: "/product/hermes" },
-            { name: "Smart Document", description: "Smart Document makes every company document searchable and answerable with AI", link: "/product/smart-document" },
-            { name: "Project Management", description: "Project Management keeps people and AI agents working from one plan", link: "/product/project-management" },
-            { name: "E-Procurement", description: "E-Procurement connects buyers and suppliers in one purchasing platform", link: "/product/e-procurement" },
+            { name: "Elea", description: "Elea helps IT teams manage requests, tickets", link: "/product/elea" },
+            { name: "Document System", description: "Document helps IT teams and corporate to manage files", link: "/product/smart-document" },
         ],
     },
     {
@@ -125,9 +127,7 @@ export const HeaderCompanyConst: HeaderGroup = {
     label: "Aero Systems",
     items: [
         { label: "About us", link: "/about" },
-        { label: "Case studies", link: "/case-study" },
         { label: "Careers", link: "/career" },
-        { label: "Contact us", link: "/contact-us" },
         { label: "FAQ" },
         { label: "Support" },
         { label: "Help and Documentation" },

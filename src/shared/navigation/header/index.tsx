@@ -65,7 +65,7 @@ export default function HeaderShared() {
     };
 
     // Transparan saat di paling atas; panel terbuka tetap pakai background agar terbaca
-    return <header className={`header ${scrolled || panel ? "header--elevated" : "header--transparent"}`} onMouseLeave={scheduleClose} onMouseEnter={() => window.clearTimeout(closeTimer.current)}>
+    return <header className={`header ${scrolled || panel ? "header--elevated" : "header--transparent"} ${panel ? "header--open" : ""}`} onMouseLeave={scheduleClose} onMouseEnter={() => window.clearTimeout(closeTimer.current)}>
         <Container maxWidth="xl" className="header__bar">
             <Link to="/" className="header__brand" aria-label="ASYST home">
                 <img src={logoAsyst} alt="ASYST" className="header__logo" />

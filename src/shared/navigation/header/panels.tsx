@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
 import { HeaderGroup, HeaderPanelSubtitle, HeaderProductsConst, HeaderProductsLink } from "consts/header.const";
 import MenuLink from "./menu-link";
 
@@ -11,7 +10,7 @@ interface PanelProps {
 
 interface PanelSideProps {
     title: string;
-    /** Halaman overview; tampil sebagai link "View all" di bawah subjudul. */
+    /** Halaman overview; judul panel jadi link ke sini. */
     link?: string;
     onNavigate?: () => void;
     tabs?: string[];
@@ -19,14 +18,21 @@ interface PanelSideProps {
     onChange?: (index: number) => void;
 }
 
+// Ikon panah keluar dari lingkaran (sesuai desain)
+function ProductIcon() {
+    return <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M16.5 6.5a8 8 0 1 0 0 11" />
+        <path d="M8 12h13" />
+        <path d="m17 8 4 4-4 4" />
+    </svg>
+}
+
 function PanelSide({ title, link, onNavigate, tabs, active, onChange }: PanelSideProps) {
     return <div className="header-panel__side">
-        <div className="header-panel__title">{title}</div>
+        {link
+            ? <MenuLink link={link} className="header-panel__title" onClick={onNavigate}>{title}</MenuLink>
+            : <div className="header-panel__title">{title}</div>}
         <div className="header-panel__subtitle">{HeaderPanelSubtitle}</div>
-        {link && <MenuLink link={link} className="header-panel__view-all" onClick={onNavigate}>
-            View all {title.toLowerCase()}
-            <ChevronRightRoundedIcon />
-        </MenuLink>}
         {tabs && <div className="header-panel__tabs" role="tablist">
             {tabs.map((label, index) => (
                 <button
@@ -60,7 +66,7 @@ export function ProductsPanel({ onNavigate }: PanelProps) {
             <div className="header-products">
                 {category.items.map(({ name, description, link }) => (
                     <MenuLink key={name} link={link} className="header-product" onClick={onNavigate}>
-                        <span className="header-product__icon"><LoginRoundedIcon /></span>
+                        <span className="header-product__icon"><ProductIcon /></span>
                         <span>
                             <span className="header-product__name">{name}</span>
                             <span className="header-product__description">{description}</span>

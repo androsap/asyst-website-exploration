@@ -150,6 +150,57 @@ $mobile: 599px;
         }
     }
 
+    // Hero CTA: hover ease-out; outline berubah jadi primary. Gradient tidak bisa
+    // di-transition, jadi warna hover dipasang di ::before lalu di-fade lewat opacity.
+    .pv-hero,
+    .sv-hero,
+    .cs-hero,
+    .cr-hero {
+        .pv-btn--primary.MuiButton-root,
+        .pv-btn--outline.MuiButton-root {
+            isolation: isolate;
+            transition: color 0.3s ease-out, border-color 0.3s ease-out;
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: -1;
+                border-radius: inherit;
+                opacity: 0;
+                transition: opacity 0.3s ease-out;
+            }
+
+            &:hover::before {
+                opacity: 1;
+            }
+        }
+
+        .pv-btn--primary.MuiButton-root {
+            &::before {
+                background: #225F9B;
+            }
+
+            &:hover {
+                background: linear-gradient(180deg, #2E80CC 0%, #2569AB 100%);
+            }
+        }
+
+        .pv-btn--outline.MuiButton-root {
+            // menutupi border 1px supaya sudutnya tidak menyisakan garis terang
+            &::before {
+                inset: -1px;
+                background: linear-gradient(180deg, #2E80CC 0%, #2569AB 100%);
+            }
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.6);
+                border-color: #2569AB;
+                color: #fff;
+            }
+        }
+    }
+
     .pv-icon-tile {
         width: 52px;
         height: 52px;

@@ -21,16 +21,19 @@ export default function HeroSection({ onTalkToExpert }: HeroSectionProps) {
                     </Link>
                     <Button className="home-btn home-btn--outline" onClick={onTalkToExpert}>{HeroConst.secondaryButton.label}</Button>
                 </Box>
-                <Box className="home-hero__awards">
-                    {AwardsConst.map(({ image, title, subtitle }) => (
-                        <Box key={title} className="home-award">
-                            <Box className="home-award__icon"><img src={image} alt={title} loading="lazy" /></Box>
-                            <Box>
-                                <Typography className="home-award__title">{title}</Typography>
-                                <Typography className="home-award__subtitle">{subtitle}</Typography>
+                <Box className="home-hero__honors">
+                    <Typography component="span" className="home-hero__honors-pill">Honorable Award</Typography>
+                    <Box className="home-hero__awards">
+                        {AwardsConst.map(({ image, title, subtitle }) => (
+                            <Box key={title} className="home-award">
+                                <Box className="home-award__icon"><img src={image} alt={title} loading="lazy" /></Box>
+                                <Box>
+                                    <Typography className="home-award__title">{title}</Typography>
+                                    <Typography className="home-award__subtitle">{subtitle}</Typography>
+                                </Box>
                             </Box>
-                        </Box>
-                    ))}
+                        ))}
+                    </Box>
                 </Box>
             </Box>
             <Box className="home-trusted">

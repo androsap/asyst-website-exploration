@@ -31,6 +31,12 @@ $header-height: 84px;
         -webkit-backdrop-filter: none;
     }
 
+    // Saat panel terbuka / di-hover, header jadi putih solid
+    &--open,
+    &:hover {
+        background: #fff;
+    }
+
     button {
         font-family: inherit;
         background: none;
@@ -149,7 +155,7 @@ $header-height: 84px;
         left: 0;
         right: 0;
         top: $header-height;
-        padding-top: 4px;
+        padding-top: 14px;
     }
 }
 
@@ -176,7 +182,7 @@ $header-height: 84px;
 // ---------- mega menu panel ----------
 .header-panel {
     display: flex;
-    gap: 48px;
+    gap: 32px;
     padding: 28px 32px 32px;
     border-radius: 16px;
     background: #fff;
@@ -184,15 +190,22 @@ $header-height: 84px;
     font-family: $font-body;
 
     &__side {
-        width: 260px;
+        width: 200px;
         flex-shrink: 0;
     }
 
     &__title {
+        display: inline-block;
         font-family: $font-heading;
         color: $navy;
         font-size: 20px;
         font-weight: 700;
+        text-decoration: none;
+        transition: color .15s;
+    }
+
+    a#{&}__title:hover {
+        color: $blue;
     }
 
     &__subtitle {
@@ -200,25 +213,6 @@ $header-height: 84px;
         color: $text;
         font-size: 14px;
         line-height: 1.6;
-    }
-
-    &__view-all {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        margin-top: 12px;
-        color: $blue;
-        font-size: 14px;
-        font-weight: 600;
-        text-decoration: none;
-
-        svg {
-            font-size: 18px;
-        }
-
-        &:hover {
-            text-decoration: underline;
-        }
     }
 
     &__tabs {
@@ -309,7 +303,7 @@ $header-height: 84px;
         color: $navy-2;
 
         svg {
-            font-size: 22px;
+            font-size: 26px;
         }
     }
 
@@ -379,21 +373,13 @@ $header-height: 84px;
     }
 }
 
-@media (max-width: 1280px) {
-    .header-panel {
-        gap: 32px;
-
-        &__side {
-            width: 220px;
-        }
-    }
-
+@media (max-width: 1200px) {
     .header-products {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1280px) {
     .header-links {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
