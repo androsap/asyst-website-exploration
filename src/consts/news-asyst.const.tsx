@@ -3,7 +3,6 @@ import img6 from "assets/asyst/img/background/news/v2ibm.webp";
 import img7 from "assets/asyst/img/background/news/v2lib.webp";
 import img8 from "assets/asyst/img/background/news/v2baggage.webp";
 import moment from "moment";
-import { localized } from "shared/i18n";
 
 type NewsType = "All" | "Company" | "Technology" | "Events" | "Expertise" | "Logistics";
 
@@ -44,11 +43,3 @@ const NewsConst: NewsConstProps[] = [{
 }]
 
 export default NewsConst;
-
-/** NewsConst dua bahasa (dipakai section News di homepage; `type` tetap key kategori) */
-export const HomeNewsConst = localized(NewsConst, [
-    { title: "HUT ke-18 Asyst sekaligus menyambut CEO baru" },
-    { title: "Kunjungan Lapangan Proyek Baggage Tracking bersama Gapura Angkasa" },
-    { title: "Asyst siap mendukung program LIB melalui aplikasi Super Apps" },
-    { title: "Workshop IBM Garuda Indonesia Group" },
-]);
