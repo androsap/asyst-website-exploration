@@ -41,13 +41,13 @@ import imgIndustryLogistic from "assets/asyst/img/background/services-solutions/
 // Tiap konten dua bahasa: argumen pertama `localized` = EN (lengkap), kedua = terjemahan ID (teks saja).
 
 export const HeroConst = localized({
-    title: "Enterprise software that connects complex business operations",
-    description: "Build, integrate, and operate the digital systems your business depends on, from enterprise applications and workflow automation to system integration and managed technology services.",
+    title: "Technology That Moves Complex Businesses Forward",
+    description: "From enterprise applications to integration and managed services, we build technology that connects people, processes, and systems so your business can move with confidence.",
     primaryButton: { label: "Explore Products", link: "/product" },
     secondaryButton: { label: "Talk to Expert" },
 }, {
-    title: "Software enterprise yang menghubungkan operasional bisnis yang kompleks",
-    description: "Bangun, integrasikan, dan operasikan sistem digital yang menjadi tumpuan bisnis Anda, mulai dari aplikasi enterprise dan otomatisasi alur kerja hingga integrasi sistem dan layanan teknologi terkelola.",
+    title: "Teknologi yang Mendorong Bisnis Kompleks Terus Maju",
+    description: "Mulai dari aplikasi enterprise hingga integrasi dan managed services, kami membangun teknologi yang menghubungkan orang, proses, dan sistem agar bisnis Anda dapat melangkah dengan penuh keyakinan.",
     primaryButton: { label: "Jelajahi Produk" },
     secondaryButton: { label: "Hubungi Ahli" },
 })

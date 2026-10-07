@@ -3,6 +3,9 @@ import imgProductCard1 from "assets/asyst/img/background/services-solutions/herm
 import imgProductCard2 from "assets/asyst/img/background/services-solutions/amala2.webp";
 import imgSolveMockup from "assets/asyst/img/background/product/amala/device-A.webp";
 import imgExperience from "assets/asyst/img/background/product/experience.svg";
+import imgIntegrateEnterprise from "assets/asyst/img/background/product/integrate-enterprise.svg";
+import imgExpertise from "assets/asyst/img/background/product/expertise.svg";
+import imgEnterpriseDelivery from "assets/asyst/img/background/product/enterprise-delivery.svg";
 import { localized } from "shared/i18n";
 
 // Konten statis halaman Products (desain revamp 2026).
@@ -112,12 +115,11 @@ export interface ExperienceItem {
 const productExperienceEn = {
     title: "Software built from real enterprise experience",
     description: "ASYST combines product development with decades of enterprise delivery experience. That means our products are shaped not only by technology, but by the operational realities, integration requirements, and business processes that organizations depend on every day",
-    // Sementara satu ilustrasi untuk semua kartu; ganti per kartu kalau aset final sudah ada
     items: [
         { image: imgExperience, title: "Product Capability", description: "Build software for real enterprise workflows" },
-        { image: imgExperience, title: "Integration Enterprise", description: "Connect complex enterprise environments" },
-        { image: imgExperience, title: "Expertise", description: "Understand complex industries and solving" },
-        { image: imgExperience, title: "Enterprise Delivery", description: "Implement, support and evolve at scale" },
+        { image: imgIntegrateEnterprise, title: "Integration Enterprise", description: "Connect complex enterprise environments" },
+        { image: imgExpertise, title: "Expertise", description: "Understand complex industries and solving" },
+        { image: imgEnterpriseDelivery, title: "Enterprise Delivery", description: "Implement, support and evolve at scale" },
     ] as ExperienceItem[],
 }
 
