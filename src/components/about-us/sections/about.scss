@@ -285,20 +285,36 @@ $mobile: 599px;
     }
 
     // ---------- clients ----------
-    .about-clients__swiper {
-        padding-bottom: 44px;
+    .about-clients__marquee {
+        overflow: hidden;
+        mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
 
-        .swiper-pagination-bullet {
-            background: #C9D3E0;
-            opacity: 1;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: $blue;
+        &:hover .about-clients__track {
+            animation-play-state: paused;
         }
     }
 
+    .about-clients__track {
+        display: flex;
+        width: max-content;
+        animation: about-clients-scroll 40s linear infinite;
+
+        @media (prefers-reduced-motion: reduce) {
+            animation-duration: 120s;
+        }
+    }
+
+    @keyframes about-clients-scroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+    }
+
     .about-clients__logo {
+        flex: 0 0 auto;
+        width: 192px;
+        margin-right: 16px; // pakai margin (bukan gap) supaya -50% pas di batas salinan
+        box-sizing: border-box;
         height: 100px;
         display: flex;
         align-items: center;
@@ -315,6 +331,7 @@ $mobile: 599px;
         }
 
         @media (max-width: $mobile) {
+            width: 140px;
             height: 80px;
         }
     }

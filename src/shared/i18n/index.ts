@@ -8,7 +8,7 @@ import "dayjs/locale/id";
 export const LANGUAGES = ["ID", "EN"] as const;
 export type Language = typeof LANGUAGES[number];
 
-export const DEFAULT_LANGUAGE: Language = "EN";
+export const DEFAULT_LANGUAGE: Language = "ID";
 const STORAGE_KEY = "language";
 
 const isLanguage = (value: unknown): value is Language => LANGUAGES.includes(value as Language);

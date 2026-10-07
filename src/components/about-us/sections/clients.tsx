@@ -1,10 +1,6 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
 import { ClientsConst } from "consts/about-us.const";
 import { useLocalized } from "shared/i18n";
 
@@ -17,24 +13,16 @@ export default function ClientsSection() {
                 <Typography variant="h2" className="home-heading__title">{clients.title}</Typography>
                 <Typography className="about-left-heading__description">{clients.description}</Typography>
             </Box>
-            <Swiper
-                className="about-clients__swiper"
-                modules={[Autoplay, Pagination]}
-                pagination={{ clickable: true }}
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
-                loop
-                spaceBetween={16}
-                slidesPerView={2.5}
-                breakpoints={{ 600: { slidesPerView: 4 }, 1024: { slidesPerView: 7 } }}
-            >
-                {clients.items.map(({ name, logo }) => (
-                    <SwiperSlide key={name}>
-                        <Box className="about-clients__logo">
-                            <img src={logo} alt={name} loading="lazy" />
+            <Box className="about-clients__marquee">
+                {/* Track berisi 2 salinan logo agar animasi -50% bisa looping tanpa jeda */}
+                <Box className="about-clients__track">
+                    {[0, 1].map((copy) => clients.items.map(({ name, logo }) => (
+                        <Box key={`${copy}-${name}`} className="about-clients__logo" aria-hidden={copy === 1}>
+                            <img src={logo} alt={copy === 0 ? name : ""} loading="lazy" />
                         </Box>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+                    )))}
+                </Box>
+            </Box>
         </Container>
     </Box>
 }
