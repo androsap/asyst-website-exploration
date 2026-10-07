@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { bgsModal } from "@andrydharmawan/bgs-component";
 import RequestDemoComponent from "components/home/components/request-demo";
 import { AskAsystTopic } from "consts/ask-asyst.const";
@@ -6,10 +5,9 @@ import AskAsystModal from "./ask-asyst-modal";
 
 export const CONTACT_US_LINK = "/contact-us";
 
-/** Handler tombol "Talk to Expert": arahkan ke halaman Contact Us. */
-export const useTalkToExpert = () => {
-    const navigate = useNavigate();
-    return () => navigate(CONTACT_US_LINK);
+/** Handler tombol "Talk to Expert": buka modal "Let's Discuss your Business Challenge". */
+export const useTalkToExpert = (defaultTopic?: AskAsystTopic) => {
+    return () => askAsystModal(defaultTopic);
 };
 
 export const requestDemoModal = () => {
@@ -25,7 +23,7 @@ export const askAsystModal = (defaultTopic?: AskAsystTopic) => {
     bgsModal({
         isBlur: true,
         className: "askAsystBgsModal",
-        render: (e) => <AskAsystModal hide={() => e.hide()}defaultTopic={defaultTopic} />
+        render: (e) => <AskAsystModal hide={() => e.hide()} defaultTopic={defaultTopic} />
     })
 };
 

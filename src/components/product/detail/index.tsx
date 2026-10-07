@@ -17,7 +17,7 @@ interface ProductDetailProps {
 
 /** Layout halaman detail produk (revamp 2026). Konten per produk ada di consts/product-detail.const. */
 export default function ProductDetail({ content }: ProductDetailProps) {
-    const talkToExpert = useTalkToExpert();
+    const talkToExpert = useTalkToExpert("enterprise");
 
     return <Box className="product-v2">
         <HeroSection content={content.hero} onTalkToExpert={talkToExpert} onExplore={() => scrollToSection(SECTION_IDS.lifecycle)} />

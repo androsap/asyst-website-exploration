@@ -15,7 +15,7 @@ import { useLocalized } from "shared/i18n";
 
 /** Halaman utama Solutions (revamp 2026). Memakai gaya dasar product-v2 + tambahan solution-v2. */
 export default function SolutionComponent({ }: MainLayoutSharedProps) {
-    const talkToExpert = useTalkToExpert();
+    const talkToExpert = useTalkToExpert("it-solutions");
     const hero = useLocalized(SolutionHeroConst);
     const capabilities = useLocalized(SolutionCapabilitiesConst);
     const value = useLocalized(SolutionValueConst);

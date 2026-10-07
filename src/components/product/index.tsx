@@ -11,7 +11,7 @@ import ExperienceSection from "./sections/experience";
 import SolveSection from "./sections/solve";
 
 export default function ProductComponent({ }: MainLayoutSharedProps) {
-    const talkToExpert = useTalkToExpert();
+    const talkToExpert = useTalkToExpert("enterprise");
     const cta = useLocalized(ProductCtaConst);
 
     return <Box className="product-v2">

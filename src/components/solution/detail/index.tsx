@@ -18,7 +18,7 @@ interface SolutionDetailProps {
 
 /** Layout halaman detail solusi (revamp 2026). Konten per solusi ada di consts/solution-detail.const. */
 export default function SolutionDetail({ content }: SolutionDetailProps) {
-    const talkToExpert = useTalkToExpert();
+    const talkToExpert = useTalkToExpert("it-solutions");
 
     return <Box className="product-v2 solution-v2">
         <SolutionHero content={content.hero} onPrimary={talkToExpert} onSecondary={() => scrollToSection(SOLUTION_SECTION_IDS.definition)} />
