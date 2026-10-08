@@ -1,8 +1,5 @@
-import Container from "@mui/material/Container";
-import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
-import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import { Container } from "components/ui/container";
+import { LocalPhoneRoundedIcon, EmailRoundedIcon, LinkedInIcon, InstagramIcon } from "components/ui/icons";
 import logoAsystWhite from "assets/asyst/img/logo/asyst-logo-white.webp";
 import { FooterColumnsConst, FooterCompanyConst, FooterLegalConst, FooterSocialConst } from "consts/site-footer.const";
 import MenuLink from "shared/navigation/header/menu-link";

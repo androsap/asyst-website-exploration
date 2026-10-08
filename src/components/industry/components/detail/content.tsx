@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { Autoplay } from 'swiper/modules';
-import Typography from '@mui/material/Typography';
+import { Typography } from "components/ui/typography";
 // import { styles } from './styled';
 // import './index.scss';
 
@@ -13,7 +13,7 @@ import airfranceLogo from 'assets/asyst/img/logo/airfrance-logo-color.webp'
 import pelitaLogo from 'assets/asyst/img/logo/pelita-air-logo-color.webp'
 import lufthansaLogo from 'assets/asyst/img/logo/lufthansa-logo-color.webp'
 import southwestLogo from 'assets/asyst/img/logo/southwest-logo-color.webp'
-import { contentStyles } from './styled';
+import { contentStyles, logoTitleClass } from './styled';
 import { useT } from 'shared/i18n';
 
 const logoArray = [
@@ -36,7 +36,7 @@ export default function IndustryDetailContentComponent() {
     return (
         <>
             <Typography
-                sx={contentStyles.logoTitle}
+                className={logoTitleClass}
             >
                 {t("Trusted by Over 120 Airlines", "Dipercaya oleh Lebih dari 120 Maskapai")}
             </Typography>
@@ -53,7 +53,7 @@ export default function IndustryDetailContentComponent() {
                 >
                     {logoArray.map((logo, index) => (
                         <SwiperSlide key={`slide-${index}`} style={contentStyles.logoSwiperSlider}>
-                            <img src={logo} style={contentStyles.logo} />
+                            <img alt="" src={logo} style={contentStyles.logo} />
                         </SwiperSlide>
 
                     ))}

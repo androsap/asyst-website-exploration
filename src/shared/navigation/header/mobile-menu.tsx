@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
-import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+import { Modal } from "components/ui/dialog";
+import { Paper } from "components/ui/paper";
+import { Slide } from "components/ui/transitions";
+import { IconButton } from "components/ui/icon-button";
+import { CloseRoundedIcon, ChevronLeftRoundedIcon, ChevronRightRoundedIcon } from "components/ui/icons";
 import { HeaderCompanyConst, HeaderFeaturedConst, HeaderNewsLink, HeaderProductsConst, HeaderSolutionsConst } from "consts/header.const";
 import { useLanguage, useLocalized, useT } from "shared/i18n";
 import MenuLink from "./menu-link";
@@ -139,12 +139,21 @@ export default function MobileMenu({ open, onClose, onTalkToExpert, logo }: Mobi
         </>
     };
 
-    return <Drawer anchor="right" open={open} onClose={onClose} PaperProps={{ className: "header-mobile" }}>
-        <div className="header-mobile__top">
-            <img src={logo} alt="ASYST" className="header__logo" />
-            <IconButton aria-label={t("Close menu", "Tutup menu")} onClick={onClose}><CloseRoundedIcon /></IconButton>
-        </div>
-        <div className="header-mobile__body">{renderContent()}</div>
-        <button type="button" className="header-mobile__cta" onClick={() => { onClose(); onTalkToExpert(); }}>{t("Talk to Expert", "Hubungi Ahli")}</button>
-    </Drawer>
+    // Drawer kanan: Modal (z-index drawer 1200) + Slide dari kanan + Paper elevation 16 — sama dengan Drawer MUI
+    return <Modal open={open} onClose={onClose} zIndex={1200} title={t("Menu", "Menu")}>
+        <Slide in={open} direction="left" appear>
+            <Paper
+                elevation={16}
+                square
+                className="header-mobile overflow-y-auto flex flex-col h-full flex-[1_0_auto] z-[1200] [-webkit-overflow-scrolling:touch] fixed top-0 [outline:0] right-0"
+            >
+                <div className="header-mobile__top">
+                    <img src={logo} alt="ASYST" className="header__logo" />
+                    <IconButton aria-label={t("Close menu", "Tutup menu")} onClick={onClose}><CloseRoundedIcon /></IconButton>
+                </div>
+                <div className="header-mobile__body">{renderContent()}</div>
+                <button type="button" className="header-mobile__cta" onClick={() => { onClose(); onTalkToExpert(); }}>{t("Talk to Expert", "Hubungi Ahli")}</button>
+            </Paper>
+        </Slide>
+    </Modal>
 }

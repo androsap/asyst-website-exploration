@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import "../shared/product-v2.scss";
 import { ProductDetailContent } from "consts/product-detail.const";
 import { askAsystModal, scrollToSection, SECTION_IDS, useTalkToExpert } from "../shared/page-actions";
@@ -19,7 +18,7 @@ interface ProductDetailProps {
 export default function ProductDetail({ content }: ProductDetailProps) {
     const talkToExpert = useTalkToExpert("enterprise");
 
-    return <Box className="product-v2">
+    return <div className="product-v2">
         <HeroSection content={content.hero} onTalkToExpert={talkToExpert} onExplore={() => scrollToSection(SECTION_IDS.lifecycle)} />
         <OverviewSection content={content.overview} />
         <LifecycleSection content={content.lifecycle} />
@@ -28,5 +27,5 @@ export default function ProductDetail({ content }: ProductDetailProps) {
         <BusinessModelsSection content={content.businessModels} />
         <FaqSection content={content.faq} />
         <CtaSection {...content.cta} onClick={() => askAsystModal("product-demo")} />
-    </Box>
+    </div>
 }

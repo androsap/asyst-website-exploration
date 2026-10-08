@@ -1,18 +1,6 @@
-import Box from "@mui/material/Box";
-import Fade from "@mui/material/Fade";
-import { keyframes } from "@emotion/react";
 import AsystSymbol from "assets/asyst/img/logo/asyst-symbol.webp";
+import { Fade } from "components/ui/transitions";
 import { useT } from "shared/i18n";
-
-const spin = keyframes`
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-`;
-
-const pulse = keyframes`
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(0.88); opacity: 0.75; }
-`;
 
 interface PageLoaderProps {
     open?: boolean;
@@ -22,37 +10,11 @@ export default function PageLoader({ open = true }: PageLoaderProps) {
     const t = useT();
 
     return <Fade in={open} timeout={{ enter: 0, exit: 400 }} unmountOnExit>
-        <Box
-            position="fixed"
-            top={0}
-            left={0}
-            width="100%"
-            height="100vh"
-            zIndex={99999}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            bgcolor="#fff"
-        >
-            <Box position="relative" width={96} height={96} display="flex" alignItems="center" justifyContent="center">
-                <Box
-                    position="absolute"
-                    sx={{
-                        inset: 0,
-                        borderRadius: "50%",
-                        border: "3px solid rgba(18, 53, 84, 0.1)",
-                        borderTopColor: "#123554",
-                        borderRightColor: "#89BA3A",
-                        animation: `${spin} 1s linear infinite`
-                    }}
-                />
-                <Box
-                    component="img"
-                    src={AsystSymbol}
-                    alt={t("Loading", "Memuat")}
-                    sx={{ width: 52, height: "auto", animation: `${pulse} 1.4s ease-in-out infinite` }}
-                />
-            </Box>
-        </Box>
+        <div className="fixed top-0 left-0 w-full h-screen z-[99999] flex items-center justify-center bg-white">
+            <div className="relative w-[96px] h-[96px] flex items-center justify-center">
+                <div className="absolute inset-0 rounded-[50%] border-[3px] border-solid border-[rgba(18,53,84,0.1)] border-t-[#123554] border-r-[#89BA3A] animate-page-loader-spin" />
+                <img src={AsystSymbol} alt={t("Loading", "Memuat")} className="w-[52px] h-auto animate-page-loader-pulse" />
+            </div>
+        </div>
     </Fade>
 }

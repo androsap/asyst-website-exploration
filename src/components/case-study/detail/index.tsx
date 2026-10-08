@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import { Navigate, useParams } from "react-router-dom";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import "components/product/shared/product-v2.scss";
@@ -21,7 +20,7 @@ export default function CaseStudyDetailComponent({ }: MainLayoutSharedProps) {
 
     if (!content) return <Navigate to={CASE_STUDY_BASE_PATH} replace />;
 
-    return <Box className="product-v2 case-study-v2">
+    return <div className="product-v2 case-study-v2">
         <OverviewSection
             hero={content.hero}
             summary={content.summary}
@@ -33,5 +32,5 @@ export default function CaseStudyDetailComponent({ }: MainLayoutSharedProps) {
         <ApproachSection content={content.approach} />
         <OutcomeSection outcome={content.outcome} related={content.related} />
         <CaseStudyCta />
-    </Box>
+    </div>
 }

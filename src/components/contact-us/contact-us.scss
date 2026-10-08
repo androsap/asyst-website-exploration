@@ -67,7 +67,7 @@ $mobile: 599px;
     }
 
     // ---------- contact form ----------
-    .cv-contact.MuiContainer-root {
+    .cv-contact[data-slot="container"] {
         padding-top: 32px;
         display: grid;
         grid-template-columns: minmax(0, 665px) minmax(0, 525px);
@@ -97,7 +97,7 @@ $mobile: 599px;
             font-size: 17px;
         }
 
-        &__link.MuiLink-root {
+        &__link[data-slot="link"] {
             font: inherit;
             color: $blue;
             vertical-align: baseline;
@@ -123,7 +123,7 @@ $mobile: 599px;
             font-family: inherit;
         }
 
-        &__submit.MuiButton-root {
+        &__submit[data-slot="button"] {
             margin-top: 16px;
             padding: 10px 24px;
 
@@ -134,7 +134,7 @@ $mobile: 599px;
     }
 
     .cv-field {
-        .MuiOutlinedInput-root {
+        [data-slot="input-root"] {
             font-family: inherit;
             font-size: 16px;
             color: $navy;
@@ -149,17 +149,17 @@ $mobile: 599px;
                 border-color: darken($border, 12%);
             }
 
-            &.Mui-focused fieldset {
+            &[data-focused="true"] fieldset {
                 border-color: $blue;
                 border-width: 1px;
             }
 
-            &.Mui-error fieldset {
+            &[data-error="true"] fieldset {
                 border-color: #D32F2F;
             }
         }
 
-        .MuiOutlinedInput-input {
+        [data-input] {
             padding: 9px 16px;
 
             &::placeholder {
@@ -168,15 +168,15 @@ $mobile: 599px;
             }
         }
 
-        .MuiInputBase-multiline {
+        [data-multiline] {
             padding: 14px 16px;
 
-            .MuiOutlinedInput-input {
+            [data-input] {
                 padding: 0;
             }
         }
 
-        .MuiFormHelperText-root {
+        [data-slot="helper-text"] {
             font-family: inherit;
             margin-left: 2px;
         }
@@ -287,7 +287,7 @@ $mobile: 599px;
             }
         }
 
-        &__map.MuiLink-root {
+        &__map[data-slot="link"] {
             display: inline-block;
             margin-top: 16px;
             font-size: 16px;

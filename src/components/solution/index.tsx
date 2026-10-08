@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import "components/product/shared/product-v2.scss";
 import "./shared/solution-v2.scss";
@@ -22,12 +21,12 @@ export default function SolutionComponent({ }: MainLayoutSharedProps) {
     const faq = useLocalized(SolutionFaqConst);
     const cta = useLocalized(SolutionCtaConst);
 
-    return <Box className="product-v2 solution-v2">
+    return <div className="product-v2 solution-v2">
         <SolutionHero content={hero} onPrimary={requestDemoModal} onSecondary={() => scrollToSection(SOLUTION_SECTION_IDS.layers)} />
         <IconCardsSection {...capabilities} />
         <LayersSection />
         <TabbedPanelSection {...value} />
         <FaqSection content={faq} />
         <CtaSection {...cta} onClick={talkToExpert} />
-    </Box>
+    </div>
 }

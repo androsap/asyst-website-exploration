@@ -17,7 +17,7 @@
         background: url(<path-to-image>), lightgray 50% / cover no-repeat, #D9D9D9;
     }
 
-    .MuiTypography-root.MuiTypography-h1 {
+    [data-slot="typography"][data-variant="h1"] {
         color: #1A1A1A;
 
         font-family: Inter;
@@ -27,7 +27,7 @@
         line-height: 44px;
     }
 
-    .MuiTypography-root.MuiTypography-h2 {
+    [data-slot="typography"][data-variant="h2"] {
         color: var(--nuted-key-colors-tertiary, #123554);
 
         font-family: Inter;
@@ -37,7 +37,7 @@
         line-height: 28px;
     }
 
-    .MuiTypography-root.MuiTypography-h3 {
+    [data-slot="typography"][data-variant="h3"] {
         color: #4A4A4A;
 
         font-family: Source Sans Pro;

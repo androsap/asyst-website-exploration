@@ -1,6 +1,5 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { ConsultingAreasConst } from "consts/about-us.const";
@@ -12,25 +11,25 @@ export default function ConsultingAreasSection() {
     const { swiperProps, navProps } = useSwiperNav();
     const areas = useLocalized(ConsultingAreasConst);
 
-    return <Box component="section" className="home-section">
+    return <section className="home-section">
         <Container maxWidth="xl">
-            <Box className="about-left-heading about-left-heading--with-nav">
-                <Box>
+            <div className="about-left-heading about-left-heading--with-nav">
+                <div>
                     <Typography variant="h2" className="home-heading__title">{areas.title}</Typography>
                     <Typography className="about-left-heading__description">{areas.description}</Typography>
-                </Box>
+                </div>
                 <CarouselNav {...navProps} variant="arrow" size="large" />
-            </Box>
+            </div>
             <Swiper {...swiperProps} className="about-areas__swiper" spaceBetween={16} slidesPerView={1.1} breakpoints={{ 600: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}>
                 {areas.items.map(({ title, description }, index) => (
                     <SwiperSlide key={index}>
-                        <Box className="about-area">
+                        <div className="about-area">
                             <Typography className="about-area__title">{title}</Typography>
                             <Typography className="about-area__description">{description}</Typography>
-                        </Box>
+                        </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
         </Container>
-    </Box>
+    </section>
 }

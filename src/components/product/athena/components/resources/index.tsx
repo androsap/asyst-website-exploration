@@ -1,6 +1,5 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import { styles } from './styled';
+import { Typography } from "components/ui/typography";
+import { boxImagesStyle, styles, vectorBoxStyle } from './styled';
 
 import img1 from 'assets/asyst/img/background/product/amala/resources-1.webp';
 import img2 from 'assets/asyst/img/background/product/amala/resources-2.webp';
@@ -77,45 +76,45 @@ export default function ResourcesComponent() {
 
     return (
         <>
-            <Typography sx={styles.title}>{t("Resources", "Sumber Daya")}</Typography>
-            <Box display="flex" flexDirection="row" gap={3}>
+            <Typography className={styles.title}>{t("Resources", "Sumber Daya")}</Typography>
+            <div className="flex flex-row gap-[48px]">
                 {Children.toArray(resources.map(({ type, img, title, date, author }) =>
-                    <Link to="https://www.asyst.co.id/news" style={styles.boxImages}>
-                        <Box>
-                            <img src={img} style={{
+                    <Link to="https://www.asyst.co.id/news" style={boxImagesStyle}>
+                        <div>
+                            <img alt="" src={img} style={{
                                 backgroundSize: 'cover',
                                 width: '100%',
                                 height: 'auto',
                                 textAlign: 'center',
                                 borderRadius: '20px',
                             }}></img>
-                            <Box sx={styles.tagsLabel}>
+                            <div className={styles.tagsLabel}>
                                 <Typography variant="subtitle2">{type}</Typography>
-                            </Box>
-                            <Box sx={{ height: '100px' }}>
-                                <Typography sx={styles.titleNews} variant="subtitle2">{title}</Typography>
-                            </Box>
-                            <Box display="flex" justifyContent="space-between" sx={{ mt: "19px" }}>
-                                <Typography sx={styles.footerNews}>{date}</Typography>
-                                <Typography sx={styles.footerNews}>{author}</Typography>
-                            </Box>
-                        </Box>
+                            </div>
+                            <div className="h-[100px]">
+                                <Typography className={styles.titleNews} variant="subtitle2">{title}</Typography>
+                            </div>
+                            <div className="flex justify-between mt-[19px]">
+                                <Typography className={styles.footerNews}>{date}</Typography>
+                                <Typography className={styles.footerNews}>{author}</Typography>
+                            </div>
+                        </div>
                     </Link>
                 ))}
-                <Box className='download-box'>
-                    <Box className='vector-box' sx={styles.vectorBox}><img src={arrow} className='arrow-image' style={{ marginLeft: '35px', marginTop: '25px' }}></img></Box>
-                    <Box sx={{ padding: '30px' }}>
-                        <Typography className='text1' sx={styles.text1}>{t(`Download Free ${data?.product?.product_name ?? ""} Document`, `Unduh Dokumen ${data?.product?.product_name ?? ""} Gratis`)}</Typography>
-                        <Box display='flex' flexDirection='row' gap='10px' paddingTop='20px' onClick={() => downloadBrochure()}>
-                            <img src={pdf} style={{ width: '24px', height: '24px', cursor: 'pointer' }}></img>
-                            <Typography sx={styles.text2}><u>{t(`${data?.product?.product_name ?? ""} product information.pdf`, `informasi produk ${data?.product?.product_name ?? ""}.pdf`)}</u></Typography>
-                        </Box>
-                        <img src={divider} className="divider" style={{ width:'322px', height: '1px', paddingBottom: '15px', paddingTop: '30px' }}></img>
-                        <Typography sx={styles.text1}>{t("Looking for another Asyst media resources?", "Mencari sumber media Asyst lainnya?")}</Typography>
-                        <Link to="https://www.asyst.co.id/news"><Typography sx={styles.text2} style={{ paddingTop: '30px' }}><u>{t("View all media resources", "Lihat semua sumber media")}</u></Typography></Link>
-                    </Box>
-                </Box>
-            </Box>
+                <div className='download-box'>
+                    <div className={`vector-box ${styles.vectorBox}`} style={vectorBoxStyle}><img alt="" src={arrow} className='arrow-image' style={{ marginLeft: '35px', marginTop: '25px' }}></img></div>
+                    <div className="p-[30px]">
+                        <Typography className={`text1 ${styles.text1}`}>{t(`Download Free ${data?.product?.product_name ?? ""} Document`, `Unduh Dokumen ${data?.product?.product_name ?? ""} Gratis`)}</Typography>
+                        <div className="flex flex-row gap-[10px] pt-[20px]" onClick={() => downloadBrochure()}>
+                            <img alt="" src={pdf} style={{ width: '24px', height: '24px', cursor: 'pointer' }}></img>
+                            <Typography className={styles.text2}><u>{t(`${data?.product?.product_name ?? ""} product information.pdf`, `informasi produk ${data?.product?.product_name ?? ""}.pdf`)}</u></Typography>
+                        </div>
+                        <img alt="" src={divider} className="divider" style={{ width:'322px', height: '1px', paddingBottom: '15px', paddingTop: '30px' }}></img>
+                        <Typography className={styles.text1}>{t("Looking for another Asyst media resources?", "Mencari sumber media Asyst lainnya?")}</Typography>
+                        <Link to="https://www.asyst.co.id/news"><Typography className={styles.text2} style={{ paddingTop: '30px' }}><u>{t("View all media resources", "Lihat semua sumber media")}</u></Typography></Link>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

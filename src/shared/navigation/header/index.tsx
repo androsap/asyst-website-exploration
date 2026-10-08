@@ -1,15 +1,11 @@
 import { lazy, MouseEvent, Suspense, useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import useScrollTrigger from "@mui/material/useScrollTrigger";
-import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
-import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import { Container } from "components/ui/container";
+import { IconButton } from "components/ui/icon-button";
+import { MenuItem, MenuPopup } from "components/ui/menu";
+import { KeyboardArrowDownRoundedIcon, LanguageRoundedIcon, MenuRoundedIcon, SearchRoundedIcon } from "components/ui/icons";
+import { useMediaQuery } from "hooks/use-media-query";
+import { useScrollTrigger } from "hooks/use-scroll-trigger";
 import logoAsyst from "assets/img/logo/asyst-logo-color.svg";
 import { HeaderCompanyConst, HeaderLanguagesConst, HeaderNewsLink, HeaderSolutionsConst } from "consts/header.const";
 import { setLanguage, useLanguage, useLocalized, useT } from "shared/i18n";
@@ -28,9 +24,10 @@ type PanelKey = "products" | "solutions" | "company";
 export default function HeaderShared() {
     const isMobile = useMediaQuery("(max-width:1023px)");
     const location = useLocation();
-    const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 10 });
+    const scrolled = useScrollTrigger(10);
     const [panel, setPanel] = useState<PanelKey | null>(null);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [langOpen, setLangOpen] = useState(false);
     const [langAnchor, setLangAnchor] = useState<HTMLElement | null>(null);
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchOrigin, setSearchOrigin] = useState<SearchOverlayProps["origin"] | null>(null);
@@ -106,20 +103,20 @@ export default function HeaderShared() {
             <div className="header__actions">
                 <IconButton aria-label={t("Search", "Cari")} aria-haspopup="dialog" aria-expanded={searchOpen} className="header__icon-btn" onClick={openSearch}><SearchRoundedIcon /></IconButton>
                 {isMobile
-                    ? <IconButton aria-label={`${t("Language", "Bahasa")}: ${language}`} aria-haspopup="menu" className="header__icon-btn" onClick={e => setLangAnchor(e.currentTarget)}><LanguageRoundedIcon /></IconButton>
-                    : <button type="button" className="header__lang" aria-haspopup="menu" onClick={e => setLangAnchor(e.currentTarget)}>
+                    ? <IconButton ref={setLangAnchor} aria-label={`${t("Language", "Bahasa")}: ${language}`} aria-haspopup="menu" className="header__icon-btn" onClick={() => setLangOpen(true)}><LanguageRoundedIcon /></IconButton>
+                    : <button ref={setLangAnchor} type="button" className="header__lang" aria-haspopup="menu" onClick={() => setLangOpen(true)}>
                         <LanguageRoundedIcon />
                         {language}
                         <KeyboardArrowDownRoundedIcon className="header__lang-caret" />
                     </button>}
-                <Menu anchorEl={langAnchor} open={!!langAnchor} onClose={() => setLangAnchor(null)} disableScrollLock>
+                <MenuPopup open={langOpen} onClose={() => setLangOpen(false)} anchorEl={langAnchor} lockScroll={false}>
                     {HeaderLanguagesConst.map(lang => (
-                        <MenuItem key={lang} selected={lang === language} onClick={() => { setLanguage(lang); setLangAnchor(null); }} className="header__lang-option">
+                        <MenuItem key={lang} selected={lang === language} onClick={() => { setLanguage(lang); setLangOpen(false); }} className="header__lang-option">
                             <LanguageFlag lang={lang} />
                             {lang}
                         </MenuItem>
                     ))}
-                </Menu>
+                </MenuPopup>
                 {!isMobile && <button type="button" className="header__cta" onClick={talkToExpert}>{t("Talk to expert", "Hubungi ahli")}</button>}
                 {isMobile && <IconButton aria-label={t("Open menu", "Buka menu")} className="header__icon-btn" onClick={() => setMobileOpen(true)}><MenuRoundedIcon /></IconButton>}
             </div>

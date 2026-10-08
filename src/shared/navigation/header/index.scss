@@ -44,7 +44,7 @@ $header-height: 84px;
         cursor: pointer;
     }
 
-    &__bar.MuiContainer-root {
+    &__bar[data-slot="container"] {
         height: $header-height;
         display: flex;
         align-items: center;
@@ -109,7 +109,7 @@ $header-height: 84px;
         margin-left: auto;
     }
 
-    &__icon-btn.MuiIconButton-root {
+    &__icon-btn[data-slot="icon-button"] {
         color: $navy;
     }
 
@@ -132,7 +132,7 @@ $header-height: 84px;
     }
 
     // Menu bahasa dirender lewat portal, jadi class ini harus tetap top-level
-    &__lang-option.MuiMenuItem-root {
+    &__lang-option[data-slot="menu-item"] {
         gap: 10px;
     }
 
@@ -150,7 +150,7 @@ $header-height: 84px;
         }
     }
 
-    &__dropdown.MuiContainer-root {
+    &__dropdown[data-slot="container"] {
         position: absolute;
         left: 0;
         right: 0;
@@ -401,7 +401,7 @@ $header-height: 84px;
 // ---------- mobile drawer ----------
 $green: #89BA3A;
 
-.header-mobile.MuiPaper-root {
+.header-mobile[data-slot="paper"] {
     width: 100vw;
     height: 100%;
     display: flex;
@@ -423,7 +423,7 @@ $green: #89BA3A;
             height: 26px;
         }
 
-        .MuiIconButton-root {
+        [data-slot="icon-button"] {
             color: $navy;
         }
     }

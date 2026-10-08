@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Skeleton from "@mui/material/Skeleton";
-import Typography from "@mui/material/Typography";
+import { Container } from "components/ui/container";
+import { Skeleton } from "components/ui/skeleton";
+import { Typography } from "components/ui/typography";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -36,12 +35,12 @@ export default function NewsSection() {
 
     if (!loading && !news.length) return null;
 
-    return <Box component="section" className="home-section home-news__section">
+    return <section className="home-section home-news__section">
         <Container maxWidth="xl">
-            <Box className="home-news__header">
+            <div className="home-news__header">
                 <Typography variant="h2" className="home-heading__title">{t("News", "Berita")}</Typography>
                 <CarouselNav {...navProps} variant="arrow" size="large" />
-            </Box>
+            </div>
             <Swiper {...swiperProps} className="home-news__swiper" spaceBetween={16} slidesPerView={1} breakpoints={{ 600: { slidesPerView: 2.1, spaceBetween: 20 }, 1024: { slidesPerView: 3.2, spaceBetween: 20 } }}>
                 {loading
                     ? Array.from({ length: 4 }).map((_, index) => (
@@ -61,5 +60,5 @@ export default function NewsSection() {
                     ))}
             </Swiper>
         </Container>
-    </Box>
+    </section>
 }

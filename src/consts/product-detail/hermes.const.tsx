@@ -1,16 +1,4 @@
-import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
-import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
-import CreditCardOutlinedIcon from "@mui/icons-material/CreditCardOutlined";
-import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import PersonSearchOutlinedIcon from "@mui/icons-material/PersonSearchOutlined";
-import RuleOutlinedIcon from "@mui/icons-material/RuleOutlined";
-import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
-import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-import FlightOutlinedIcon from "@mui/icons-material/FlightOutlined";
-import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
-import HotelOutlinedIcon from "@mui/icons-material/HotelOutlined";
-import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
-import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlined";
+import { GroupsOutlinedIcon, EmojiEventsOutlinedIcon, CreditCardOutlinedIcon, HubOutlinedIcon, PersonSearchOutlinedIcon, RuleOutlinedIcon, HandshakeOutlinedIcon, AccountBalanceWalletOutlinedIcon, FlightOutlinedIcon, AccountBalanceOutlinedIcon, HotelOutlinedIcon, StorefrontOutlinedIcon, BusinessCenterOutlinedIcon } from "components/ui/icons";
 
 import imgAdmin from "assets/asyst/img/background/product/amala/device-A.webp";
 import imgMobile from "assets/asyst/img/background/product/amala/device-B.webp";

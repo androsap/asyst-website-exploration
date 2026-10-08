@@ -4,7 +4,7 @@
     // border-radius: 20px 20px 0px 0px;
 }
 
-.content-box.MuiBox-root {
+.content-box.content-box {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -16,7 +16,7 @@
     padding: 100px 30px 100px 30px;
     gap: 60px;
 
-    .business-box.MuiBox-root {
+    .business-box.business-box {
         display: flex;
         flex-direction: column;
         gap: 15px;
@@ -25,7 +25,7 @@
 
 
 @media only screen and (max-width: 1400px) {
-    .content-box.MuiBox-root {
+    .content-box.content-box {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -37,7 +37,7 @@
         padding: 100px 30px 100px 30px;
         gap: 60px;
 
-        .business-box.MuiBox-root {
+        .business-box.business-box {
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -46,7 +46,7 @@
 }
 
 @media only screen and (max-width: 1920px) {
-    .content-box.MuiBox-root {
+    .content-box.content-box {
         display: flex;
         flex-direction: row;
         align-items: center;

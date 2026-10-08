@@ -1,12 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import { Button } from "components/ui/button";
+import { Container } from "components/ui/container";
+import { IconButton } from "components/ui/icon-button";
+import { Typography } from "components/ui/typography";
+import { SearchRoundedIcon, CloseRoundedIcon } from "components/ui/icons";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import { SITE_URL } from "shared/head/seo";
 import { useLocalized } from "shared/i18n";
@@ -68,12 +66,12 @@ export default function SearchComponent({ }: MainLayoutSharedProps) {
         .replace("{n}", String(results.length))
         .replace("{q}", query.trim());
 
-    return <Box className="product-v2 search-v2">
-        <Box component="section" className="sr-hero">
+    return <div className="product-v2 search-v2">
+        <section className="sr-hero">
             <Container maxWidth="md">
                 <Typography variant="h1" className="sr-hero__title">{content.title}</Typography>
-                <Box
-                    component="form"
+                <form
+                   
                     role="search"
                     className="sr-input"
                     onSubmit={e => { e.preventDefault(); updateParams({ q: input }); }}
@@ -97,13 +95,13 @@ export default function SearchComponent({ }: MainLayoutSharedProps) {
                             <CloseRoundedIcon fontSize="small" />
                         </IconButton>
                     )}
-                </Box>
+                </form>
             </Container>
-        </Box>
+        </section>
 
-        <Box component="section" className="pv-section pv-section--last sr-body">
+        <section className="pv-section pv-section--last sr-body">
             <Container maxWidth="xl">
-                <Box className="sr-tabs" role="tablist" aria-label={content.title}>
+                <div className="sr-tabs" role="tablist" aria-label={content.title}>
                     {SEARCH_TABS.map(value => (
                         <button
                             key={value}
@@ -116,7 +114,7 @@ export default function SearchComponent({ }: MainLayoutSharedProps) {
                             {content.tabs[value]}
                         </button>
                     ))}
-                </Box>
+                </div>
 
                 {!query.trim()
                     ? <Typography className="sr-count">{content.emptyQuery}</Typography>
@@ -146,6 +144,6 @@ export default function SearchComponent({ }: MainLayoutSharedProps) {
                         )}
                     </>}
             </Container>
-        </Box>
-    </Box>
+        </section>
+    </div>
 }

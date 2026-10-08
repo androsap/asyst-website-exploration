@@ -1,12 +1,10 @@
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
+import { Paper } from "components/ui/paper";
+import { Typography } from "components/ui/typography";
 import './index.scss';
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import { Button } from "components/ui/button";
 import { styles } from "./styled";
-import TextField from '@mui/material/TextField';
-import FormControl from "@mui/material/FormControl";
+import { formControlClass, TextField } from "components/ui/text-field";
+import { cn } from "@/lib/utils";
 import { useT } from "shared/i18n";
 
 interface RequestDemoProps {
@@ -17,27 +15,28 @@ const RequestDemoComponent: React.FC<RequestDemoProps> = ({ hide }) => {
     const t = useT();
 
     return (
-        <Box alignItems="center" justifyContent="center">
+        <div className="items-center justify-center">
             <Paper>
-                <Box sx={styles.paper.heading}>
-                    <Typography sx={styles.paper.title}>{t("Request Demo", "Minta Demo")}</Typography>
-                </Box>
-                <Box display="flex" flexDirection="column" sx={styles.paper}>
+                <div className={styles.heading}>
+                    <Typography className={styles.title}>{t("Request Demo", "Minta Demo")}</Typography>
+                </div>
+                <div className={cn("flex flex-col", styles.paper)}>
                     <Typography>{t("Complete the details below to request demo", "Lengkapi data di bawah ini untuk meminta demo")}</Typography>
-                    <FormControl sx={styles.paper.form}>
-                        <TextField label={t("Full name", "Nama lengkap")} variant="outlined" />
-                        <TextField label={t("Company", "Perusahaan")} variant="outlined" />
-                        <TextField label="Email" variant="outlined" />
-                        <TextField label={t("Phone Number", "Nomor Telepon")} variant="outlined" />
-                        <TextField label={t("Message", "Pesan")} variant="outlined" />
-                        <Grid container mt={2} justifyContent="flex-end">
-                            <Button variant="contained" sx={styles.paper.buttonRequest}>{t("Request", "Kirim")}</Button>
-                            <Button variant="contained" sx={styles.paper.buttonCancel} onClick={() => hide()}>{t("Cancel", "Batal")}</Button>
-                        </Grid>
-                    </FormControl>
-                </Box>
+                    <div className={cn(formControlClass, styles.form)}>
+                        <TextField label={t("Full name", "Nama lengkap")} />
+                        <TextField label={t("Company", "Perusahaan")} />
+                        <TextField label="Email" />
+                        <TextField label={t("Phone Number", "Nomor Telepon")} />
+                        <TextField label={t("Message", "Pesan")} />
+                        {/* Grid container (spacing theme modal 8 -> mt 16px) */}
+                        <div className="box-border flex flex-wrap w-full flex-row mt-[16px] justify-end">
+                            <Button variant="contained" className={styles.buttonRequest}>{t("Request", "Kirim")}</Button>
+                            <Button variant="contained" className={styles.buttonCancel} onClick={() => hide()}>{t("Cancel", "Batal")}</Button>
+                        </div>
+                    </div>
+                </div>
             </Paper>
-        </Box>
+        </div>
     );
 };
 

@@ -1,4 +1,4 @@
-.download-box.MuiBox-root {
+.download-box.download-box {
     border-radius: 20px;
     background: linear-gradient(180deg, #2775BB 0%, #2775BB 10%);
     width: 380px;
@@ -7,7 +7,7 @@
 }
 
 @media only screen and (max-width: 1400px) {
-    .download-box.MuiBox-root {
+    .download-box.download-box {
         border-radius: 20px;
         background: linear-gradient(180deg, #2775BB 0%, #2775BB 10%);
         width: 320px;

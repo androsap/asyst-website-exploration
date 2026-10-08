@@ -1,7 +1,6 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Button } from "components/ui/button";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { Link } from "react-router-dom";
 import { AwardsConst, HeroConst, TrustedByConst } from "consts/home.const";
 import { useLocalized, useT } from "shared/i18n";
@@ -15,42 +14,40 @@ export default function HeroSection({ onTalkToExpert }: HeroSectionProps) {
     const hero = useLocalized(HeroConst);
     const awards = useLocalized(AwardsConst);
 
-    return <Box component="section" className="home-hero">
+    return <section className="home-hero">
         <Container maxWidth="xl">
-            <Box className="home-hero__content">
+            <div className="home-hero__content">
                 <Typography variant="h1" className="home-hero__title">{hero.title}</Typography>
                 <Typography className="home-hero__description">{hero.description}</Typography>
-                <Box className="home-hero__actions">
-                    <Link to={hero.primaryButton.link}>
-                        <Button className="home-btn home-btn--primary">{hero.primaryButton.label}</Button>
-                    </Link>
+                <div className="home-hero__actions">
+                    <Button asChild className="home-btn home-btn--primary"><Link to={hero.primaryButton.link}>{hero.primaryButton.label}</Link></Button>
                     <Button className="home-btn home-btn--outline" onClick={onTalkToExpert}>{hero.secondaryButton.label}</Button>
-                </Box>
-                <Box className="home-hero__honors">
+                </div>
+                <div className="home-hero__honors">
                     <Typography component="span" className="home-hero__honors-pill">{t("Honorable Award", "Penghargaan")}</Typography>
-                    <Box className="home-hero__awards">
+                    <div className="home-hero__awards">
                         {awards.map(({ image, title, subtitle }) => (
-                            <Box key={title} className="home-award">
-                                <Box className="home-award__icon"><img src={image} alt={title} loading="lazy" /></Box>
-                                <Box>
+                            <div key={title} className="home-award">
+                                <div className="home-award__icon"><img src={image} alt={title} loading="lazy" /></div>
+                                <div>
                                     <Typography className="home-award__title">{title}</Typography>
                                     <Typography className="home-award__subtitle">{subtitle}</Typography>
-                                </Box>
-                            </Box>
+                                </div>
+                            </div>
                         ))}
-                    </Box>
-                </Box>
-            </Box>
-            <Box className="home-trusted">
+                    </div>
+                </div>
+            </div>
+            <div className="home-trusted">
                 <Typography className="home-trusted__label">{t("Trusted by", "Dipercaya oleh")}</Typography>
-                <Box className="home-trusted__logos">
+                <div className="home-trusted__logos">
                     {TrustedByConst.map(({ name, logo }) => (
-                        <Box key={name} className="home-trusted__logo">
+                        <div key={name} className="home-trusted__logo">
                             <img src={logo} alt={name} loading="lazy" />
-                        </Box>
+                        </div>
                     ))}
-                </Box>
-            </Box>
+                </div>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

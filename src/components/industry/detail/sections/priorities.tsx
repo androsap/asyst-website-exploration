@@ -1,8 +1,6 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
-import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
+import { Container } from "components/ui/container";
+import { CheckCircleRoundedIcon, RemoveRoundedIcon } from "components/ui/icons";
 import { IndustryDetailContent } from "consts/industry-detail.const";
 import SectionHeading from "components/product/shared/section-heading";
 import AccordionItem from "components/product/shared/accordion";
@@ -18,11 +16,11 @@ export default function PrioritiesSection({ content }: PrioritiesSectionProps) {
     const t = useT();
     const { columns, rows } = content.matrix;
 
-    return <Box component="section" className="pv-section">
+    return <section className="pv-section">
         <Container maxWidth="xl">
             <SectionHeading title={content.title} />
-            <Box className="iv-priority">
-                <Box className="iv-priority__list">
+            <div className="iv-priority">
+                <div className="iv-priority__list">
                     {content.items.map(({ title, points }, index) => (
                         <AccordionItem
                             key={index}
@@ -36,8 +34,8 @@ export default function PrioritiesSection({ content }: PrioritiesSectionProps) {
                             </ul>
                         </AccordionItem>
                     ))}
-                </Box>
-                <Box className="iv-priority__matrix">
+                </div>
+                <div className="iv-priority__matrix">
                     <table className="iv-matrix">
                         <thead>
                             <tr>
@@ -60,8 +58,8 @@ export default function PrioritiesSection({ content }: PrioritiesSectionProps) {
                             ))}
                         </tbody>
                     </table>
-                </Box>
-            </Box>
+                </div>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+import { ChevronRightRoundedIcon } from "components/ui/icons";
 import { HeaderGroup, HeaderPanelSubtitle, HeaderProductsConst, HeaderProductsLink } from "consts/header.const";
 import { useLocalized, useT } from "shared/i18n";
 import MenuLink from "./menu-link";

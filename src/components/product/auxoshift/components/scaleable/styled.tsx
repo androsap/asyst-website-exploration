@@ -1,26 +1,6 @@
+// Class Tailwind hasil konversi style MUI `sx` sebelumnya (nilai identik).
 export const styles = {
-    title: {
-        color: '#909090',
-        fontFamily: 'Inter',
-        fontSize: '18px',
-        fontWeight: 700,
-        lineHeight: '20px',
-    },
-    subtitle: {
-        color: '#1A1A1A',
-        fontFamily: 'Inter',
-        fontSize: '36px',
-        fontWeight: 700,
-        lineHeight: '44px',
-        paddingTop: '11px',
-        paddingBottom: '22px',
-    },
-    description: {
-        color: '#4A4A4A',
-        fontFamily: 'Source Sans Pro',
-        fontSize: '16px',
-        fontWeight: 400,
-        lineHeight: '24px',
-        paddingTop: '22px'
-    } 
-}
+    title: "text-[color:#909090] font-['Inter'] text-[length:18px] font-[700] leading-[20px]",
+    subtitle: "text-[color:#1A1A1A] font-['Inter'] text-[length:36px] font-[700] leading-[44px] pt-[11px] pb-[22px]",
+    description: "text-[color:#4A4A4A] font-['Source_Sans_Pro'] text-[length:16px] font-[400] leading-[24px] pt-[22px]",
+};

@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import "components/home/sections/home.scss";
 import "./sections/about.scss";
@@ -12,7 +11,7 @@ import JoinTeamSection from "./sections/join-team";
 
 // Memakai style dasar homepage (.home-v2: heading, tombol, carousel nav) + tambahan .about-v2
 export default function AboutUsComponent({ }: MainLayoutSharedProps) {
-    return <Box className="home-v2 about-v2">
+    return <div className="home-v2 about-v2">
         <AboutHeroSection />
         <AboutIntroSection />
         <LeadersSection />
@@ -20,5 +19,5 @@ export default function AboutUsComponent({ }: MainLayoutSharedProps) {
         <ClientsSection />
         <ConsultingAreasSection />
         <JoinTeamSection />
-    </Box>
+    </div>
 }

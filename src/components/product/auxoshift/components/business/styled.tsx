@@ -1,97 +1,11 @@
+// Class Tailwind hasil konversi style MUI `sx` sebelumnya (nilai identik).
 export const styles = {
-    title: {
-        color: '#1A1A1A',
-        fontFamily: 'Inter',
-        fontSize: '36px',
-        fontWeight: 700,
-        lineHeight: '44px',
-        paddingTop: '60px',
-    },
-    subtitle: {
-        color: '#4A4A4A',
-        fontFamily: 'Source Sans Pro',
-        fontSize: '16px',
-        fontWeight: 400,
-        lineHeight: '24px',
-        marginTop: '10px',
-        marginBottom: '20px'
-    },
-    buttonBox: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-evenly',
-        width: '294px',
-        height: '166px',
-        borderRadius: '20px',
-        boxShadow: '0px 6px 24px 0px rgba(0, 0, 0, 0.06)',
-        background: '#FFF',
-        padding: '20px',
-        '&.active': {
-            display: 'flex',
-            backgroundColor: '#F6FBFF',
-            borderRadius: '20px 20px 0px 0px',
-            boxShadow: 'none',
-            height: '166px',
-        },
-    },
-    button: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '250px',
-        height: '46px',
-        borderRadius: '55px',
-        background: 'var(--color-primary, #2775BB)',
-        gap: '10px'
-    },
-    textButton: {
-        color: '#FFF',
-        fontFamily: 'Source Sans Pro',
-        fontSize: '18px',
-        fontWeight: 700,
-        lineHeight: '28px',
-        fontStyle: 'normal'
-    },
-    desc: {
-        display: 'flex',
-        color: '#4A4A4A',
-        fontFamily: 'Source Sans Pro',
-        fontSize: '15px',
-        fontWeight: 400,
-        // lineHeight: '28px',
-        fontStyle: 'normal',
-        textAlign: 'start',
-        paddingTop: '5px'
-    },
-    contentBox: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        maxWidth: 'xl',
-        height: 'auto',
-        borderRadius: '0px 20px 20px 20px',
-        background: '#F6FBFF',
-        padding: '100px 30px 100px 30px',
-        gap: 4
-    },
-    contentTitle: {
-        color: '#123554',
-        fontFamily: 'Inter',
-        fontSize: '18px',
-        fontWeight: 700,
-        lineHeight: '28px',
-        fontStyle: 'normal',
-        paddingBottom: '10px' 
-    },
-    contentSubtitle: {
-        color: '#4A4A4A',
-        fontFamily: 'Source Sans Pro',
-        fontSize: '16px',
-        fontWeight: 400,
-        lineHeight: '24px',
-        fontStyle: 'normal',
-        // paddingBottom: '40px' 
-    }
-}
+    title: "text-[color:#1A1A1A] font-['Inter'] text-[length:36px] font-[700] leading-[44px] pt-[60px]",
+    subtitle: "text-[color:#4A4A4A] font-['Source_Sans_Pro'] text-[length:16px] font-[400] leading-[24px] mt-[10px] mb-[20px]",
+    buttonBox: "flex flex-col justify-evenly w-[294px] h-[166px] rounded-[20px] [box-shadow:0px_6px_24px_0px_rgba(0,_0,_0,_0.06)] [background:#FFF] pt-[20px] pr-[20px] pb-[20px] pl-[20px] [&.active]:flex [&.active]:bg-[color:#F6FBFF] [&.active]:rounded-[20px_20px_0px_0px] [&.active]:[box-shadow:none] [&.active]:h-[166px]",
+    button: "flex flex-row items-center justify-center w-[250px] h-[46px] rounded-[55px] [background:var(--color-primary,_#2775BB)] gap-[10px]",
+    textButton: "text-[color:#FFF] font-['Source_Sans_Pro'] text-[length:18px] font-[700] leading-[28px] not-italic",
+    desc: "flex text-[color:#4A4A4A] font-['Source_Sans_Pro'] text-[length:15px] font-[400] not-italic [text-align:start] pt-[5px]",
+    contentTitle: "text-[color:#123554] font-['Inter'] text-[length:18px] font-[700] leading-[28px] not-italic pb-[10px]",
+    contentSubtitle: "text-[color:#4A4A4A] font-['Source_Sans_Pro'] text-[length:16px] font-[400] leading-[24px] not-italic",
+};

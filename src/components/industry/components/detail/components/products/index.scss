@@ -1,4 +1,4 @@
-.MuiTypography-root.MuiTypography-h1 {
+[data-slot="typography"][data-variant="h1"] {
     color: #1A1A1A;
     font-family: Inter;
     font-size: 30px;
@@ -6,7 +6,7 @@
     font-weight: 700;
 }
 
-.MuiTypography-root.MuiTypography-h2 {
+[data-slot="typography"][data-variant="h2"] {
     color: #3A3A3A;
     font-family: Inter;
     font-size: 20px;
@@ -14,7 +14,7 @@
     font-weight: 500;
 }
 
-.MuiTypography-root.MuiTypography-h3 {
+[data-slot="typography"][data-variant="h3"] {
     color: var(--nuted-key-colors-tertiary, #123554);
 
     font-family: Inter;
@@ -24,7 +24,7 @@
     line-height: 28px;
 }
 
-.MuiTypography-root.MuiTypography-h4 {
+[data-slot="typography"][data-variant="h4"] {
     color: #4A4A4A;
 
     font-family: Source Sans Pro;
@@ -34,7 +34,7 @@
     line-height: 24px;
 }
 
-.MuiTypography-root.MuiTypography-h5 {
+[data-slot="typography"][data-variant="h5"] {
     color: var(--color-primary, #2775BB);
 
     font-family: Source Sans Pro;

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
-import ButtonBase from "@mui/material/ButtonBase";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { ButtonBase } from "components/ui/button-base";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { CapabilitiesConst } from "consts/home.const";
 import { useLocalized } from "shared/i18n";
 import SectionHeading from "./section-heading";
@@ -20,11 +19,11 @@ export default function CapabilitiesSection() {
         });
     }, []);
 
-    return <Box component="section" className="home-section">
+    return <section className="home-section">
         <Container maxWidth="xl">
             <SectionHeading title={capabilities.title} description={capabilities.description} />
-            <Box className="home-capabilities">
-                <Box className="home-capabilities__menu" role="tablist">
+            <div className="home-capabilities">
+                <div className="home-capabilities__menu" role="tablist">
                     {capabilities.items.map(({ icon: Icon, label }, index) => (
                         <ButtonBase
                             key={index}
@@ -34,24 +33,24 @@ export default function CapabilitiesSection() {
                             className={`home-capabilities__menu-item ${index === activeIndex ? "active" : ""}`}
                             onClick={() => setActiveIndex(index)}
                         >
-                            <Box className="home-icon-tile"><Icon /></Box>
+                            <span className="home-icon-tile"><Icon /></span>
                             <Typography component="span">{label}</Typography>
                         </ButtonBase>
                     ))}
-                </Box>
-                <Box className="home-capabilities__detail" role="tabpanel">
-                    <Box key={activeIndex} className="home-capabilities__text">
+                </div>
+                <div className="home-capabilities__detail" role="tabpanel">
+                    <div key={activeIndex} className="home-capabilities__text">
                         <Typography className="home-capabilities__title">{active.title}</Typography>
                         <Typography className="home-capabilities__description">{active.description}</Typography>
-                        <Box className="home-chips">
+                        <div className="home-chips">
                             {active.tags.map(tag => <span key={tag} className="home-chip">{tag}</span>)}
-                        </Box>
-                    </Box>
-                    <Box className="home-capabilities__image">
+                        </div>
+                    </div>
+                    <div className="home-capabilities__image">
                         <img key={active.image} src={active.image} alt={active.title} loading="lazy" />
-                    </Box>
-                </Box>
-            </Box>
+                    </div>
+                </div>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

@@ -22,6 +22,9 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         "baseUrl": "./src",
+        "paths": {
+            "@/*": ["*"]
+        },
         "allowJs": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,

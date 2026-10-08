@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import AccordionItem from "components/product/shared/accordion";
 
 interface CareerFaqProps {
@@ -13,10 +12,10 @@ interface CareerFaqProps {
 export default function CareerFaq({ title, items }: CareerFaqProps) {
     const [open, setOpen] = useState<number | null>(0);
 
-    return <Box component="section" className="pv-section">
+    return <section className="pv-section">
         <Container maxWidth="xl">
             <Typography variant="h2" className="cr-title">{title}</Typography>
-            <Box className="cr-faq">
+            <div className="cr-faq">
                 {items.map(({ question, answer }, index) => (
                     <AccordionItem
                         key={question}
@@ -27,7 +26,7 @@ export default function CareerFaq({ title, items }: CareerFaqProps) {
                         <Typography className="pv-accordion__text">{answer}</Typography>
                     </AccordionItem>
                 ))}
-            </Box>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

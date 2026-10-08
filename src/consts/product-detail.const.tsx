@@ -1,17 +1,5 @@
-import { SvgIconComponent } from "@mui/icons-material";
-import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
-import LoyaltyOutlinedIcon from "@mui/icons-material/LoyaltyOutlined";
-import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import AutorenewOutlinedIcon from "@mui/icons-material/AutorenewOutlined";
-import PersonSearchOutlinedIcon from "@mui/icons-material/PersonSearchOutlined";
-import RuleOutlinedIcon from "@mui/icons-material/RuleOutlined";
-import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
-import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
-import FlightOutlinedIcon from "@mui/icons-material/FlightOutlined";
-import HotelOutlinedIcon from "@mui/icons-material/HotelOutlined";
-import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
-import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
-import LocalHospitalOutlinedIcon from "@mui/icons-material/LocalHospitalOutlined";
+import { GroupsOutlinedIcon, LoyaltyOutlinedIcon, HubOutlinedIcon, AutorenewOutlinedIcon, PersonSearchOutlinedIcon, RuleOutlinedIcon, HandshakeOutlinedIcon, InsightsOutlinedIcon, FlightOutlinedIcon, HotelOutlinedIcon, AccountBalanceOutlinedIcon, StorefrontOutlinedIcon, LocalHospitalOutlinedIcon } from "components/ui/icons";
+import { SvgIconComponent } from "components/ui/svg-icon";
 
 import imgAmalaAdmin from "assets/asyst/img/background/product/amala/device-A.webp";
 import imgAmalaMobile from "assets/asyst/img/background/product/amala/device-B.webp";

@@ -1,10 +1,9 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import ButtonBase from "@mui/material/ButtonBase";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import { Button } from "components/ui/button";
+import { ButtonBase } from "components/ui/button-base";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
+import { ArrowForwardRoundedIcon } from "components/ui/icons";
 import { Link } from "react-router-dom";
 import { ProductCatalogConst } from "consts/product.const";
 import { useLocalized, useT } from "shared/i18n";
@@ -20,11 +19,11 @@ export default function CatalogSection() {
     const catalog = useLocalized(ProductCatalogConst);
     const active = catalog.categories[activeIndex];
 
-    return <Box component="section" id={SECTION_IDS.catalog} className="pv-section pv-anchor">
+    return <section id={SECTION_IDS.catalog} className="pv-section pv-anchor">
         <Container maxWidth="xl">
             <SectionHeading title={catalog.title} description={catalog.description} align="left" />
-            <Box className="pv-catalog">
-                <Box className="pv-catalog__menu" role="tablist">
+            <div className="pv-catalog">
+                <div className="pv-catalog__menu" role="tablist">
                     {catalog.categories.map(({ label }, index) => (
                         <ButtonBase
                             key={index}
@@ -36,27 +35,27 @@ export default function CatalogSection() {
                             {label}
                         </ButtonBase>
                     ))}
-                </Box>
-                <Box className="pv-catalog__panel" role="tabpanel">
+                </div>
+                <div className="pv-catalog__panel" role="tabpanel">
                     <Typography className="pv-catalog__eyebrow">{active.label}</Typography>
                     <Typography className="pv-catalog__title">{active.title}</Typography>
                     <Typography className="pv-catalog__description">{active.description}</Typography>
-                    <Box className="pv-catalog__grid">
+                    <div className="pv-catalog__grid">
                         {active.products.slice(0, CATALOG_VISIBLE).map(({ name, title, description, image, link }) => (
                             <Link key={name} to={link} className="pv-catalog-card">
                                 <Typography className="pv-catalog-card__name">{name}</Typography>
                                 <Typography className="pv-catalog-card__title">{title}</Typography>
                                 <Typography className="pv-catalog-card__description">{description}</Typography>
                                 <span className="pv-catalog-card__link">{t("Explore Product", "Lihat Produk")} <ArrowForwardRoundedIcon /></span>
-                                <Box className="pv-catalog-card__image" sx={{ backgroundImage: `url(${image})` }} />
+                                <div className="pv-catalog-card__image" style={{ backgroundImage: `url(${image})` }} />
                             </Link>
                         ))}
-                    </Box>
-                    {active.products.length > CATALOG_VISIBLE && <Link to={active.button.link}>
-                        <Button className="pv-btn pv-btn--primary pv-catalog__button">{active.button.label}</Button>
-                    </Link>}
-                </Box>
-            </Box>
+                    </div>
+                    {active.products.length > CATALOG_VISIBLE && <Button asChild className="pv-btn pv-btn--primary pv-catalog__button">
+                        <Link to={active.button.link}>{active.button.label}</Link>
+                    </Button>}
+                </div>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

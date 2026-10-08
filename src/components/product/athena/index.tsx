@@ -1,12 +1,10 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { Element } from 'react-scroll';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import CircularProgress from '@mui/material/CircularProgress';
+import { Typography } from "components/ui/typography";
+import { Container } from "components/ui/container";
+import { Button } from "components/ui/button";
+import { CircularProgress } from "components/ui/circular-progress";
 import { ReactComponent as BackCircleIcon } from 'assets/asyst/img/icon/industry/back-circle.svg';
 import { MainLayoutSharedProps } from 'shared/layout/main-layout';
 import ScaleableComponent from './components/scaleable';
@@ -17,8 +15,7 @@ import JoinComponent from './components/join';
 import ResourcesComponent from './components/resources';
 import FeaturesComponent from 'shared/components/product/features';
 import CustomersComponent from './components/loyalty';
-import RequestDemoComponent from '../../../components/home/components/request-demo';
-import { bgsModal } from '@andrydharmawan/bgs-component';
+import { requestDemoModal } from 'components/product/shared/page-actions';
 import './index.scss';
 
 import { styles } from './styled';
@@ -34,21 +31,9 @@ import he from 'he';
 import { useApiText, useT } from 'shared/i18n';
 import bannerBackground from 'assets/asyst/img/background/product/athena/athena-background.webp';
 
-const Loading = <Box width="100%" height="150px" display="flex" alignItems="center" justifyContent="center" position="relative">
-    <CircularProgress color="inherit" size={40} />
-</Box>
-
-export const requestDemoModal = () => {
-    bgsModal({
-        isBlur: true,
-        className: "customBgsModal",
-        render: (e) => {
-            return <RequestDemoComponent
-                hide={e.hide}
-            />
-        }
-    })
-};
+const Loading = <div className="w-full h-[150px] flex items-center justify-center relative">
+    <CircularProgress size={40} />
+</div>
 
 export default function AthenaDetailComponent({ }: MainLayoutSharedProps) {
     const [data, setData] = useState<BannerModel>({} as BannerModel)
@@ -101,83 +86,73 @@ export default function AthenaDetailComponent({ }: MainLayoutSharedProps) {
     }
 
     // console.log("data nih", data.product?.product_name)
-    return <Box className="container-product">
+    return <div className="container-product">
         <Element name="athena">
-            <Box className='mainBox' sx={{ backgroundImage: `url(${bannerBackground})` }}>
+            <div className='mainBox' style={{ backgroundImage: `url(${bannerBackground})` }}>
                 {!loading && data && (
                     <Container maxWidth="xl">
-                        <Box className="backNavContainer">
+                        <div className="backNavContainer">
                             <Link to="https://www.asyst.co.id/our-products">
                                 <BackCircleIcon />
                             </Link>
-                            <Typography sx={styles.backNavContainer.text}>
+                            <Typography className={styles.backNavText}>
                                 {t("Product and Services", "Produk dan Layanan")}
                             </Typography>
                             <Typography>
                                 {data.product?.product_name}
                             </Typography>
-                        </Box>
-                        <Typography sx={styles.product}>
+                        </div>
+                        <Typography className={styles.product}>
                             {data.product?.product_name}
                         </Typography>
-                        <Box display='flex' flexDirection='row'>
-                            <Box className="left-banner" display='flex' flexDirection='column' justifyContent='flex-start'>
-                                <Typography sx={styles.title}
+                        <div className="flex flex-row">
+                            <div className="left-banner flex flex-col justify-start">
+                                <Typography className={styles.title}
                                     dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
-                                <Typography sx={styles.description}
+                                <Typography className={styles.description}
                                     dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "description") || '') }} />
-                                <Button sx={styles.buttonFrame} onClick={requestDemoModal}>
-                                    <Box sx={styles.button}>
-                                        <Typography sx={styles.textButton}>{t("Request Demo", "Minta Demo")}</Typography>
-                                    </Box>
+                                <Button className={styles.buttonFrame} onClick={requestDemoModal}>
+                                    <span className={styles.button}>
+                                        <Typography component="span" className={`block ${styles.textButton}`}>{t("Request Demo", "Minta Demo")}</Typography>
+                                    </span>
                                 </Button>
-                            </Box>
-                            <Box className="right-banner">
-                                <img className="image1" src={data.product?.section?.image1}></img>
-                                <img className="image2" src={data.product?.section?.image2}></img>
-                            </Box>
-                        </Box>
+                            </div>
+                            <div className="right-banner">
+                                <img alt="" className="image1" src={data.product?.section?.image1}></img>
+                                <img alt="" className="image2" src={data.product?.section?.image2}></img>
+                            </div>
+                        </div>
                     </Container>
                 )}
-            </Box>
+            </div>
             
-            <Box
-                sx={{
-                    position: 'absolute',
-                    zIndex: '1',
-                    height: '75px',
-                    width: '100%',
-                    background: '#fff',
-                    borderTopRightRadius: '200px',
-                    marginTop: '-75px',
-                }}
-            />
+            <div className="absolute z-[1] h-[75px] w-full [background:#fff] rounded-tr-[200px] mt-[-75px]" />
         </Element>
         <Suspense fallback={Loading}>
-            <Container maxWidth="xl" sx={{ display: "flex", gap: "100px", flexDirection: "column", paddingTop: '0px' }}>
+            <Container maxWidth="xl" className="flex gap-[100px] flex-col pt-[0px]">
                 <ScaleableComponent />
                 <BusinessComponent />
-                <Box ref={prevElementRef} />
+                <div ref={prevElementRef} />
                 <CustomersComponent corporate={customerData} />
             </Container>
-            <Grid mt='100px' mb='100px'>
+            <div className="box-border flex-row mt-[100px] mb-[100px]">
                 <FeaturesComponent feature={featureData} prevElement={prevElementRef} nextElement={nextElementRef} />
-            </Grid>
-            <Container ref={nextElementRef} maxWidth="xl" sx={{ display: "flex", gap: "100px", flexDirection: "column" }}>
-                <Box>
+            </div>
+            <Container ref={nextElementRef} maxWidth="xl" className="flex gap-[100px] flex-col">
+                <div>
                     <InteractComponent />
-                </Box>
-                <Box>
+                </div>
+                <div>
                     <TestimonialComponent testimonial={testimonialData} />
-                </Box>
-                <Box>
+                </div>
+                <div>
                     <ResourcesComponent />
-                </Box>
-                <Box>
+                </div>
+                <div>
                     <JoinComponent />
-                </Box>
+                </div>
             </Container>
         </Suspense>
-    </Box>
+    </div>
 
 }

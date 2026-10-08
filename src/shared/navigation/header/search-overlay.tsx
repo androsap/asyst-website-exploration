@@ -1,12 +1,9 @@
 import { FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Backdrop from "@mui/material/Backdrop";
-import Button from "@mui/material/Button";
-import Fade from "@mui/material/Fade";
-import Modal from "@mui/material/Modal";
-import Zoom from "@mui/material/Zoom";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+import { Button } from "components/ui/button";
+import { Modal } from "components/ui/dialog";
+import { Fade, Zoom } from "components/ui/transitions";
+import { SearchRoundedIcon, ChevronRightRoundedIcon } from "components/ui/icons";
 import { useLocalized } from "shared/i18n";
 import { SEARCH_QUICK_GROUP_LIMIT, SEARCH_QUICK_GROUPS, SearchIndexConst, SearchPageConst } from "consts/search.const";
 import { searchEntries, searchPageLink } from "components/search/shared/search-utils";
@@ -71,8 +68,10 @@ export default function SearchOverlay({ open, origin, onClose }: SearchOverlayPr
         onClose={onClose}
         closeAfterTransition
         className="search-overlay"
-        slots={{ backdrop: Backdrop }}
-        slotProps={{ backdrop: { className: "search-overlay__backdrop", timeout: 250 } as object }}
+        // slots.backdrop = Backdrop biasa (tanpa z-index -1 milik backdrop bawaan Modal)
+        backdropClassName="search-overlay__backdrop z-auto"
+        backdropTimeout={250}
+        title={content.title}
     >
         <Fade in={open} timeout={250}>
             <Zoom

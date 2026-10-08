@@ -1,0 +1,29 @@
+/*
+ * Entry Tailwind. Diimport di main.tsx setelah main.scss sehingga utility class punya prioritas
+ * yang sama dengan style MUI sebelumnya (menang atas CSS global, kalah dari SCSS halaman pada specificity sama).
+ * Preflight dimatikan di tailwind.config.js.
+ */
+@import "../../components/ui/ui.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 208 66% 44%;
+    }
+}
+
+/* Deteksi autofill input (sama dengan InputBase MUI) */
+@keyframes mui-auto-fill {
+    from { display: block; }
+}
+
+@keyframes mui-auto-fill-cancel {
+    from { display: block; }
+}

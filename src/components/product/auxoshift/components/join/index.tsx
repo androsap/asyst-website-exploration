@@ -1,6 +1,5 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import { Typography } from "components/ui/typography";
+import { Button } from "components/ui/button";
 import { styles } from './styled';
 import { useT } from 'shared/i18n';
 
@@ -9,19 +8,19 @@ export default function JoinComponent() {
 
     return (
         <>
-            <Box sx={styles.mainBox}>
-                <Box sx={styles.contentBox}>
-                    <Box sx={styles.textBox}>
-                        <Typography sx={styles.title}>{t("Ready to join the future?", "Siap melangkah ke masa depan?")}</Typography>
-                        <Typography sx={styles.subtitle}>{t("Get more loyal customers who'd stick with your business for a long time", "Dapatkan lebih banyak pelanggan setia yang bertahan lama bersama bisnis Anda")}</Typography>
-                    </Box>
-                    <Box sx={styles.buttonFrame}>
-                        <Button sx={styles.button}>
-                            <Typography sx={styles.textButton}>{t("Schedule Meeting", "Jadwalkan Pertemuan")}</Typography>
+            <div className={styles.mainBox}>
+                <div className={styles.contentBox}>
+                    <div className={styles.textBox}>
+                        <Typography className={styles.title}>{t("Ready to join the future?", "Siap melangkah ke masa depan?")}</Typography>
+                        <Typography className={styles.subtitle}>{t("Get more loyal customers who'd stick with your business for a long time", "Dapatkan lebih banyak pelanggan setia yang bertahan lama bersama bisnis Anda")}</Typography>
+                    </div>
+                    <div className={styles.buttonFrame}>
+                        <Button className={styles.button}>
+                            <Typography component="span" className={`block ${styles.textButton}`}>{t("Schedule Meeting", "Jadwalkan Pertemuan")}</Typography>
                         </Button>
-                    </Box>
-                </Box>
-            </Box>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

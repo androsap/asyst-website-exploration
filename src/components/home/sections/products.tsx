@@ -1,8 +1,7 @@
 import { useState, type CSSProperties } from "react";
-import Box from "@mui/material/Box";
-import ButtonBase from "@mui/material/ButtonBase";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { ButtonBase } from "components/ui/button-base";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { Link } from "react-router-dom";
 import { ProductCategoryConst, ProductCategoryTermsConst, ProductsConst } from "consts/home.const";
 import { useLocalized, useTerms } from "shared/i18n";
@@ -14,10 +13,10 @@ export default function ProductsSection() {
     const categoryLabel = useTerms(ProductCategoryTermsConst);
     const items = products.items.filter(x => active === "All Products" || x.category === active);
 
-    return <Box component="section" className="home-section">
+    return <section className="home-section">
         <Container maxWidth="xl">
             <SectionHeading title={products.title} description={products.description} />
-            <Box className="home-tabs" role="tablist">
+            <div className="home-tabs" role="tablist">
                 {ProductCategoryConst.map(category => (
                     <ButtonBase
                         key={category}
@@ -29,22 +28,22 @@ export default function ProductsSection() {
                         {categoryLabel(category)}
                     </ButtonBase>
                 ))}
-            </Box>
+            </div>
             {/* key = kategori aktif: grid di-remount tiap ganti tab supaya animasi masuk kartu diputar ulang */}
-            <Box key={active} className="home-products">
+            <div key={active} className="home-products">
                 {items.map(({ title, description, image, link }, i) => (
                     <Link key={i} to={link} className="home-product" style={{ "--i": i } as CSSProperties}>
                         <Typography className="home-product__title">{title}</Typography>
                         <Typography className="home-product__description">{description}</Typography>
-                        <Box className="home-product__preview">
-                            <Box className="home-product__frame">
-                                <Box className="home-product__window-bar"><span /><span /></Box>
+                        <div className="home-product__preview">
+                            <div className="home-product__frame">
+                                <div className="home-product__window-bar"><span /><span /></div>
                                 <img src={image} alt={title} loading="lazy" />
-                            </Box>
-                        </Box>
+                            </div>
+                        </div>
                     </Link>
                 ))}
-            </Box>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

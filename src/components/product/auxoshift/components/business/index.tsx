@@ -1,8 +1,7 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import { Typography } from "components/ui/typography";
 import { styles } from './styled';
 import { Children, useState, useEffect } from "react"
-import Button from '@mui/material/Button';
+import { Button } from "components/ui/button";
 import business from "assets/asyst/img/background/product/amala/business.webp"
 import './index.scss'
 import { BusinessModel } from "models/amala/business.model";
@@ -44,49 +43,49 @@ export default function BusinessComponent() {
     return (
         <>
             {!loading && data && (
-                <Box>
-                    <Box width="80%">
-                        <Typography sx={styles.title}
+                <div>
+                    <div className="w-[80%]">
+                        <Typography className={styles.title}
                             dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
-                        <Typography sx={styles.subtitle}
+                        <Typography className={styles.subtitle}
                             dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "description") || '') }} />
 
-                    </Box>
-                    <Box display='flex' flexDirection='row' gap='24px'>
+                    </div>
+                    <div className="flex flex-row gap-[24px]">
 
                         {Children.toArray(dataCard.product?.section?.map(item =>
-                            <Button className={`${active === item.sequence && "active"}`} sx={styles.buttonBox} variant={item.sequence === active ? "contained" : "text"} onClick={() => setActive(item.sequence)}>
-                                <Box>
-                                    <Box sx={styles.button} >
-                                        <img src={business}></img>
-                                        <Typography sx={styles.textButton}
+                            <Button className={`${active === item.sequence && "active"} ${styles.buttonBox}`} variant={item.sequence === active ? "contained" : "text"} onClick={() => setActive(item.sequence)}>
+                                <span className="block">
+                                    <span className={styles.button} >
+                                        <img src={business} alt=""></img>
+                                        <Typography component="span" className={`block ${styles.textButton}`}
                                             dangerouslySetInnerHTML={{ __html: he.decode(apiText(item, "title") || '') }} />
-                                    </Box>
-                                </Box>
-                                <Box>
-                                    <Typography sx={styles.desc}
+                                    </span>
+                                </span>
+                                <span className="block">
+                                    <Typography component="span" className={`block ${styles.desc}`}
                                         dangerouslySetInnerHTML={{ __html: he.decode(apiText(item, "subtitle") || '') }} />
-                                </Box>
+                                </span>
                             </Button>
                         ))}
 
-                    </Box>
+                    </div>
                     {Children.toArray(dataCard.product?.section?.filter(x => x.sequence === active).map(item =>
                         <>
-                            <Box className='content-box'>
-                                <img src={item.image1} style={{ width: '543px', height: '310px', borderRadius: '16px' }}></img>
-                                <Box className='business-box'>
+                            <div className='content-box'>
+                                <img alt="" src={item.image1} style={{ width: '543px', height: '310px', borderRadius: '16px' }}></img>
+                                <div className='business-box'>
                                     {!loadingCard && Children.toArray(item.sub_section_1.map(sub_section =>
-                                        <Box gap={2}>
-                                            <Typography sx={styles.contentTitle}>{apiText(sub_section, "title")}</Typography>
-                                            <Typography sx={styles.contentSubtitle}>{apiText(sub_section, "description")}</Typography>
-                                        </Box>
+                                        <div className="gap-[32px]">
+                                            <Typography className={styles.contentTitle}>{apiText(sub_section, "title")}</Typography>
+                                            <Typography className={styles.contentSubtitle}>{apiText(sub_section, "description")}</Typography>
+                                        </div>
                                     ))}
-                                </Box>
-                            </Box>
+                                </div>
+                            </div>
                         </>
                     ))}
-                </Box >
+                </div>
             )
             }
         </>

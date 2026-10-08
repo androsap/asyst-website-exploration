@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import "components/product/shared/product-v2.scss";
 import "./shared/career.scss";
@@ -30,7 +29,7 @@ export default function CareerComponent({ }: MainLayoutSharedProps) {
         ],
     });
 
-    return <Box className="product-v2 career-v2">
+    return <div className="product-v2 career-v2">
         <HeroSection />
         <ValuesSection />
         <OpportunitySection />
@@ -39,5 +38,5 @@ export default function CareerComponent({ }: MainLayoutSharedProps) {
         <IndonesiaSection />
         <InternshipSection />
         <CareerFaq {...faq} />
-    </Box>
+    </div>
 }

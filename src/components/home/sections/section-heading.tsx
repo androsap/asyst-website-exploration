@@ -1,5 +1,4 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { Typography } from "components/ui/typography";
 
 interface SectionHeadingProps {
     title: string;
@@ -7,8 +6,8 @@ interface SectionHeadingProps {
 }
 
 export default function SectionHeading({ title, description }: SectionHeadingProps) {
-    return <Box className="home-heading">
+    return <div className="home-heading">
         <Typography variant="h2" className="home-heading__title">{title}</Typography>
         {description && <Typography className="home-heading__description">{description}</Typography>}
-    </Box>
+    </div>
 }

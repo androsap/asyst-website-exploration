@@ -18,7 +18,7 @@ $mobile: 599px;
     padding: 16px;
     font-family: $font-body;
 
-    &__backdrop.MuiBackdrop-root {
+    &__backdrop[data-slot="backdrop"] {
         background: rgba(16, 24, 40, 0.45);
     }
 
@@ -98,7 +98,7 @@ $mobile: 599px;
         }
     }
 
-    &__input-icon.MuiSvgIcon-root {
+    &__input-icon[data-icon] {
         color: $muted;
         font-size: 22px;
     }
@@ -159,7 +159,7 @@ $mobile: 599px;
         }
     }
 
-    &__item-icon.MuiSvgIcon-root {
+    &__item-icon[data-icon] {
         flex-shrink: 0;
         width: 20px;
         height: 20px;
@@ -183,7 +183,7 @@ $mobile: 599px;
         padding-bottom: 4px;
     }
 
-    &__see-all.MuiButton-root {
+    &__see-all[data-slot="button"] {
         padding: 10px 20px;
         border-radius: 6px;
         background: $blue;

@@ -1,8 +1,7 @@
 import { CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import { Button } from "components/ui/button";
+import { Typography } from "components/ui/typography";
 import { CareerJob, careerJobLink, CareerTermsConst } from "consts/career.const";
 import { useLanguage, useT, useTerms } from "shared/i18n";
 import { formatJobDate } from "./utils";
@@ -22,26 +21,25 @@ export default function JobCard({ job, variant = "grid", style }: JobCardProps) 
     const language = useLanguage();
     const date = <Typography className="cr-job__date">{formatJobDate(postedDate, language)}</Typography>;
 
-    return <Box component="article" className={`cr-job cr-job--${variant}`} style={style}>
+    return <article className={`cr-job cr-job--${variant}`} style={style}>
         {variant === "grid" && date}
-        <Box className="cr-job__header">
+        <div className="cr-job__header">
             <span className="cr-badge">{term(department)}</span>
             {variant === "list" && date}
-        </Box>
-        <Box component="h3" className="cr-job__title"><Link to={link}>{title}</Link></Box>
+        </div>
+        <h3 className="cr-job__title"><Link to={link}>{title}</Link></h3>
         <Typography className="cr-job__summary">{summary}</Typography>
         <JobMeta job={job} />
-        <Box className="cr-skills">
+        <div className="cr-skills">
             {skills.map(skill => <span key={skill} className="cr-skill">{term(skill)}</span>)}
-        </Box>
+        </div>
         <Button
-            component={Link}
-            to={link}
+            asChild
             className={`pv-btn cr-btn--small ${variant === "grid" ? "pv-btn--outline" : "pv-btn--primary"} cr-job__button`}
-        >
+        ><Link to={link}>
             {variant === "grid" ? t("View Details", "Lihat Detail") : t("View Position", "Lihat Posisi")}
-        </Button>
-    </Box>
+        </Link></Button>
+    </article>
 }
 
 export function JobMeta({ job }: { job: CareerJob }) {
@@ -53,12 +51,12 @@ export function JobMeta({ job }: { job: CareerJob }) {
         { label: t("Location", "Lokasi"), value: term(job.location) },
     ];
 
-    return <Box className="cr-job__meta">
+    return <div className="cr-job__meta">
         {items.map(({ label, value }) => (
-            <Box key={label}>
+            <div key={label}>
                 <Typography className="cr-job__meta-label">{label}</Typography>
                 <Typography className="cr-job__meta-value">{value}</Typography>
-            </Box>
+            </div>
         ))}
-    </Box>
+    </div>
 }

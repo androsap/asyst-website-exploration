@@ -1,14 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Skeleton from "@mui/material/Skeleton";
-import Typography from "@mui/material/Typography";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
-import IosShareRoundedIcon from "@mui/icons-material/IosShareRounded";
-import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
+import { Button } from "components/ui/button";
+import { Container } from "components/ui/container";
+import { Skeleton } from "components/ui/skeleton";
+import { Typography } from "components/ui/typography";
+import { HomeOutlinedIcon, ChevronRightRoundedIcon, IosShareRoundedIcon, AccessTimeRoundedIcon } from "components/ui/icons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
@@ -48,8 +44,8 @@ export default function NewsDetailComponent({ }: MainLayoutSharedProps) {
         if (news) document.title = `${news.title} | PT Aero Systems Indonesia`;
     }, [news]);
 
-    return <Box className="product-v2 news-v2">
-        <Box className="nw-breadcrumb">
+    return <div className="product-v2 news-v2">
+        <div className="nw-breadcrumb">
             <Container maxWidth="xl" className="nw-breadcrumb__inner">
                 <Link to="/" aria-label={t("Home", "Beranda")}><HomeOutlinedIcon /></Link>
                 <ChevronRightRoundedIcon className="nw-breadcrumb__separator" />
@@ -57,16 +53,16 @@ export default function NewsDetailComponent({ }: MainLayoutSharedProps) {
                 <ChevronRightRoundedIcon className="nw-breadcrumb__separator" />
                 <span className="nw-breadcrumb__current">{news?.title || (loading ? "" : text.notFoundTitle)}</span>
             </Container>
-        </Box>
+        </div>
 
-        <Box component="section" className="pv-section pv-section--last">
+        <section className="pv-section pv-section--last">
             <Container className="nw-article">
                 {loading && <ArticleSkeleton />}
                 {!loading && !news && <NotFound />}
                 {news && <Article news={news} />}
             </Container>
-        </Box>
-    </Box>
+        </section>
+    </div>
 }
 
 function Article({ news }: { news: NewsModel }) {
@@ -80,8 +76,8 @@ function Article({ news }: { news: NewsModel }) {
     return <>
         <Typography variant="h1" className="nw-article__title">{title}</Typography>
 
-        <Box className="nw-meta">
-            <Box className="nw-meta__info">
+        <div className="nw-meta">
+            <div className="nw-meta__info">
                 <span className="nw-avatar" aria-hidden>{NEWS_AUTHOR.charAt(0)}</span>
                 <Typography className="nw-meta__text">
                     {formatNewsDate(created_date, language, text.dateFormat)}
@@ -92,32 +88,32 @@ function Article({ news }: { news: NewsModel }) {
                         {text.publishedAt} <Link to={newsCategoryPath(category)}>{categoryLabel(category)}</Link>
                     </>}
                 </Typography>
-            </Box>
-            <Box className="nw-meta__actions">
+            </div>
+            <div className="nw-meta__actions">
                 <ShareButton title={title} />
                 <span className="nw-meta__stat">
                     <AccessTimeRoundedIcon /> {(minutes > 1 ? text.readingTimePlural : text.readingTime).replace("{n}", String(minutes))}
                 </span>
-            </Box>
-        </Box>
+            </div>
+        </div>
 
         {image && <img src={image} alt={title} className="nw-article__image" />}
 
-        <Box className="nw-content" dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="nw-content" dangerouslySetInnerHTML={{ __html: html }} />
 
-        {category && <Box className="nw-tags">
+        {category && <div className="nw-tags">
             <Link to={newsCategoryPath(category)} className="nw-tag">{categoryLabel(category)}</Link>
-        </Box>}
+        </div>}
 
-        <Box className="nw-publisher">
+        <div className="nw-publisher">
             <span className="nw-avatar nw-avatar--large" aria-hidden>{NEWS_AUTHOR.charAt(0)}</span>
-            <Box>
+            <div>
                 <Typography className="nw-publisher__name">{text.publishedBy}</Typography>
                 <Typography className="nw-publisher__text">
                     {text.collaboration} <Link to={text.contactLink}>{text.contactLabel}</Link>
                 </Typography>
-            </Box>
-        </Box>
+            </div>
+        </div>
 
         <RelatedNews slug={news.slug} category={category} />
     </>
@@ -169,11 +165,11 @@ function RelatedNews({ slug, category }: { slug: string; category: string }) {
 
     if (!items.length) return null;
 
-    return <Box className="nw-related">
-        <Box className="nw-related__header">
+    return <div className="nw-related">
+        <div className="nw-related__header">
             <Typography variant="h2" className="nw-related__title">{text.relatedTitle}</Typography>
             <CarouselNav {...navProps} />
-        </Box>
+        </div>
         <Swiper {...swiperProps} spaceBetween={20} slidesPerView={1.1} breakpoints={{ 600: { slidesPerView: 2 } }}>
             {items.map(item => (
                 <SwiperSlide key={item.id}>
@@ -181,25 +177,25 @@ function RelatedNews({ slug, category }: { slug: string; category: string }) {
                 </SwiperSlide>
             ))}
         </Swiper>
-    </Box>
+    </div>
 }
 
 function ArticleSkeleton() {
-    return <Box aria-busy>
+    return <div aria-busy>
         <Skeleton variant="text" height={48} width="95%" />
         <Skeleton variant="text" height={48} width="60%" />
-        <Skeleton variant="rounded" height={44} sx={{ mt: 3, borderRadius: 999 }} />
+        <Skeleton variant="rounded" height={44} className="mt-12 rounded-[7992px]" />
         <Skeleton variant="rounded" className="nw-article__image" height={360} />
         {Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} variant="text" width={i % 3 === 2 ? "70%" : "100%"} />)}
-    </Box>
+    </div>
 }
 
 function NotFound() {
     const text = useLocalized(NewsDetailConst);
 
-    return <Box className="nw-empty">
+    return <div className="nw-empty">
         <Typography variant="h1" className="nw-article__title">{text.notFoundTitle}</Typography>
         <Typography>{text.notFoundDescription}</Typography>
-        <Button component={Link} to={NEWS_BASE_PATH} className="pv-btn pv-btn--primary">{text.backToNews}</Button>
-    </Box>
+        <Button asChild className="pv-btn pv-btn--primary"><Link to={NEWS_BASE_PATH}>{text.backToNews}</Link></Button>
+    </div>
 }

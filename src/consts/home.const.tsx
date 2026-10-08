@@ -1,7 +1,5 @@
-import { SvgIconComponent } from "@mui/icons-material";
-import DashboardCustomizeOutlinedIcon from "@mui/icons-material/DashboardCustomizeOutlined";
-import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
+import { DashboardCustomizeOutlinedIcon, HubOutlinedIcon, SupportAgentOutlinedIcon } from "components/ui/icons";
+import { SvgIconComponent } from "components/ui/svg-icon";
 import { ReactComponent as AutomateOperationsIcon } from "assets/asyst/img/icon/capabilities/automate-operations.svg";
 import { ReactComponent as ModernizeLegacyIcon } from "assets/asyst/img/icon/capabilities/modernize-legacy.svg";
 import { ReactComponent as ConnectEnterpriseIcon } from "assets/asyst/img/icon/capabilities/connect-enterprise.svg";

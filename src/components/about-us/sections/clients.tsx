@@ -1,28 +1,27 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { ClientsConst } from "consts/about-us.const";
 import { useLocalized } from "shared/i18n";
 
 export default function ClientsSection() {
     const clients = useLocalized(ClientsConst);
 
-    return <Box component="section" className="home-section">
+    return <section className="home-section">
         <Container maxWidth="xl">
-            <Box className="about-left-heading">
+            <div className="about-left-heading">
                 <Typography variant="h2" className="home-heading__title">{clients.title}</Typography>
                 <Typography className="about-left-heading__description">{clients.description}</Typography>
-            </Box>
-            <Box className="about-clients__marquee">
+            </div>
+            <div className="about-clients__marquee">
                 {/* Track berisi 2 salinan logo agar animasi -50% bisa looping tanpa jeda */}
-                <Box className="about-clients__track">
+                <div className="about-clients__track">
                     {[0, 1].map((copy) => clients.items.map(({ name, logo }) => (
-                        <Box key={`${copy}-${name}`} className="about-clients__logo" aria-hidden={copy === 1}>
+                        <div key={`${copy}-${name}`} className="about-clients__logo" aria-hidden={copy === 1}>
                             <img src={logo} alt={copy === 0 ? name : ""} loading="lazy" />
-                        </Box>
+                        </div>
                     )))}
-                </Box>
-            </Box>
+                </div>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

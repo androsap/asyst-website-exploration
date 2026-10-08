@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import "components/product/shared/product-v2.scss";
 import "components/solution/shared/solution-v2.scss";
@@ -24,12 +23,12 @@ export default function IndustryComponent({ }: MainLayoutSharedProps) {
     const faq = useLocalized(IndustryFaqConst);
     const cta = useLocalized(IndustryCtaConst);
 
-    return <Box className="product-v2 solution-v2 industry-v2">
+    return <div className="product-v2 solution-v2 industry-v2">
         <IndustryHero content={hero} onPrimary={() => scrollToSection(INDUSTRY_SECTION_IDS.solutions)} onSecondary={talkToExpert} />
         <IntroSplitSection content={intro} />
         <IndustryCardsSection {...expertise} />
         <IconCardsSection {...foundation} />
         <FaqSection content={faq} />
         <CtaSection {...cta} onClick={talkToExpert} />
-    </Box>
+    </div>
 }

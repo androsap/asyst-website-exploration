@@ -1,6 +1,5 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { useLocalized } from "shared/i18n";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -12,25 +11,25 @@ export default function WhySection() {
     const { title, description, items } = useLocalized(CareerWhyConst);
     const { swiperProps, navProps } = useSwiperNav();
 
-    return <Box component="section" className="pv-section">
+    return <section className="pv-section">
         <Container maxWidth="xl">
-            <Box className="cr-why__header">
-                <Box>
+            <div className="cr-why__header">
+                <div>
                     <Typography variant="h2" className="cr-title">{title}</Typography>
                     <Typography className="cr-text">{description}</Typography>
-                </Box>
+                </div>
                 <CarouselNav {...navProps} variant="arrow" />
-            </Box>
+            </div>
             <Swiper {...swiperProps} spaceBetween={20} slidesPerView={1.15} breakpoints={{ 600: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}>
                 {items.map(({ title, description }, index) => (
                     <SwiperSlide key={index} className="cr-why__slide">
-                        <Box className="cr-card">
+                        <div className="cr-card">
                             <Typography variant="h3" className="cr-card__title">{title}</Typography>
                             <Typography className="cr-card__description">{description}</Typography>
-                        </Box>
+                        </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
         </Container>
-    </Box>
+    </section>
 }

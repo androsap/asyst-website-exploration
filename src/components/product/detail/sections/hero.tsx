@@ -1,7 +1,6 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Button } from "components/ui/button";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { ProductDetailContent } from "consts/product-detail.const";
 
 interface HeroSectionProps {
@@ -13,27 +12,27 @@ interface HeroSectionProps {
 export default function HeroSection({ content, onTalkToExpert, onExplore }: HeroSectionProps) {
     const { title, description, primaryButton, secondaryButton, stats } = content;
 
-    return <Box component="section" className="pv-hero">
+    return <section className="pv-hero">
         <Container maxWidth="xl">
-            <Box className="pv-hero__content">
+            <div className="pv-hero__content">
                 <Typography variant="h1" className="pv-hero__title">{title}</Typography>
                 <Typography className="pv-hero__description">{description}</Typography>
-                <Box className="pv-hero__actions">
+                <div className="pv-hero__actions">
                     <Button className="pv-btn pv-btn--primary" onClick={onTalkToExpert}>{primaryButton}</Button>
                     <Button className="pv-btn pv-btn--outline" onClick={onExplore}>{secondaryButton}</Button>
-                </Box>
-            </Box>
-            <Box className="pv-stats">
+                </div>
+            </div>
+            <div className="pv-stats">
                 {stats.map(({ icon: Icon, value, label }) => (
-                    <Box key={label} className="pv-stats__item">
+                    <div key={label} className="pv-stats__item">
                         <Icon className="pv-stats__icon" />
-                        <Box>
+                        <div>
                             <Typography className="pv-stats__value">{value}</Typography>
                             <Typography className="pv-stats__label">{label}</Typography>
-                        </Box>
-                    </Box>
+                        </div>
+                    </div>
                 ))}
-            </Box>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

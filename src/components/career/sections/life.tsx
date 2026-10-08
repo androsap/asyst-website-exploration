@@ -1,5 +1,4 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
+import { Container } from "components/ui/container";
 import { useLocalized } from "shared/i18n";
 import { CareerLifeConst } from "consts/career.const";
 import SectionHeading from "components/product/shared/section-heading";
@@ -8,14 +7,14 @@ import SectionHeading from "components/product/shared/section-heading";
 export default function LifeSection() {
     const { title, description, images } = useLocalized(CareerLifeConst);
 
-    return <Box component="section" className="pv-section">
+    return <section className="pv-section">
         <Container maxWidth="xl">
             <SectionHeading title={title} description={description} />
-            <Box className="cr-gallery">
+            <div className="cr-gallery">
                 {images.map((image, index) => (
-                    <Box key={index} className="cr-gallery__item" sx={{ backgroundImage: `url(${image})` }} role="img" aria-label={`${title} ${index + 1}`} />
+                    <div key={index} className="cr-gallery__item" style={{ backgroundImage: `url(${image})` }} role="img" aria-label={`${title} ${index + 1}`} />
                 ))}
-            </Box>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

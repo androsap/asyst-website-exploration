@@ -1,16 +1,4 @@
-import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
-import AutorenewOutlinedIcon from "@mui/icons-material/AutorenewOutlined";
-import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import FactCheckOutlinedIcon from "@mui/icons-material/FactCheckOutlined";
-import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
-import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
-import ReceiptLongOutlinedIcon from "@mui/icons-material/ReceiptLongOutlined";
-import FlightOutlinedIcon from "@mui/icons-material/FlightOutlined";
-import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
-import FactoryOutlinedIcon from "@mui/icons-material/FactoryOutlined";
-import ApartmentOutlinedIcon from "@mui/icons-material/ApartmentOutlined";
-import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
+import { StorefrontOutlinedIcon, AutorenewOutlinedIcon, HubOutlinedIcon, FactCheckOutlinedIcon, MailOutlineOutlinedIcon, VisibilityOffOutlinedIcon, GroupsOutlinedIcon, ReceiptLongOutlinedIcon, FlightOutlinedIcon, AccountBalanceOutlinedIcon, FactoryOutlinedIcon, ApartmentOutlinedIcon, BoltOutlinedIcon } from "components/ui/icons";
 
 import imgPlaceholder from "assets/asyst/img/background/product/overview/background-product.webp";
 import { ProductDetailContent } from "consts/product-detail.const";

@@ -1,9 +1,5 @@
-import { SvgIconComponent } from "@mui/icons-material";
-import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
-import WidgetsOutlinedIcon from "@mui/icons-material/WidgetsOutlined";
-import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
+import { WorkspacePremiumOutlinedIcon, WidgetsOutlinedIcon, HubOutlinedIcon, PsychologyOutlinedIcon, SupportAgentOutlinedIcon } from "components/ui/icons";
+import { SvgIconComponent } from "components/ui/svg-icon";
 import { SolutionCtaContent, SolutionFaqContent, SolutionIconCard } from "./solution.const";
 
 import imgIntro from "assets/asyst/img/background/services-solutions/cargo.webp";

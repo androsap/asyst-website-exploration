@@ -1,15 +1,4 @@
-import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
-import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
-import AutorenewOutlinedIcon from "@mui/icons-material/AutorenewOutlined";
-import StorageOutlinedIcon from "@mui/icons-material/StorageOutlined";
-import ContentPasteOffOutlinedIcon from "@mui/icons-material/ContentPasteOffOutlined";
-import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import GavelOutlinedIcon from "@mui/icons-material/GavelOutlined";
-import FlightOutlinedIcon from "@mui/icons-material/FlightOutlined";
-import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
-import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
+import { AccountTreeOutlinedIcon, HubOutlinedIcon, InsightsOutlinedIcon, AutorenewOutlinedIcon, StorageOutlinedIcon, ContentPasteOffOutlinedIcon, VisibilityOffOutlinedIcon, GavelOutlinedIcon, FlightOutlinedIcon, BusinessOutlinedIcon, LocalShippingOutlinedIcon, AccountBalanceOutlinedIcon } from "components/ui/icons";
 
 import imgPlaceholder from "assets/asyst/img/background/product/overview/background-product.webp";
 import { ProductDetailContent } from "consts/product-detail.const";

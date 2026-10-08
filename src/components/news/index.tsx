@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Button } from "components/ui/button";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import "components/product/shared/product-v2.scss";
 import "./shared/news.scss";
@@ -56,17 +55,17 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
         setSearchParams(value === NEWS_ALL_CATEGORY ? {} : { category: value }, { replace: true });
     };
 
-    return <Box className="product-v2 news-v2">
-        <Box component="section" className="nw-hero">
+    return <div className="product-v2 news-v2">
+        <section className="nw-hero">
             <Container maxWidth="md">
                 <Typography variant="h1" className="nw-hero__title">{hero.title}</Typography>
                 <Typography className="nw-hero__description">{hero.description}</Typography>
             </Container>
-        </Box>
+        </section>
 
-        <Box component="section" className="pv-section pv-section--last">
+        <section className="pv-section pv-section--last">
             <Container maxWidth="xl">
-                <Box className="nw-filters" role="tablist" aria-label={t("News category", "Kategori berita")}>
+                <div className="nw-filters" role="tablist" aria-label={t("News category", "Kategori berita")}>
                     {NewsCategoriesConst.map(value => (
                         <button
                             key={value}
@@ -79,26 +78,26 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
                             {categoryLabel(value)}
                         </button>
                     ))}
-                </Box>
+                </div>
 
-                <Box className="nw-grid">
+                <div className="nw-grid">
                     {items.map(item => <NewsCard key={item.id} item={item} />)}
                     {loading && Array.from({ length: items.length ? 3 : NEWS_PAGE_SIZE }).map((_, i) => <NewsCardSkeleton key={i} />)}
-                </Box>
+                </div>
 
                 {!loading && !items.length && (
-                    <Box className="nw-empty">
+                    <div className="nw-empty">
                         <Typography>{error ? t("Failed to load news.", "Gagal memuat berita.") : t("No news in this category yet.", "Belum ada berita di kategori ini.")}</Typography>
                         {error && <Button className="pv-btn pv-btn--outline" onClick={() => load(0)}>{t("Try again", "Coba lagi")}</Button>}
-                    </Box>
+                    </div>
                 )}
 
                 {hasMore && !loading && (
-                    <Box className="nw-more">
+                    <div className="nw-more">
                         <Button className="pv-btn pv-btn--primary nw-more__button" onClick={() => load(items.length)}>{t("Show More", "Tampilkan Lebih Banyak")}</Button>
-                    </Box>
+                    </div>
                 )}
             </Container>
-        </Box>
-    </Box>
+        </section>
+    </div>
 }

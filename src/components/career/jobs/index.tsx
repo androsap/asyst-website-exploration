@@ -1,10 +1,9 @@
 import { CSSProperties, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import AutorenewRoundedIcon from "@mui/icons-material/AutorenewRounded";
+import { Button } from "components/ui/button";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
+import { AutorenewRoundedIcon } from "components/ui/icons";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import "components/product/shared/product-v2.scss";
 import "../shared/career.scss";
@@ -49,10 +48,10 @@ export default function CareerJobsComponent({ }: MainLayoutSharedProps) {
     const setFilter = (key: CareerFilterKey | "q", value?: string) =>
         setSearchParams(careerFilterParams({ ...filters, [key]: value }), { replace: true });
 
-    return <Box className="product-v2 career-v2">
+    return <div className="product-v2 career-v2">
         <JobsHeroSection filters={filters} onFilterChange={setFilter} />
 
-        <Box component="section" className="pv-section">
+        <section className="pv-section">
             <Container maxWidth="xl" className="cr-layout cr-layout--jobs">
                 <JobSidebar
                     filters={filters}
@@ -61,31 +60,31 @@ export default function CareerJobsComponent({ }: MainLayoutSharedProps) {
                     onKeywordChange={value => setFilter("q", value)}
                 />
 
-                <Box className="cr-layout__main">
+                <div className="cr-layout__main">
                     <Typography variant="h2" className="cr-title">{title}</Typography>
                     <Typography className="cr-text">{description}</Typography>
 
                     {/* key = query: daftar di-mount ulang tiap filter berubah agar animasi masuk diputar lagi */}
                     {results.length
-                        ? <Box key={query} className="cr-job-list cr-job-list--animated">
+                        ? <div key={query} className="cr-job-list cr-job-list--animated">
                             {results.slice(0, visible).map((job, i) => (
                                 <JobCard key={job.slug} job={job} variant="list" style={{ "--i": i % pageSize } as CSSProperties} />
                             ))}
-                        </Box>
-                        : <Box key={query} className="cr-empty cr-fade-in">
+                        </div>
+                        : <div key={query} className="cr-empty cr-fade-in">
                             <Typography>{emptyText}</Typography>
                             <Button className="pv-btn pv-btn--outline cr-btn--small" onClick={() => setSearchParams({}, { replace: true })}>{resetFilter}</Button>
-                        </Box>}
+                        </div>}
 
-                    {visible < results.length && <Box className="cr-center">
+                    {visible < results.length && <div className="cr-center">
                         <Button className="pv-btn pv-btn--outline cr-btn--pill" startIcon={<AutorenewRoundedIcon />} onClick={() => setVisible(v => v + pageSize)}>{loadMore}</Button>
-                    </Box>}
-                </Box>
+                    </div>}
+                </div>
             </Container>
-        </Box>
+        </section>
 
         <ConnectsSection />
         <ApplyStepsSection />
         <CareerFaq {...faq} />
-    </Box>
+    </div>
 }

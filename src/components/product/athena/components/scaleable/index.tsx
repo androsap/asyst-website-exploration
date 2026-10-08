@@ -1,6 +1,5 @@
-import Typography from "@mui/material/Typography"
+import { Typography } from "components/ui/typography";
 import { styles } from './styled'
-import Box from "@mui/material/Box"
 import { useState, useEffect, } from 'react'
 import { ScaleModel } from "models/amala/scale.model"
 import ScaleHelper from 'helper/athena/ScaleHelper'
@@ -26,12 +25,12 @@ export default function ScalableComponent() {
     // console.log("data nih", data.product?.product_name)
     return <>
         {!loading && data && (
-            <Box>
-                <Typography sx={styles.title}
+            <div>
+                <Typography className={styles.title}
                     dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "subtitle") || '') }} />
-                <Box display='flex' flexDirection='row' justifyContent='space-between'>
-                    <Box width='80%'>
-                        <Typography sx={styles.subtitle}
+                <div className="flex flex-row justify-between">
+                    <div className="w-[80%]">
+                        <Typography className={styles.subtitle}
                             dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
                         <div style={{ display: 'inline' }}>
                             <a
@@ -43,19 +42,16 @@ export default function ScalableComponent() {
                                 {data?.product?.product_name}{' '}
                             </a> 
                             <Typography
-                                sx={{
-                                    ...styles.description,
-                                    display: 'inline'
-                                }}
+                                className={`${styles.description} inline`}
                                 dangerouslySetInnerHTML={{
                                     __html: he.decode(apiText(data.product?.section, "description") || '')
                                 }}
                             />
                         </div>
-                    </Box>
-                    <img src={data.product?.section?.image1} style={{ paddingTop: 1, width: '166.163px', height: '173px' }} />
-                </Box>
-            </Box>
+                    </div>
+                    <img alt="" src={data.product?.section?.image1} style={{ paddingTop: 1, width: '166.163px', height: '173px' }} />
+                </div>
+            </div>
         )}
     </>
 

@@ -1,13 +1,5 @@
-import { SvgIconComponent } from "@mui/icons-material";
-import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
-import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
-import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
-import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
-import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
-import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
-import DevicesOutlinedIcon from "@mui/icons-material/DevicesOutlined";
-import SettingsSuggestOutlinedIcon from "@mui/icons-material/SettingsSuggestOutlined";
-import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
+import { AssignmentTurnedInOutlinedIcon, HandshakeOutlinedIcon, VerifiedUserOutlinedIcon, GroupsOutlinedIcon, EmojiEventsOutlinedIcon, Inventory2OutlinedIcon, DevicesOutlinedIcon, SettingsSuggestOutlinedIcon, HubOutlinedIcon } from "components/ui/icons";
+import { SvgIconComponent } from "components/ui/svg-icon";
 import imgHero from "assets/asyst/img/background/career/env1.webp";
 import imgLife1 from "assets/asyst/img/background/career/env2.webp";
 import imgLife2 from "assets/asyst/img/background/career/env1.webp";

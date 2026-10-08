@@ -1,7 +1,4 @@
-import ApartmentOutlinedIcon from "@mui/icons-material/ApartmentOutlined";
-import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import DashboardCustomizeOutlinedIcon from "@mui/icons-material/DashboardCustomizeOutlined";
-import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
+import { ApartmentOutlinedIcon, HubOutlinedIcon, DashboardCustomizeOutlinedIcon, SupportAgentOutlinedIcon } from "components/ui/icons";
 import { SolutionCtaContent, SolutionFaqContent, SolutionHeroContent, SolutionIconCard, SolutionTabPanelItem } from "./solution.const";
 
 import imgHero from "assets/img/background/solutions/image-solutions-1.webp";

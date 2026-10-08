@@ -1,9 +1,8 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import ButtonBase from "@mui/material/ButtonBase";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import YouTubeIcon from "@mui/icons-material/YouTube";
+import { ButtonBase } from "components/ui/button-base";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
+import { YouTubeIcon } from "components/ui/icons";
 import { PrinciplesConst } from "consts/about-us.const";
 import { useLocalized } from "shared/i18n";
 
@@ -13,9 +12,9 @@ export default function PrinciplesSection() {
     const [activeIndex, setActiveIndex] = useState(defaultTab);
     const [playing, setPlaying] = useState(false);
 
-    return <Box component="section" className="home-section">
+    return <section className="home-section">
         <Container maxWidth="xl">
-            <Box className="about-principles__tabs" role="tablist">
+            <div className="about-principles__tabs" role="tablist">
                 {tabs.map(({ label }, index) => (
                     <ButtonBase
                         key={index}
@@ -27,17 +26,17 @@ export default function PrinciplesSection() {
                         {label}
                     </ButtonBase>
                 ))}
-            </Box>
-            <Box className="about-principles">
-                <Box className="about-principles__list" role="tabpanel">
+            </div>
+            <div className="about-principles">
+                <div className="about-principles__list" role="tabpanel">
                     {tabs[activeIndex].items.map(({ title, description }, index) => (
-                        <Box key={index} className="about-principles__item">
+                        <div key={index} className="about-principles__item">
                             <Typography className="about-principles__title">{title}</Typography>
                             <Typography className="about-principles__description">{description}</Typography>
-                        </Box>
+                        </div>
                     ))}
-                </Box>
-                <Box className="about-principles__video">
+                </div>
+                <div className="about-principles__video">
                     {playing && videoEmbedUrl
                         ? <iframe
                             src={`${videoEmbedUrl}?autoplay=1`}
@@ -55,8 +54,8 @@ export default function PrinciplesSection() {
                             <YouTubeIcon className="about-principles__play" />
                         </ButtonBase>
                     }
-                </Box>
-            </Box>
+                </div>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { Link } from "react-router-dom";
 import { ProductSolveConst } from "consts/product.const";
 import { useLocalized } from "shared/i18n";
@@ -18,18 +17,18 @@ export default function SolveSection() {
         solve.items.forEach(({ image }) => { new Image().src = image; });
     }, [solve.items]);
 
-    return <Box component="section" className="pv-section">
+    return <section className="pv-section">
         <Container maxWidth="xl">
             <SectionHeading title={solve.title} description={solve.description} align="left" />
-            <Box className="pv-solve">
+            <div className="pv-solve">
                 <TabBar
                     variant="segment"
                     labels={solve.items.map(x => x.label)}
                     active={activeIndex}
                     onChange={setActiveIndex}
                 />
-                <Box key={activeIndex} className="pv-solve__panel" role="tabpanel">
-                    <Box>
+                <div key={activeIndex} className="pv-solve__panel" role="tabpanel">
+                    <div>
                         <Typography className="pv-solve__title">{active.title}</Typography>
                         <Typography className="pv-solve__description">{active.description}</Typography>
                         <ul className="pv-list">
@@ -37,15 +36,15 @@ export default function SolveSection() {
                         </ul>
                         <Typography className="pv-solve__subtitle">{active.subtitle}</Typography>
                         <Typography className="pv-solve__description" dangerouslySetInnerHTML={{ __html: active.subDescription }} />
-                        <Box className="pv-chips">
+                        <div className="pv-chips">
                             {active.links.map(({ label, link }) => <Link key={label} to={link} className="pv-chip">{label}</Link>)}
-                        </Box>
-                    </Box>
-                    <Box className="pv-media">
+                        </div>
+                    </div>
+                    <div className="pv-media">
                         <img src={active.image} alt={active.title} />
-                    </Box>
-                </Box>
-            </Box>
+                    </div>
+                </div>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

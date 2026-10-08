@@ -1,6 +1,5 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -12,7 +11,7 @@ import SectionHeading from "./section-heading";
 export default function EnterpriseHighlightSection() {
     const { title, description, items } = useLocalized(EnterpriseHighlightConst);
 
-    return <Box component="section" className="home-section home-highlight__section">
+    return <section className="home-section home-highlight__section">
         <Container maxWidth="xl">
             <SectionHeading title={title} description={description} />
             <Swiper
@@ -25,16 +24,16 @@ export default function EnterpriseHighlightSection() {
             >
                 {items.map(({ icon: Icon, title, description }) => (
                     <SwiperSlide key={title}>
-                        <Box className="home-highlight">
-                            <Box className="home-icon-tile"><Icon /></Box>
-                            <Box>
+                        <div className="home-highlight">
+                            <div className="home-icon-tile"><Icon /></div>
+                            <div>
                                 <Typography className="home-highlight__title">{title}</Typography>
                                 <Typography className="home-highlight__description">{description}</Typography>
-                            </Box>
-                        </Box>
+                            </div>
+                        </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
         </Container>
-    </Box>
+    </section>
 }

@@ -1,11 +1,10 @@
 import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import ButtonBase from "@mui/material/ButtonBase";
-import Container from "@mui/material/Container";
-import InputBase from "@mui/material/InputBase";
-import Typography from "@mui/material/Typography";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import { Button } from "components/ui/button";
+import { ButtonBase } from "components/ui/button-base";
+import { Container } from "components/ui/container";
+import { InputBase } from "components/ui/input-base";
+import { Typography } from "components/ui/typography";
+import { SearchRoundedIcon } from "components/ui/icons";
 import { CaseStudiesConst, CaseStudyExplorerConst, CaseStudyFilterTabsConst, CaseStudyItem, CaseStudyFilterKey, CaseStudyTermsConst } from "consts/case-study.const";
 import { useLocalized, useTerms } from "shared/i18n";
 import TabBar from "components/product/shared/tab-bar";
@@ -52,11 +51,11 @@ export default function ExplorerSection() {
         resetPaging();
     };
 
-    return <Box component="section" id={CASE_STUDY_SECTION_IDS.explorer} className="pv-section pv-anchor">
+    return <section id={CASE_STUDY_SECTION_IDS.explorer} className="pv-section pv-anchor">
         <Container maxWidth="xl">
-            <Box className="cs-explorer__toolbar">
+            <div className="cs-explorer__toolbar">
                 <TabBar variant="pill" labels={filterTabs.map(x => x.label)} active={tabIndex} onChange={changeTab} />
-                <Box className="cs-search">
+                <div className="cs-search">
                     <SearchRoundedIcon className="cs-search__icon" />
                     <InputBase
                         className="cs-search__input"
@@ -65,10 +64,10 @@ export default function ExplorerSection() {
                         onChange={e => { setSearch(e.target.value); resetPaging(); }}
                         inputProps={{ "aria-label": searchPlaceholder }}
                     />
-                </Box>
-            </Box>
+                </div>
+            </div>
 
-            <Box className="cs-filters" role="group" aria-label={tab.label}>
+            <div className="cs-filters" role="group" aria-label={tab.label}>
                 {[null, ...tab.options].map(option => (
                     <ButtonBase
                         key={option ?? allLabel}
@@ -79,17 +78,17 @@ export default function ExplorerSection() {
                         {option ? term(option) : allLabel}
                     </ButtonBase>
                 ))}
-            </Box>
+            </div>
 
             {results.length
-                ? <Box className="cs-grid">
+                ? <div className="cs-grid">
                     {results.slice(0, visible).map(item => <CaseCard key={item.slug} item={item} />)}
-                </Box>
+                </div>
                 : <Typography className="cs-empty">{emptyText}</Typography>}
 
-            {visible < results.length && <Box className="cs-explorer__more">
+            {visible < results.length && <div className="cs-explorer__more">
                 <Button className="pv-btn pv-btn--primary cs-btn--small" onClick={() => setVisible(v => v + pageSize)}>{loadMore}</Button>
-            </Box>}
+            </div>}
         </Container>
-    </Box>
+    </section>
 }

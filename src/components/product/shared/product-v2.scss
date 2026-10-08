@@ -18,7 +18,7 @@ $mobile: 599px;
     font-family: $font-body;
     background: #fff;
 
-    .MuiTypography-root {
+    [data-slot="typography"] {
         font-family: inherit;
     }
 
@@ -99,7 +99,7 @@ $mobile: 599px;
         margin-top: -12px;
     }
 
-    .pv-btn.MuiButton-root {
+    .pv-btn[data-slot="button"] {
         font-family: $font-heading;
         font-size: 16px;
         font-weight: 600;
@@ -110,7 +110,7 @@ $mobile: 599px;
         box-shadow: none;
     }
 
-    .pv-btn--primary.MuiButton-root {
+    .pv-btn--primary[data-slot="button"] {
         background: linear-gradient(180deg, #2775BB 0%, #2775BB 100%);
         color: #fff;
 
@@ -119,7 +119,7 @@ $mobile: 599px;
         }
     }
 
-    .pv-btn--outline.MuiButton-root {
+    .pv-btn--outline[data-slot="button"] {
         border: 1px solid $blue;
         color: $blue;
         background: rgba(255, 255, 255, 0.6);
@@ -132,7 +132,7 @@ $mobile: 599px;
         }
     }
 
-    .pv-btn--white.MuiButton-root {
+    .pv-btn--white[data-slot="button"] {
         background: #fff;
         color: $blue;
         padding: 14px 36px;
@@ -147,8 +147,8 @@ $mobile: 599px;
 
     // Mobile: ukuran tombol diseragamkan dengan tombol hero Home
     @media (max-width: $mobile) {
-        .pv-btn.MuiButton-root,
-        .pv-btn--white.MuiButton-root {
+        .pv-btn[data-slot="button"],
+        .pv-btn--white[data-slot="button"] {
             padding: 16px 28px;
             font-size: 18px;
             border-radius: 10px;
@@ -161,8 +161,8 @@ $mobile: 599px;
     .sv-hero,
     .cs-hero,
     .cr-hero {
-        .pv-btn--primary.MuiButton-root,
-        .pv-btn--outline.MuiButton-root {
+        .pv-btn--primary[data-slot="button"],
+        .pv-btn--outline[data-slot="button"] {
             isolation: isolate;
             transition: color 0.3s ease-out, border-color 0.3s ease-out;
 
@@ -181,7 +181,7 @@ $mobile: 599px;
             }
         }
 
-        .pv-btn--primary.MuiButton-root {
+        .pv-btn--primary[data-slot="button"] {
             &::before {
                 background: $blue;
             }
@@ -191,7 +191,7 @@ $mobile: 599px;
             }
         }
 
-        .pv-btn--outline.MuiButton-root {
+        .pv-btn--outline[data-slot="button"] {
             // menutupi border 1px supaya sudutnya tidak menyisakan garis terang
             &::before {
                 inset: -1px;
@@ -548,7 +548,7 @@ $mobile: 599px;
                 flex-direction: column;
                 gap: 16px;
 
-                .pv-btn.MuiButton-root {
+                .pv-btn[data-slot="button"] {
                     width: 100%;
                 }
             }
@@ -969,7 +969,7 @@ $mobile: 599px;
             text-align: left;
 
             // Pengganti ripple: tanpa perubahan background, cukup outline saat fokus keyboard
-            &.Mui-focusVisible {
+            &[data-focus-visible="true"] {
                 outline: 2px solid rgba(39, 117, 187, .4);
                 outline-offset: 2px;
                 border-radius: 4px;

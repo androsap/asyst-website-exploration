@@ -28,7 +28,7 @@ $mobile: 599px;
         }
     }
 
-    .pv-btn.cs-btn--small.MuiButton-root {
+    .pv-btn.cs-btn--small[data-slot="button"] {
         font-size: 14px;
         padding: 8px 20px;
     }
@@ -54,7 +54,7 @@ $mobile: 599px;
         border: 1px solid #B9D3EC;
     }
 
-    .cs-slider-arrow.MuiIconButton-root {
+    .cs-slider-arrow[data-slot="icon-button"] {
         position: absolute;
         top: 50%;
         z-index: 2;
@@ -71,15 +71,15 @@ $mobile: 599px;
         }
     }
 
-    .cs-slider-arrow--prev.MuiIconButton-root {
+    .cs-slider-arrow--prev[data-slot="icon-button"] {
         left: 8px;
     }
 
-    .cs-slider-arrow--next.MuiIconButton-root {
+    .cs-slider-arrow--next[data-slot="icon-button"] {
         right: 8px;
     }
 
-    .cs-slider-arrow--dark.MuiIconButton-root {
+    .cs-slider-arrow--dark[data-slot="icon-button"] {
         background: rgba(18, 53, 84, 0.35);
         border-color: rgba(255, 255, 255, 0.7);
         color: #fff;
@@ -146,7 +146,7 @@ $mobile: 599px;
             }
         }
 
-        .cs-hero__button.MuiButton-root {
+        .cs-hero__button[data-slot="button"] {
             margin-top: 40px;
         }
 
@@ -170,7 +170,7 @@ $mobile: 599px;
                 margin-right: auto;
             }
 
-            .cs-hero__button.MuiButton-root {
+            .cs-hero__button[data-slot="button"] {
                 margin-top: 32px;
             }
         }
@@ -240,7 +240,7 @@ $mobile: 599px;
             color: $text;
         }
 
-        .MuiButton-root {
+        [data-slot="button"] {
             margin-top: 24px;
         }
     }
@@ -461,7 +461,7 @@ $mobile: 599px;
             line-height: 1.6;
         }
 
-        .MuiButton-root {
+        [data-slot="button"] {
             margin-top: auto;
         }
     }
@@ -502,7 +502,7 @@ $mobile: 599px;
             line-height: 1.6;
         }
 
-        .MuiButton-root {
+        [data-slot="button"] {
             flex-shrink: 0;
         }
     }
@@ -812,11 +812,11 @@ $mobile: 599px;
             top: 45%;
         }
 
-        .cs-slider-arrow--next.MuiIconButton-root {
+        .cs-slider-arrow--next[data-slot="icon-button"] {
             right: 24px;
         }
 
-        .cs-slider-arrow--prev.MuiIconButton-root {
+        .cs-slider-arrow--prev[data-slot="icon-button"] {
             left: 24px;
         }
     }

@@ -1,5 +1,4 @@
-import Typography from "@mui/material/Typography"
-import Box from "@mui/material/Box"
+import { Typography } from "components/ui/typography";
 import { styles, contentStyles } from './styled'
 import { Virtual, Navigation } from 'swiper/modules';
 
@@ -21,7 +20,7 @@ const CustomersComponent: React.FC<CustomersProps> = ({ corporate }) => {
     // console.log("customer", corporate)
     return (
         <>
-            <Typography sx={styles.title}>
+            <Typography className={styles.title}>
                 {t("Trusted by Leading Businesses", "Dipercaya oleh Bisnis Terkemuka")}
             </Typography>
             <Swiper
@@ -38,9 +37,9 @@ const CustomersComponent: React.FC<CustomersProps> = ({ corporate }) => {
                 {corporate.product?.customers?.length > 0 && Children.toArray(corporate?.product?.customers
                     .map((item, index) =>
                         <SwiperSlide key={`slide-${index}`} virtualIndex={index} style={contentStyles.logoSwiperSlider}>
-                            <Box display='flex' flexDirection='row' justifyContent='center' alignItems='space-evenly'>
-                                <img src={item.company_logo} style={{ width: "301", height: "70px" }}/>
-                            </Box>
+                            <div className="flex flex-row justify-center [align-items:space-evenly]">
+                                <img alt="" src={item.company_logo} style={{ width: "301", height: "70px" }}/>
+                            </div>
                         </SwiperSlide>
                     ))}
             </Swiper>

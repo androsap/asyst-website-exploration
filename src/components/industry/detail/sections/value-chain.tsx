@@ -1,5 +1,4 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
+import { Container } from "components/ui/container";
 import { IndustryDetailContent } from "consts/industry-detail.const";
 import SectionHeading from "components/product/shared/section-heading";
 import HoverPopover from "components/industry/shared/hover-popover";
@@ -14,7 +13,7 @@ const EDGE_STEPS = 2;
 export default function ValueChainSection({ content }: ValueChainSectionProps) {
     const { steps } = content;
 
-    return <Box component="section" className="pv-section">
+    return <section className="pv-section">
         <Container maxWidth="xl">
             <SectionHeading title={content.title} description={content.description} />
             <ol className="iv-chain">
@@ -33,5 +32,5 @@ export default function ValueChainSection({ content }: ValueChainSectionProps) {
                 })}
             </ol>
         </Container>
-    </Box>
+    </section>
 }

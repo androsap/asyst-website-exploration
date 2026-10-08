@@ -1,16 +1,4 @@
-import WidgetsOutlinedIcon from "@mui/icons-material/WidgetsOutlined";
-import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
-import SpeedOutlinedIcon from "@mui/icons-material/SpeedOutlined";
-import ViewTimelineOutlinedIcon from "@mui/icons-material/ViewTimelineOutlined";
-import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
-import ScheduleOutlinedIcon from "@mui/icons-material/ScheduleOutlined";
-import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import IntegrationInstructionsOutlinedIcon from "@mui/icons-material/IntegrationInstructionsOutlined";
-import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
-import ComputerOutlinedIcon from "@mui/icons-material/ComputerOutlined";
-import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
-import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
+import { WidgetsOutlinedIcon, AutoAwesomeOutlinedIcon, SpeedOutlinedIcon, ViewTimelineOutlinedIcon, TrendingUpOutlinedIcon, ScheduleOutlinedIcon, TimelineOutlinedIcon, PsychologyOutlinedIcon, IntegrationInstructionsOutlinedIcon, AccountTreeOutlinedIcon, ComputerOutlinedIcon, EngineeringOutlinedIcon, GroupsOutlinedIcon } from "components/ui/icons";
 
 import imgDashboard from "assets/asyst/img/background/product/project-management/dashboard.webp";
 import imgAiInsights from "assets/asyst/img/background/product/project-management/ai-insights.webp";

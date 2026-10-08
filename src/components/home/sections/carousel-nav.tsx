@@ -1,8 +1,5 @@
-import IconButton from "@mui/material/IconButton";
-import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
-import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
-import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
-import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import { IconButton } from "components/ui/icon-button";
+import { ChevronLeftRoundedIcon, ChevronRightRoundedIcon, ArrowBackRoundedIcon, ArrowForwardRoundedIcon } from "components/ui/icons";
 import { useT } from "shared/i18n";
 
 interface CarouselNavProps {

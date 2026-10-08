@@ -1,9 +1,5 @@
-import { bgsSnackbar } from "@andrydharmawan/bgs-component";
-import Alert, { AlertColor } from "@mui/material/Alert";
-import IconButton from "@mui/material/IconButton";
 import CryptoJS from 'crypto-js';
 import { useEffect, useState } from "react";
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 export function generateUUID() {
     var d = new Date().getTime();
@@ -164,17 +160,6 @@ export function objectToQueryString(params: { [key: string]: any }): string {
     return encodeURI(encryptText(keyValuePairs.join('&')));
 }
 
-
-interface SnackbarProps {
-    severity?: AlertColor;
-    message: string;
-}
-export const snackbar = ({ severity, message }: SnackbarProps) => bgsSnackbar({
-    vertical: "bottom",
-    duration: 5000,
-    horizontal: "center",
-    render: ({ hide }) => <Alert action={<IconButton onClick={() => hide()}><CloseRoundedIcon /></IconButton>} severity={severity || "error"} sx={{ maxWidth: "450px", minHeight: "34px", width: "80%", display: "flex", alignItems: "center" }}>{message}</Alert>
-})
 
 export const scrollTo = (ref: React.RefObject<HTMLDivElement> | null) => {
     if (ref && ref.current) {

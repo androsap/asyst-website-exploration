@@ -1,4 +1,4 @@
-import { bgsModal } from "@andrydharmawan/bgs-component";
+import { openModal } from "components/ui/modal-host";
 import RequestDemoComponent from "components/home/components/request-demo";
 import { AskAsystTopic } from "consts/ask-asyst.const";
 import AskAsystModal from "./ask-asyst-modal";
@@ -11,19 +11,19 @@ export const useTalkToExpert = (defaultTopic?: AskAsystTopic) => {
 };
 
 export const requestDemoModal = () => {
-    bgsModal({
-        isBlur: true,
+    openModal({
+        title: "Request Demo",
         className: "customBgsModal",
-        render: (e) => <RequestDemoComponent hide={e.hide} />
+        render: ({ hide }) => <RequestDemoComponent hide={hide} />
     })
 };
 
 /** Modal "Let's Discuss your Business Challenge" (desain revamp 2026). */
 export const askAsystModal = (defaultTopic?: AskAsystTopic) => {
-    bgsModal({
-        isBlur: true,
+    openModal({
+        title: "Ask Asyst",
         className: "askAsystBgsModal",
-        render: (e) => <AskAsystModal hide={() => e.hide()} defaultTopic={defaultTopic} />
+        render: ({ hide }) => <AskAsystModal hide={hide} defaultTopic={defaultTopic} />
     })
 };
 

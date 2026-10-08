@@ -3,10 +3,8 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { FreeMode } from 'swiper/modules';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import { styles } from './styled';
+import { Typography } from "components/ui/typography";
+import { mainBoxStyle, profileImageStyle, styles } from './styled';
 import { ProductTestimonialModel } from "models/amala/testimonial.model";
 import { Children } from 'react';
 import he from 'he'
@@ -23,7 +21,7 @@ const TestimonialComponent: React.FC<TestimonialProps> = ({ testimonial }) => {
 
     return (
         <>
-            <Typography sx={styles.title}>
+            <Typography className={styles.title}>
                 {t("What they said", "Kata mereka")}
             </Typography>
             <div className="testimonials">
@@ -38,37 +36,35 @@ const TestimonialComponent: React.FC<TestimonialProps> = ({ testimonial }) => {
                         .map((item, index) =>
                             Children.toArray(item?.corporate_testimonial?.map(testimonial =>
                                 <SwiperSlide key={index}>
-                                    <Box
-                                        sx={{
-                                            ...styles.mainBox,
-                                            // maxWidth: index === testimonial.length - 1 ? '535px' : '552px'
-                                        }}
+                                    <div
+                                        className={styles.mainBox}
+                                        style={mainBoxStyle}
                                     >
-                                        <Grid container>
-                                            <Grid item xs={12} sx={styles.quoteGrid}>
-                                                <Box className='box-review'>
-                                                    <Typography sx={styles.quote}>
+                                        <div className="box-border flex flex-wrap w-full flex-row">
+                                            <div className={`box-border m-0 flex-row grow-0 basis-[100%] max-w-[100%] ${styles.quoteGrid}`}>
+                                                <div className='box-review'>
+                                                    <Typography className={styles.quote}>
                                                         {apiText(testimonial, "review")}
                                                     </Typography>
-                                                </Box>
-                                            </Grid>
-                                        </Grid>
-                                        <Grid container sx={styles.profileContainer}>
-                                            <Grid item xs={2.5}>
-                                                <Box sx={styles.profileImage}>
-                                                    <img src={testimonial.image1} style={styles.profileImage} alt={testimonial.name} />
-                                                </Box>
-                                            </Grid>
-                                            <Grid item xs={9.5}>
-                                                <Typography sx={styles.name}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={`box-border flex flex-wrap w-full flex-row ${styles.profileContainer}`}>
+                                            <div className="box-border m-0 flex-row grow-0 basis-[20.833333%] max-w-[20.833333%]">
+                                                <div className={styles.profileImage}>
+                                                    <img src={testimonial.image1} style={profileImageStyle} alt={testimonial.name} />
+                                                </div>
+                                            </div>
+                                            <div className="box-border m-0 flex-row grow-0 basis-[79.166667%] max-w-[79.166667%]">
+                                                <Typography className={styles.name}
                                                     dangerouslySetInnerHTML={{ __html: he.decode(testimonial.name) }} />
-                                                <Typography sx={styles.position}
+                                                <Typography className={styles.position}
                                                     dangerouslySetInnerHTML={{ __html: he.decode(testimonial.position) }} />
-                                                <Typography sx={styles.company}
+                                                <Typography className={styles.company}
                                                     dangerouslySetInnerHTML={{ __html: he.decode(testimonial.company) }} />
-                                            </Grid>
-                                        </Grid>
-                                    </Box>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </SwiperSlide>
                             ))
                         ))}

@@ -1,7 +1,6 @@
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import Divider from '@mui/material/Divider'
-import Container from '@mui/material/Container'
+import { Typography } from "components/ui/typography";
+import { Divider } from "components/ui/divider";
+import { Container } from "components/ui/container";
 import { styles } from './styled'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Pagination, Mousewheel } from 'swiper/modules'
@@ -45,32 +44,32 @@ const FeatureComponent: React.FC<FeaturesProps> = ({ feature, prevElement, nextE
         if (!section) return null
 
         return (
-            <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-evenly" sx={{ height: "100vh" }}>
+            <div className="flex flex-col items-center justify-evenly h-[100vh]">
                 <Container maxWidth="xl">
-                    <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" gap={5}>
-                        <Box display="flex" flexDirection="column" width="90%">
-                            <Typography sx={styles.feature}>{t(`${feature?.product_name} Feature`, `Fitur ${feature?.product_name}`)}</Typography>
-                            <Typography sx={styles.title} dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "title") || '') }} />
-                            <Typography sx={styles.subtitle} dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "subtitle") || '') }} />
+                    <div className="flex flex-row items-center justify-between gap-[80px]">
+                        <div className="flex flex-col w-[90%]">
+                            <Typography className={styles.feature}>{t(`${feature?.product_name} Feature`, `Fitur ${feature?.product_name}`)}</Typography>
+                            <Typography className={styles.title} dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "title") || '') }} />
+                            <Typography className={styles.subtitle} dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "subtitle") || '') }} />
                             {section.sub_section_1.map((subsection, index) => (
-                                <Box key={`subsection-${index}`}>
-                                    <Typography sx={styles.description}>{apiText(subsection, "title")}</Typography>
-                                    <Typography sx={styles.subdescription}>{apiText(subsection, "description")}</Typography>
+                                <div key={`subsection-${index}`}>
+                                    <Typography className={styles.description}>{apiText(subsection, "title")}</Typography>
+                                    <Typography className={styles.subdescription}>{apiText(subsection, "description")}</Typography>
                                     {index + 1 !== section.sub_section_1.length && (
-                                        <Box paddingBottom="15px">
+                                        <div className="pb-[15px]">
                                             <Divider style={{ borderColor: '#FFFFFF1A' }} orientation="horizontal" flexItem />
-                                        </Box>
+                                        </div>
                                     )}
-                                </Box>
+                                </div>
                             ))}
-                        </Box>
-                        <Box sx={{ textAlign: 'right' }}>
+                        </div>
+                        <div className="text-right">
                             <img src={frame} style={{ position: 'relative', top: '5px', width: '625px', height: '28.194px' }} alt="frame" />
                             <img src={section.image1} style={{ width: '625px', height: '380px', borderRadius: '0px 0px 16px 16px' }} alt={`Image ${sectionIndex}`} />
-                        </Box>
-                    </Box>
+                        </div>
+                    </div>
                 </Container>
-            </Box>
+            </div>
         )
     }
 
@@ -124,7 +123,7 @@ const FeatureComponent: React.FC<FeaturesProps> = ({ feature, prevElement, nextE
     }, [])
 
     return (
-        <Box ref={elementRef} sx={{ backgroundImage: `url(${background})`, backgroundSize: "cover", height: "100vh", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed" }}>
+        <div ref={elementRef} className="[background-size:cover] h-[100vh] [background-repeat:no-repeat] [background-attachment:fixed]" style={{ backgroundImage: `url(${background})` }}>
             {feature.product?.section?.length === 1 ? (
                 <FeatureContentBox feature={feature.product} sectionIndex={0} />
             ) : feature.product?.section?.length > 0 && (
@@ -161,11 +160,11 @@ const FeatureComponent: React.FC<FeaturesProps> = ({ feature, prevElement, nextE
                                 <FeatureContentBox feature={feature.product} sectionIndex={index} />
                             </SwiperSlide>
                         ))}
-                        <Box className="swiper-pagination" sx={styles.swiperPagination} />
+                        <div className={`swiper-pagination ${styles.swiperPagination}`} />
                     </Swiper>
                 </>
             )}
-        </Box>
+        </div>
     )
 }
 

@@ -80,7 +80,7 @@ $mobile: 599px;
             }
         }
 
-        &__clear.MuiIconButton-root {
+        &__clear[data-slot="icon-button"] {
             color: $text;
         }
     }
@@ -191,7 +191,7 @@ $mobile: 599px;
         }
     }
 
-    .sr-more.MuiButton-root {
+    .sr-more[data-slot="button"] {
         margin-top: 28px;
         padding: 12px 22px;
         font-family: inherit;
@@ -199,7 +199,7 @@ $mobile: 599px;
         font-weight: 400;
         background: #fff;
 
-        .MuiButton-startIcon {
+        [data-slot="button-start-icon"] {
             margin-right: 12px;
         }
     }

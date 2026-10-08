@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { SolutionTabPanelItem } from "consts/solution.const";
 import SectionHeading from "components/product/shared/section-heading";
 import TabBar from "components/product/shared/tab-bar";
@@ -18,13 +17,13 @@ export default function TabbedPanelSection({ title, description, items, id }: Ta
     const [activeIndex, setActiveIndex] = useState(0);
     const active = items[activeIndex];
 
-    return <Box component="section" id={id} className={`pv-section ${id ? "pv-anchor" : ""}`}>
+    return <section id={id} className={`pv-section ${id ? "pv-anchor" : ""}`}>
         <Container maxWidth="xl">
             <SectionHeading title={title} description={description} />
-            <Box className="pv-solve">
+            <div className="pv-solve">
                 <TabBar variant="segment" labels={items.map(x => x.label)} active={activeIndex} onChange={setActiveIndex} />
-                <Box className="pv-solve__panel" role="tabpanel">
-                    <Box>
+                <div className="pv-solve__panel" role="tabpanel">
+                    <div>
                         <Typography className="pv-solve__title">{active.title}</Typography>
                         <Typography className="pv-solve__description">{active.description}</Typography>
                         <ul className="pv-list">
@@ -34,15 +33,15 @@ export default function TabbedPanelSection({ title, description, items, id }: Ta
                         {active.subPoints && <ul className="pv-list">
                             {active.subPoints.map(point => <li key={point}>{point}</li>)}
                         </ul>}
-                        {active.tags && <Box className="pv-chips">
+                        {active.tags && <div className="pv-chips">
                             {active.tags.map(tag => <span key={tag} className="sv-chip">{tag}</span>)}
-                        </Box>}
-                    </Box>
-                    <Box className="pv-media">
+                        </div>}
+                    </div>
+                    <div className="pv-media">
                         <img src={active.image} alt={active.title} loading="lazy" />
-                    </Box>
-                </Box>
-            </Box>
+                    </div>
+                </div>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

@@ -1,6 +1,5 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { ProductDetailContent } from "consts/product-detail.const";
 import SectionHeading from "../../shared/section-heading";
 
@@ -11,26 +10,26 @@ interface OverviewSectionProps {
 export default function OverviewSection({ content }: OverviewSectionProps) {
     const { title, paragraphs, image, challenges } = content;
 
-    return <Box component="section" className="pv-section">
+    return <section className="pv-section">
         <Container maxWidth="xl">
-            <Box className="pv-split">
-                <Box>
+            <div className="pv-split">
+                <div>
                     <SectionHeading title={title} align="left" />
                     {paragraphs.map(text => <Typography key={text} className="pv-paragraph">{text}</Typography>)}
-                </Box>
-                <Box className="pv-media">
+                </div>
+                <div className="pv-media">
                     <img src={image} alt={title} loading="lazy" />
-                </Box>
-            </Box>
-            <Box className="pv-grid pv-grid--4 pv-overview__challenges">
+                </div>
+            </div>
+            <div className="pv-grid pv-grid--4 pv-overview__challenges">
                 {challenges.map(({ icon: Icon, title, description }) => (
-                    <Box key={title} className="pv-card pv-card--soft">
+                    <div key={title} className="pv-card pv-card--soft">
                         <Icon className="pv-card__icon" />
                         <Typography className="pv-card__title">{title}</Typography>
                         <Typography className="pv-card__description">{description}</Typography>
-                    </Box>
+                    </div>
                 ))}
-            </Box>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

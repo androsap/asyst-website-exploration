@@ -1,16 +1,4 @@
-import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import FormatQuoteOutlinedIcon from "@mui/icons-material/FormatQuoteOutlined";
-import CloudOutlinedIcon from "@mui/icons-material/CloudOutlined";
-import FolderOffOutlinedIcon from "@mui/icons-material/FolderOffOutlined";
-import ManageSearchOutlinedIcon from "@mui/icons-material/ManageSearchOutlined";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-import EventBusyOutlinedIcon from "@mui/icons-material/EventBusyOutlined";
-import FlightOutlinedIcon from "@mui/icons-material/FlightOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import ApartmentOutlinedIcon from "@mui/icons-material/ApartmentOutlined";
-import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
-import GavelOutlinedIcon from "@mui/icons-material/GavelOutlined";
+import { DescriptionOutlinedIcon, AdminPanelSettingsOutlinedIcon, FormatQuoteOutlinedIcon, CloudOutlinedIcon, FolderOffOutlinedIcon, ManageSearchOutlinedIcon, LockOpenOutlinedIcon, EventBusyOutlinedIcon, FlightOutlinedIcon, ShoppingCartOutlinedIcon, ApartmentOutlinedIcon, SchoolOutlinedIcon, GavelOutlinedIcon } from "components/ui/icons";
 
 import imgDashboard from "assets/asyst/img/background/product/smart-document/dashboard.webp";
 import imgAskAi from "assets/asyst/img/background/product/smart-document/ask-ai.webp";

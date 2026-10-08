@@ -47,7 +47,7 @@ $mobile: 599px;
             padding: 110px 0 48px;
         }
 
-        &__inner.MuiContainer-root {
+        &__inner[data-slot="container"] {
             display: grid;
             grid-template-columns: 1.15fr 1fr;
             gap: 48px;
@@ -106,7 +106,7 @@ $mobile: 599px;
                 flex-direction: column;
                 gap: 16px;
 
-                .pv-btn.MuiButton-root {
+                .pv-btn[data-slot="button"] {
                     width: 100%;
                 }
             }

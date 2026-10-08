@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import "components/product/shared/product-v2.scss";
 import "../shared/solution-v2.scss";
 import { SolutionDetailContent } from "consts/solution-detail.const";
@@ -20,7 +19,7 @@ interface SolutionDetailProps {
 export default function SolutionDetail({ content }: SolutionDetailProps) {
     const talkToExpert = useTalkToExpert("it-solutions");
 
-    return <Box className="product-v2 solution-v2">
+    return <div className="product-v2 solution-v2">
         <SolutionHero content={content.hero} onPrimary={talkToExpert} onSecondary={() => scrollToSection(SOLUTION_SECTION_IDS.definition)} />
         <ChallengeSection content={content.challenge} />
         <DefinitionSection content={content.definition} />
@@ -28,5 +27,5 @@ export default function SolutionDetail({ content }: SolutionDetailProps) {
         <IconCardsSection {...content.why} />
         <FaqSection content={content.faq} />
         <CtaSection {...content.cta} onClick={talkToExpert} />
-    </Box>
+    </div>
 }

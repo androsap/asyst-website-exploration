@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/id";
 
 // Multi-bahasa sederhana tanpa library. Bahasa aktif disimpan di store modul (bukan React context)
-// supaya ikut berlaku di komponen yang dirender di luar tree utama, mis. modal bgsModal.
+// supaya ikut berlaku di komponen yang dirender di luar tree utama (mis. lewat portal).
 
 export const LANGUAGES = ["ID", "EN"] as const;
 export type Language = typeof LANGUAGES[number];

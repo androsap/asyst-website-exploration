@@ -1,7 +1,6 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
+import { LinkedInIcon } from "components/ui/icons";
 import { LeadersConst } from "consts/about-us.const";
 import { useLocalized } from "shared/i18n";
 import SectionHeading from "components/home/sections/section-heading";
@@ -9,26 +8,26 @@ import SectionHeading from "components/home/sections/section-heading";
 export default function LeadersSection() {
     const leaders = useLocalized(LeadersConst);
 
-    return <Box component="section" className="home-section">
+    return <section className="home-section">
         <Container maxWidth="xl">
             <SectionHeading title={leaders.title} description={leaders.description} />
-            <Box className="about-leaders">
+            <div className="about-leaders">
                 {leaders.items.map(({ name, position, image, linkedin }) => (
-                    <Box key={name} className="about-leader">
-                        <Box className="about-leader__photo">
+                    <div key={name} className="about-leader">
+                        <div className="about-leader__photo">
                             <img src={image} alt={name} loading="lazy" />
-                        </Box>
-                        <Box className="about-leader__info">
+                        </div>
+                        <div className="about-leader__info">
                             <Typography className="about-leader__name">{name}</Typography>
                             <Typography className="about-leader__position">{position}</Typography>
                             {linkedin
                                 ? <a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn ${name}`} className="about-leader__linkedin"><LinkedInIcon /></a>
                                 : <span className="about-leader__linkedin"><LinkedInIcon /></span>
                             }
-                        </Box>
-                    </Box>
+                        </div>
+                    </div>
                 ))}
-            </Box>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

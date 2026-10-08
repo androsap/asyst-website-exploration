@@ -1,8 +1,5 @@
-import { SvgIconComponent } from "@mui/icons-material";
-import WidgetsOutlinedIcon from "@mui/icons-material/WidgetsOutlined";
-import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import RouteOutlinedIcon from "@mui/icons-material/RouteOutlined";
+import { WidgetsOutlinedIcon, HubOutlinedIcon, PsychologyOutlinedIcon, RouteOutlinedIcon } from "components/ui/icons";
+import { SvgIconComponent } from "components/ui/svg-icon";
 
 import imgHero from "assets/asyst/img/background/services-solutions/products-and-services.webp";
 import imgSecurity from "assets/img/background/solutions/image-solutions-1.webp";

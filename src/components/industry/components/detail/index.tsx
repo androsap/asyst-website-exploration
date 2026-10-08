@@ -1,16 +1,15 @@
 import { MainLayoutSharedProps } from 'shared/layout/main-layout';
-import Box from '@mui/material/Box';
 import { Suspense, lazy } from 'react';
-import Container from '@mui/material/Container';
+import { Container } from "components/ui/container";
 import { Element } from 'react-scroll';
-import Typography from '@mui/material/Typography';
-import CircularProgress from '@mui/material/CircularProgress';
+import { Typography } from "components/ui/typography";
+import { CircularProgress } from "components/ui/circular-progress";
 import ProductComponent from './components/products';
 import GetinTouchComponent from './components/getin';
 import OverViewComponent from './components/overview';
 import BusinessComponent from './components/business';
 import SolutionsComponent from './components/solutions';
-import { styles } from './styled';
+import { headerLinkIconStyle, mainBoxStyle, styles } from './styled';
 import './index.scss';
 import { useT } from 'shared/i18n';
 
@@ -19,39 +18,39 @@ import { ReactComponent as LinkCircleIcon } from "assets/asyst/img/icon/industry
 
 const ContentComponent = lazy(() => import("./content"));
 
-const Loading = <Box width="100%" height="150px" display="flex" alignItems="center" justifyContent="center" position="relative">
-    <CircularProgress color="inherit" size={40} />
-</Box>
+const Loading = <div className="w-full h-[150px] flex items-center justify-center relative">
+    <CircularProgress size={40} />
+</div>
 
 export default function IndustryDetailComponent({ }: MainLayoutSharedProps) {
     const t = useT();
-    return <Box className="container-industry-detail">
+    return <div className="container-industry-detail">
         <Element name="industry-detail">
-            <Box sx={styles.mainBox}>
-                <Box component="image" sx={styles.overlayBox} />
+            <div className={styles.mainBox} style={mainBoxStyle}>
+                <div aria-hidden="true" className={styles.overlayBox} />
                 <div style={{ display: 'flex', flexDirection: 'column', }}>
-                    <Box sx={styles.backNavContainer}>
+                    <div className={styles.backNavContainer}>
                         <BackCircleIcon />
-                        <Typography sx={styles.backNavContainer.text}>
+                        <Typography className={styles.backNavText}>
                             {t("Airline", "Maskapai")}
                         </Typography>
-                    </Box>
-                    <Box sx={styles.headerBox}>
+                    </div>
+                    <div className={styles.headerBox}>
                         <div>
-                            <Typography sx={styles.headerTitle}>
+                            <Typography className={styles.headerTitle}>
                                 {t("Aero Systems Indonesia for Airlines", "Aero Systems Indonesia untuk Maskapai")}
                             </Typography>
-                            <Typography sx={styles.headerSubtitle}>
+                            <Typography className={styles.headerSubtitle}>
                                 {t("The right balance of innovative technology and unrivalled understanding of industry, to develop and manage integrated solutions and services", "Perpaduan tepat antara teknologi inovatif dan pemahaman industri yang tak tertandingi untuk mengembangkan dan mengelola solusi serta layanan terintegrasi")}
                             </Typography>
                         </div>
-                        <LinkCircleIcon style={styles.headerLinkIcon} />
-                    </Box>
+                        <LinkCircleIcon style={headerLinkIconStyle} />
+                    </div>
                 </div>
-            </Box>
+            </div>
         </Element>
         <Suspense fallback={Loading}>
-            <Container maxWidth="xl" sx={{ display: "flex", gap: "53px", flexDirection: "column", paddingTop: '0px' }}>
+            <Container maxWidth="xl" className="flex gap-[53px] flex-col pt-[0px]">
                 <OverViewComponent />
                 <BusinessComponent />
                 <SolutionsComponent />
@@ -60,5 +59,5 @@ export default function IndustryDetailComponent({ }: MainLayoutSharedProps) {
                 <GetinTouchComponent />
             </Container>
         </Suspense>
-    </Box>
+    </div>
 };

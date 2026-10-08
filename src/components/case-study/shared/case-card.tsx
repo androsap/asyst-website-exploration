@@ -1,5 +1,4 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { Typography } from "components/ui/typography";
 import { Link } from "react-router-dom";
 import { CaseStudyItem, caseStudyLink, CaseStudyTermsConst, hasCaseStudyDetail } from "consts/case-study.const";
 import { useTerms } from "shared/i18n";
@@ -14,14 +13,14 @@ export default function CaseCard({ item }: CaseCardProps) {
     const term = useTerms(CaseStudyTermsConst);
 
     const content = <>
-        <Box className="cs-card__image" sx={{ backgroundImage: `url(${image})` }} />
+        <div className="cs-card__image" style={{ backgroundImage: `url(${image})` }} />
         <Typography className="cs-card__title">{title}</Typography>
-        <Box className="cs-tags">
+        <div className="cs-tags">
             {tags.map(tag => <span key={tag} className="cs-tag">{term(tag)}</span>)}
-        </Box>
+        </div>
     </>;
 
     return hasCaseStudyDetail(slug)
         ? <Link to={caseStudyLink(slug)} className="cs-card cs-card--link">{content}</Link>
-        : <Box className="cs-card">{content}</Box>
+        : <div className="cs-card">{content}</div>
 }

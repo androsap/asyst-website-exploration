@@ -1,6 +1,5 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { IndustryDetailContent } from "consts/industry-detail.const";
 import SectionHeading from "components/product/shared/section-heading";
 import HoverPopover from "components/industry/shared/hover-popover";
@@ -11,12 +10,12 @@ interface DomainsSectionProps {
 }
 
 export default function DomainsSection({ content }: DomainsSectionProps) {
-    return <Box component="section" className="pv-section">
+    return <section className="pv-section">
         <Container maxWidth="xl">
             <SectionHeading title={content.title} />
-            <Box className="iv-domains">
+            <div className="iv-domains">
                 {content.items.map(({ title, description, points, popover }) => (
-                    <Box
+                    <div
                         key={title}
                         className={`pv-card pv-card--soft iv-domain${popover ? " iv-popover-trigger" : ""}`}
                         tabIndex={popover ? 0 : undefined}
@@ -28,9 +27,9 @@ export default function DomainsSection({ content }: DomainsSectionProps) {
                             {points.map(point => <li key={point}>{point}</li>)}
                         </ul>
                         {popover && <HoverPopover {...popover} align="start" />}
-                    </Box>
+                    </div>
                 ))}
-            </Box>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

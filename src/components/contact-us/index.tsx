@@ -1,11 +1,9 @@
 import { FormEvent, useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Alert from "@mui/material/Alert";
+import { Button } from "components/ui/button";
+import { Container } from "components/ui/container";
+import { TextField } from "components/ui/text-field";
+import { Typography } from "components/ui/typography";
+import { Alert } from "components/ui/alert";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import "components/product/shared/product-v2.scss";
 import "./contact-us.scss";
@@ -35,29 +33,29 @@ const validate = (values: FormValues, form: ContactFormContent): FormErrors => {
 
 /** Halaman Contact Us (revamp 2026). Memakai gaya dasar product-v2 + tambahan contact-v2. */
 export default function ContactUsComponent({ }: MainLayoutSharedProps) {
-    return <Box className="product-v2 contact-v2">
+    return <div className="product-v2 contact-v2">
         <ContactHero />
-        <Box component="section" className="pv-section">
+        <section className="pv-section">
             <Container maxWidth="xl" className="cv-contact">
                 <ContactForm />
                 <NextSteps />
             </Container>
-        </Box>
+        </section>
         <OfficeLocations />
-    </Box>
+    </div>
 }
 
 function ContactHero() {
     const { title, description } = useLocalized(ContactHeroConst);
 
-    return <Box component="section" className="cv-hero">
+    return <section className="cv-hero">
         <Container maxWidth="md">
             <Typography variant="h1" className="cv-hero__title">{title}</Typography>
             <Typography className="cv-hero__description">
                 {description.map((line, i) => <span key={i}>{line}</span>)}
             </Typography>
         </Container>
-    </Box>
+    </section>
 }
 
 function ContactForm() {
@@ -101,58 +99,63 @@ function ContactForm() {
         />;
 
     return <>
-        <Box className="cv-contact__heading">
+        <div className="cv-contact__heading">
             <Typography variant="h2" className="cv-title">{form.title}</Typography>
             <Typography className="cv-intro">
-                <Link component="button" type="button" underline="hover" className="cv-intro__link" onClick={requestDemoModal}>{form.bookCall}</Link>
+                <button
+                    type="button"
+                    data-slot="link"
+                    className="m-0 [font:inherit] text-[#2775BB] no-underline relative appearance-none bg-transparent [outline:0] border-0 border-none border-current [-webkit-tap-highlight-color:transparent] rounded-none p-0 cursor-pointer select-none align-middle hover:underline [&::-moz-focus-inner]:border-none focus-visible:[outline:auto] cv-intro__link"
+                    onClick={requestDemoModal}
+                >{form.bookCall}</button>
                 {" "}{form.description}
             </Typography>
-        </Box>
+        </div>
 
-        <Box component="form" noValidate onSubmit={onSubmit} className="cv-form">
-            {form.rows.map((row, i) => <Box key={i} className="cv-form__row">
+        <form noValidate onSubmit={onSubmit} className="cv-form">
+            {form.rows.map((row, i) => <div key={i} className="cv-form__row">
                 {row.map(field => renderField(field))}
-            </Box>)}
+            </div>)}
             {renderField(form.message, true)}
 
-            {submitted && <Alert severity="success" className="cv-form__alert">{form.successMessage}</Alert>}
+            {submitted && <Alert className="cv-form__alert">{form.successMessage}</Alert>}
 
-            <Box>
+            <div>
                 <Button type="submit" className="pv-btn pv-btn--primary cv-form__submit">{form.submit}</Button>
-            </Box>
-        </Box>
+            </div>
+        </form>
     </>
 }
 
 function NextSteps() {
     const { title, steps } = useLocalized(ContactNextStepsConst);
 
-    return <Box component="aside" className="cv-next">
+    return <aside className="cv-next">
         <Typography variant="h3" className="cv-next__title">{title}</Typography>
-        <Box component="ol" className="cv-next__list">
-            {steps.map((step, i) => <Box component="li" key={i} className="cv-next__item">
+        <ol className="cv-next__list">
+            {steps.map((step, i) => <li key={i} className="cv-next__item">
                 <span className="cv-next__number">{i + 1}</span>
                 <Typography className="cv-next__text">{step}</Typography>
-            </Box>)}
-        </Box>
-    </Box>
+            </li>)}
+        </ol>
+    </aside>
 }
 
 function OfficeLocations() {
     const { title, viewMap, offices } = useLocalized(ContactOfficeConst);
 
-    return <Box component="section" className="pv-section cv-office">
+    return <section className="pv-section cv-office">
         <Container maxWidth="xl">
             <Typography variant="h2" className="cv-title">{title}</Typography>
-            <Box className="cv-office__grid">
-                {offices.map(office => <Box key={office.mapLink} className="cv-office__card">
+            <div className="cv-office__grid">
+                {offices.map(office => <div key={office.mapLink} className="cv-office__card">
                     <Typography variant="h3" className="cv-office__name">{office.title}</Typography>
                     <Typography className="cv-office__address">
                         {office.address.map((line, i) => <span key={i}>{line}</span>)}
                     </Typography>
-                    <Link href={office.mapLink} target="_blank" rel="noopener noreferrer" underline="hover" className="cv-office__map">{viewMap}</Link>
-                </Box>)}
-            </Box>
+                    <a href={office.mapLink} target="_blank" rel="noopener noreferrer" data-slot="link" className="m-0 [font:inherit] text-[#2775BB] no-underline hover:underline cv-office__map">{viewMap}</a>
+                </div>)}
+            </div>
         </Container>
-    </Box>
+    </section>
 }

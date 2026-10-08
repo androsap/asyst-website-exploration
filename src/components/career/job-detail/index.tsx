@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Button } from "components/ui/button";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import "components/product/shared/product-v2.scss";
 import "../shared/career.scss";
@@ -62,10 +61,10 @@ function JobDetail({ job }: { job: CareerJob }) {
         items: faqContent.items.map(item => ({ ...item, question: item.question.replace("{title}", job.title) })),
     };
 
-    return <Box className="product-v2 career-v2">
+    return <div className="product-v2 career-v2">
         <DetailHero job={job} />
 
-        <Box component="section" className="pv-section">
+        <section className="pv-section">
             <Container maxWidth="xl" className="cr-layout cr-layout--detail">
                 <DetailContent job={job} />
                 <JobSidebar
@@ -76,22 +75,22 @@ function JobDetail({ job }: { job: CareerJob }) {
                     onKeywordSubmit={() => navigate(careerJobsLink({ q: keyword }))}
                 />
             </Container>
-        </Box>
+        </section>
 
         <CareerFaq {...faq} />
 
-        <Box className="cr-apply-bar">
+        <div className="cr-apply-bar">
             <Container maxWidth="xl" className="cr-apply-bar__inner">
-                <Box>
+                <div>
                     <Typography className="cr-apply-bar__title">{job.title}</Typography>
                     <Typography className="cr-apply-bar__meta">
                         {[job.experience, job.location, job.employmentType].map(text => <span key={text}>{term(text)}</span>)}
                     </Typography>
-                </Box>
-                <Button component={Link} to={CAREER_APPLY_LINK} className="pv-btn pv-btn--primary">{detail.applyShort}</Button>
+                </div>
+                <Button asChild className="pv-btn pv-btn--primary"><Link to={CAREER_APPLY_LINK}>{detail.applyShort}</Link></Button>
             </Container>
-        </Box>
-    </Box>
+        </div>
+    </div>
 }
 
 function DetailHero({ job }: { job: CareerJob }) {
@@ -104,7 +103,7 @@ function DetailHero({ job }: { job: CareerJob }) {
         { label: meta.experience, value: term(job.experience) },
     ];
 
-    return <Box component="section" className="cr-hero cr-hero--detail">
+    return <section className="cr-hero cr-hero--detail">
         <Container maxWidth="xl" className="cr-hero__inner">
             <CareerBreadcrumb items={[
                 { label: t("Career", "Karier"), to: CAREER_BASE_PATH },
@@ -116,78 +115,78 @@ function DetailHero({ job }: { job: CareerJob }) {
             <Typography variant="h1" className="cr-hero__title">{job.title}</Typography>
             <Typography className="cr-hero__description">{job.summary}</Typography>
 
-            <Box className="cr-summary">
+            <div className="cr-summary">
                 {items.map(({ label, value }) => (
-                    <Box key={label}>
+                    <div key={label}>
                         <Typography className="cr-summary__label">{label}</Typography>
                         <Typography className="cr-summary__value">{value}</Typography>
-                    </Box>
+                    </div>
                 ))}
-            </Box>
+            </div>
 
-            <Button component={Link} to={CAREER_APPLY_LINK} className="pv-btn pv-btn--primary cr-hero__button">{apply}</Button>
+            <Button asChild className="pv-btn pv-btn--primary cr-hero__button"><Link to={CAREER_APPLY_LINK}>{apply}</Link></Button>
         </Container>
-    </Box>
+    </section>
 }
 
 function DetailContent({ job }: { job: CareerJob }) {
     const { about, whyMatters, responsibilities, requirements, benefits, why, beforeApply } = useLocalized(CareerJobDetailConst);
 
-    return <Box className="cr-layout__main cr-detail">
-        <Box>
+    return <div className="cr-layout__main cr-detail">
+        <div>
             <Typography variant="h2" className="cr-detail__title">{about}</Typography>
             {job.about.map(text => <Typography key={text} className="cr-detail__text">{text}</Typography>)}
-        </Box>
+        </div>
 
-        <Box>
+        <div>
             <Typography variant="h2" className="cr-detail__title">{whyMatters.title}</Typography>
             {whyMatters.paragraphs.map(text => <Typography key={text} className="cr-detail__text">{text}</Typography>)}
-        </Box>
+        </div>
 
-        <Box className="cr-box">
+        <div className="cr-box">
             <Typography variant="h2" className="cr-detail__title">{responsibilities}</Typography>
             <BulletList items={job.responsibilities} />
-        </Box>
+        </div>
 
-        <Box className="cr-box">
+        <div className="cr-box">
             <Typography variant="h2" className="cr-detail__title">{requirements}</Typography>
             <BulletList items={job.requirements} />
-        </Box>
+        </div>
 
-        <Box className="cr-box">
+        <div className="cr-box">
             <Typography variant="h2" className="cr-detail__title">{benefits.title}</Typography>
             <BulletList items={benefits.items} />
 
             <Typography variant="h2" className="cr-detail__title cr-detail__title--spaced">{why.title}</Typography>
-            <Box className="cr-detail__grid">
+            <div className="cr-detail__grid">
                 {why.items.map(({ title, description }) => (
-                    <Box key={title}>
+                    <div key={title}>
                         <Typography variant="h3" className="cr-detail__subtitle">{title}</Typography>
                         <Typography className="cr-detail__text">{description}</Typography>
-                    </Box>
+                    </div>
                 ))}
-            </Box>
-        </Box>
+            </div>
+        </div>
 
-        <Box className="cr-box">
+        <div className="cr-box">
             <Typography variant="h2" className="cr-detail__title">{beforeApply.title}</Typography>
-            <Box className="cr-detail__grid">
+            <div className="cr-detail__grid">
                 <BulletList items={beforeApply.items} />
                 <Typography className="cr-detail__text">{beforeApply.note}</Typography>
                 {beforeApply.groups.map(({ title, items }) => (
-                    <Box key={title}>
+                    <div key={title}>
                         <Typography variant="h3" className="cr-detail__subtitle">{title}</Typography>
                         <Typography className="cr-detail__text">{beforeApply.requireLabel}</Typography>
                         <BulletList items={items} />
-                    </Box>
+                    </div>
                 ))}
-            </Box>
-        </Box>
-    </Box>
+            </div>
+        </div>
+    </div>
 }
 
 function BulletList({ items }: { items: string[] }) {
-    return <Box component="ul" className="cr-list">
+    return <ul className="cr-list">
         {items.map(item => <li key={item}>{item}</li>)}
-    </Box>
+    </ul>
 }

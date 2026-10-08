@@ -1,6 +1,5 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { CaseStudiesConst, CaseStudyDetailContent } from "consts/case-study.const";
 import CaseCard from "../../shared/case-card";
 import { useLocalized } from "shared/i18n";
@@ -17,25 +16,25 @@ export default function OutcomeSection({ outcome, related }: OutcomeSectionProps
         .map(slug => caseStudies.find(item => item.slug === slug))
         .filter((item): item is NonNullable<typeof item> => !!item);
 
-    return <Box component="section" className="pv-section">
+    return <section className="pv-section">
         <Container maxWidth="xl">
             <Typography className="cs-eyebrow cs-eyebrow--dark">{outcome.eyebrow}</Typography>
             <Typography variant="h2" className="pv-heading__title">{outcome.title}</Typography>
-            <Box className="cs-outcome">
+            <div className="cs-outcome">
                 {outcome.items.map(({ title, description }, index) => (
-                    <Box key={index} className="cs-outcome__item">
+                    <div key={index} className="cs-outcome__item">
                         <Typography className="cs-outcome__title">{title}</Typography>
                         <Typography className="cs-outcome__text">{description}</Typography>
-                    </Box>
+                    </div>
                 ))}
-            </Box>
+            </div>
 
-            {!!relatedItems.length && <Box className="cs-related">
+            {!!relatedItems.length && <div className="cs-related">
                 <Typography variant="h2" className="pv-heading__title">{related.title}</Typography>
-                <Box className="cs-grid">
+                <div className="cs-grid">
                     {relatedItems.map(item => <CaseCard key={item.slug} item={item} />)}
-                </Box>
-            </Box>}
+                </div>
+            </div>}
         </Container>
-    </Box>
+    </section>
 }

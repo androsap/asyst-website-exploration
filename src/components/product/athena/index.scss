@@ -62,7 +62,7 @@
 
 //laptop 15" (breakpoints width 1900px)
 @media only screen and (max-width: 1920px) {
-    .MuiContainer-root.MuiContainer-maxWidthXl {
+    [data-slot="container"][data-max-width="xl"] {
         padding-left: 8px;
         padding-right: 8px;
     }
@@ -131,7 +131,7 @@
 //laptop 13" (breakpoints width 1440px)
 @media only screen and (max-width: 1440px) {
 
-    .MuiContainer-root.MuiContainer-maxWidthXl {
+    [data-slot="container"][data-max-width="xl"] {
         padding-left: 18px;
         padding-right: 18px;
     }

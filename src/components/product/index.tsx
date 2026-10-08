@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import "./shared/product-v2.scss";
 import { ProductCtaConst } from "consts/product.const";
@@ -14,11 +13,11 @@ export default function ProductComponent({ }: MainLayoutSharedProps) {
     const talkToExpert = useTalkToExpert("enterprise");
     const cta = useLocalized(ProductCtaConst);
 
-    return <Box className="product-v2">
+    return <div className="product-v2">
         <HeroSection onExplore={() => scrollToSection(SECTION_IDS.catalog)} onTalkToExpert={talkToExpert} />
         <CatalogSection />
         <ExperienceSection />
         <SolveSection />
         <CtaSection {...cta} onClick={talkToExpert} />
-    </Box>
+    </div>
 }

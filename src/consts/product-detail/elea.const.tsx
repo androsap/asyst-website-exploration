@@ -1,16 +1,4 @@
-import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
-import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
-import AutorenewOutlinedIcon from "@mui/icons-material/AutorenewOutlined";
-import CallSplitOutlinedIcon from "@mui/icons-material/CallSplitOutlined";
-import ReceiptLongOutlinedIcon from "@mui/icons-material/ReceiptLongOutlined";
-import GppGoodOutlinedIcon from "@mui/icons-material/GppGoodOutlined";
-import LinkOffOutlinedIcon from "@mui/icons-material/LinkOffOutlined";
-import FlightOutlinedIcon from "@mui/icons-material/FlightOutlined";
-import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
-import FactoryOutlinedIcon from "@mui/icons-material/FactoryOutlined";
-import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
-import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
+import { HubOutlinedIcon, VerifiedOutlinedIcon, SupportAgentOutlinedIcon, AutorenewOutlinedIcon, CallSplitOutlinedIcon, ReceiptLongOutlinedIcon, GppGoodOutlinedIcon, LinkOffOutlinedIcon, FlightOutlinedIcon, AccountBalanceOutlinedIcon, FactoryOutlinedIcon, BusinessOutlinedIcon, TrendingUpOutlinedIcon } from "components/ui/icons";
 
 import imgBanner from "assets/asyst/img/background/product/elea/detail/banner-1.webp";
 import imgBusiness from "assets/asyst/img/background/product/elea/detail/business-1.webp";

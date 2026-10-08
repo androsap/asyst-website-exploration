@@ -1,10 +1,8 @@
 import { FormEvent } from "react";
-import Box from "@mui/material/Box";
-import ButtonBase from "@mui/material/ButtonBase";
-import InputBase from "@mui/material/InputBase";
-import Typography from "@mui/material/Typography";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import { ButtonBase } from "components/ui/button-base";
+import { InputBase } from "components/ui/input-base";
+import { Typography } from "components/ui/typography";
+import { SearchRoundedIcon, ArrowForwardRoundedIcon } from "components/ui/icons";
 import { CareerDepartmentsConst, CareerFilterGroupsConst, CareerFilterKey, CareerSidebarConst, CareerTermsConst } from "consts/career.const";
 import { useLocalized, useTerms } from "shared/i18n";
 import { CareerFilters } from "./utils";
@@ -31,8 +29,8 @@ export default function JobSidebar({ filters, onFilterChange, keyword, onKeyword
         onKeywordSubmit?.();
     };
 
-    return <Box component="aside" className="cr-sidebar">
-        <Box component="nav" className="cr-panel" aria-label={sidebar.browse}>
+    return <aside className="cr-sidebar">
+        <nav className="cr-panel" aria-label={sidebar.browse}>
             <Typography className="cr-panel__title">{sidebar.browse}</Typography>
             {CareerDepartmentsConst.map(department => (
                 <ButtonBase
@@ -45,11 +43,11 @@ export default function JobSidebar({ filters, onFilterChange, keyword, onKeyword
                     <ArrowForwardRoundedIcon />
                 </ButtonBase>
             ))}
-        </Box>
+        </nav>
 
-        <Box className="cr-panel">
+        <div className="cr-panel">
             <Typography className="cr-panel__title">{sidebar.filters}</Typography>
-            <Box component="form" className="cr-search cr-search--small" onSubmit={submit} role="search">
+            <form className="cr-search cr-search--small" onSubmit={submit} role="search">
                 <SearchRoundedIcon className="cr-search__icon" />
                 <InputBase
                     className="cr-search__input"
@@ -58,12 +56,12 @@ export default function JobSidebar({ filters, onFilterChange, keyword, onKeyword
                     onChange={e => onKeywordChange(e.target.value)}
                     inputProps={{ "aria-label": sidebar.searchPlaceholder }}
                 />
-            </Box>
+            </form>
 
             {filterGroups.map(({ key, label, options }) => (
-                <Box key={key} className="cr-filter-group" role="group" aria-label={label}>
+                <div key={key} className="cr-filter-group" role="group" aria-label={label}>
                     <Typography className="cr-filter-group__title">{label}</Typography>
-                    <Box className="cr-chips">
+                    <div className="cr-chips">
                         {options.map(option => (
                             <ButtonBase
                                 key={option}
@@ -74,9 +72,9 @@ export default function JobSidebar({ filters, onFilterChange, keyword, onKeyword
                                 {term(option)}
                             </ButtonBase>
                         ))}
-                    </Box>
-                </Box>
+                    </div>
+                </div>
             ))}
-        </Box>
-    </Box>
+        </div>
+    </aside>
 }

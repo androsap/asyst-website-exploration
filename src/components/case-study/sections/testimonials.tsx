@@ -1,6 +1,5 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -12,7 +11,7 @@ import SectionHeading from "components/product/shared/section-heading";
 export default function TestimonialsSection() {
     const { title, items } = useLocalized(CaseStudyTestimonialsConst);
 
-    return <Box component="section" className="pv-section">
+    return <section className="pv-section">
         <Container maxWidth="xl">
             <SectionHeading align="left" title={title} />
             <Swiper
@@ -25,17 +24,17 @@ export default function TestimonialsSection() {
             >
                 {items.map(({ name, role, quote, photo }, index) => (
                     <SwiperSlide key={`${name}-${index}`}>
-                        <Box className="cs-testimonial">
+                        <div className="cs-testimonial">
                             <img src={photo} alt={name} className="cs-testimonial__photo" loading="lazy" />
-                            <Box>
+                            <div>
                                 <Typography className="cs-testimonial__name">{name}</Typography>
                                 <Typography className="cs-testimonial__role">{role}</Typography>
                                 <Typography className="cs-testimonial__quote">{quote}</Typography>
-                            </Box>
-                        </Box>
+                            </div>
+                        </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
         </Container>
-    </Box>
+    </section>
 }

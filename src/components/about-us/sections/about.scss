@@ -12,7 +12,7 @@ $tablet: 1023px;
 $mobile: 599px;
 
 .about-v2 {
-    .about-btn--blue.MuiButton-root {
+    .about-btn--blue[data-slot="button"] {
         background: $blue;
         color: #fff;
         transition: background-color 0.3s ease-out;
@@ -42,7 +42,7 @@ $mobile: 599px;
             padding: 120px 0 80px;
         }
 
-        .MuiContainer-root {
+        [data-slot="container"] {
             position: relative;
         }
 

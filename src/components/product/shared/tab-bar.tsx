@@ -1,6 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import Box from "@mui/material/Box";
-import ButtonBase from "@mui/material/ButtonBase";
+import { ButtonBase } from "components/ui/button-base";
 
 interface TabBarProps {
     labels: string[];
@@ -37,7 +36,7 @@ export default function TabBar({ labels, active, onChange, variant }: TabBarProp
         itemRefs.current[index]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
     };
 
-    return <Box ref={listRef} className={`pv-tabs pv-tabs--${variant} ${indicator ? "has-indicator" : ""}`} role="tablist">
+    return <div ref={listRef} className={`pv-tabs pv-tabs--${variant} ${indicator ? "has-indicator" : ""}`} role="tablist">
         {indicator && <span
             className="pv-tabs__indicator"
             aria-hidden="true"
@@ -56,5 +55,5 @@ export default function TabBar({ labels, active, onChange, variant }: TabBarProp
                 {label}
             </ButtonBase>
         ))}
-    </Box>
+    </div>
 }

@@ -18,7 +18,7 @@ $mobile: 599px;
     font-family: $font-body;
     background: #fff;
 
-    .MuiTypography-root {
+    [data-slot="typography"] {
         font-family: inherit;
     }
 
@@ -75,7 +75,7 @@ $mobile: 599px;
         }
     }
 
-    .home-btn.MuiButton-root {
+    .home-btn[data-slot="button"] {
         font-family: $font-heading;
         font-size: 16px;
         font-weight: 600;
@@ -86,7 +86,7 @@ $mobile: 599px;
         box-shadow: none;
     }
 
-    .home-btn--primary.MuiButton-root {
+    .home-btn--primary[data-slot="button"] {
         background: linear-gradient(180deg, #89BA3A 0%, #89BA3A 100%);
         color: #fff;
 
@@ -95,7 +95,7 @@ $mobile: 599px;
         }
     }
 
-    .home-btn--outline.MuiButton-root {
+    .home-btn--outline[data-slot="button"] {
         border: 1px solid $green;
         color: $green;
 
@@ -104,7 +104,7 @@ $mobile: 599px;
         }
     }
 
-    .home-btn--white.MuiButton-root {
+    .home-btn--white[data-slot="button"] {
         background: #fff;
         color: $blue;
         padding: 14px 36px;
@@ -119,8 +119,8 @@ $mobile: 599px;
 
     // Mobile: ukuran tombol diseragamkan dengan tombol hero Home
     @media (max-width: $mobile) {
-        .home-btn.MuiButton-root,
-        .home-btn--white.MuiButton-root {
+        .home-btn[data-slot="button"],
+        .home-btn--white[data-slot="button"] {
             padding: 16px 28px;
             font-size: 18px;
             border-radius: 10px;
@@ -130,8 +130,8 @@ $mobile: 599px;
     // Hero CTA: hover ease-out; outline berubah jadi primary. Gradient tidak bisa
     // di-transition, jadi warna hover dipasang di ::before lalu di-fade lewat opacity.
     .home-hero {
-        .home-btn--primary.MuiButton-root,
-        .home-btn--outline.MuiButton-root {
+        .home-btn--primary[data-slot="button"],
+        .home-btn--outline[data-slot="button"] {
             isolation: isolate;
             transition: color 0.3s ease-out, border-color 0.3s ease-out;
 
@@ -150,7 +150,7 @@ $mobile: 599px;
             }
         }
 
-        .home-btn--primary.MuiButton-root {
+        .home-btn--primary[data-slot="button"] {
             &::before {
                 background: #89BA3A;
             }
@@ -160,7 +160,7 @@ $mobile: 599px;
             }
         }
 
-        .home-btn--outline.MuiButton-root {
+        .home-btn--outline[data-slot="button"] {
             // menutupi border 1px supaya sudutnya tidak menyisakan garis terang
             &::before {
                 inset: -1px;
@@ -236,19 +236,19 @@ $mobile: 599px;
         display: flex;
         gap: 12px;
 
-        .MuiIconButton-root {
+        [data-slot="icon-button"] {
             border: 1px solid $blue;
             color: $blue;
             width: 40px;
             height: 40px;
 
-            &.Mui-disabled {
+            &:disabled {
                 border-color: $border;
                 color: #B8C0CA;
             }
         }
 
-        &--large .MuiIconButton-root {
+        &--large [data-slot="icon-button"] {
             width: 52px;
             height: 52px;
 
@@ -283,7 +283,7 @@ $mobile: 599px;
             padding: 112px 0 8px;
         }
 
-        > .MuiContainer-root {
+        > [data-slot="container"] {
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -340,7 +340,7 @@ $mobile: 599px;
                 gap: 24px;
                 margin-top: 48px;
 
-                .home-btn.MuiButton-root {
+                .home-btn[data-slot="button"] {
                     width: 100%;
                     padding: 16px 28px;
                     font-size: 18px;
@@ -836,7 +836,7 @@ $mobile: 599px;
             color: $blue;
             transition: color .3s ease;
 
-            .MuiTypography-root {
+            [data-slot="typography"] {
                 font: inherit;
             }
 

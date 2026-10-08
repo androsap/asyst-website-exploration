@@ -1,7 +1,6 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import { Button } from "components/ui/button";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
 import { Link } from "react-router-dom";
 import { AboutHeroConst } from "consts/about-us.const";
 import { useLocalized } from "shared/i18n";
@@ -9,15 +8,13 @@ import { useLocalized } from "shared/i18n";
 export default function AboutHeroSection() {
     const { title, description, button, image } = useLocalized(AboutHeroConst);
 
-    return <Box component="section" className="about-hero" sx={{ backgroundImage: `url(${image})` }}>
+    return <section className="about-hero" style={{ backgroundImage: `url(${image})` }}>
         <Container maxWidth="xl">
-            <Box className="about-hero__content">
+            <div className="about-hero__content">
                 <Typography variant="h1" className="about-hero__title">{title}</Typography>
                 <Typography className="about-hero__description">{description}</Typography>
-                <Link to={button.link}>
-                    <Button className="home-btn about-btn--blue">{button.label}</Button>
-                </Link>
-            </Box>
+                <Button asChild className="home-btn about-btn--blue"><Link to={button.link}>{button.label}</Link></Button>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

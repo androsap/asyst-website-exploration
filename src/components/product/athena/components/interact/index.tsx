@@ -1,7 +1,5 @@
-import Typography from "@mui/material/Typography"
-import Box from "@mui/material/Box"
-import Divider from '@mui/material/Divider'
-import Grid from '@mui/material/Grid'
+import { Typography } from "components/ui/typography";
+import { Divider } from "components/ui/divider";
 import { styles } from './styled'
 import { PromotionModel } from "models/amala/promotion.model";
 import PromotionHelper from 'helper/athena/PromotionHelper';
@@ -40,47 +38,47 @@ export default function InteractComponent() {
     }
     // console.log('promotion cards', dataCards)
     return <>
-        <Box sx={styles.mainBox}>
-            <Box sx={styles.textContentBox}>
-                <Typography sx={styles.title}
+        <div className={styles.mainBox}>
+            <div className={styles.textContentBox}>
+                <Typography className={styles.title}
                     dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
-                <Typography sx={styles.content}
+                <Typography className={styles.content}
                     dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "description") || '') }} />
                 {!loading && data.product?.section?.sub_section_1 && Children.toArray(data.product?.section?.sub_section_1.map(item =>
                     <>
-                        <Typography sx={styles.subtitle}>
+                        <Typography className={styles.subtitle}>
                             {apiText(item, "title")}
                         </Typography>
-                        <Typography sx={styles.subcontent}>
+                        <Typography className={styles.subcontent}>
                             {apiText(item, "description")}
                         </Typography>
                     </>
                 ))}
-            </Box>
-            <img src={data.product?.section?.image1} style={{ width: '521px', height: '521px', borderRadius: '16px' }}></img>
-        </Box >
-        <Box sx={styles.numberBox}>
+            </div>
+            <img alt="" src={data.product?.section?.image1} style={{ width: '521px', height: '521px', borderRadius: '16px' }}></img>
+        </div >
+        <div className={styles.numberBox}>
             {loadingCards && dataCards?.product?.section && Children.toArray(dataCards.product?.section.map((section, index) =>
-                <Box display="flex" flexDirection="row" justifyContent='space-evenly' width='33.33%'>
-                    <Box display='flex' flexDirection='column' alignItems='center' sx={{ marginTop: '32px' }}>
-                        <Box sx={styles.numberContentBox}>
-                            <Typography sx={styles.number}
+                <div className="flex flex-row justify-evenly w-[33.33%]">
+                    <div className="flex flex-col items-center mt-[32px]">
+                        <div className={styles.numberContentBox}>
+                            <Typography className={styles.number}
                                 dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "title")) }} />
-                        </Box>
-                        <Box sx={{ height: '100px' }}>
-                            <Typography sx={styles.text}
+                        </div>
+                        <div className="h-[100px]">
+                            <Typography className={styles.text}
                                 dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "subtitle")) }} />
-                        </Box>
-                    </Box>
-                    <Box>
+                        </div>
+                    </div>
+                    <div>
                         {index + 1 !== dataCards.product?.section?.length &&
                             <Divider style={{ height: '170px' }} orientation="vertical" variant="middle" flexItem />}
-                    </Box>
-                </Box>
+                    </div>
+                </div>
             ))}
-        </Box>
-        <Grid>
+        </div>
+        <div className="box-border flex-row">
 
-        </Grid>
+        </div>
     </>
 }

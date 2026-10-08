@@ -1,9 +1,6 @@
-import Box from '@mui/material/Box'
 import './index.scss';
 import './sections/home.scss';
 import { MainLayoutSharedProps } from 'shared/layout/main-layout'
-import RequestDemoComponent from './components/request-demo'
-import { bgsModal } from '@andrydharmawan/bgs-component'
 import HeroSection from './sections/hero'
 import EnterpriseHighlightSection from './sections/enterprise-highlight'
 import ProductsSection from './sections/products'
@@ -14,20 +11,6 @@ import NewsSection from './sections/news'
 import CtaSection from './sections/cta'
 import { useTalkToExpert } from 'components/product/shared/page-actions'
 
-export const requestDemoModal = () => {
-    bgsModal({
-        isBlur: true,
-        className: "customBgsModal",
-        render: (e) => {
-            return <RequestDemoComponent
-                hide={e.hide}
-            />
-        }
-    })
-};
-
-export const requestDemoModal2 = requestDemoModal;
-
 export const formatPaginationBullet = (index: number): string => {
     return `${index + 1 < 10 ? '0' : ''}${index + 1}`
 }
@@ -35,7 +18,7 @@ export const formatPaginationBullet = (index: number): string => {
 export default function HomeComponent({ }: MainLayoutSharedProps) {
     const talkToExpert = useTalkToExpert();
 
-    return <Box className="home-v2">
+    return <div className="home-v2">
         <HeroSection onTalkToExpert={talkToExpert} />
         <EnterpriseHighlightSection />
         <ProductsSection />
@@ -44,5 +27,5 @@ export default function HomeComponent({ }: MainLayoutSharedProps) {
         <IndustriesSection />
         <NewsSection />
         <CtaSection onTalkToExpert={talkToExpert} />
-    </Box>
+    </div>
 }

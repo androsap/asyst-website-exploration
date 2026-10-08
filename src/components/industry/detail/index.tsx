@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import "components/product/shared/product-v2.scss";
 import "components/solution/shared/solution-v2.scss";
 import "../shared/industry-v2.scss";
@@ -23,7 +22,7 @@ interface IndustryDetailProps {
 
 /** Layout halaman detail industri (revamp 2026). Konten per industri ada di consts/industry-detail.const. */
 export default function IndustryDetail({ content }: IndustryDetailProps) {
-    return <Box className="product-v2 solution-v2 industry-v2">
+    return <div className="product-v2 solution-v2 industry-v2">
         <IndustryHero content={content.hero} onPrimary={() => scrollToSection(INDUSTRY_SECTION_IDS.solutions)} />
         <IntroSplitSection content={content.overview} />
         <ChallengesSection content={content.challenges} />
@@ -38,5 +37,5 @@ export default function IndustryDetail({ content }: IndustryDetailProps) {
         <PrioritiesSection content={content.priorities} />
         <FaqSection content={content.faq} />
         <CtaSection {...content.cta} onClick={requestDemoModal} />
-    </Box>
+    </div>
 }

@@ -1,8 +1,6 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import Box from "@mui/material/Box";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+import { HomeOutlinedIcon, ChevronRightRoundedIcon } from "components/ui/icons";
 import { useT } from "shared/i18n";
 
 interface CareerBreadcrumbProps {
@@ -13,7 +11,7 @@ interface CareerBreadcrumbProps {
 export default function CareerBreadcrumb({ items }: CareerBreadcrumbProps) {
     const t = useT();
 
-    return <Box component="nav" className="cr-breadcrumb" aria-label="Breadcrumb">
+    return <nav className="cr-breadcrumb" aria-label="Breadcrumb">
         <Link to="/" aria-label={t("Home", "Beranda")}><HomeOutlinedIcon /></Link>
         {items.map(({ label, to }) => (
             <Fragment key={label}>
@@ -23,5 +21,5 @@ export default function CareerBreadcrumb({ items }: CareerBreadcrumbProps) {
                     : <span className="cr-breadcrumb__current" aria-current="page">{label}</span>}
             </Fragment>
         ))}
-    </Box>
+    </nav>
 }

@@ -1,12 +1,9 @@
-import Box from "@mui/material/Box";
-import ButtonBase from "@mui/material/ButtonBase";
-import Container from "@mui/material/Container";
-import InputBase from "@mui/material/InputBase";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import Typography from "@mui/material/Typography";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
+import { ButtonBase } from "components/ui/button-base";
+import { Container } from "components/ui/container";
+import { InputBase } from "components/ui/input-base";
+import { Select } from "components/ui/select";
+import { Typography } from "components/ui/typography";
+import { SearchRoundedIcon, KeyboardArrowDownRoundedIcon } from "components/ui/icons";
 import { CAREER_BASE_PATH, CareerFilterGroupsConst, CareerFilterKey, CareerHeroConst, CareerJobsHeroConst, CareerPopularSkillsConst, CareerTermsConst } from "consts/career.const";
 import { useLanguage, useLocalized, useT, useTerms } from "shared/i18n";
 import CareerBreadcrumb from "../../shared/breadcrumb";
@@ -31,15 +28,15 @@ export default function JobsHeroSection({ filters, onFilterChange }: JobsHeroSec
     const language = useLanguage();
     const selects = sortSelects(CareerFilterGroupsConst[language]);
 
-    return <Box component="section" className="cr-hero cr-hero--jobs">
-        <Box className="cr-hero__backdrop" sx={{ backgroundImage: `url(${CareerHeroConst.EN.image})` }} aria-hidden />
+    return <section className="cr-hero cr-hero--jobs">
+        <div className="cr-hero__backdrop" style={{ backgroundImage: `url(${CareerHeroConst.EN.image})` }} aria-hidden />
         <Container maxWidth="xl" className="cr-hero__inner">
             <CareerBreadcrumb items={[{ label: t("Career", "Karier"), to: CAREER_BASE_PATH }, { label: t("Jobs", "Lowongan") }]} />
 
             <Typography variant="h1" className="cr-hero__title">{title}</Typography>
             <Typography className="cr-hero__description">{description}</Typography>
 
-            <Box className="cr-search cr-search--hero" role="search">
+            <div className="cr-search cr-search--hero" role="search">
                 <SearchRoundedIcon className="cr-search__icon" />
                 <InputBase
                     className="cr-search__input"
@@ -48,27 +45,25 @@ export default function JobsHeroSection({ filters, onFilterChange }: JobsHeroSec
                     onChange={e => onFilterChange("q", e.target.value)}
                     inputProps={{ "aria-label": searchPlaceholder }}
                 />
-            </Box>
+            </div>
 
-            <Box className="cr-selects">
+            <div className="cr-selects">
                 {selects.map(({ key, allLabel, options }) => (
                     <Select
                         key={key}
+                        variant="standard"
+                        className="cr-select"
                         value={filters[key] ?? ""}
-                        displayEmpty
-                        onChange={e => onFilterChange(key, e.target.value || undefined)}
-                        input={<InputBase className="cr-select" />}
+                        onChange={value => onFilterChange(key, value || undefined)}
                         IconComponent={KeyboardArrowDownRoundedIcon}
-                        inputProps={{ "aria-label": allLabel }}
-                    >
-                        <MenuItem value="">{allLabel}</MenuItem>
-                        {options.map(option => <MenuItem key={option} value={option}>{term(option)}</MenuItem>)}
-                    </Select>
+                        aria-label={allLabel}
+                        options={[{ value: "", label: allLabel }, ...options.map(option => ({ value: option, label: term(option) }))]}
+                    />
                 ))}
-            </Box>
+            </div>
 
             <Typography className="cr-popular__title">{popularSkills}</Typography>
-            <Box className="cr-popular" role="group" aria-label={popularSkills}>
+            <div className="cr-popular" role="group" aria-label={popularSkills}>
                 {[null, ...CareerPopularSkillsConst].map(skill => {
                     const active = (filters.skill ?? null) === skill;
                     return <ButtonBase
@@ -80,7 +75,7 @@ export default function JobsHeroSection({ filters, onFilterChange }: JobsHeroSec
                         {skill ? term(skill) : allSkills}
                     </ButtonBase>
                 })}
-            </Box>
+            </div>
         </Container>
-    </Box>
+    </section>
 }

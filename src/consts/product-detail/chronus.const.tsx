@@ -1,16 +1,4 @@
-import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
-import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
-import QueryStatsOutlinedIcon from "@mui/icons-material/QueryStatsOutlined";
-import TimerOutlinedIcon from "@mui/icons-material/TimerOutlined";
-import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
-import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
-import SwapHorizOutlinedIcon from "@mui/icons-material/SwapHorizOutlined";
-import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import FlightOutlinedIcon from "@mui/icons-material/FlightOutlined";
-import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
-import GavelOutlinedIcon from "@mui/icons-material/GavelOutlined";
-import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
-import CloudOutlinedIcon from "@mui/icons-material/CloudOutlined";
+import { ShieldOutlinedIcon, SupportAgentOutlinedIcon, QueryStatsOutlinedIcon, TimerOutlinedIcon, NotificationsActiveOutlinedIcon, AccountTreeOutlinedIcon, SwapHorizOutlinedIcon, VisibilityOffOutlinedIcon, FlightOutlinedIcon, AccountBalanceOutlinedIcon, GavelOutlinedIcon, BusinessOutlinedIcon, CloudOutlinedIcon } from "components/ui/icons";
 
 import imgBanner from "assets/asyst/img/background/product/chronus/detail/banner-1.webp";
 import imgBusiness from "assets/asyst/img/background/product/chronus/detail/business-1.webp";

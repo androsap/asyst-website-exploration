@@ -182,7 +182,7 @@ $mobile: 599px;
             }
         }
 
-        &__excerpt.MuiTypography-root {
+        &__excerpt[data-slot="typography"] {
             margin-top: 16px;
             font-size: 15px;
             line-height: 1.6;
@@ -240,7 +240,7 @@ $mobile: 599px;
         justify-content: center;
         margin-top: 56px;
 
-        &__button.MuiButton-root {
+        &__button[data-slot="button"] {
             background: $blue;
             border-radius: 6px;
             padding: 10px 28px;
@@ -277,7 +277,7 @@ $mobile: 599px;
             margin-top: $header-height-mobile;
         }
 
-        &__inner.MuiContainer-root {
+        &__inner[data-slot="container"] {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -314,7 +314,7 @@ $mobile: 599px;
     }
 
     // ---------- detail: artikel ----------
-    .nw-article.MuiContainer-root {
+    .nw-article[data-slot="container"] {
         max-width: 796px; // 764px konten + gutter
     }
 
@@ -387,7 +387,7 @@ $mobile: 599px;
             min-width: 0;
         }
 
-        &__text.MuiTypography-root {
+        &__text[data-slot="typography"] {
             font-size: 13px;
             line-height: 1.5;
             color: $text;
@@ -540,14 +540,14 @@ $mobile: 599px;
         border: 1px solid $border;
         border-radius: 8px;
 
-        &__name.MuiTypography-root {
+        &__name[data-slot="typography"] {
             font-family: $font-heading;
             font-size: 15px;
             font-weight: 600;
             color: #1A1A1A;
         }
 
-        &__text.MuiTypography-root {
+        &__text[data-slot="typography"] {
             font-size: 13px;
             color: $text;
 
@@ -602,13 +602,13 @@ $mobile: 599px;
         display: flex;
         gap: 12px;
 
-        .MuiIconButton-root {
+        [data-slot="icon-button"] {
             border: 1px solid $blue;
             color: $blue;
             width: 32px;
             height: 32px;
 
-            &.Mui-disabled {
+            &:disabled {
                 border-color: $border;
                 color: #B8C0CA;
             }

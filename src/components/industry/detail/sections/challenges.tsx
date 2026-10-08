@@ -1,8 +1,7 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import { Container } from "components/ui/container";
+import { Typography } from "components/ui/typography";
+import { CloseRoundedIcon } from "components/ui/icons";
 import { IndustryDetailContent } from "consts/industry-detail.const";
 import SectionHeading from "components/product/shared/section-heading";
 import TabBar from "components/product/shared/tab-bar";
@@ -16,24 +15,24 @@ export default function ChallengesSection({ content }: ChallengesSectionProps) {
     const [activeIndex, setActiveIndex] = useState(0);
     const active = content.items[activeIndex];
 
-    return <Box component="section" className="pv-section">
+    return <section className="pv-section">
         <Container maxWidth="xl">
             <SectionHeading title={content.title} />
-            <Box className="pv-solve">
+            <div className="pv-solve">
                 <TabBar variant="segment" labels={content.items.map(x => x.label)} active={activeIndex} onChange={setActiveIndex} />
-                <Box className="pv-solve__panel" role="tabpanel">
-                    <Box className="pv-media">
+                <div className="pv-solve__panel" role="tabpanel">
+                    <div className="pv-media">
                         <img src={active.image} alt={active.title} loading="lazy" />
-                    </Box>
-                    <Box>
+                    </div>
+                    <div>
                         <Typography className="pv-solve__title">{active.title}</Typography>
                         <Typography className="pv-solve__description">{active.description}</Typography>
                         <ul className="iv-cross-list">
                             {active.points.map(point => <li key={point}><CloseRoundedIcon />{point}</li>)}
                         </ul>
-                    </Box>
-                </Box>
-            </Box>
+                    </div>
+                </div>
+            </div>
         </Container>
-    </Box>
+    </section>
 }
