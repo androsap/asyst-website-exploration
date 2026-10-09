@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 const MAX_WIDTH = {
     sm: "min-[600px]:max-w-[600px]",
     md: "min-[900px]:max-w-[900px]",
-    lg: "min-[1200px]:max-w-[1200px]",
-    xl: "min-[1536px]:max-w-[1536px]",
+    lg: "max-w-[1280px]",
+    xl: "max-w-[1280px]",
 } as const;
 
 export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
@@ -14,8 +14,8 @@ export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Pembungkus konten horizontal. Gutter 32px (48px >= 600px) & max-width per breakpoint
- * mengikuti Container MUI dengan theme spacing 16.
+ * Pembungkus konten horizontal. Gutter 32px (48px >= 600px); max-width lg/xl dikunci 1280px,
+ * sm/md mengikuti Container MUI dengan theme spacing 16.
  */
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(function Container(
     { maxWidth = "lg", disableGutters = false, className, ...props }, ref,

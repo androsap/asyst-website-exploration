@@ -38,6 +38,7 @@ $mobile: 599px;
     // ---------- hero (teks kiri, gambar kanan) ----------
     .sv-hero {
         padding: 150px 0 80px;
+        max-height: 1067px;
         background:
             radial-gradient(ellipse 50% 60% at 15% 30%, rgba(220, 238, 214, 0.55) 0%, rgba(255, 255, 255, 0) 70%),
             radial-gradient(ellipse 45% 55% at 85% 25%, rgba(214, 228, 250, 0.7) 0%, rgba(255, 255, 255, 0) 70%),

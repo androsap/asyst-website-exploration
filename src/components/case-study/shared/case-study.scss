@@ -94,6 +94,7 @@ $mobile: 599px;
         position: relative;
         overflow: hidden;
         padding: 160px 0 110px;
+        max-height: 1067px;
         background: linear-gradient(180deg, #F7FAFE 0%, #FFFFFF 100%);
 
         @media (max-width: $tablet) {

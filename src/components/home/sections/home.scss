@@ -264,8 +264,9 @@ $mobile: 599px;
     .home-hero {
         // border-box agar padding dihitung di dalam 100vh, bukan menambah tinggi.
         box-sizing: border-box;
-        min-height: 100vh;
-        min-height: 100svh;
+        min-height: min(100vh, 1067px);
+        min-height: min(100svh, 1067px);
+        max-height: 1067px;
         display: flex;
         flex-direction: column;
         padding: 116px 0 32px;

@@ -76,7 +76,6 @@ body.no-scroll {
 
 @media only screen and (min-width: 1440px) and (max-width: 1600px) {
     [data-slot="container"][data-max-width="xl"] {
-        max-width: 1320px;
         padding-left: 48px;
         padding-right: 48px;
     }
@@ -85,7 +84,6 @@ body.no-scroll {
 //laptop 13" lenovo thinkpad L13
 @media only screen and (min-width: 1025px) and (max-width: 1440px) {
     [data-slot="container"][data-max-width="xl"] {
-        max-width: 1200px;
         // padding-left: 24px;
         // padding-right: 24px;
         padding-left: 72px;
