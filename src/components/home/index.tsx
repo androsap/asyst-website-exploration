@@ -2,6 +2,7 @@ import './index.scss';
 import './sections/home.scss';
 import { MainLayoutSharedProps } from 'shared/layout/main-layout'
 import HeroSection from './sections/hero'
+import EnterpriseHighlightSection from './sections/enterprise-highlight'
 import ProductsSection from './sections/products'
 import CapabilitiesSection from './sections/capabilities'
 import PartnerSection from './sections/partner'
@@ -12,7 +13,6 @@ import { useTalkToExpert } from 'components/product/shared/page-actions'
 
 // Section jauh di bawah fold yang membawa dependency berat (Swiper, axios + request API news):
 // chunk-nya baru diunduh saat mendekati viewport, supaya tidak berebut bandwidth dengan hero (LCP)
-const EnterpriseHighlightSection = lazy(() => import('./sections/enterprise-highlight'))
 const IndustriesSection = lazy(() => import('./sections/industries'))
 const NewsSection = lazy(() => import('./sections/news'))
 
@@ -40,7 +40,7 @@ export default function HomeComponent({ }: MainLayoutSharedProps) {
 
     return <div className="home-v2">
         <HeroSection onTalkToExpert={talkToExpert} />
-        <WhenNearViewport><EnterpriseHighlightSection /></WhenNearViewport>
+        <EnterpriseHighlightSection />
         <WhenNearViewport><ProductsSection /></WhenNearViewport>
         <WhenNearViewport><CapabilitiesSection /></WhenNearViewport>
         <WhenNearViewport><PartnerSection /></WhenNearViewport>
