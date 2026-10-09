@@ -1,5 +1,5 @@
 import { Typography } from "components/ui/typography";
-import { styles, contentStyles } from './styled'
+import { styles, logoSwiperSlideClass } from './styled'
 import { Virtual, Navigation } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -36,9 +36,9 @@ const CustomersComponent: React.FC<CustomersProps> = ({ corporate }) => {
             >
                 {corporate.product?.customers?.length > 0 && Children.toArray(corporate?.product?.customers
                     .map((item, index) =>
-                        <SwiperSlide key={`slide-${index}`} virtualIndex={index} style={contentStyles.logoSwiperSlider}>
+                        <SwiperSlide key={`slide-${index}`} virtualIndex={index} className={logoSwiperSlideClass}>
                             <div className="flex flex-row justify-center [align-items:space-evenly]">
-                                <img alt="" src={item.company_logo} style={{ width: "301", height: "70px" }}/>
+                                <img alt="" src={item.company_logo} className="h-[70px]" />
                             </div>
                         </SwiperSlide>
                     ))}

@@ -1,5 +1,5 @@
 import { Typography } from "components/ui/typography";
-import { boxImagesStyle, styles, vectorBoxStyle } from './styled';
+import { styles, vectorBoxStyle } from './styled';
 
 import img1 from 'assets/asyst/img/background/product/amala/resources-1.webp';
 import img2 from 'assets/asyst/img/background/product/amala/resources-2.webp';
@@ -79,15 +79,9 @@ export default function ResourcesComponent() {
             <Typography className={styles.title}>{t("Resources", "Sumber Daya")}</Typography>
             <div className="flex flex-row gap-[48px]">
                 {Children.toArray(resources.map(({ type, img, title, date, author }) =>
-                    <Link to="https://www.asyst.co.id/news" style={boxImagesStyle}>
+                    <Link to="https://www.asyst.co.id/news" className={styles.boxImages}>
                         <div>
-                            <img alt="" src={img} style={{
-                                backgroundSize: 'cover',
-                                width: '100%',
-                                height: 'auto',
-                                textAlign: 'center',
-                                borderRadius: '20px',
-                            }}></img>
+                            <img alt="" src={img} className="[background-size:cover] w-full h-auto text-center rounded-[20px]"></img>
                             <div className={styles.tagsLabel}>
                                 <Typography variant="subtitle2">{type}</Typography>
                             </div>
@@ -102,16 +96,16 @@ export default function ResourcesComponent() {
                     </Link>
                 ))}
                 <div className='download-box'>
-                    <div className={`vector-box ${styles.vectorBox}`} style={vectorBoxStyle}><img alt="" src={arrow} className='arrow-image' style={{ marginLeft: '35px', marginTop: '25px' }}></img></div>
+                    <div className={`vector-box ${styles.vectorBox}`} style={vectorBoxStyle}><img alt="" src={arrow} className='arrow-image ml-[35px] mt-[25px]'></img></div>
                     <div className="p-[30px]">
                         <Typography className={`text1 ${styles.text1}`}>{t(`Download Free ${data?.product?.product_name ?? ""} Document`, `Unduh Dokumen ${data?.product?.product_name ?? ""} Gratis`)}</Typography>
                         <div className="flex flex-row gap-[10px] pt-[20px]" onClick={() => downloadBrochure()}>
-                            <img alt="" src={pdf} style={{ width: '24px', height: '24px', cursor: 'pointer' }}></img>
+                            <img alt="" src={pdf} className="w-[24px] h-[24px] cursor-pointer"></img>
                             <Typography className={styles.text2}><u>{t(`${data?.product?.product_name ?? ""} product information.pdf`, `informasi produk ${data?.product?.product_name ?? ""}.pdf`)}</u></Typography>
                         </div>
-                        <img alt="" src={divider} style={{ width: '332px', height: '1px', paddingBottom: '15px', paddingTop: '30px' }}></img>
+                        <img alt="" src={divider} className="w-[332px] h-px pb-[15px] pt-[30px]"></img>
                         <Typography className={styles.text1}>{t("Looking for another Asyst media resources?", "Mencari sumber media Asyst lainnya?")}</Typography>
-                        <Link to="https://www.asyst.co.id/news"><Typography className={styles.text2} style={{ paddingTop: '30px' }}><u>{t("View all media resources", "Lihat semua sumber media")}</u></Typography></Link>
+                        <Link to="https://www.asyst.co.id/news"><Typography className={`${styles.text2} pt-[30px]`}><u>{t("View all media resources", "Lihat semua sumber media")}</u></Typography></Link>
                     </div>
                 </div>
             </div>

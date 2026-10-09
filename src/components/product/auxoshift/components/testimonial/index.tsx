@@ -4,7 +4,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { FreeMode } from 'swiper/modules';
 import { Typography } from "components/ui/typography";
-import { mainBoxStyle, profileImageStyle, styles } from './styled';
+import { mainBoxStyle, styles } from './styled';
 import { ProductTestimonialModel } from "models/amala/testimonial.model";
 import { Children } from 'react';
 import he from 'he'
@@ -52,7 +52,7 @@ const TestimonialComponent: React.FC<TestimonialProps> = ({ testimonial }) => {
                                         <div className={`box-border flex flex-wrap w-full flex-row ${styles.profileContainer}`}>
                                             <div className="box-border m-0 flex-row grow-0 basis-[20.833333%] max-w-[20.833333%]">
                                                 <div className={styles.profileImage}>
-                                                    <img src={testimonial.image1} style={profileImageStyle} alt={testimonial.name} />
+                                                    <img src={testimonial.image1} className={styles.profileImage} alt={testimonial.name} />
                                                 </div>
                                             </div>
                                             <div className="box-border m-0 flex-row grow-0 basis-[79.166667%] max-w-[79.166667%]">

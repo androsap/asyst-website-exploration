@@ -361,12 +361,11 @@ export function Collapse({ in: inProp, timeout = duration.standard, easing: e, c
             data-slot="collapse"
             data-state={state}
             className={cn(
-                "h-0 overflow-hidden [transition:height_300ms_cubic-bezier(0.4,0,0.2,1)_0ms]",
+                "h-0 min-h-0 overflow-hidden [transition:height_300ms_cubic-bezier(0.4,0,0.2,1)_0ms]",
                 state === "entered" && "h-auto overflow-visible",
                 state === "exited" && !inProp && "invisible",
                 className,
             )}
-            style={{ minHeight: "0px" }}
         >
             <div ref={wrapperRef} data-parity="transparent" className="flex w-full">
                 <div data-parity="transparent" className="w-full">{children}</div>

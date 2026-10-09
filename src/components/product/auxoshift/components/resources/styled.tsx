@@ -8,11 +8,9 @@ export const styles = {
     footerNews: "text-[color:#909090] text-[length:14px]",
     vectorBox: "absolute ml-[295px] w-[87px] h-[96px]",
     text1: "text-[color:#FFFFFF] font-['Inter'] text-[length:22px] not-italic font-[700] leading-[28px]",
+    boxImages: "[background-size:cover] [background-position:center] w-full",
     text2: "text-[color:#FFFFFF] font-['Inter'] text-[length:16px] not-italic font-[500] leading-[24px] cursor-pointer",
 };
 
 // Gambar latar vektor (sebelumnya `background: url(...)` di sx)
 export const vectorBoxStyle = { background: `url(${download})` };
-
-// Dipakai langsung sebagai inline style pada <Link>
-export const boxImagesStyle = { backgroundSize: 'cover', backgroundPosition: 'center', width: '100%' };

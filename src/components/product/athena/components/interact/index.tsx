@@ -55,7 +55,7 @@ export default function InteractComponent() {
                     </>
                 ))}
             </div>
-            <img alt="" src={data.product?.section?.image1} style={{ width: '521px', height: '521px', borderRadius: '16px' }}></img>
+            <img alt="" src={data.product?.section?.image1} className="w-[521px] h-[521px] rounded-[16px]"></img>
         </div >
         <div className={styles.numberBox}>
             {loadingCards && dataCards?.product?.section && Children.toArray(dataCards.product?.section.map((section, index) =>
@@ -72,7 +72,7 @@ export default function InteractComponent() {
                     </div>
                     <div>
                         {index + 1 !== dataCards.product?.section?.length &&
-                            <Divider style={{ height: '170px' }} orientation="vertical" variant="middle" flexItem />}
+                            <Divider className="h-[170px]" orientation="vertical" variant="middle" flexItem />}
                     </div>
                 </div>
             ))}

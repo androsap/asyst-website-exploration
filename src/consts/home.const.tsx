@@ -1,5 +1,5 @@
-import { DashboardCustomizeOutlinedIcon, HubOutlinedIcon, SupportAgentOutlinedIcon } from "components/ui/icons";
-import { SvgIconComponent } from "components/ui/svg-icon";
+import type { ComponentType } from "react";
+import { ConnectEcosystemIcon, DomainExpertiseIcon, EnterpriseSoftwareIcon } from "components/home/sections/highlight-icons";
 import { ReactComponent as AutomateOperationsIcon } from "assets/asyst/img/icon/capabilities/automate-operations.svg";
 import { ReactComponent as ModernizeLegacyIcon } from "assets/asyst/img/icon/capabilities/modernize-legacy.svg";
 import { ReactComponent as ConnectEnterpriseIcon } from "assets/asyst/img/icon/capabilities/connect-enterprise.svg";
@@ -77,7 +77,7 @@ export const TrustedByConst: { name: string; logo: string }[] = [
 ]
 
 export interface HighlightItem {
-    icon: SvgIconComponent;
+    icon: ComponentType;
     title: string;
     description: string;
 }
@@ -87,18 +87,18 @@ export const EnterpriseHighlightConst = localized({
     description: "Enterprise technology is not only about building software. It requires the ability to understand business processes, connect systems, deliver reliably, and support technology throughout its lifecycle.",
     items: [
         {
-            icon: DashboardCustomizeOutlinedIcon,
+            icon: EnterpriseSoftwareIcon,
             title: "Enterprise software built around real operational",
             description: "ASYST publicly presents products spanning areas such as ERP, corporate travel, ITSM, loyalty, cargo and workforce/resource scheduling.",
         },
         {
-            icon: HubOutlinedIcon,
+            icon: ConnectEcosystemIcon,
             title: "Technology that connects the enterprise ecosystem",
             description: "Enterprise environments rarely run on a single system. ASYST combines applications, APIs, data, infrastructure and business workflows to help organizations more connected technology",
         },
         // TODO: kartu ke-3 terpotong di desain; copy di bawah perlu dikonfirmasi
         {
-            icon: SupportAgentOutlinedIcon,
+            icon: DomainExpertiseIcon,
             title: "Delivery and support across the lifecycle",
             description: "From implementation to managed services, ASYST supports enterprise technology so it keeps running reliably as the business grows.",
         },

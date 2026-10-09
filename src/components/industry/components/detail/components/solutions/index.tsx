@@ -9,33 +9,12 @@ import Image2 from 'assets/img/background/solutions/image-solutions-2.webp';
 import Image3 from 'assets/img/background/solutions/image-solutions-3.webp';
 // import Apollo from 'assets/img/icon/products/Group 38.webp';
 
+// Hanya gambar (hasil import aset) yang tetap inline; sisanya class
+const paperContainerClass = "[background-position:center] [background-size:500px] rounded-[20px] w-[392px] h-[392px]";
 const styles = {
-    paperContainerSatu: {
-        backgroundImage: `url(${Image1})`,
-        backgroundPosition: 'center',
-        backgroundSize: '500px',
-        borderRadius: '20px',
-        width: '392px',
-        height: '392px',
-    },
-
-    paperContainerDua: {
-        backgroundImage: `url(${Image2})`,
-        backgroundPosition: 'center',
-        backgroundSize: '500px',
-        borderRadius: '20px',
-        width: '392px',
-        height: '392px',
-    },
-
-    paperContainerTiga: {
-        backgroundImage: `url(${Image3})`,
-        backgroundPosition: 'center',
-        backgroundSize: '500px',
-        borderRadius: '20px',
-        width: '392px',
-        height: '392px',
-    },
+    paperContainerSatu: { backgroundImage: `url(${Image1})` },
+    paperContainerDua: { backgroundImage: `url(${Image2})` },
+    paperContainerTiga: { backgroundImage: `url(${Image3})` },
 }
 
 export default function SolutionsComponent() {
@@ -51,7 +30,7 @@ export default function SolutionsComponent() {
                 <div className="[box-sizing:border-box] flex-col flex gap-[48px] pt-[42px]">
                     {/* Line 1 */}
                     <div className="[box-sizing:border-box] flex-row flex gap-[48px]">
-                        <Paper style={styles.paperContainerSatu}>
+                        <Paper className={paperContainerClass} style={styles.paperContainerSatu}>
                             <div className="[box-sizing:border-box] flex-col pt-[28px] pr-[28px] pb-[28px] pl-[28px] flex gap-[200px]">
                                 <div className="flex flex-row gap-[180px]">
                                     <div className="h-[28px] w-[131px] rounded-[55px] [background:#2775BB] text-center text-[color:white]">
@@ -64,7 +43,7 @@ export default function SolutionsComponent() {
                                 </div>
                             </div>
                         </Paper>
-                        <Paper style={styles.paperContainerDua}>
+                        <Paper className={paperContainerClass} style={styles.paperContainerDua}>
                             <div className="[box-sizing:border-box] flex-col pt-[28px] pr-[28px] pb-[28px] pl-[28px] flex gap-[200px]">
                                 <div className="flex flex-row gap-[180px]">
                                     <div className="h-[28px] w-[131px] rounded-[55px] [background:#2775BB] text-center text-[color:white]">
@@ -77,7 +56,7 @@ export default function SolutionsComponent() {
                                 </div>
                             </div>
                         </Paper>
-                        <Paper style={styles.paperContainerTiga}>
+                        <Paper className={paperContainerClass} style={styles.paperContainerTiga}>
                             <div className="[box-sizing:border-box] flex-col pt-[28px] pr-[28px] pb-[28px] pl-[28px] flex gap-[200px]">
                                 <div className="flex flex-row gap-[180px]">
                                     <div className="h-[28px] w-[131px] rounded-[55px] [background:#2775BB] text-center text-[color:white]">

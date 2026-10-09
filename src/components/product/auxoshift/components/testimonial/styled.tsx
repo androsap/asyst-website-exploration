@@ -15,6 +15,3 @@ export const styles = {
 
 // Ikon kutipan (sebelumnya backgroundImage di sx)
 export const mainBoxStyle = { backgroundImage: `url(${quote})` };
-
-// Dipakai langsung sebagai inline style pada <img>
-export const profileImageStyle = { borderRadius: '90px', width: '70px', height: '70px' };

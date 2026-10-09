@@ -32,13 +32,8 @@ export default function ScalableComponent() {
                     <div className="w-[80%]">
                         <Typography className={styles.subtitle}
                             dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
-                        <div style={{ display: 'inline' }}>
-                            <a
-                                style={{
-                                    color: 'var(--color-primary, #2775BB)',
-                                    display: 'inline',
-                                }}
-                            >
+                        <div className="inline">
+                            <a className="inline text-[color:var(--color-primary,#2775BB)]">
                                 {data?.product?.product_name}{' '}
                             </a> 
                             <Typography
@@ -49,7 +44,7 @@ export default function ScalableComponent() {
                             />
                         </div>
                     </div>
-                    <img alt="" src={data.product?.section?.image1} style={{ paddingTop: 1, width: '166.163px', height: '173px' }} />
+                    <img alt="" src={data.product?.section?.image1} className="pt-px w-[166.163px] h-[173px]" />
                 </div>
             </div>
         )}

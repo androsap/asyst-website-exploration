@@ -17,7 +17,7 @@ const IndustriesSection = lazy(() => import('./sections/industries'))
 const NewsSection = lazy(() => import('./sections/news'))
 
 // Placeholder setinggi kira-kira satu section, supaya section di-mount satu per satu saat di-scroll
-const PLACEHOLDER_HEIGHT = 600;
+const PLACEHOLDER_CLASS = "min-h-[600px]";
 
 /**
  * Section di bawah fold baru di-mount saat mendekati viewport: render awal (task main thread terpanjang)
@@ -27,8 +27,8 @@ const WhenNearViewport = ({ children }: PropsWithChildren) => {
     const ref = useRef<HTMLDivElement>(null);
     const near = useNearViewport(ref, "600px 0px");
     return near
-        ? <Suspense fallback={<div style={{ minHeight: PLACEHOLDER_HEIGHT }} />}>{children}</Suspense>
-        : <div ref={ref} style={{ minHeight: PLACEHOLDER_HEIGHT }} />;
+        ? <Suspense fallback={<div className={PLACEHOLDER_CLASS} />}>{children}</Suspense>
+        : <div ref={ref} className={PLACEHOLDER_CLASS} />;
 }
 
 export const formatPaginationBullet = (index: number): string => {

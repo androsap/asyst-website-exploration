@@ -40,7 +40,7 @@ export default function IndustryDetailContentComponent() {
             >
                 {t("Trusted by Over 120 Airlines", "Dipercaya oleh Lebih dari 120 Maskapai")}
             </Typography>
-            <div style={contentStyles.logoContainer}>
+            <div className={contentStyles.logoContainer}>
                 <Swiper
                     slidesPerView={'auto'}
                     spaceBetween={24}
@@ -52,8 +52,8 @@ export default function IndustryDetailContentComponent() {
                     modules={[Autoplay]}
                 >
                     {logoArray.map((logo, index) => (
-                        <SwiperSlide key={`slide-${index}`} style={contentStyles.logoSwiperSlider}>
-                            <img alt="" src={logo} style={contentStyles.logo} />
+                        <SwiperSlide key={`slide-${index}`} className={contentStyles.logoSwiperSlider}>
+                            <img alt="" src={logo} className={contentStyles.logo} />
                         </SwiperSlide>
 
                     ))}

@@ -73,7 +73,7 @@ export default function BusinessComponent() {
                     {Children.toArray(dataCard.product?.section?.filter(x => x.sequence === active).map(item =>
                         <>
                             <div className='content-box'>
-                                <img alt="" src={item.image1} style={{ width: '543px', height: '310px', borderRadius: '16px' }}></img>
+                                <img alt="" src={item.image1} className="w-[543px] h-[310px] rounded-[16px]"></img>
                                 <div className='business-box'>
                                     {!loadingCard && Children.toArray(item.sub_section_1.map(sub_section =>
                                         <div className="gap-[32px]">

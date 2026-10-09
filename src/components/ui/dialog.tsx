@@ -17,7 +17,6 @@ export interface ModalProps {
     /** Elemen konten. Jika berupa komponen transisi (Fade/Zoom/Slide), modal menunggu animasinya. */
     children: ReactElement;
     className?: string;
-    zIndex?: number;
     backdropClassName?: string;
     backdropTimeout?: number | { enter: number; exit: number };
     /** Lepas kunci scroll setelah animasi keluar (default: segera saat ditutup) */
@@ -29,7 +28,7 @@ export interface ModalProps {
 const hasTransition = (children: ReactNode) => isValidElement(children) && (children.props as { in?: boolean }).in !== undefined;
 
 export function Modal({
-    open, onClose, children, className, zIndex = 9999, backdropClassName, backdropTimeout = { enter: 225, exit: 195 }, closeAfterTransition = false, title,
+    open, onClose, children, className, backdropClassName, backdropTimeout = { enter: 225, exit: 195 }, closeAfterTransition = false, title,
 }: ModalProps) {
     const transition = hasTransition(children);
     const [exited, setExited] = useState(!open);
@@ -48,7 +47,7 @@ export function Modal({
 
     return <DialogPrimitive.Root open modal={false} onOpenChange={next => !next && onClose?.()}>
         <DialogPrimitive.Portal>
-            <div role="presentation" data-slot="modal" className={cn("fixed inset-0", !open && exited && "invisible", className)} style={{ zIndex }}>
+            <div role="presentation" data-slot="modal" className={cn("fixed inset-0 z-[9999]", !open && exited && "invisible", className)}>
                 <Fade in={open} appear timeout={backdropTimeout}>
                     <div
                         aria-hidden="true"

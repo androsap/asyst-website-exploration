@@ -57,15 +57,15 @@ const FeatureComponent: React.FC<FeaturesProps> = ({ feature, prevElement, nextE
                                     <Typography className={styles.subdescription}>{apiText(subsection, "description")}</Typography>
                                     {index + 1 !== section.sub_section_1.length && (
                                         <div className="pb-[15px]">
-                                            <Divider style={{ borderColor: '#FFFFFF1A' }} orientation="horizontal" flexItem />
+                                            <Divider className="border-[#FFFFFF1A]" orientation="horizontal" flexItem />
                                         </div>
                                     )}
                                 </div>
                             ))}
                         </div>
                         <div className="text-right">
-                            <img src={frame} style={{ position: 'relative', top: '5px', width: '625px', height: '28.194px' }} alt="frame" />
-                            <img src={section.image1} style={{ width: '625px', height: '380px', borderRadius: '0px 0px 16px 16px' }} alt={`Image ${sectionIndex}`} />
+                            <img src={frame} className="relative top-[5px] w-[625px] h-[28.194px]" alt="frame" />
+                            <img src={section.image1} className="w-[625px] h-[380px] rounded-[0px_0px_16px_16px]" alt={`Image ${sectionIndex}`} />
                         </div>
                     </div>
                 </Container>
@@ -149,11 +149,8 @@ const FeatureComponent: React.FC<FeaturesProps> = ({ feature, prevElement, nextE
                             else setIsFirstSlide(false)
                         }}
                         loop={false}
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            overflow: 'hidden'
-                        }}
+                        // [&.swiper] supaya mengalahkan overflow: clip dari swiper.css
+                        className="w-full h-full [&.swiper]:overflow-hidden"
                     >
                         {feature.product?.section?.length > 0 && feature.product.section.map((_, index) => (
                             <SwiperSlide key={`slide-${index}`}>

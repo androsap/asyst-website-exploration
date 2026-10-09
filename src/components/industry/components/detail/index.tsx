@@ -9,7 +9,7 @@ import GetinTouchComponent from './components/getin';
 import OverViewComponent from './components/overview';
 import BusinessComponent from './components/business';
 import SolutionsComponent from './components/solutions';
-import { headerLinkIconStyle, mainBoxStyle, styles } from './styled';
+import { mainBoxStyle, styles } from './styled';
 import './index.scss';
 import { useT } from 'shared/i18n';
 
@@ -28,7 +28,7 @@ export default function IndustryDetailComponent({ }: MainLayoutSharedProps) {
         <Element name="industry-detail">
             <div className={styles.mainBox} style={mainBoxStyle}>
                 <div aria-hidden="true" className={styles.overlayBox} />
-                <div style={{ display: 'flex', flexDirection: 'column', }}>
+                <div className="flex flex-col">
                     <div className={styles.backNavContainer}>
                         <BackCircleIcon />
                         <Typography className={styles.backNavText}>
@@ -44,7 +44,7 @@ export default function IndustryDetailComponent({ }: MainLayoutSharedProps) {
                                 {t("The right balance of innovative technology and unrivalled understanding of industry, to develop and manage integrated solutions and services", "Perpaduan tepat antara teknologi inovatif dan pemahaman industri yang tak tertandingi untuk mengembangkan dan mengelola solusi serta layanan terintegrasi")}
                             </Typography>
                         </div>
-                        <LinkCircleIcon style={headerLinkIconStyle} />
+                        <LinkCircleIcon className="ml-[12px]" />
                     </div>
                 </div>
             </div>

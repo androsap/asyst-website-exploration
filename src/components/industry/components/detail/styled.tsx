@@ -14,14 +14,12 @@ export const styles = {
 // Gambar banner (sebelumnya backgroundImage di sx)
 export const mainBoxStyle = { backgroundImage: `url(${bannerBackground})` };
 
-// Dipakai langsung sebagai inline style pada ikon SVG
-export const headerLinkIconStyle = { marginLeft: '12px' };
-
-// Dipakai langsung sebagai inline style pada logo slider (nilai sama dengan sebelumnya)
+// Class logo slider; [&.swiper-slide] supaya mengalahkan width: 100% dari swiper.css
+// (padddingBottom lama typo sehingga tidak pernah berlaku — tidak dibawa)
 export const contentStyles = {
-    logoContainer: { height: '90px', padddingBottom: '120px' },
-    logoSwiperSlider: { width: 'auto', marginRight: '24px' },
-    logo: { width: '100%', maxHeight: '38px' },
+    logoContainer: "h-[90px]",
+    logoSwiperSlider: "[&.swiper-slide]:w-auto [&.swiper-slide]:mr-[24px]",
+    logo: "w-full max-h-[38px]",
 };
 
 export const logoTitleClass = "text-[color:#1A1A1A] font-['Inter'] text-[length:36px] not-italic font-[700] leading-[44px]";
