@@ -1,12 +1,16 @@
 // Menu header (desain revamp 2026). Sementara hardcode; nanti bisa diganti data dari API.
 // `link` kosong = halaman tujuan belum ada (item tetap tampil tapi tidak bisa diklik).
 
+import type { ComponentType } from "react";
 import imgFeatured from "assets/asyst/img/background/services-solutions/amala1.webp";
 import { LANGUAGES, localized } from "shared/i18n";
+import * as Icons from "shared/navigation/header/header-icons";
 
 export interface HeaderLinkItem {
     label: string;
     link?: string;
+    /** Ikon di panel menu desktop. */
+    icon?: ComponentType;
 }
 
 export interface HeaderProductItem {
@@ -163,12 +167,12 @@ export const HeaderSolutionsConst = localized<HeaderGroup[]>([
         linkLabel: "All Solutions",
         // Baru SOC yang punya halaman detail; lainnya ke halaman Solutions (sama seperti consts/solution.const)
         items: [
-            { label: "Security Operation Center", link: "/solution/security-operations-center" },
-            { label: "Infra, App, Platform Operation and ITSM", link: "/solution" },
-            { label: "Service Orchestration and Data Management", link: "/solution" },
-            { label: "Application Modernization", link: "/solution" },
-            { label: "Digital Business Consulting", link: "/solution" },
-            { label: "Seat Management", link: "/solution" },
+            { label: "Security Operation Center", link: "/solution/security-operations-center", icon: Icons.SecurityOperationCenterIcon },
+            { label: "Infra, App, Platform Operation and ITSM", link: "/solution", icon: Icons.InfraAppPlatformOperationAndITSMIcon },
+            { label: "Service Orchestration and Data Management", link: "/solution", icon: Icons.ServiceOrchestrationAndDataManagementIcon },
+            { label: "Application Modernization", link: "/solution", icon: Icons.ApplicationModernizationIcon },
+            { label: "Digital Business Consulting", link: "/solution", icon: Icons.DigitalBusinessConsultingIcon },
+            { label: "Seat Management", link: "/solution", icon: Icons.SeatManagementIcon },
         ],
     },
     {
@@ -176,12 +180,12 @@ export const HeaderSolutionsConst = localized<HeaderGroup[]>([
         link: "/industry",
         linkLabel: "All Industries",
         items: [
-            { label: "Enterprise", link: "/industry" },
-            { label: "Aviation", link: "/industry/aviation" },
-            { label: "Transportation", link: "/industry" },
-            { label: "Logistics", link: "/industry" },
-            { label: "Government", link: "/industry" },
-            { label: "Other industries", link: "/industry" },
+            { label: "Enterprise", link: "/industry", icon: Icons.EnterpriseIcon },
+            { label: "Aviation", link: "/industry/aviation", icon: Icons.AviationIcon },
+            { label: "Transportation", link: "/industry", icon: Icons.TransportationIcon },
+            { label: "Logistics", link: "/industry", icon: Icons.LogisticsIcon },
+            { label: "Government", link: "/industry", icon: Icons.GovernmentIcon },
+            { label: "Other industries", link: "/industry", icon: Icons.OtherIndustriesIcon },
         ],
     },
 ], [
@@ -214,11 +218,11 @@ export const HeaderSolutionsConst = localized<HeaderGroup[]>([
 export const HeaderCompanyConst = localized<HeaderGroup>({
     label: "Aero Systems",
     items: [
-        { label: "About us", link: "/about" },
-        { label: "Careers", link: "/career" },
-        { label: "FAQ" },
-        { label: "Support" },
-        { label: "Help and Documentation" },
+        { label: "About us", link: "/about", icon: Icons.AboutUsIcon },
+        { label: "Careers", link: "/career", icon: Icons.CareersIcon },
+        { label: "FAQ", icon: Icons.FAQIcon },
+        { label: "Support", icon: Icons.SupportIcon },
+        { label: "Help and Documentation", icon: Icons.HelpAndDocumentationIcon },
     ],
 }, {
     items: [

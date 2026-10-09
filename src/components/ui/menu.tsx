@@ -146,7 +146,7 @@ export function MenuPopup({
         <div
             role="presentation"
             data-slot="modal"
-            className="fixed inset-0 z-[1300]"
+            className="fixed inset-0 z-[9999]"
             onKeyDown={event => { if (event.key === "Escape") { event.stopPropagation(); onClose(); } }}
         >
             {/* Backdrop transparan (Backdrop invisible MUI, ber-Fade): klik di luar hanya menutup menu */}

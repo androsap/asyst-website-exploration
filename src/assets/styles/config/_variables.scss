@@ -36,14 +36,14 @@ $colors: (
 
 @each $color in $colors {
     .bg-#{list.nth($color,1)} {
-        background-color: list.nth($color, 2) !important;
+        background-color: list.nth($color, 2);
     }
 
     .border-#{list.nth($color,1)} {
-        border-color: list.nth($color, 2) !important;
+        border-color: list.nth($color, 2);
     }
 
     .text-#{list.nth($color,1)} {
-        color: list.nth($color, 2) !important;
+        color: list.nth($color, 2);
     }
 }

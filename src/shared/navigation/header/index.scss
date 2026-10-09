@@ -159,13 +159,13 @@ $header-height: 84px;
     }
 }
 
-// CTA juga dipakai di drawer mobile (render di luar .header lewat portal)
-.header__cta {
+// Diawali .header supaya mengalahkan reset `.header button` tanpa !important
+.header .header__cta {
     flex-shrink: 0;
     padding: 12px 22px;
-    border: 1px solid $navy !important;
+    border: 1px solid $navy;
     border-radius: 8px;
-    background: transparent !important;
+    background: transparent;
     color: $navy;
     font-family: $font-heading;
     font-size: 17px;
@@ -174,8 +174,8 @@ $header-height: 84px;
     transition: background .15s, color .15s, border-color .15s;
 
     &:hover {
-        border-color: $blue !important;
-        background: $blue !important;
+        border-color: $blue;
+        background: $blue;
         color: #fff;
     }
 }
@@ -235,13 +235,14 @@ $header-height: 84px;
         margin-top: 24px;
     }
 
-    &__tab {
+    // Diawali .header supaya font-family mengalahkan reset `.header button` tanpa !important
+    .header &__tab {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 0 !important;
+        padding: 10px 0;
         color: $blue;
-        font-family: $font-body !important;
+        font-family: $font-body;
         font-size: 15px;
         text-align: left;
 
@@ -371,6 +372,7 @@ $header-height: 84px;
         border: 1px solid $border;
         border-radius: 10px;
         background: $surface;
+        color: #2775BB; // ikon pakai currentColor
         display: flex;
         align-items: center;
         justify-content: center;

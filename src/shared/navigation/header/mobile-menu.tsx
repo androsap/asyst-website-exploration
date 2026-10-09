@@ -139,8 +139,8 @@ export default function MobileMenu({ open, onClose, onTalkToExpert, logo }: Mobi
         </>
     };
 
-    // Drawer kanan: Modal (z-index drawer 1200) + Slide dari kanan + Paper elevation 16 — sama dengan Drawer MUI
-    return <Modal open={open} onClose={onClose} zIndex={1200} title={t("Menu", "Menu")}>
+    // Drawer kanan: Modal + Slide dari kanan + Paper elevation 16 — sama dengan Drawer MUI
+    return <Modal open={open} onClose={onClose} title={t("Menu", "Menu")}>
         <Slide in={open} direction="left" appear>
             <Paper
                 elevation={16}

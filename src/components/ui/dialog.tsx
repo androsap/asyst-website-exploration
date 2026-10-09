@@ -7,7 +7,7 @@ import { Fade } from "./transitions";
 
 /**
  * Modal (shadcn/ui Dialog, Radix) dengan perilaku Modal MUI:
- * root fixed z-index 1300, backdrop hitam 50% ber-Fade, focus trap, Escape & klik backdrop menutup,
+ * root fixed z-index 9999, backdrop hitam 50% ber-Fade, focus trap, Escape & klik backdrop menutup,
  * scroll body dikunci (padding scrollbar), dan `closeAfterTransition` — konten bertransisi tetap
  * ter-mount sampai animasi keluarnya selesai.
  */
@@ -29,7 +29,7 @@ export interface ModalProps {
 const hasTransition = (children: ReactNode) => isValidElement(children) && (children.props as { in?: boolean }).in !== undefined;
 
 export function Modal({
-    open, onClose, children, className, zIndex = 1300, backdropClassName, backdropTimeout = { enter: 225, exit: 195 }, closeAfterTransition = false, title,
+    open, onClose, children, className, zIndex = 9999, backdropClassName, backdropTimeout = { enter: 225, exit: 195 }, closeAfterTransition = false, title,
 }: ModalProps) {
     const transition = hasTransition(children);
     const [exited, setExited] = useState(!open);

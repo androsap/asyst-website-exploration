@@ -453,34 +453,59 @@ $mobile: 599px;
             }
         }
 
+        // Marquee logo (seperti Clients di About Us). Logo berjalan ke kiri dan memudar
+        // ke dalam label "Trusted by" lewat gradient putih di kedua tepi.
         &__logos {
+            position: relative;
             flex: 1;
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 16px;
+            min-width: 0;
             width: 100%;
+            overflow: hidden;
 
-            @media (max-width: $tablet) {
-                grid-template-columns: repeat(4, 1fr);
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                z-index: 1;
+                width: 96px;
+                pointer-events: none;
+
+                @media (max-width: $mobile) {
+                    width: 40px;
+                }
             }
 
-            // Mobile: satu baris yang bisa di-scroll horizontal sampai tepi layar
+            &::before {
+                left: 0;
+                background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+            }
+
+            &::after {
+                right: 0;
+                background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+            }
+
+            &:hover .home-trusted__track {
+                animation-play-state: paused;
+            }
+
+            // Mobile: label di atas, marquee selebar layar
             @media (max-width: $mobile) {
-                grid-template-columns: none;
-                grid-auto-flow: column;
-                grid-auto-columns: 72px;
-                gap: 12px;
-                // parent flex column rata tengah; tanpa stretch baris ini melebar ke kedua sisi
                 align-self: stretch;
                 width: auto;
                 margin: 0 -16px;
-                padding: 0 16px 4px;
-                overflow-x: auto;
-                scrollbar-width: none;
+            }
+        }
 
-                &::-webkit-scrollbar {
-                    display: none;
-                }
+        &__track {
+            display: flex;
+            width: max-content;
+            animation: home-trusted-scroll 30s linear infinite;
+
+            @media (prefers-reduced-motion: reduce) {
+                animation-duration: 90s;
             }
         }
 
@@ -492,9 +517,9 @@ $mobile: 599px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            max-width: 146px;
-            width: 100%;
-            justify-self: center;
+            flex: 0 0 auto;
+            width: 146px;
+            margin-right: 16px; // pakai margin (bukan gap) supaya -50% pas di batas salinan
             padding: 23px 17px;
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.1);
@@ -516,6 +541,8 @@ $mobile: 599px;
             }
 
             @media (max-width: $mobile) {
+                width: 72px;
+                margin-right: 12px;
                 padding: 10px 8px;
             }
 
@@ -527,6 +554,11 @@ $mobile: 599px;
                 object-fit: contain;
             }
         }
+    }
+
+    @keyframes home-trusted-scroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
     }
 
     // ---------- enterprise highlight ----------

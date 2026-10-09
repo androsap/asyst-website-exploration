@@ -26,7 +26,7 @@ $latin-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+0
 }
 
 body {
-    margin: 0px !important;
+    margin: 0px;
     font-family: "Inter";
 }
 
@@ -81,10 +81,6 @@ body.no-scroll {
     &::-webkit-scrollbar-thumb:hover {
         background: #fff;
     }
-}
-
-[data-slot="modal"] {
-    z-index: 9999 !important;
 }
 
 @media only screen and (min-width: 1440px) and (max-width: 1600px) {

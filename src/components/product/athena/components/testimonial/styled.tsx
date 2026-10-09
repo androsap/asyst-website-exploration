@@ -3,7 +3,7 @@ import quote from "assets/asyst/img/background/industry/testimonials-quote.webp"
 // Class Tailwind hasil konversi style MUI `sx` sebelumnya (nilai identik).
 export const styles = {
     title: "text-[color:#1A1A1A] font-['Inter'] text-[length:36px] font-[700] leading-[44px] pb-[30px] pt-[100px]",
-    mainBox: "rounded-[20px] [border:1px_solid_var(--nuted-extended-border-value,_#E2EAF1)] w-[100%] h-[280px] [position:relative_!important] pt-[20px] pl-[24px] pr-[24px] [background-repeat:no-repeat] [background-position:24px_20px] flex flex-col",
+    mainBox: "rounded-[20px] [border:1px_solid_var(--nuted-extended-border-value,_#E2EAF1)] w-[100%] h-[280px] relative pt-[20px] pl-[24px] pr-[24px] [background-repeat:no-repeat] [background-position:24px_20px] flex flex-col",
     quoteGrid: "pt-[22px]",
     quote: "text-[color:var(--nuted-extended-bodytext-value,_#42423B)] font-['Inter'] text-[length:22px] italic font-[500] leading-[28px]",
     profileContainer: "mt-[34px] mb-[34px]",

@@ -42,11 +42,14 @@ export default function HeroSection({ onTalkToExpert }: HeroSectionProps) {
             <div className="home-trusted">
                 <Typography className="home-trusted__label">{t("Trusted by", "Dipercaya oleh")}</Typography>
                 <div className="home-trusted__logos">
-                    {TrustedByConst.map(({ name, logo }) => (
-                        <div key={name} className="home-trusted__logo">
-                            <img src={logo} alt={name} loading="lazy" />
-                        </div>
-                    ))}
+                    {/* Marquee seperti Clients di About Us: 2 salinan logo agar animasi -50% looping tanpa jeda */}
+                    <div className="home-trusted__track">
+                        {[0, 1].map((copy) => TrustedByConst.map(({ name, logo }) => (
+                            <div key={`${copy}-${name}`} className="home-trusted__logo" aria-hidden={copy === 1}>
+                                <img src={logo} alt={copy === 0 ? name : ""} loading="lazy" />
+                            </div>
+                        )))}
+                    </div>
                 </div>
             </div>
         </Container>
