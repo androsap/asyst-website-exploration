@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from "react";
+import { useRef, useState, type CSSProperties } from "react";
 import { ButtonBase } from "components/ui/button-base";
 import { Container } from "components/ui/container";
 import { Typography } from "components/ui/typography";
@@ -6,14 +6,18 @@ import { Link } from "react-router-dom";
 import { ProductCategoryConst, ProductCategoryTermsConst, ProductsConst } from "consts/home.const";
 import { useLocalized, useTerms } from "shared/i18n";
 import SectionHeading from "./section-heading";
+import useNearViewport from "./use-near-viewport";
 
 export default function ProductsSection() {
     const [active, setActive] = useState<typeof ProductCategoryConst[number]>("All Products");
     const products = useLocalized(ProductsConst);
     const categoryLabel = useTerms(ProductCategoryTermsConst);
     const items = products.items.filter(x => active === "All Products" || x.category === active);
+    // `loading="lazy"` bawaan browser memuat gambar dari jarak ~1250-2500px; ditunda sampai section dekat viewport
+    const sectionRef = useRef<HTMLElement>(null);
+    const nearViewport = useNearViewport(sectionRef);
 
-    return <section className="home-section">
+    return <section ref={sectionRef} className="home-section">
         <Container maxWidth="xl">
             <SectionHeading title={products.title} description={products.description} />
             <div className="home-tabs" role="tablist">
@@ -38,7 +42,7 @@ export default function ProductsSection() {
                         <div className="home-product__preview">
                             <div className="home-product__frame">
                                 <div className="home-product__window-bar"><span /><span /></div>
-                                <img src={image} alt={title} loading="lazy" />
+                                <img src={nearViewport ? image : undefined} alt={title} loading="lazy" />
                             </div>
                         </div>
                     </Link>

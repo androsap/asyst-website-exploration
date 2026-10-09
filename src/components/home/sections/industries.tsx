@@ -7,6 +7,7 @@ import { IndustriesConst } from "consts/home.const";
 import { useLocalized, useT } from "shared/i18n";
 import CarouselNav from "./carousel-nav";
 import useSwiperNav from "./use-swiper-nav";
+import LazyBackground from "./lazy-background";
 
 export default function IndustriesSection() {
     const { swiperProps, navProps } = useSwiperNav();
@@ -29,7 +30,7 @@ export default function IndustriesSection() {
                         {industries.items.map(({ title, description, image, tags }) => (
                             <SwiperSlide key={title}>
                                 <div className="home-industry">
-                                    <div className="home-industry__image" style={{ backgroundImage: `url(${image})` }} />
+                                    <LazyBackground className="home-industry__image" image={image} />
                                     <Typography className="home-industry__title">{title}</Typography>
                                     <Typography className="home-industry__description">{description}</Typography>
                                     <div className="home-chips home-chips--filled">

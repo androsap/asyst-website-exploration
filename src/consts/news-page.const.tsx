@@ -1,5 +1,12 @@
 // Halaman News & detail news (revamp 2026). Isi news diambil dari API (helper/NewsHelper).
 import { localized } from "shared/i18n";
+import NewsModel from "models/news.model";
+import imgNewsHero1 from "assets/asyst/img/background/HBNR-1.webp";
+import imgNewsHero2 from "assets/asyst/img/background/HBNR-2.webp";
+import imgNewsHero3 from "assets/asyst/img/background/HBNR-3.webp";
+import imgNewsCareer from "assets/asyst/img/background/career/teamwork.webp";
+import imgNewsCargo from "assets/asyst/img/background/services-solutions/cargo.webp";
+import imgNewsPartner from "assets/asyst/img/background/partner/partner-integration.webp";
 
 export const NEWS_BASE_PATH = "/news";
 
@@ -26,6 +33,22 @@ export const NewsCategoryTermsConst: Record<string, string> = {
     "Expertise": "Keahlian",
     "Logistics": "Logistik",
 };
+
+// TODO: hapus setelah akses CMS tersedia. Fallback section News di homepage saat API news kosong / gagal.
+const dummyNews = (id: string, title: string, category: string, image: string, created_date: string): NewsModel => ({
+    id, slug: `dummy-${id}`, title, category, image, created_date,
+    caption: "", content: "", status: "Published",
+    created_by: "admincms", updated_date: created_date, updated_by: "admincms",
+});
+
+export const NewsDummyConst: NewsModel[] = [
+    dummyNews("1", "Asyst Strengthens Digital Transformation Partnership with National Airline", "Company", imgNewsHero1, "2026-09-28 09:00:00"),
+    dummyNews("2", "How AI-Driven Automation Is Reshaping Airport Operations", "Technology", imgNewsHero2, "2026-09-20 10:30:00"),
+    dummyNews("3", "Asyst at Indonesia Digital Summit 2026: Building Future-Ready Enterprises", "Events", imgNewsHero3, "2026-09-12 13:00:00"),
+    dummyNews("4", "Modernizing Legacy Systems Without Disrupting Daily Operations", "Expertise", imgNewsPartner, "2026-09-05 08:15:00"),
+    dummyNews("5", "Smarter Cargo Tracking for Faster, More Reliable Logistics", "Logistics", imgNewsCargo, "2026-08-27 11:00:00"),
+    dummyNews("6", "Inside Asyst: Growing Talent for Indonesia's Digital Future", "Company", imgNewsCareer, "2026-08-18 15:45:00"),
+];
 
 export const NEWS_PAGE_SIZE = 9;
 export const NEWS_RELATED_LIMIT = 6;

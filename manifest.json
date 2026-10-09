@@ -1,6 +1,7 @@
 {
     "selfDestroying": true,
     "registerType": "prompt",
+    "injectRegister": null,
     "includeAssets": [
         "icon.png"
     ],

@@ -61,8 +61,8 @@ try {
         fs.readdirSync(halaman).map(fileName => recursiveMap(fileName));
 
         fs.writeFile(path.join(__dirname, `../src/shared/router/${namafile}.tsx`), `
-import { lazy } from "react";
-const router = ${JSON.stringify(router).replace(/{{buka}}/g, 'lazy(() => import("').replace(/{{tutup}}/g, '"))')};
+import { lazyPage } from "./lazy-page";
+const router = ${JSON.stringify(router).replace(/{{buka}}/g, 'lazyPage(() => import("').replace(/{{tutup}}/g, '"))')};
 export default router;`.replace(/"lazy/g, "lazy").replace(/\)\)"/g, "))"), function (err) {
             if (err) throw err;
             console.log(`File router ${namafile} is created successfully.`);

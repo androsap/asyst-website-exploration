@@ -7,11 +7,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import NewsHelper from "helper/NewsHelper";
 import NewsModel from "models/news.model";
-import { NewsCategoryTermsConst } from "consts/news-page.const";
+import { NEWS_BASE_PATH, NewsCategoryTermsConst, NewsDummyConst } from "consts/news-page.const";
 import { useT, useTerms } from "shared/i18n";
 import { newsDetailPath } from "components/news/shared/utils";
 import CarouselNav from "./carousel-nav";
 import useSwiperNav from "./use-swiper-nav";
+import LazyBackground from "./lazy-background";
 
 const HOME_NEWS_LIMIT = 6;
 
@@ -28,12 +29,17 @@ export default function NewsSection() {
         NewsHelper.getList({ limit: HOME_NEWS_LIMIT }, ({ status, data }) => {
             if (!active) return;
             setLoading(false);
-            setNews(status && Array.isArray(data?.data) ? data.data : []);
+            const list: NewsModel[] = status && Array.isArray(data?.data) ? data.data : [];
+            // TODO: hapus fallback dummy setelah akses CMS tersedia
+            setNews(list.length ? list : NewsDummyConst.slice(0, HOME_NEWS_LIMIT));
         });
         return () => { active = false };
     }, []);
 
     if (!loading && !news.length) return null;
+
+    // Dummy belum punya halaman detail, arahkan ke daftar news
+    const cardPath = (slug: string) => slug.startsWith("dummy-") ? NEWS_BASE_PATH : newsDetailPath(slug);
 
     return <section className="home-section home-news__section">
         <Container maxWidth="xl">
@@ -49,13 +55,14 @@ export default function NewsSection() {
                         </SwiperSlide>
                     ))
                     : news.map(({ id, slug, image, title, category: type }) => (
-                        <SwiperSlide key={id}>
-                            <Link to={newsDetailPath(slug)} className="home-news-card" style={{ backgroundImage: `url(${image})` }}>
+                        // Tiap kartu = <article> dengan heading sendiri (SEO / semantik HTML5)
+                        <SwiperSlide key={id} tag="article">
+                            <LazyBackground as={Link} to={cardPath(slug)} className="home-news-card" image={image}>
                                 <span className="home-news-card__tag">{category(type)}</span>
-                                <span className="home-news-card__title">
+                                <h3 className="home-news-card__title">
                                     <span className="home-news-card__title-text" title={title}>{title}</span>
-                                </span>
-                            </Link>
+                                </h3>
+                            </LazyBackground>
                         </SwiperSlide>
                     ))}
             </Swiper>

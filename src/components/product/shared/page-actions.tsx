@@ -1,7 +1,10 @@
+import { lazy, Suspense } from "react";
 import { openModal } from "components/ui/modal-host";
-import RequestDemoComponent from "components/home/components/request-demo";
 import { AskAsystTopic } from "consts/ask-asyst.const";
-import AskAsystModal from "./ask-asyst-modal";
+
+// Isi modal (form, radio group, dsb.) baru diunduh saat modal dibuka, supaya tidak ikut bundle awal header/halaman
+const RequestDemoComponent = lazy(() => import("components/home/components/request-demo"));
+const AskAsystModal = lazy(() => import("./ask-asyst-modal"));
 
 export const CONTACT_US_LINK = "/contact-us";
 
@@ -14,7 +17,7 @@ export const requestDemoModal = () => {
     openModal({
         title: "Request Demo",
         className: "customBgsModal",
-        render: ({ hide }) => <RequestDemoComponent hide={hide} />
+        render: ({ hide }) => <Suspense fallback={null}><RequestDemoComponent hide={hide} /></Suspense>
     })
 };
 
@@ -23,7 +26,7 @@ export const askAsystModal = (defaultTopic?: AskAsystTopic) => {
     openModal({
         title: "Ask Asyst",
         className: "askAsystBgsModal",
-        render: ({ hide }) => <AskAsystModal hide={hide} defaultTopic={defaultTopic} />
+        render: ({ hide }) => <Suspense fallback={null}><AskAsystModal hide={hide} defaultTopic={defaultTopic} /></Suspense>
     })
 };
 

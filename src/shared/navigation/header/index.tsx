@@ -11,13 +11,14 @@ import { HeaderCompanyConst, HeaderLanguagesConst, HeaderNewsLink, HeaderSolutio
 import { setLanguage, useLanguage, useLocalized, useT } from "shared/i18n";
 import { useTalkToExpert } from "components/product/shared/page-actions";
 import { GroupsPanel, ProductsPanel } from "./panels";
-import MobileMenu from "./mobile-menu";
 import MenuLink from "./menu-link";
 import LanguageFlag from "./flags";
 import type { SearchOverlayProps } from "./search-overlay";
 import "./index.scss";
 
 const SearchOverlay = lazy(() => import("./search-overlay"));
+// Menu mobile (dialog + seluruh daftar menu) dipisah dari chunk header supaya tidak menunda render konten pertama
+const MobileMenu = lazy(() => import("./mobile-menu"));
 
 type PanelKey = "products" | "solutions" | "company";
 
@@ -128,7 +129,7 @@ export default function HeaderShared() {
             {panel === "company" && <GroupsPanel groups={[company]} onNavigate={closePanel} />}
         </Container>}
 
-        {isMobile && <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} onTalkToExpert={talkToExpert} logo={logoAsyst} />}
+        {isMobile && <Suspense fallback={null}><MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} onTalkToExpert={talkToExpert} logo={logoAsyst} /></Suspense>}
 
         {/* Baru dimuat setelah tombol search pertama kali diklik */}
         {searchOrigin && <Suspense fallback={null}>

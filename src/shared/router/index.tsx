@@ -1,4 +1,4 @@
-import { Children, useEffect, useLayoutEffect, useState } from "react";
+import { Children, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 import AutoRoute from './AutoRoute';
@@ -6,10 +6,11 @@ import router from "./router"
 import AnalyticsHelper from "helper/AnalyticsHelper";
 import PageLoader from "shared/page-loader";
 import { useLanguage } from "shared/i18n";
+import { LazyPage } from "./lazy-page";
 
 export interface RouterProps {
     path: string;
-    component: React.LazyExoticComponent<() => JSX.Element>;
+    component: LazyPage;
 }
 
 const Error404 = () => <>404</>
@@ -21,7 +22,11 @@ export default function MainApp() {
     const routers: RouterProps[] = router;
     const location = useLocation();
     const language = useLanguage();
-    const [pageLoading, setPageLoading] = useState<boolean>(true);
+    // Load pertama tidak memakai durasi minimum (Suspense fallback tetap tampil selama chunk page diunduh),
+    // supaya konten awal (LCP) tidak tertutup loader
+    const [pageLoading, setPageLoading] = useState<boolean>(false);
+    const loaderKey = `${location.pathname}|${language}`;
+    const prevLoaderKey = useRef(loaderKey);
 
     useEffect(() => {
         AnalyticsHelper.handleRouteChange(location.pathname, location.search);
@@ -29,10 +34,16 @@ export default function MainApp() {
 
     // useLayoutEffect agar loader muncul sebelum page baru / teks bahasa baru sempat ter-paint
     useLayoutEffect(() => {
+        if (prevLoaderKey.current === loaderKey) return;
+        prevLoaderKey.current = loaderKey;
         setPageLoading(true);
+    }, [loaderKey]);
+
+    useEffect(() => {
+        if (!pageLoading) return;
         const timer = setTimeout(() => setPageLoading(false), PAGE_LOADER_DURATION);
         return () => clearTimeout(timer);
-    }, [location.pathname, language]);
+    }, [pageLoading, loaderKey]);
 
     return (<>
         <PageLoader open={pageLoading} />

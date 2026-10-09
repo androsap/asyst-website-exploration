@@ -1,4 +1,3 @@
-import he from "he";
 import { NEWS_BASE_PATH } from "consts/news-page.const";
 import { formatDate, Language } from "shared/i18n";
 
@@ -12,9 +11,19 @@ export const formatNewsDate = (date: string, language: Language, format = langua
 
 const DANGEROUS_TAGS = "script, style, object, embed, link, meta, form";
 
+/**
+ * Decode entity HTML (&lt;p&gt; -> <p>) pakai parser browser, pengganti library `he` (~50KB gzip).
+ * Isi <textarea> berupa RCDATA: entity di-decode tapi tag tidak di-parse/dieksekusi.
+ */
+const decodeEntities = (content: string) => {
+    const textarea = document.createElement("textarea");
+    textarea.innerHTML = content;
+    return textarea.value;
+};
+
 /** Konten API berupa HTML yang di-escape. Decode lalu buang tag/atribut yang bisa menjalankan script. */
 export const decodeNewsHtml = (content: string) => {
-    const doc = new DOMParser().parseFromString(he.decode(content || ""), "text/html");
+    const doc = new DOMParser().parseFromString(decodeEntities(content || ""), "text/html");
     doc.querySelectorAll(DANGEROUS_TAGS).forEach(el => el.remove());
     doc.body.querySelectorAll("*").forEach(el => {
         Array.from(el.attributes).forEach(({ name, value }) => {
@@ -25,7 +34,7 @@ export const decodeNewsHtml = (content: string) => {
 };
 
 export const newsPlainText = (content: string) => {
-    const doc = new DOMParser().parseFromString(he.decode(content || ""), "text/html");
+    const doc = new DOMParser().parseFromString(decodeEntities(content || ""), "text/html");
     return (doc.body.textContent || "").replace(/\s+/g, " ").trim();
 };
 

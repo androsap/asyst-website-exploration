@@ -1,6 +1,6 @@
-import { lazy } from "react";
 import MainLayoutShared, { MainLayoutSharedProps } from "shared/layout/main-layout";
-const MainComponent = lazy(() => import("components/home"));
+// Import langsung (bukan lazy): page ini sudah lazy di router, lazy kedua hanya menambah satu round-trip sebelum hero (LCP) tampil
+import MainComponent from "components/home";
 
 const props: MainLayoutSharedProps = {
     title: "PT Aero Systems Indonesia"
