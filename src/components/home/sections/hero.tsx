@@ -20,7 +20,8 @@ export default function HeroSection({ onTalkToExpert }: HeroSectionProps) {
                 <Typography variant="h1" className="home-hero__title">{hero.title}</Typography>
                 <Typography className="home-hero__description">{hero.description}</Typography>
                 <div className="home-hero__actions">
-                    <Button asChild className="home-btn home-btn--primary"><Link to={hero.primaryButton.link}>{hero.primaryButton.label}</Link></Button>
+                    {/* span = item flex pengganti <a> pembungkus lama, supaya posisi tombol tetap sama persis */}
+                    <span><Button asChild className="home-btn home-btn--primary"><Link to={hero.primaryButton.link}>{hero.primaryButton.label}</Link></Button></span>
                     <Button className="home-btn home-btn--outline" onClick={onTalkToExpert}>{hero.secondaryButton.label}</Button>
                 </div>
                 <div className="home-hero__honors">
