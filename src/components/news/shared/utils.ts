@@ -28,7 +28,9 @@ export const decodeNewsHtml = (content: string) => {
 };
 
 export const newsPlainText = (content: string) => {
-    const doc = new DOMParser().parseFromString(decodeEntities(content || ""), "text/html");
+    // Pad block closings so adjacent paragraphs don't run together ("end.Next")
+    const spaced = decodeEntities(content || "").replace(/<\/(p|h[1-6]|li|div|blockquote)>|<br\s*\/?>/gi, "$& ");
+    const doc = new DOMParser().parseFromString(spaced, "text/html");
     return (doc.body.textContent || "").replace(/\s+/g, " ").trim();
 };
 

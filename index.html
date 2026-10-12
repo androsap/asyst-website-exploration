@@ -8,6 +8,24 @@
     <title>PT Aero Systems Indonesia</title>
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+        body{margin:0}
+        .isk{position:relative;min-height:100vh;overflow:hidden;background:radial-gradient(ellipse 60% 55% at 45% 40%,rgba(214,228,250,.75) 0%,rgba(255,255,255,0) 70%),linear-gradient(180deg,#F7FAFE 0%,#fff 100%)}
+        .isk b{display:block;flex-shrink:0;max-width:100%;border-radius:6px;background:linear-gradient(90deg,#E9EDF2 0%,#F6F8FB 40%,#E9EDF2 80%);background-size:300% 100%;animation:isk 1.4s ease-in-out infinite}
+        @keyframes isk{0%{background-position:100% 0}100%{background-position:-100% 0}}
+        @media (prefers-reduced-motion:reduce){.isk b{animation:none}}
+        .isk-c{box-sizing:border-box;max-width:1280px;margin:0 auto;padding:0 48px}
+        .isk-h{display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px}
+        .isk-r{display:flex;align-items:center;gap:16px}
+        .isk-col{display:flex;flex-direction:column;align-items:center;gap:12px}
+        .isk-o{border-radius:50%!important}
+        .isk-m,.isk--page .isk-home,.isk:not(.isk--page) .isk-page{display:none!important}
+        .isk-hero{display:flex;flex-direction:column;min-height:calc(max(706px,min(100svh,1067px)) - 84px);padding-top:32px;padding-bottom:32px}
+        .isk-hero>.isk-col{margin:auto;width:100%;max-width:1000px}
+        .isk-logos{display:flex;gap:24px;overflow:hidden;width:100%}
+        @media (max-width:1023px){.isk-h{height:64px}.isk-hero{min-height:calc(min(100svh,1067px) - 64px);padding-top:46px}.isk-d{display:none!important}.isk-m{display:block!important}}
+        @media (max-width:599px){.isk-c{padding:0 32px}.isk-hero{min-height:0;padding-top:48px}.isk-btns{flex-direction:column;width:100%}.isk-btns b{width:100%!important;height:56px!important}}
+    </style>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -55,7 +73,35 @@
 </head>
 
 <body>
-    <div id="root" class="overflow-x-hidden"></div>
+    <div id="root" class="overflow-x-hidden"><div id="isk" class="isk" role="status" aria-busy="true"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Memuat konten…</span><div aria-hidden="true">
+        <div class="isk-c isk-h">
+            <b style="width:120px;height:40px"></b>
+            <div class="isk-r isk-d" style="gap:32px"><b style="width:80px;height:16px"></b><b style="width:80px;height:16px"></b><b style="width:56px;height:16px"></b><b style="width:90px;height:16px"></b></div>
+            <div class="isk-r"><b class="isk-o" style="width:40px;height:40px"></b><b class="isk-d" style="width:60px;height:16px"></b><b class="isk-d" style="width:150px;height:44px;border-radius:8px"></b><b class="isk-m isk-o" style="width:40px;height:40px"></b><b class="isk-m isk-o" style="width:40px;height:40px"></b></div>
+        </div>
+        <div class="isk-c isk-hero isk-home">
+            <div class="isk-col">
+                <b style="width:min(900px,100%);height:48px"></b>
+                <b style="width:min(560px,70%);height:48px"></b>
+                <b style="width:min(840px,100%);height:16px;margin-top:28px"></b>
+                <b style="width:min(780px,95%);height:16px"></b>
+                <b style="width:min(420px,60%);height:16px"></b>
+                <div class="isk-r isk-btns" style="margin-top:28px"><b style="width:200px;height:48px;border-radius:8px"></b><b style="width:180px;height:48px;border-radius:8px"></b></div>
+                <b style="width:110px;height:20px;margin-top:28px;border-radius:999px"></b>
+                <div class="isk-r" style="flex-wrap:wrap;justify-content:center;gap:16px 36px;margin-top:16px"><b style="width:180px;height:40px"></b><b style="width:180px;height:40px"></b><b style="width:180px;height:40px"></b></div>
+            </div>
+            <div class="isk-logos" style="margin-top:56px"><b style="width:146px;height:158px;border-radius:8px"></b><b style="width:146px;height:158px;border-radius:8px"></b><b style="width:146px;height:158px;border-radius:8px"></b><b style="width:146px;height:158px;border-radius:8px"></b><b style="width:146px;height:158px;border-radius:8px"></b><b style="width:146px;height:158px;border-radius:8px"></b><b style="width:146px;height:158px;border-radius:8px"></b><b style="width:146px;height:158px;border-radius:8px"></b></div>
+        </div>
+        <div class="isk-c isk-page" style="padding-top:56px">
+            <div class="isk-col">
+                <b style="width:min(760px,100%);height:44px"></b>
+                <b style="width:min(480px,70%);height:44px"></b>
+                <b style="width:min(820px,100%);height:16px;margin-top:24px"></b>
+                <b style="width:min(560px,80%);height:16px"></b>
+            </div>
+            <b style="width:100%;height:420px;margin-top:56px;border-radius:16px"></b>
+        </div>
+    </div></div><script>if(location.pathname!=='/')document.getElementById('isk').className+=' isk--page'</script></div>
     <script type="module" src="/src/main.tsx"></script>
     
     <noscript><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-5HZKLL"

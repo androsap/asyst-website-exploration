@@ -17,6 +17,7 @@ import NewsModel from "models/news.model";
 import { NEWS_AUTHOR, NEWS_BASE_PATH, NEWS_RELATED_LIMIT, NewsCategoryTermsConst, NewsDetailConst } from "consts/news-page.const";
 import { useLanguage, useLocalized, useT, useTerms } from "shared/i18n";
 import NewsCard from "../shared/news-card";
+import { getDummyNewsDetail, getDummyNewsList, isDummyNews } from "../shared/dummy";
 import { decodeNewsHtml, formatNewsDate, newsCategoryPath, newsReadingMinutes } from "../shared/utils";
 
 export default function NewsDetailComponent({ }: MainLayoutSharedProps) {
@@ -31,12 +32,16 @@ export default function NewsDetailComponent({ }: MainLayoutSharedProps) {
         window.scrollTo({ top: 0 });
         setLoading(true);
         setNews(null);
-        NewsHelper.getDetail(slug, ({ status, data }) => {
+        const onDetail = ({ status, data }: { status: boolean; data: any }) => {
             if (!active) return;
             setLoading(false);
             setNews(status && data?.data ? data.data : null);
-        });
-        return () => { active = false };
+        };
+        const cancel = isDummyNews(slug) ? getDummyNewsDetail(slug, onDetail) : NewsHelper.getDetail(slug, onDetail);
+        return () => {
+            active = false;
+            if (typeof cancel === "function") cancel();
+        };
     }, [slug]);
 
     useEffect(() => {
@@ -145,8 +150,9 @@ function RelatedNews({ slug, category }: { slug: string; category: string }) {
 
     useEffect(() => {
         let active = true;
+        const getList = isDummyNews(slug) ? getDummyNewsList : NewsHelper.getList.bind(NewsHelper);
         const fetchList = (params: { category?: string }) => new Promise<NewsModel[]>(resolve =>
-            NewsHelper.getList({ limit: NEWS_RELATED_LIMIT + 1, ...params }, ({ status, data }) =>
+            getList({ limit: NEWS_RELATED_LIMIT + 1, ...params }, ({ status, data }) =>
                 resolve(status && Array.isArray(data?.data) ? data.data : [])));
 
         (async () => {

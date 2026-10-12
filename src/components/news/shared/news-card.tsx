@@ -38,14 +38,23 @@ export default function NewsCard({ item }: NewsCardProps) {
     </article>
 }
 
-export function NewsCardSkeleton() {
-    return <div className="news-card" aria-hidden>
+export function NewsCardSkeleton({ className }: { className?: string }) {
+    return <div className={`news-card news-card--skeleton ${className ?? ""}`} aria-hidden>
         <Skeleton variant="rectangular" className="news-card__media" />
         <div className="news-card__body">
-            <Skeleton variant="text" height={32} width="85%" />
-            <Skeleton variant="text" width="100%" />
-            <Skeleton variant="text" width="70%" />
-            <Skeleton variant="text" width="50%" className="mt-8" />
+            <Skeleton variant="text" height={34} width="90%" />
+            <Skeleton variant="text" height={34} width="60%" />
+            <div className="news-card__excerpt-skeleton">
+                <Skeleton variant="text" width="100%" />
+                <Skeleton variant="text" width="80%" />
+            </div>
+            <div className="news-card__footer">
+                <span className="news-card__date">
+                    <Skeleton variant="rounded" width={18} height={18} />
+                    <Skeleton variant="rounded" width={120} height={14} />
+                </span>
+                <Skeleton variant="rounded" width={112} height={20} />
+            </div>
         </div>
     </div>
 }

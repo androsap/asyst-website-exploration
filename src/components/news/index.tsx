@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "components/ui/button";
 import { Container } from "components/ui/container";
@@ -6,11 +6,12 @@ import { Typography } from "components/ui/typography";
 import { MainLayoutSharedProps } from "shared/layout/main-layout";
 import "components/product/shared/product-v2.scss";
 import "./shared/news.scss";
-import NewsHelper from "helper/NewsHelper";
 import NewsModel from "models/news.model";
-import { NEWS_ALL_CATEGORY, NEWS_PAGE_SIZE, NewsCategoriesConst, NewsCategoryTermsConst, NewsHeroConst } from "consts/news-page.const";
+import { NEWS_ALL_CATEGORY, NEWS_MORE_SIZE, NEWS_PAGE_SIZE, NEWS_SKELETON_COUNT, NewsCategoriesConst, NewsCategoryTermsConst, NewsHeroConst } from "consts/news-page.const";
 import { useLocalized, useT, useTerms } from "shared/i18n";
 import NewsCard, { NewsCardSkeleton } from "./shared/news-card";
+import { getDummyNewsList } from "./shared/dummy";
+import imgNewsHero from "assets/asyst/img/background/news-hero.webp";
 
 export default function NewsComponent({ }: MainLayoutSharedProps) {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -27,10 +28,12 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
 
     const load = useCallback((offset: number) => {
         const id = ++requestId.current;
+        const limit = offset ? NEWS_MORE_SIZE : NEWS_PAGE_SIZE;
         setLoading(true);
         setError(false);
-        NewsHelper.getList({
-            limit: NEWS_PAGE_SIZE,
+        // TODO: switch back to NewsHelper.getList once the CMS has content
+        getDummyNewsList({
+            limit,
             offset,
             category: category === NEWS_ALL_CATEGORY ? undefined : category,
         }, ({ status, data }) => {
@@ -39,7 +42,7 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
             const list: NewsModel[] = status && Array.isArray(data?.data) ? data.data : [];
             if (!status) setError(true);
             setItems(prev => offset ? [...prev, ...list] : list);
-            setHasMore(status ? list.length === NEWS_PAGE_SIZE : offset > 0);
+            setHasMore(status ? list.length === limit : offset > 0);
         });
     }, [category]);
 
@@ -53,7 +56,7 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
     };
 
     return <div className="product-v2 news-v2">
-        <section className="nw-hero">
+        <section className="nw-hero" style={{ "--nw-hero-bg": `url(${imgNewsHero})` } as CSSProperties}>
             <Container maxWidth="md">
                 <Typography variant="h1" className="nw-hero__title">{hero.title}</Typography>
                 <Typography className="nw-hero__description">{hero.description}</Typography>
@@ -79,7 +82,10 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
 
                 <div className="nw-grid">
                     {items.map(item => <NewsCard key={item.id} item={item} />)}
-                    {loading && Array.from({ length: items.length ? 3 : NEWS_PAGE_SIZE }).map((_, i) => <NewsCardSkeleton key={i} />)}
+                    {/* Show More on mobile keeps only the first skeleton; the rest are hidden via CSS */}
+                    {loading && Array.from({ length: NEWS_SKELETON_COUNT }).map((_, i) => (
+                        <NewsCardSkeleton key={i} className={items.length && i > 0 ? "nw-grid__extra" : undefined} />
+                    ))}
                 </div>
 
                 {!loading && !items.length && (

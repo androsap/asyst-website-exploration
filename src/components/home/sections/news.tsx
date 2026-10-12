@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Container } from "components/ui/container";
-import { Skeleton } from "components/ui/skeleton";
 import { Typography } from "components/ui/typography";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,6 +12,7 @@ import { newsDetailPath } from "components/news/shared/utils";
 import CarouselNav from "./carousel-nav";
 import useSwiperNav from "./use-swiper-nav";
 import LazyBackground from "./lazy-background";
+import { NewsCardSkeleton } from "shared/skeleton/home";
 
 const HOME_NEWS_LIMIT = 6;
 
@@ -48,7 +48,7 @@ export default function NewsSection() {
                 {loading
                     ? Array.from({ length: 4 }).map((_, index) => (
                         <SwiperSlide key={index}>
-                            <Skeleton variant="rounded" className="home-news-card" />
+                            <NewsCardSkeleton />
                         </SwiperSlide>
                     ))
                     : news.map(({ id, slug, image, title, category: type }) => (

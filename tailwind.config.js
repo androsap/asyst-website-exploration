@@ -34,8 +34,7 @@ export default {
                 sharp: "cubic-bezier(0.4, 0, 0.6, 1)",
             },
             keyframes: {
-                "page-loader-spin": { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } },
-                "page-loader-pulse": { "0%, 100%": { transform: "scale(1)", opacity: "1" }, "50%": { transform: "scale(0.88)", opacity: "0.75" } },
+                "skeleton-shimmer": { "0%": { backgroundPosition: "100% 0" }, "100%": { backgroundPosition: "-100% 0" } },
                 "mui-fade-in": { from: { opacity: "0" }, to: { opacity: "1" } },
                 "mui-fade-out": { from: { opacity: "1" }, to: { opacity: "0" } },
                 "mui-pulse": { "0%": { opacity: "1" }, "50%": { opacity: "0.4" }, "100%": { opacity: "1" } },
@@ -50,8 +49,7 @@ export default {
                 },
             },
             animation: {
-                "page-loader-spin": "page-loader-spin 1s linear infinite",
-                "page-loader-pulse": "page-loader-pulse 1.4s ease-in-out infinite",
+                "skeleton-shimmer": "skeleton-shimmer 1.4s ease-in-out infinite",
                 "mui-pulse": "mui-pulse 2s ease-in-out 0.5s infinite",
                 "mui-circular-rotate": "mui-circular-rotate 1.4s linear infinite",
                 "mui-circular-dash": "mui-circular-dash 1.4s ease-in-out infinite",

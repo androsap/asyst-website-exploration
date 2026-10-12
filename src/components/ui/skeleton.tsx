@@ -8,7 +8,7 @@ export interface SkeletonProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 const VARIANTS = {
-    text: "h-auto mt-0 mb-0 origin-[0_55%] [transform:scale(1,0.60)] rounded-[8px/13.3px] empty:before:content-['\\00a0']",
+    text: "h-[1.5em] mt-0 mb-0 origin-[0_55%] [transform:scale(1,0.60)] rounded-[8px/13.3px]",
     rounded: "h-[1.2em] rounded-[8px]",
     rectangular: "h-[1.2em]",
 };

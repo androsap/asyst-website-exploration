@@ -20,13 +20,33 @@ $mobile: 599px;
     }
 
     .nw-hero {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
         padding: 190px 0 140px;
         max-height: 1067px;
         text-align: center;
-        background:
-            radial-gradient(ellipse 40% 60% at 10% 40%, rgba(214, 228, 250, 0.7) 0%, rgba(255, 255, 255, 0) 70%),
-            radial-gradient(ellipse 40% 60% at 90% 20%, rgba(214, 228, 250, 0.6) 0%, rgba(255, 255, 255, 0) 70%),
-            linear-gradient(180deg, #F4F8FD 0%, #FFFFFF 100%);
+        background: linear-gradient(180deg, #F4F8FD 0%, #FFFFFF 100%);
+
+        // Faded geometric backdrop: tinted blue via multiply, masked out toward the center and bottom
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: var(--nw-hero-bg) center / cover no-repeat;
+            opacity: 0.16;
+            mix-blend-mode: multiply;
+            -webkit-mask-image:
+                radial-gradient(ellipse 45% 40% at 50% 50%, transparent 0%, #000 100%),
+                linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+            -webkit-mask-composite: source-in;
+            mask-image:
+                radial-gradient(ellipse 45% 40% at 50% 50%, transparent 0%, #000 100%),
+                linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+            mask-composite: intersect;
+            pointer-events: none;
+        }
 
         @media (max-width: $tablet) {
             padding: 120px 0 64px;
@@ -119,6 +139,12 @@ $mobile: 599px;
         @media (max-width: $mobile) {
             grid-template-columns: 1fr;
         }
+
+        &__extra {
+            @media (max-width: $mobile) {
+                display: none;
+            }
+        }
     }
 
     .news-card {
@@ -126,7 +152,7 @@ $mobile: 599px;
         flex-direction: column;
         height: 100%;
         border: 1px solid $border;
-        border-radius: 8px;
+        border-radius: 16px;
         background: #fff;
         overflow: hidden;
         transition: border-color .2s;
@@ -160,7 +186,7 @@ $mobile: 599px;
             display: flex;
             flex-direction: column;
             flex: 1;
-            padding: 24px 24px 28px;
+            padding: 24px;
         }
 
         &__title {
@@ -169,6 +195,10 @@ $mobile: 599px;
             font-size: 22px;
             font-weight: 700;
             line-height: 1.35;
+            // Fixed slots (title / excerpt / footer) keep loaded cards the same height as the skeleton.
+            // Box is exactly 2 lines so the clamp clips cleanly; the margin tops it up to the 68px slot.
+            height: 2.7em;
+            margin-bottom: calc(68px - 2.7em);
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -183,6 +213,7 @@ $mobile: 599px;
             margin-top: 16px;
             font-size: 15px;
             line-height: 1.6;
+            min-height: 48px;
             color: $text;
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -190,13 +221,33 @@ $mobile: 599px;
             overflow: hidden;
         }
 
+        &--skeleton {
+            pointer-events: none;
+
+            &:hover {
+                border-color: $border;
+            }
+
+            // Keep the skeleton's grey fill instead of the media placeholder surface
+            .news-card__media {
+                background: rgba(0, 0, 0, 0.08);
+            }
+        }
+
+        &__excerpt-skeleton {
+            margin-top: 16px;
+            height: 48px;
+            font-size: 16px;
+        }
+
         &__footer {
+            min-height: 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 12px;
             margin-top: auto;
-            padding-top: 28px;
+            padding-top: 24px;
         }
 
         &__date {
@@ -426,6 +477,24 @@ $mobile: 599px;
             &:hover {
                 text-decoration: underline;
             }
+
+            // Thumb-sized tap target on touch screens
+            @media (max-width: $mobile) {
+                min-height: 44px;
+                padding: 0 18px;
+                border: 1px solid $blue;
+                border-radius: 999px;
+                font-size: 14px;
+                font-weight: 600;
+                transition: background-color .2s, color .2s;
+
+                &:hover,
+                &:active {
+                    text-decoration: none;
+                    background: $blue;
+                    color: #fff;
+                }
+            }
         }
 
         &__stat {
@@ -579,6 +648,13 @@ $mobile: 599px;
 
         .swiper {
             padding-bottom: 4px;
+
+            // Bleed the carousel to the screen edges so cards slide off-screen instead of
+            // being clipped at the container gutter (pl-8 / pr-8 below 600px)
+            @media (max-width: $mobile) {
+                margin: 0 -32px;
+                padding: 0 32px 4px;
+            }
         }
 
         .swiper-slide {
