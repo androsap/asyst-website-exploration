@@ -7,7 +7,6 @@ import { CAREER_JOBS_PATH, CareerJobsConst, CareerOpportunityConst } from "const
 import SectionHeading from "components/product/shared/section-heading";
 import JobCard from "../shared/job-card";
 
-/** Lowongan terbaru (maks. `limit`) + tombol ke daftar lengkap. */
 export default function OpportunitySection() {
     const { title, description, button, limit } = useLocalized(CareerOpportunityConst);
     const jobs = useLocalized(CareerJobsConst);

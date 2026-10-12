@@ -10,10 +10,6 @@ import imgAdmin from "assets/asyst/img/background/product/smart-document/admin.w
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
-// (teks saja, struktur & urutan sama).
-// Konten mengikuti smart-document.asyst.co.id/landing
-
 const smartDocumentDetailEn: ProductDetailContent = {
     hero: {
         title: "Every Document Your Company Owns, Finally Answerable",
@@ -101,8 +97,6 @@ const smartDocumentDetailEn: ProductDetailContent = {
         button: "Request a walkthrough",
     },
 }
-
-// ---------- terjemahan ID (struktur & urutan sama dengan smartDocumentDetailEn) ----------
 
 export const SmartDocumentDetailConst = localized(smartDocumentDetailEn, {
     hero: {

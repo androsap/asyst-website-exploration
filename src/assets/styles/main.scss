@@ -1,7 +1,5 @@
 @use "config/all" as config;
 
-// Font self-host subset latin (variable, dari Google Fonts) di public/fonts, di-preload di index.html.
-// Menggantikan <link> Google Fonts yang render-blocking & file variable penuh (~480KB -> ~76KB).
 $latin-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 
 @font-face {
@@ -13,7 +11,6 @@ $latin-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+0
     unicode-range: $latin-range;
 }
 
-// Dipakai dengan dua nama di stylesheet ('Source Sans Pro' lama & 'Source Sans 3')
 @each $family in ('Source Sans 3', 'Source Sans Pro') {
     @font-face {
         font-family: $family;
@@ -42,7 +39,6 @@ a {
 body.no-scroll {
     overflow: hidden;
 }
-
 
 .scrolling {
 
@@ -83,6 +79,22 @@ body.no-scroll {
     }
 }
 
+@media (min-width: 1024px) {
+    .about-hero,
+    .cr-hero,
+    .cs-hero,
+    .cv-hero,
+    .nw-hero,
+    .pv-hero:not(.pv-hero--with-image),
+    .sv-hero {
+        box-sizing: border-box;
+        min-height: 706px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
 @media only screen and (min-width: 1440px) and (max-width: 1600px) {
     [data-slot="container"][data-max-width="xl"] {
         padding-left: 48px;
@@ -90,17 +102,13 @@ body.no-scroll {
     }
 }
 
-//laptop 13" lenovo thinkpad L13
 @media only screen and (min-width: 1025px) and (max-width: 1440px) {
     [data-slot="container"][data-max-width="xl"] {
-        // padding-left: 24px;
-        // padding-right: 24px;
         padding-left: 72px;
         padding-right: 58px;
     }
 }
 
-//laptop 14" (screen pecentage 80% alike)
 @media only screen and (min-width: 1279px) and (max-width: 1281px) {
     [data-slot="container"][data-max-width="xl"] {
         padding-left: 110px;
@@ -115,5 +123,4 @@ screen and (max-width:1023px) {
         padding-right: 16px;
     }
 }
-
 

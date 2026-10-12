@@ -9,22 +9,12 @@ import imgLife5 from "assets/asyst/img/background/story/story-8.webp";
 import imgApply from "assets/asyst/img/background/career/env2.webp";
 import { localized } from "shared/i18n";
 
-// Konten statis halaman Career, daftar lowongan & detail lowongan (desain revamp 2026).
-// Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
-// Lowongan belum dari API: tambah/ubah lowongan cukup di careerJobsEn (+ terjemahannya di bagian bawah file).
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID (teks saja,
-// struktur & urutan sama). Nilai filter (departemen, lokasi, pengalaman, tipe kerja, skill) tetap bahasa Inggris karena dipakai
-// di URL; labelnya diterjemahkan lewat CareerTermsConst.
-
 export const CAREER_BASE_PATH = "/career";
 export const CAREER_JOBS_PATH = `${CAREER_BASE_PATH}/jobs`;
 
 export const careerJobLink = (slug: string) => `${CAREER_JOBS_PATH}/${slug}`;
 
-// TODO: ganti dengan portal/email rekrutmen resmi bila sudah ada
 export const CAREER_APPLY_LINK = "/contact-us";
-
-// ---------- SEO (title ≤ ~60 karakter, description ~120-160 karakter) ----------
 
 const careerSeoEn = {
     career: {
@@ -35,16 +25,12 @@ const careerSeoEn = {
         title: "Open Positions | ASYST Careers",
         description: "Browse open positions at ASYST. Filter jobs by department, skill, experience level, work location and employment type, then apply online.",
     },
-    /** `{title}` diganti judul lowongan */
     jobDetail: {
         title: "{title} | ASYST Careers",
         fallbackTitle: "Job Not Found | ASYST Careers",
     },
 }
 
-// ---------- taksonomi filter ----------
-
-/** Key = nama query param di /career/jobs (mis. `?department=UI%2FUX`) */
 export type CareerFilterKey = "department" | "location" | "experience" | "type" | "skill";
 
 export const CareerDepartmentsConst = [
@@ -60,7 +46,6 @@ export const CareerDepartmentsConst = [
     "Product",
 ];
 
-/** Filter berbentuk chip / dropdown; urutan = urutan tampil di sidebar */
 const careerFilterGroupsEn: { key: Exclude<CareerFilterKey, "skill">; label: string; allLabel: string; options: string[] }[] = [
     { key: "experience", label: "Experience", allLabel: "All experience", options: ["Internship", "Entry-level", "Junior", "Mid-level", "Senior", "Lead/Manager"] },
     { key: "location", label: "Work location", allLabel: "All locations", options: ["On-site", "Hybrid", "Remote"] },
@@ -73,21 +58,16 @@ export const CareerPopularSkillsConst = [
     "Networking", "IT Operations", "Stakeholder Management", "Analysis", "Project Delivery", "Infrastructure",
 ];
 
-// ---------- lowongan ----------
-
 export interface CareerJob {
     slug: string;
     title: string;
     department: string;
     summary: string;
-    /** YYYY-MM-DD */
     postedDate: string;
     experience: string;
     employmentType: string;
     location: string;
-    /** Chip yang tampil di kartu */
     skills: string[];
-    /** Kata kunci tambahan untuk filter "Popular skills" (tidak ditampilkan) */
     tags: string[];
     about: string[];
     responsibilities: string[];
@@ -343,8 +323,6 @@ const careerJobsEn: CareerJob[] = [
     },
 ];
 
-// ---------- halaman utama /career ----------
-
 const careerHeroEn = {
     title: "Build Technology That Matters",
     description: "Join a team where software, design, data, infrastructure and business expertise come together to create technology that makes a difference",
@@ -403,7 +381,6 @@ const careerInternshipEn = {
     title: "Start Your Technology Career",
     description: "Starting your career does not mean starting with small problems. At ASYST, interns and early-career talent can be introduced to real technology environments, collaborative teams and business challenges",
     button: "Explore Internship Opportunities",
-    /** filter yang dipakai tombol di atas */
     filter: { key: "type" as CareerFilterKey, value: "Internship" },
 }
 
@@ -418,8 +395,6 @@ const careerFaqEn = {
         { question: "How do I apply for an ASYST job?", answer: "Open the job you are interested in, review the requirements, then click \"Apply for This Position\" and follow the instructions provided." },
     ],
 }
-
-// ---------- daftar lowongan /career/jobs ----------
 
 const careerJobsHeroEn = {
     title: "Explore Career Opportunities at ASYST",
@@ -483,8 +458,6 @@ const careerJobsFaqEn = {
     ],
 }
 
-// ---------- detail lowongan /career/jobs/:slug ----------
-
 const careerJobDetailEn = {
     apply: "Apply for This Position",
     applyShort: "Apply Now",
@@ -532,7 +505,6 @@ const careerJobDetailEn = {
     },
 }
 
-/** FAQ detail lowongan; `{title}` diganti judul lowongan */
 const careerJobDetailFaqEn = {
     title: "Frequently Asked Questions",
     items: [
@@ -545,11 +517,7 @@ const careerJobDetailFaqEn = {
     ],
 }
 
-// ---------- konten dua bahasa (EN di atas, terjemahan ID di bawah) ----------
-
-/** Label ID untuk nilai filter & chip skill (nilainya tetap dipakai sebagai key di URL dan data lowongan) */
 export const CareerTermsConst: Record<string, string> = {
-    // departemen
     "Software Engineering": "Rekayasa Perangkat Lunak",
     "Business Analysis": "Analisis Bisnis",
     "Project Management": "Manajemen Proyek",
@@ -559,16 +527,12 @@ export const CareerTermsConst: Record<string, string> = {
     "Sales & Business Development": "Penjualan & Pengembangan Bisnis",
     "Corporate Functions": "Fungsi Korporat",
     "Product": "Produk",
-    // pengalaman
     "Entry-level": "Pemula",
     "Mid-level": "Menengah",
     "Lead/Manager": "Lead/Manajer",
-    // lokasi kerja
     "On-site": "Di kantor",
-    // tipe kerja
     "Contract": "Kontrak",
     "Full-time": "Penuh waktu",
-    // skill
     "Software Development": "Pengembangan Software",
     "Enterprise Applications": "Aplikasi Enterprise",
     "Stakeholder Management": "Manajemen Stakeholder",
@@ -609,7 +573,6 @@ export const CareerFilterGroupsConst = localized(careerFilterGroupsEn, [
     { label: "Departemen", allLabel: "Semua departemen" },
 ]);
 
-// Judul posisi tetap bahasa Inggris (lazim di lowongan IT); ringkasan & detail diterjemahkan
 export const CareerJobsConst = localized(careerJobsEn, [
     {
         summary: "Menjadi titik kontak pertama bagi calon mitra dan memperkenalkan solusi branded content kami yang inovatif.",
@@ -963,7 +926,6 @@ export const CareerJobDetailConst = localized(careerJobDetailEn, {
     },
 });
 
-/** FAQ detail lowongan; `{title}` diganti judul lowongan */
 export const CareerJobDetailFaqConst = localized(careerJobDetailFaqEn, {
     title: "Pertanyaan yang Sering Diajukan",
     items: [

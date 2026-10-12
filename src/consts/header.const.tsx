@@ -1,5 +1,3 @@
-// Menu header (desain revamp 2026). Sementara hardcode; nanti bisa diganti data dari API.
-// `link` kosong = halaman tujuan belum ada (item tetap tampil tapi tidak bisa diklik).
 
 import type { ComponentType } from "react";
 import imgFeatured from "assets/asyst/img/background/services-solutions/amala1.webp";
@@ -9,7 +7,6 @@ import * as Icons from "shared/navigation/header/header-icons";
 export interface HeaderLinkItem {
     label: string;
     link?: string;
-    /** Ikon di panel menu desktop. */
     icon?: ComponentType;
 }
 
@@ -21,7 +18,6 @@ export interface HeaderProductItem {
 
 export interface HeaderProductCategory {
     label: string;
-    /** Label singkat untuk badge di menu mobile. */
     shortLabel?: string;
     title: string;
     description: string;
@@ -30,9 +26,7 @@ export interface HeaderProductCategory {
 
 export interface HeaderGroup {
     label: string;
-    /** Halaman overview grup (judul panel jadi link ke sini). */
     link?: string;
-    /** Label tombol primary di sidebar panel (ke `link`). */
     linkLabel?: string;
     items: HeaderLinkItem[];
 }
@@ -48,7 +42,6 @@ export const HeaderProductsConst = localized<HeaderProductCategory[]>([
         description: "ASYST develops modular enterprise software products that help organizations manage critical processes, connect operational data, and build more efficient digital workflows",
         items: [
             { name: "Apollo", description: "Apollo brings core business processes integrate platform", link: "/product/apollo" },
-            // Amala = platform loyalty
             { name: "Amala", description: "Amala provides a configurable loyalty platform for organizations", link: "/product/amala" },
             { name: "Chronus", description: "Chronus brings fleet acquisition, maintenance, operational monitoring", link: "/product/chronus" },
             { name: "Hermes", description: "Hermes brings cargo sales, shipment management", link: "/product/hermes" },
@@ -165,7 +158,6 @@ export const HeaderSolutionsConst = localized<HeaderGroup[]>([
         label: "Solutions",
         link: "/solution",
         linkLabel: "All Solutions",
-        // Baru SOC yang punya halaman detail; lainnya ke halaman Solutions (sama seperti consts/solution.const)
         items: [
             { label: "Security Operation Center", link: "/solution/security-operations-center", icon: Icons.SecurityOperationCenterIcon },
             { label: "Infra, App, Platform Operation and ITSM", link: "/solution", icon: Icons.InfraAppPlatformOperationAndITSMIcon },
@@ -220,6 +212,7 @@ export const HeaderCompanyConst = localized<HeaderGroup>({
     items: [
         { label: "About us", link: "/about", icon: Icons.AboutUsIcon },
         { label: "Careers", link: "/career", icon: Icons.CareersIcon },
+        { label: "Resources", link: "/case-study", icon: Icons.ResourcesIcon },
         { label: "FAQ", icon: Icons.FAQIcon },
         { label: "Support", icon: Icons.SupportIcon },
         { label: "Help and Documentation", icon: Icons.HelpAndDocumentationIcon },
@@ -228,6 +221,7 @@ export const HeaderCompanyConst = localized<HeaderGroup>({
     items: [
         { label: "Tentang kami" },
         { label: "Karier" },
+        { label: "Sumber Daya" },
         { label: "FAQ" },
         { label: "Dukungan" },
         { label: "Bantuan & Dokumentasi" },
@@ -238,7 +232,6 @@ export const HeaderNewsLink = "/news";
 
 export const HeaderSearchLink = "/search";
 
-/** Kartu "Featured" di menu mobile. */
 export const HeaderFeaturedConst = localized({
     label: "Product",
     title: "Loyalty Platform",

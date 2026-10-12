@@ -16,7 +16,6 @@ export default function NewsCard({ item }: NewsCardProps) {
     const t = useT();
     const language = useLanguage();
     const link = newsDetailPath(slug);
-    // API belum punya field ringkasan; pakai potongan awal isi berita
     const excerpt = useMemo(() => newsPlainText(content), [content]);
 
     return <article className="news-card">

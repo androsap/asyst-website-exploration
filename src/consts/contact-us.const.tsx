@@ -1,5 +1,3 @@
-// Konten statis halaman Contact Us (desain revamp 2026).
-// Tiap konten dua bahasa: argumen pertama `localized` = EN (lengkap), kedua = terjemahan ID (teks saja).
 import { localized } from "shared/i18n";
 
 export interface ContactField {
@@ -37,11 +35,9 @@ export const ContactFormConst = localized({
     description: "or fill out the form below and we’ll get back to you once we’ve processed your request.",
     submit: "Submit",
     successMessage: "Thank you! Your request has been received. Our team will get back to you shortly.",
-    /** `{field}` diganti placeholder kolom */
     requiredError: "{field} is required",
     emailError: "Please enter a valid email address",
     phoneError: "Please enter a valid phone number",
-    // Baris form: tiap array = satu baris (maks. 2 kolom); "message" tampil sebagai textarea penuh
     rows: [
         [{ name: "fullName", placeholder: "Full name", required: true }],
         [

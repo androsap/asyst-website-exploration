@@ -32,7 +32,6 @@ type FormErrors = Partial<Record<FieldName, string>>;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_PATTERN = /^[\d\s-]{6,15}$/;
 
-/** Modal "Let's Discuss your Business Challenge" (desain revamp 2026), dipanggil lewat askAsystModal(). */
 export default function AskAsystModal({ hide, defaultTopic }: AskAsystModalProps) {
     const content = useLocalized(AskAsystConst);
     const initialValues: FormValues = { topic: defaultTopic ?? "", fullName: "", email: "", phoneCode: PHONE_COUNTRY_CODES[0], phone: "", company: "", jobTitle: "", subject: "", message: "" };
@@ -66,7 +65,6 @@ export default function AskAsystModal({ hide, defaultTopic }: AskAsystModalProps
         setErrors(nextErrors);
         if (Object.keys(nextErrors).length) return;
 
-        // TODO: kirim ke endpoint backend saat API request demo sudah tersedia
         setSubmitted(true);
     };
 
@@ -112,14 +110,10 @@ export default function AskAsystModal({ hide, defaultTopic }: AskAsystModalProps
                     <div className="ask-asyst__topics">
                         {content.topics.map(topic => {
                             const checked = values.topic === topic.value;
-                            // Bukan <label>: Radix menyisipkan <input> tersembunyi di samping radio (di dalam form), sehingga
-                            // <label> pembungkus akan terhubung ke dua kontrol (tidak valid HTML5). Perilaku label ditiru:
-                            // klik di mana pun pada pill memfokuskan & memilih radio.
                             return <div
                                 key={topic.value}
                                 className={`ask-asyst__topic ${checked ? "is-checked" : ""}`}
                                 onClick={event => {
-                                    // hanya klik pada pill/teksnya — bukan radio itu sendiri atau event dari input tersembunyi Radix
                                     if (event.target !== event.currentTarget) return;
                                     const radio = event.currentTarget.querySelector<HTMLButtonElement>("[data-slot=radio]");
                                     radio?.focus();

@@ -8,13 +8,11 @@ export interface IconButtonProps extends Omit<ButtonBaseProps, "centerRipple"> {
     appearance?: Appearance;
 }
 
-// Ukuran font ikon: theme proyek vs theme modal (x 13/14)
 const FONT_SIZE: Record<Appearance, Record<"small" | "medium", string>> = {
     app: { medium: "text-[1.5rem]", small: "text-[1.125rem]" },
     modal: { medium: "text-[1.3928571428571428rem]", small: "text-[1.0446428571428572rem]" },
 };
 
-/** Tombol ikon bulat — nilai visual identik dengan IconButton MUI (ripple dari tengah). */
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
     { className, size = "medium", focusRipple = true, appearance: appearanceProp, ...props }, ref,
 ) {

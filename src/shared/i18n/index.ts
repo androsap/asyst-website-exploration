@@ -2,9 +2,6 @@ import { useSyncExternalStore } from "react";
 import dayjs from "dayjs";
 import "dayjs/locale/id";
 
-// Multi-bahasa sederhana tanpa library. Bahasa aktif disimpan di store modul (bukan React context)
-// supaya ikut berlaku di komponen yang dirender di luar tree utama (mis. lewat portal).
-
 export const LANGUAGES = ["ID", "EN"] as const;
 export type Language = typeof LANGUAGES[number];
 
@@ -38,7 +35,6 @@ export const setLanguage = (language: Language) => {
     try {
         localStorage.setItem(STORAGE_KEY, language);
     } catch {
-        // storage diblokir browser: pilihan tetap berlaku sampai halaman dimuat ulang
     }
     syncDocument(language);
     listeners.forEach(listener => listener());
@@ -51,19 +47,16 @@ const subscribe = (listener: () => void) => {
 
 export const useLanguage = () => useSyncExternalStore(subscribe, getLanguage);
 
-/** Teks pendek di komponen: `t("Read more", "Baca selengkapnya")` */
 export const useT = () => {
     const language = useLanguage();
     return (en: string, id: string) => language === "ID" ? id : en;
 };
 
-/** Label untuk nilai yang dipakai sebagai key filter/URL (tetap bahasa Inggris); `dictionary` berisi terjemahan ID. */
 export const useTerms = (dictionary: Record<string, string>) => {
     const language = useLanguage();
     return (term: string) => language === "ID" ? dictionary[term] ?? term : term;
 };
 
-/** Konten API lama (CMS produk) punya pasangan field `<nama>_id` & `<nama>_en`; ambil sesuai bahasa, fallback ke bahasa lain. */
 export const useApiText = () => {
     const language = useLanguage();
     const [primary, fallback] = language === "ID" ? ["id", "en"] : ["en", "id"];
@@ -78,11 +71,8 @@ export const formatDate = (date: string, format: string, language: Language) => 
     return parsed.isValid() ? parsed.locale(language === "ID" ? "id" : "en").format(format) : "";
 };
 
-// ---------- konten per bahasa ----------
-
 export type Localized<T> = Record<Language, T>;
 
-/** Struktur sama dengan T tapi semua field opsional; array diterjemahkan per indeks. Fungsi/komponen (ikon) tidak ikut. */
 export type Translation<T> =
     T extends string ? string :
     T extends (...args: never[]) => unknown ? never :
@@ -96,7 +86,6 @@ const isPlainObject = (value: unknown): value is Record<string, unknown> =>
 const mergeTranslation = <T,>(base: T, translation: unknown, path = "ID"): T => {
     if (translation === undefined) return base;
     if (Array.isArray(base) && Array.isArray(translation)) {
-        // Terjemahan dicocokkan per indeks: jumlah berbeda biasanya tanda item EN ditambah/dihapus tanpa memperbarui versi ID
         if (import.meta.env.DEV && translation.length !== base.length) {
             console.warn(`[i18n] ${path}: ${base.length} item EN vs ${translation.length} item ID`);
         }
@@ -112,13 +101,8 @@ const mergeTranslation = <T,>(base: T, translation: unknown, path = "ID"): T => 
     return translation as T;
 };
 
-/**
- * Konten dua bahasa. `en` = konten lengkap (gambar, link, ikon), `id` = hanya teks yang diterjemahkan
- * dengan struktur & urutan yang sama; field yang tidak diisi memakai nilai versi EN.
- */
 export const localized = <T,>(en: T, id: Translation<T>): Localized<T> => ({ EN: en, ID: mergeTranslation(en, id) });
 
 export const useLocalized = <T,>(content: Localized<T>): T => content[useLanguage()];
 
-/** Turunkan nilai per bahasa, mis. judul halaman dari konten SEO: `mapLocalized(SeoConst, seo => seo.title)` */
 export const mapLocalized = <T, U,>(content: Localized<T>, map: (value: T) => U): Localized<U> => ({ EN: map(content.EN), ID: map(content.ID) });

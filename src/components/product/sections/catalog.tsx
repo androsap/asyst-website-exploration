@@ -10,7 +10,6 @@ import { useLocalized, useT } from "shared/i18n";
 import SectionHeading from "../shared/section-heading";
 import { SECTION_IDS } from "../shared/page-actions";
 
-// Tampil satu baris saja; sisanya lewat tombol "Explore ..."
 const CATALOG_VISIBLE = 3;
 
 export default function CatalogSection() {

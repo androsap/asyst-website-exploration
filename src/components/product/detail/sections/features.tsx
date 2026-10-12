@@ -10,7 +10,6 @@ interface FeaturesSectionProps {
 }
 
 export default function FeaturesSection({ content }: FeaturesSectionProps) {
-    // Selalu ada satu fitur terbuka agar gambar di sisi kanan punya konteks
     const [activeIndex, setActiveIndex] = useState(0);
     const active = content.items[activeIndex];
 

@@ -2,10 +2,6 @@ import { ElementType, forwardRef, HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 import { Appearance, useAppearance } from "./appearance";
 
-/**
- * Teks dengan varian tipografi theme lama (ukuran & line-height MUI).
- * Elemen default per varian sama dengan MUI (h1-h6, subtitle -> h6, body -> p, caption -> span).
- */
 const VARIANTS = {
     h1: { tag: "h1", weight: "font-light leading-[1.167]", app: "text-[6rem]", modal: "text-[5.571428571428571rem]" },
     h2: { tag: "h2", weight: "font-light leading-[1.2]", app: "text-[3.75rem]", modal: "text-[3.482142857142857rem]" },
@@ -26,7 +22,6 @@ export type TypographyVariant = keyof typeof VARIANTS;
 
 export interface TypographyProps extends HTMLAttributes<HTMLElement> {
     variant?: TypographyVariant;
-    /** Ganti elemen HTML (mis. "span", "label", "dt") */
     component?: ElementType;
     htmlFor?: string;
     appearance?: Appearance;

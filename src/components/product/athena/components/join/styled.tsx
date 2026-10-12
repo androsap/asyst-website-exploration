@@ -1,4 +1,3 @@
-// Class Tailwind hasil konversi style MUI `sx` sebelumnya (nilai identik).
 export const styles = {
     mainBox: "rounded-[20px] [border:1px_solid_var(--nuted-extended-border-value,_#E2EAF1)] w-[100%] h-[154px] [background:#F6FBFF]",
     contentBox: "flex flex-row justify-evenly items-center pt-[32px]",

@@ -24,7 +24,6 @@ interface CardItem {
 
 interface Category {
     label: string;
-    /** Label singkat untuk badge di level kartu. */
     badge: string;
     items: CardItem[];
 }
@@ -32,9 +31,7 @@ interface Category {
 interface Section {
     label: string;
     link?: string;
-    /** Sub-menu berisi kategori (drill-down ke kartu). */
     categories?: Category[];
-    /** Sub-menu berisi link langsung. */
     links?: CardItem[];
 }
 
@@ -54,7 +51,6 @@ export default function MobileMenu({ open, onClose, onTalkToExpert, logo }: Mobi
             categories: HeaderSolutionsConst[language].map(({ label, link, items }) => ({
                 label,
                 badge: label,
-                // Link overview grup jadi kartu pertama
                 items: [...(link ? [{ name: t(`All ${label.toLowerCase()}`, `Semua ${label.toLowerCase()}`), link }] : []), ...items.map(({ label, link }) => ({ name: label, link }))],
             })),
         },
@@ -64,7 +60,6 @@ export default function MobileMenu({ open, onClose, onTalkToExpert, logo }: Mobi
     const [sectionIndex, setSectionIndex] = useState<number | null>(null);
     const [categoryIndex, setCategoryIndex] = useState<number | null>(null);
 
-    // Selalu mulai dari menu utama saat drawer dibuka
     useEffect(() => {
         if (open) {
             setSectionIndex(null);
@@ -139,7 +134,6 @@ export default function MobileMenu({ open, onClose, onTalkToExpert, logo }: Mobi
         </>
     };
 
-    // Drawer kanan: Modal + Slide dari kanan + Paper elevation 16 — sama dengan Drawer MUI
     return <Modal open={open} onClose={onClose} title={t("Menu", "Menu")}>
         <Slide in={open} direction="left" appear>
             <Paper

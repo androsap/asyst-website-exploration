@@ -10,7 +10,6 @@ interface DefinitionSectionProps {
     content: SolutionDetailContent["definition"];
 }
 
-/** Menu vertikal + panel; memakai kerangka pv-catalog dari halaman Products. */
 export default function DefinitionSection({ content }: DefinitionSectionProps) {
     const [activeIndex, setActiveIndex] = useState(0);
     const active = content.items[activeIndex];

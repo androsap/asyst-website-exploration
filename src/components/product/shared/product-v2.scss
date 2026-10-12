@@ -1,4 +1,3 @@
-// Halaman Products & detail produk (revamp 2026). Token mengikuti components/home/sections/home.scss
 $navy: #123554;
 $navy-2: #123554;
 $blue: #2775BB;
@@ -22,11 +21,9 @@ $mobile: 599px;
         font-family: inherit;
     }
 
-    // ---------- shared ----------
     .pv-section {
         padding: 56px 0;
 
-        // footer bersama sudah punya margin-top besar
         &--last {
             padding-bottom: 0;
         }
@@ -36,7 +33,6 @@ $mobile: 599px;
         }
     }
 
-    // target scroll dari tombol hero; beri ruang untuk navbar fixed
     .pv-anchor {
         scroll-margin-top: 80px;
     }
@@ -126,8 +122,8 @@ $mobile: 599px;
         transition: background-color 0.3s ease-out, border-color 0.3s ease-out, color 0.3s ease-out;
 
         &:hover {
-            background: $navy;
-            border-color: $navy;
+            background: $blue;
+            border-color: $blue;
             color: #fff;
         }
     }
@@ -145,7 +141,6 @@ $mobile: 599px;
         }
     }
 
-    // Mobile: ukuran tombol diseragamkan dengan tombol hero Home
     @media (max-width: $mobile) {
         .pv-btn[data-slot="button"],
         .pv-btn--white[data-slot="button"] {
@@ -155,8 +150,6 @@ $mobile: 599px;
         }
     }
 
-    // Hero CTA: hover ease-out; outline berubah jadi primary. Gradient tidak bisa
-    // di-transition, jadi warna hover dipasang di ::before lalu di-fade lewat opacity.
     .pv-hero,
     .sv-hero,
     .cs-hero,
@@ -192,7 +185,6 @@ $mobile: 599px;
         }
 
         .pv-btn--outline[data-slot="button"] {
-            // menutupi border 1px supaya sudutnya tidak menyisakan garis terang
             &::before {
                 inset: -1px;
                 background: $blue;
@@ -349,7 +341,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- tabs ----------
     .pv-tabs {
         position: relative;
         display: flex;
@@ -357,7 +348,6 @@ $mobile: 599px;
         overflow-x: auto;
         box-sizing: border-box;
 
-        // Latar/garis aktif yang bergeser antar tab (posisi diatur dari TabBar)
         &__indicator {
             position: absolute;
             top: 0;
@@ -421,8 +411,6 @@ $mobile: 599px;
             width: fit-content;
             margin: 0 auto 40px;
             overflow-y: hidden;
-            // garis abu-abu digambar di dalam container agar garis aktif menimpanya
-            // (tanpa margin negatif yang memicu scroll vertikal)
             box-shadow: inset 0 -3px 0 $border;
 
             .pv-tabs__item {
@@ -471,7 +459,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- hero ----------
     .pv-hero {
         padding: 150px 0 56px;
         max-height: 1067px;
@@ -484,7 +471,6 @@ $mobile: 599px;
             padding-top: 110px;
         }
 
-        // hero halaman Products: mockup terpotong di batas bawah section
         &--with-image {
             padding-bottom: 0;
             overflow: hidden;
@@ -544,7 +530,6 @@ $mobile: 599px;
             gap: 20px;
             margin-top: 36px;
 
-            // Mobile: tombol ditumpuk selebar layar (sama seperti hero Home)
             @media (max-width: $mobile) {
                 flex-direction: column;
                 gap: 16px;
@@ -640,7 +625,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- products catalog ----------
     .pv-catalog {
         display: grid;
         grid-template-columns: 220px 1fr;
@@ -802,7 +786,6 @@ $mobile: 599px;
         margin-top: 28px;
     }
 
-    // ---------- enterprise experience ----------
     .pv-experience {
         &__illustration {
             height: 140px;
@@ -818,7 +801,6 @@ $mobile: 599px;
             }
         }
 
-        // Judul dibuat lebih kecil agar muat satu baris di 4 kolom
         &__title {
             font-size: 18px;
 
@@ -828,7 +810,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- solve ----------
     .pv-solve {
         border: 1px solid $border;
         border-radius: 12px;
@@ -840,7 +821,6 @@ $mobile: 599px;
             gap: 40px;
             padding: 28px;
 
-            // Panel di-remount tiap ganti tab (key) sehingga animasi masuk diputar ulang
             > * {
                 animation: pv-tab-fade-in .45s cubic-bezier(0.4, 0, 0.2, 1) both;
             }
@@ -891,7 +871,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- detail: overview ----------
     .pv-overview__challenges {
         margin-top: 64px;
 
@@ -900,14 +879,12 @@ $mobile: 599px;
         }
     }
 
-    // ---------- detail: lifecycle & how it works ----------
     .pv-lifecycle,
     .pv-how {
         max-width: 1280px;
         margin: 0 auto;
     }
 
-    // ---------- detail: features ----------
     .pv-features {
         display: grid;
         grid-template-columns: minmax(300px, 1fr) 2fr;
@@ -958,7 +935,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- accordion (features & FAQ) ----------
     .pv-accordion {
         border-bottom: 1px solid $border;
 
@@ -969,7 +945,6 @@ $mobile: 599px;
             padding: 22px 0;
             text-align: left;
 
-            // Pengganti ripple: tanpa perubahan background, cukup outline saat fokus keyboard
             &[data-focus-visible="true"] {
                 outline: 2px solid rgba(39, 117, 187, .4);
                 outline-offset: 2px;
@@ -993,7 +968,6 @@ $mobile: 599px;
             transition: color .3s ease;
         }
 
-        // Ikon +/−: dua garis, garis vertikal berputar & memudar saat dibuka
         &__toggle {
             position: relative;
             width: 18px;
@@ -1060,7 +1034,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- detail: business models ----------
     .pv-model {
         padding: 20px;
 
@@ -1074,7 +1047,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- CTA ----------
     .pv-cta {
         display: flex;
         align-items: center;

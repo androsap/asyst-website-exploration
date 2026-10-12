@@ -85,7 +85,6 @@ export default function AthenaDetailComponent({ }: MainLayoutSharedProps) {
         })
     }
 
-    // console.log("data nih", data.product?.product_name)
     return <div className="container-product">
         <Element name="athena">
             <div className='mainBox' style={{ backgroundImage: `url(${bannerBackground})` }}>

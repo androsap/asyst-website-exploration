@@ -13,7 +13,6 @@ import TechnologiesSection from "./sections/technologies";
 import ApproachSection from "./sections/approach";
 import OutcomeSection from "./sections/outcome";
 
-/** Halaman detail case study (/case-study/:slug). Konten per case ada di consts/case-study.const. */
 export default function CaseStudyDetailComponent({ }: MainLayoutSharedProps) {
     const { slug = "" } = useParams();
     const content = useLocalized(CaseStudyDetailsConst)[slug];

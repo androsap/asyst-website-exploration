@@ -4,8 +4,6 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { Autoplay } from 'swiper/modules';
 import { Typography } from "components/ui/typography";
-// import { styles } from './styled';
-// import './index.scss';
 
 import gaLogo from 'assets/asyst/img/logo/ga-logo-color.webp'
 import citilinkLogo from 'assets/asyst/img/logo/citilink-logo-color.webp'

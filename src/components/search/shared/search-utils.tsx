@@ -6,7 +6,6 @@ const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\
 
 export const toTerms = (query: string) => query.toLowerCase().split(/\s+/).filter(Boolean);
 
-/** Semua kata kunci harus ada; hasil dengan kata kunci di judul diurutkan lebih dulu. */
 export const searchEntries = (entries: SearchEntry[], query: string) => {
     const terms = toTerms(query);
     if (!terms.length) return [];
@@ -24,7 +23,6 @@ export const searchEntries = (entries: SearchEntry[], query: string) => {
         .map(result => result.entry);
 };
 
-/** Tebalkan bagian teks yang cocok dengan kata kunci */
 export const highlight = (text: string, terms: string[]): ReactNode => {
     if (!terms.length) return text;
     const pattern = new RegExp(`(${terms.map(escapeRegExp).join("|")})`, "gi");

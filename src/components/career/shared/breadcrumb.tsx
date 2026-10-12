@@ -4,7 +4,6 @@ import { HomeOutlinedIcon, ChevronRightRoundedIcon } from "components/ui/icons";
 import { useT } from "shared/i18n";
 
 interface CareerBreadcrumbProps {
-    /** item terakhir = halaman aktif (tanpa link) */
     items: { label: string; to?: string }[];
 }
 

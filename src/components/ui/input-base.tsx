@@ -3,12 +3,10 @@ import { cn } from "@/lib/utils";
 import { inputClass } from "./text-field";
 
 export interface InputBaseProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
-    /** Class untuk elemen root (pembungkus) */
     className?: string;
     inputProps?: Record<string, unknown>;
 }
 
-/** Input polos tanpa outline — struktur & nilai visual identik dengan InputBase MUI (theme proyek). */
 export function InputBase({ className, inputProps, onFocus, onBlur, ...props }: InputBaseProps) {
     const [focused, setFocused] = useState(false);
 

@@ -15,7 +15,6 @@ interface SolutionDetailProps {
     content: SolutionDetailContent;
 }
 
-/** Layout halaman detail solusi (revamp 2026). Konten per solusi ada di consts/solution-detail.const. */
 export default function SolutionDetail({ content }: SolutionDetailProps) {
     const talkToExpert = useTalkToExpert("it-solutions");
 

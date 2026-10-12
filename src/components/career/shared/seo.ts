@@ -1,9 +1,6 @@
 import { CareerJob, careerJobLink } from "consts/career.const";
 import { SITE_NAME, SITE_URL } from "shared/head/seo";
 
-// Structured data (schema.org) halaman Career: JobPosting untuk Google for Jobs, BreadcrumbList & FAQPage.
-// Validasi: https://search.google.com/test/rich-results
-
 const ORGANIZATION = {
     "@type": "Organization",
     name: SITE_NAME,
@@ -11,7 +8,6 @@ const ORGANIZATION = {
     logo: `${SITE_URL}/icon.png`,
 };
 
-// Sama dengan alamat di halaman Contact Us (consts/contact-us.const)
 const OFFICE_ADDRESS = {
     "@type": "PostalAddress",
     streetAddress: "Information System Building, 3rd floor, RT.001/RW.010, Pajang, Benda",
@@ -55,7 +51,6 @@ export const jobPostingSchema = (job: CareerJob, labels: { responsibilities: str
     url: `${SITE_URL}${careerJobLink(job.slug)}`,
 });
 
-/** items: urutan dari Home; `path` item terakhir = halaman aktif */
 export const breadcrumbSchema = (items: { name: string; path: string }[], homeLabel = "Home") => ({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

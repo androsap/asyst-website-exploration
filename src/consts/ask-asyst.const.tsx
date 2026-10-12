@@ -1,5 +1,3 @@
-// Konten modal "Ask Asyst" / Request Demo (desain revamp 2026).
-// Argumen pertama `localized` = EN (lengkap), kedua = terjemahan ID (teks saja).
 import { localized } from "shared/i18n";
 
 export type AskAsystTopic = "enterprise" | "it-solutions" | "product-demo";
@@ -29,7 +27,6 @@ export const AskAsystConst = localized({
     close: "Close",
     successTitle: "Thank You, We’ve received your message",
     back: "Back",
-    /** `{field}` diganti label kolom */
     requiredError: "{field} is required",
     emailError: "Please enter a valid email address",
     phoneError: "Please enter a valid phone number",
@@ -61,5 +58,4 @@ export const AskAsystConst = localized({
     phoneError: "Masukkan nomor telepon yang valid",
 });
 
-/** Kode negara untuk nomor ponsel (tanpa "+") */
 export const PHONE_COUNTRY_CODES = ["62", "65", "60", "66", "63", "84", "61", "81", "82", "86", "91", "1", "44"];

@@ -1,4 +1,3 @@
-// Class Tailwind hasil konversi style MUI `sx` sebelumnya (nilai identik).
 export const styles = {
     feature: "text-[color:rgba(255,_255,_255,_0.50)] font-['Inter'] text-[length:16px] font-[600] leading-[normal] not-italic pb-[10px]",
     title: "text-[color:#FFF] font-['Inter'] text-[length:36px] font-[700] leading-[44px] not-italic pb-[15px]",

@@ -13,7 +13,6 @@ import IndustryCardsSection from "./shared/industry-cards";
 import { INDUSTRY_SECTION_IDS } from "./shared/section-ids";
 import { useLocalized } from "shared/i18n";
 
-/** Halaman utama Industries (revamp 2026). Memakai gaya dasar product-v2 + solution-v2, tambahan di industry-v2. */
 export default function IndustryComponent({ }: MainLayoutSharedProps) {
     const talkToExpert = useTalkToExpert();
     const hero = useLocalized(IndustryHeroConst);

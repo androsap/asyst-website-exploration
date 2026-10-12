@@ -10,7 +10,6 @@ interface ChallengesSectionProps {
     content: IndustryDetailContent["challenges"];
 }
 
-/** Tab sejajar + panel gambar kiri / teks kanan; memakai kerangka pv-solve dari halaman Products. */
 export default function ChallengesSection({ content }: ChallengesSectionProps) {
     const [activeIndex, setActiveIndex] = useState(0);
     const active = content.items[activeIndex];

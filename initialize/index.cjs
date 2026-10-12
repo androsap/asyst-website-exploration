@@ -15,7 +15,6 @@ try {
                 const rename = (fn, d, remove = true) => {
                     fn = fn.replace(/\.[^/.]+$/, "")
                     if (remove) {
-                        // fn = fn.split(".")[0]
                         if (fn.includes("[")) {
                             fn = fn.replace(/\[/g, ":")
                             fn = fn.replace(/\]/g, "")
@@ -32,7 +31,6 @@ try {
                 const rename2 = (fn, d, remove = true) => {
                     fn = fn.replace(/\.[^/.]+$/, "")
                     if (remove) {
-                        // fn = fn.split(".")[0]
                         if (fn.includes("[")) {
                             fn = fn.replace(/\[/g, ":")
                             fn = fn.replace(/\]/g, "")
@@ -73,7 +71,7 @@ export default router;`.replace(/"lazy/g, "lazy").replace(/\)\)"/g, "))"), funct
 
     function generateUUID() {
         var d = new Date().getTime();
-        var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now() * 1000)) || 0;//Time in microseconds since page-load or 0 if unsupported
+        var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now() * 1000)) || 0;
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             var r = Math.random() * 16;
             if (d > 0) {

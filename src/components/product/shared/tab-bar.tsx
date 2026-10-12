@@ -5,7 +5,6 @@ interface TabBarProps {
     labels: string[];
     active: number;
     onChange: (index: number) => void;
-    /** pill = kapsul (lifecycle), underline = garis bawah (how it works), segment = sel sejajar (solve) */
     variant: "pill" | "underline" | "segment";
 }
 
@@ -16,7 +15,6 @@ export default function TabBar({ labels, active, onChange, variant }: TabBarProp
     const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
     const [indicator, setIndicator] = useState<IndicatorRect | null>(null);
 
-    // Indikator aktif digeser (bukan diganti) supaya perpindahan tab terlihat halus
     useLayoutEffect(() => {
         const measure = () => {
             const item = itemRefs.current[active];

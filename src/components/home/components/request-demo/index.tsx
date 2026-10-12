@@ -28,7 +28,6 @@ const RequestDemoComponent: React.FC<RequestDemoProps> = ({ hide }) => {
                         <TextField label="Email" />
                         <TextField label={t("Phone Number", "Nomor Telepon")} />
                         <TextField label={t("Message", "Pesan")} />
-                        {/* Grid container (spacing theme modal 8 -> mt 16px) */}
                         <div className="box-border flex flex-wrap w-full flex-row mt-[16px] justify-end">
                             <Button variant="contained" className={styles.buttonRequest}>{t("Request", "Kirim")}</Button>
                             <Button variant="contained" className={styles.buttonCancel} onClick={() => hide()}>{t("Cancel", "Batal")}</Button>

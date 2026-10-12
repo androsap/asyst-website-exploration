@@ -1,4 +1,3 @@
-// Halaman News & detail news (revamp 2026). Tambahan di atas components/product/shared/product-v2.scss
 $navy: #123554;
 $navy-2: #123554;
 $blue: #2775BB;
@@ -20,7 +19,6 @@ $mobile: 599px;
         text-decoration: none;
     }
 
-    // ---------- hero ----------
     .nw-hero {
         padding: 190px 0 140px;
         max-height: 1067px;
@@ -63,7 +61,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- filter kategori ----------
     .nw-filters {
         display: flex;
         flex-wrap: wrap;
@@ -110,7 +107,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- grid + kartu ----------
     .nw-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -268,7 +264,6 @@ $mobile: 599px;
         font-size: 17px;
     }
 
-    // ---------- detail: breadcrumb ----------
     .nw-breadcrumb {
         margin-top: $header-height;
         border-top: 1px solid $border;
@@ -314,9 +309,8 @@ $mobile: 599px;
         }
     }
 
-    // ---------- detail: artikel ----------
     .nw-article[data-slot="container"] {
-        max-width: 796px; // 764px konten + gutter
+        max-width: 796px;
     }
 
     .nw-article__title {
@@ -442,7 +436,6 @@ $mobile: 599px;
         }
     }
 
-    // Isi HTML dari CMS
     .nw-content {
         font-size: 16px;
         line-height: 1.75;
@@ -562,7 +555,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- detail: related news ----------
     .nw-related {
         margin-top: 64px;
 
@@ -585,7 +577,6 @@ $mobile: 599px;
             }
         }
 
-        // ruang untuk border bawah + shadow hover yang terpotong overflow Swiper
         .swiper {
             padding-bottom: 4px;
         }

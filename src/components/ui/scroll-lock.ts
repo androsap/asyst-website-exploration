@@ -1,14 +1,8 @@
 import { useLayoutEffect } from "react";
 
-/**
- * Kunci scroll <body> saat overlay terbuka — perilaku sama dengan ModalManager MUI:
- * body diberi overflow hidden + padding-right selebar scrollbar (agar konten tidak bergeser),
- * dengan hitungan referensi untuk overlay yang bertumpuk.
- */
 let locks = 0;
 let restore: (() => void) | null = null;
 
-// Untuk <body>: ada scrollbar vertikal jika lebar window > lebar dokumen
 const isOverflowing = (body: HTMLElement) => (body.ownerDocument.defaultView as Window).innerWidth > body.ownerDocument.documentElement.clientWidth;
 
 function lock() {

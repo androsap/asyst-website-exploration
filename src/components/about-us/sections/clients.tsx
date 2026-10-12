@@ -13,7 +13,6 @@ export default function ClientsSection() {
                 <Typography className="about-left-heading__description">{clients.description}</Typography>
             </div>
             <div className="about-clients__marquee">
-                {/* Track berisi 2 salinan logo agar animasi -50% bisa looping tanpa jeda */}
                 <div className="about-clients__track">
                     {[0, 1].map((copy) => clients.items.map(({ name, logo }) => (
                         <div key={`${copy}-${name}`} className="about-clients__logo" aria-hidden={copy === 1}>

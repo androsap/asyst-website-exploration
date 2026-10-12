@@ -1,10 +1,4 @@
-/*
- * Aturan state bertingkat untuk komponen di src/components/ui.
- * Ditulis sebagai @layer components (bukan utility arbitrary) agar specificity & URUTAN aturannya
- * sama persis dengan style MUI sebelumnya — SCSS halaman yang menimpanya tetap berperilaku sama.
- */
 @layer components {
-    /* ---------- Outlined input (TextField / Select) ---------- */
     .outlined-input:hover .outlined-input__outline {
         @apply border-[rgba(0,0,0,0.87)];
     }
@@ -23,14 +17,10 @@
         @apply border-[#d32f2f];
     }
 
-    /* ---------- Select ---------- */
-    /* Specificity sengaja (0,3,0)/(0,2,0) sama dengan Select MUI */
     .select-value.select-value--outlined.select-value {
         padding-right: 32px;
     }
 
-    /* (0,3,0): sebelumnya aturan MUI ini disisipkan setelah CSS layout (modal), sehingga menang atas
-       selector SCSS modal dengan specificity (0,2,0) yang menyetel min-height display select */
     .select-value.select-value.select-value {
         height: auto;
         min-height: 1.4375em;
@@ -39,7 +29,6 @@
         overflow: hidden;
     }
 
-    /* ---------- Floating label ---------- */
     .input-label[data-focused="true"] {
         color: var(--input-focus-color);
     }
@@ -48,12 +37,10 @@
         @apply text-[#d32f2f];
     }
 
-    /* ---------- Helper text ---------- */
     .helper-text[data-error="true"] {
         @apply text-[#d32f2f];
     }
 
-    /* ---------- Menu item (DropdownMenu / Select) ---------- */
     .menu-item:hover {
         @apply no-underline bg-[rgba(0,0,0,0.04)];
     }
@@ -86,7 +73,6 @@
         @apply bg-[rgba(0,0,0,0.12)];
     }
 
-    /* ---------- Accordion (urutan aturan sama dengan Accordion MUI) ---------- */
     .accordion::before {
         position: absolute;
         left: 0;
@@ -153,7 +139,6 @@
         transform: rotate(180deg);
     }
 
-    /* ---------- Radio ---------- */
     .radio:hover {
         background-color: rgb(var(--radio-color-rgb) / 0.04);
     }

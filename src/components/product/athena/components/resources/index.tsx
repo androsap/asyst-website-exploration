@@ -60,8 +60,6 @@ export default function ResourcesComponent() {
 
     const downloadBrochure = () => {
         fetch(data.product.section.file, {
-            // method: 'GET',
-            // mode: 'no-cors'
         }).then(response => {
             response.blob().then(blob => {
                 let url = window.URL.createObjectURL(blob);

@@ -6,7 +6,6 @@ const MainComponent = lazy(() => import("components/career/jobs"));
 
 const props: MainLayoutSharedProps = {
     title: mapLocalized(CareerSeoConst, seo => seo.jobs.title),
-    // Hero baru berlatar terang: navbar selalu versi putih agar menu terbaca
     defaultNav: true
 }
 

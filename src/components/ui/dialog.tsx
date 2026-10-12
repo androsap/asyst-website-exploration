@@ -5,23 +5,14 @@ import { cn } from "@/lib/utils";
 import { useScrollLock } from "./scroll-lock";
 import { Fade } from "./transitions";
 
-/**
- * Modal (shadcn/ui Dialog, Radix) dengan perilaku Modal MUI:
- * root fixed z-index 9999, backdrop hitam 50% ber-Fade, focus trap, Escape & klik backdrop menutup,
- * scroll body dikunci (padding scrollbar), dan `closeAfterTransition` — konten bertransisi tetap
- * ter-mount sampai animasi keluarnya selesai.
- */
 export interface ModalProps {
     open: boolean;
     onClose?: () => void;
-    /** Elemen konten. Jika berupa komponen transisi (Fade/Zoom/Slide), modal menunggu animasinya. */
     children: ReactElement;
     className?: string;
     backdropClassName?: string;
     backdropTimeout?: number | { enter: number; exit: number };
-    /** Lepas kunci scroll setelah animasi keluar (default: segera saat ditutup) */
     closeAfterTransition?: boolean;
-    /** Judul untuk pembaca layar */
     title: string;
 }
 

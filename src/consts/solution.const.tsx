@@ -10,11 +10,6 @@ import imgTransform from "assets/asyst/img/background/industry/industry-detail.w
 import imgSeat from "assets/asyst/img/background/industry/airline-airport/airline.webp";
 import { localized } from "shared/i18n";
 
-// Konten statis halaman Solutions (desain revamp 2026).
-// Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
-// (teks saja, struktur & urutan sama).
-
 export interface SolutionHeroContent {
     eyebrow: string;
     title: string;
@@ -35,7 +30,6 @@ export interface SolutionTabPanelItem {
     title: string;
     description: string;
     points: string[];
-    /** Daftar kedua opsional di bawah poin utama (mis. "Security Event Output") */
     subtitle?: string;
     subPoints?: string[];
     tags?: string[];
@@ -61,7 +55,6 @@ const solutionHeroEn: SolutionHeroContent = {
     description: "From cybersecurity and IT operations to application modernization, data orchestration and digital business transformation, ASYST helps enterprises connect technology",
     primaryButton: "Discuss Your Challenge",
     secondaryButton: "Explore Solutions",
-    // TODO: desain memakai ilustrasi isometrik
     image: imgHero,
 }
 
@@ -84,7 +77,6 @@ export interface SolutionLayerItem {
     image: string;
 }
 
-// TODO: hanya Security Operations Center yang sudah punya halaman detail; link lain sementara ke halaman Solutions
 const solutionLayersEn = {
     title: "Solutions for Every Layer of Your Technology Environment",
     description: "Whether the challenge is protecting infrastructure, improving IT operations, connecting fragmented data, modernizing legacy applications or transforming business processes, ASYST provides solution capabilities designed around enterprise needs",
@@ -134,7 +126,6 @@ const solutionLayersEn = {
     ] as SolutionLayerItem[],
 }
 
-// TODO: desain hanya menampilkan isi tab "Secure"; copy tab lain perlu dikonfirmasi
 const solutionValueEn = {
     title: "Technology Is Only Valuable When It Improves the Business",
     items: [
@@ -206,8 +197,6 @@ const solutionCtaEn: SolutionCtaContent = {
     description: "Tell us where your organization is today. We'll help you explore the technology, integration and delivery approach that fits your business environment",
     button: "Talk to an Expert",
 }
-
-// ---------- konten dua bahasa (EN di atas, terjemahan ID di bawah) ----------
 
 export const SolutionHeroConst = localized(solutionHeroEn, {
     eyebrow: "Solusi Asyst",

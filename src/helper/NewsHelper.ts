@@ -6,7 +6,6 @@ import { NewsListParams } from "models/news.model";
 class NewsHelper extends BaseHelper {
     static url = api.news;
 
-    /** Daftar news terbaru. API tidak mengembalikan total, jadi "ada lagi" ditentukan dari jumlah item = limit. */
     static getList({ limit, offset, category, keyword }: NewsListParams = {}, callback?: Callback) {
         const params = new URLSearchParams();
         if (limit) params.append("limit", String(limit));

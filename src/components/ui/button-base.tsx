@@ -3,10 +3,6 @@ import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cn } from "@/lib/utils";
 import { TouchRipple, TouchRippleHandle } from "./touch-ripple";
 
-/**
- * Pengganti ButtonBase MUI: reset style tombol + ripple + perilaku keyboard/fokus yang sama.
- * `data-button-base` dipakai SCSS sebagai pengganti selector `.MuiButtonBase-root`.
- */
 export const buttonBaseClass = cn(
     "inline-flex items-center justify-center relative box-border bg-transparent [outline:0] border-0 border-none border-current m-0 rounded-none p-0",
     "cursor-pointer select-none align-middle no-underline text-inherit appearance-none [-webkit-tap-highlight-color:transparent]",
@@ -14,12 +10,9 @@ export const buttonBaseClass = cn(
 );
 
 export interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    /** Render sebagai child (mis. <Link>) — pola shadcn/Radix Slot */
     asChild?: boolean;
     disableRipple?: boolean;
-    /** Ripple dari tengah (IconButton, Radio) */
     centerRipple?: boolean;
-    /** Ripple berdenyut saat fokus keyboard (default true seperti Button MUI) */
     focusRipple?: boolean;
     children?: ReactNode;
 }
@@ -47,7 +40,6 @@ export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(functio
         if (focusVisible && focusRipple && !disableRipple) ripple.current?.pulsate();
     }, [focusVisible, focusRipple, disableRipple]);
 
-    // Sama dengan useRippleHandler MUI: jalankan handler user, lalu start/stop ripple
     const handler = <E extends { type: string }>(action: "start" | "stop", user?: (e: E) => void) => (event: E) => {
         user?.(event);
         if (!disableRipple && ripple.current) ripple.current[action](event as never);
@@ -64,7 +56,6 @@ export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(functio
         onBlur?.(event);
     };
 
-    // Elemen non-<button> (mis. <li> item menu) tidak punya aktivasi keyboard bawaan
     const isNonNativeButton = (el: HTMLElement) => el.tagName !== "BUTTON" && !(el.tagName === "A" && (el as HTMLAnchorElement).href);
 
     const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {

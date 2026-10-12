@@ -7,7 +7,6 @@ interface AccordionItemProps {
     title: string;
     open: boolean;
     onToggle: () => void;
-    /** circle = ikon lingkaran (daftar fitur), plain = ikon +/− (FAQ) */
     icon?: "circle" | "plain";
 }
 
@@ -20,7 +19,6 @@ export default function AccordionItem({ title, open, onToggle, icon = "plain", c
             <span className="pv-accordion__title">{title}</span>
             {icon === "circle"
                 ? (open ? <RemoveCircleOutlineRoundedIcon className="pv-accordion__icon" /> : <AddCircleRoundedIcon className="pv-accordion__icon" />)
-                // Ikon +/− dari dua garis CSS: garis vertikal berputar & menghilang saat dibuka
                 : <span className="pv-accordion__toggle" aria-hidden="true" />}
         </ButtonBase>
         <Collapse in={open} timeout={COLLAPSE_TIMEOUT} easing={COLLAPSE_EASING}>

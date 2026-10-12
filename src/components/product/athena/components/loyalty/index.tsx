@@ -5,7 +5,6 @@ import { Virtual, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Children } from 'react';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { CustomersModel } from "models/amala/customers.model";
@@ -17,7 +16,6 @@ interface CustomersProps {
 
 const CustomersComponent: React.FC<CustomersProps> = ({ corporate }) => {
     const t = useT();
-    // console.log("customer", corporate)
     return (
         <>
             <Typography className={styles.title}>
@@ -25,7 +23,6 @@ const CustomersComponent: React.FC<CustomersProps> = ({ corporate }) => {
             </Typography>
             <Swiper
                 modules={[Virtual, Navigation]}
-                // onSwiper={(swiper) => setSwiperRef(swiper)}
                 slidesPerView={'auto'}
                 spaceBetween={50}
                 loop={true}
@@ -47,5 +44,4 @@ const CustomersComponent: React.FC<CustomersProps> = ({ corporate }) => {
     );
 };
 
-// }
 export default CustomersComponent;

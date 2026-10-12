@@ -12,7 +12,6 @@ interface TechnologiesSectionProps {
     content: CaseStudyDetailContent["technologies"];
 }
 
-/** Banner gelap dengan slider gambar di belakang dan kartu teknologi di atasnya. */
 export default function TechnologiesSection({ content }: TechnologiesSectionProps) {
     const { swiperProps, navProps } = useSwiperNav();
     const t = useT();

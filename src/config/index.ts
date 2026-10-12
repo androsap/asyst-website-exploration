@@ -1,4 +1,3 @@
-// Saat `vite` dev server, lewat proxy /api/v1 (lihat vite.config.ts) karena API tidak mengizinkan CORS dari localhost
 const URL_API_ASYST                  = import.meta.env.DEV ? "/api/v1/" : import.meta.env.VITE_API_URL_ASYST;
 
 export const api = {

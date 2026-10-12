@@ -39,7 +39,6 @@ export default function BusinessComponent() {
             if (status) setDataCard(data.data)
         })
     }
-    // console.log('card', dataCard)
     return (
         <>
             {!loading && data && (

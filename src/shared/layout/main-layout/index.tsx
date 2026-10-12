@@ -3,7 +3,6 @@ import HeaderShared from "shared/navigation/header";
 import LayoutShared, { LayoutSharedProps } from "..";
 import "./index.scss";
 import SiteFooterShared from "shared/site-footer";
-// import HomeProvider, { useHomeContext } from "components/home/components/provider";
 import { Typography } from "components/ui/typography";
 import { IconButton } from "components/ui/icon-button";
 import { Slide } from "components/ui/transitions";
@@ -23,12 +22,8 @@ export default function MainLayoutShared({ showMenuNavigation = true, defaultNav
     return <LayoutShared
         {...others}
         render={() => <>
-            {/* <HomeProvider> */}
-                {/* Navbar lama (shared/navigation/main-navigation) diganti header revamp 2026 */}
                 {showMenuNavigation && <HeaderShared />}
                 <ChildComponent {...others} />
-            {/* </HomeProvider> */}
-            {/* {showLiveChat && <LiveChat />} */}
         </>}
     />
 }
@@ -50,11 +45,8 @@ const ChildComponent = ({ children }: PropsWithChildren<ChildComponentProps>) =>
                 {children}
             </div>
         </section>
-        {/* {!focus && <footer> */}
             <SiteFooterShared />
 
-            {/* <FooterShared showDetail={showDetailFooter} hideDetailLogo={hideDetailLogoFooter} /> */}
-        {/* </footer>} */}
         <Slide in={show} direction="up" unmountOnExit>
             <div className="fixed bottom-0 z-[9999] w-full">
                 <div className="bg-white py-[5px] px-5 relative rounded-[10px_10px_0px_0px]">

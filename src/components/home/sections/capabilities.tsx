@@ -15,8 +15,6 @@ export default function CapabilitiesSection() {
     const sectionRef = useRef<HTMLElement>(null);
     const nearViewport = useNearViewport(sectionRef);
 
-    // Preload semua gambar tab supaya pergantian tidak kedip saat gambar baru dimuat.
-    // Baru dijalankan saat section mendekati viewport, supaya tidak berebut bandwidth dengan hero.
     useEffect(() => {
         if (!nearViewport) return;
         CapabilitiesConst.EN.items.forEach(({ image }) => {

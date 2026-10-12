@@ -34,10 +34,6 @@ import imgIndustryEnterprise from "assets/asyst/img/background/HBNR-3.webp";
 import imgIndustryAviation from "assets/asyst/img/background/HBNR-1.webp";
 import imgIndustryLogistic from "assets/asyst/img/background/services-solutions/cargo.webp";
 
-// Konten statis homepage (desain revamp 2026).
-// Gambar & ikon sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
-// Tiap konten dua bahasa: argumen pertama `localized` = EN (lengkap), kedua = terjemahan ID (teks saja).
-
 export const HeroConst = localized({
     title: "Technology That Moves Complex Businesses Forward",
     description: "From enterprise applications to integration and managed services, we build technology that connects people, processes, and systems so your business can move with confidence.",
@@ -96,7 +92,6 @@ export const EnterpriseHighlightConst = localized({
             title: "Technology that connects the enterprise ecosystem",
             description: "Enterprise environments rarely run on a single system. ASYST combines applications, APIs, data, infrastructure and business workflows to help organizations more connected technology",
         },
-        // TODO: kartu ke-3 terpotong di desain; copy di bawah perlu dikonfirmasi
         {
             icon: DomainExpertiseIcon,
             title: "Delivery and support across the lifecycle",
@@ -126,7 +121,6 @@ export type ProductCategory = "Operations" | "Enterprise" | "Customer" | "Inform
 
 export const ProductCategoryConst: ("All Products" | ProductCategory)[] = ["All Products", "Operations", "Enterprise", "Customer", "Information and Technology"]
 
-/** Label ID untuk kategori produk (nilai kategori tetap dipakai sebagai key filter) */
 export const ProductCategoryTermsConst: Record<string, string> = {
     "All Products": "Semua Produk",
     "Operations": "Operasional",
@@ -220,7 +214,6 @@ export const CapabilitiesConst = localized({
             tags: ["Workflow Automation", "Enterprise Applications", "System Integration", "Operational Data"],
             image: imgCapAutomate,
         },
-        // TODO: desain hanya menampilkan isi "Automate Operations"; copy tab lain perlu dikonfirmasi
         {
             icon: ModernizeLegacyIcon,
             label: "Modernize legacy systems",

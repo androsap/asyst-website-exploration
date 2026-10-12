@@ -7,7 +7,6 @@ interface AutoRouteProps {
 }
 
 export default function AutoRoute({ Component }: AutoRouteProps) {
-    // Modul sudah terunduh (mis. di-preload di main.tsx): render langsung tanpa fallback Suspense
     const Loaded = Component.loaded;
     if (Loaded) return <Loaded />;
 

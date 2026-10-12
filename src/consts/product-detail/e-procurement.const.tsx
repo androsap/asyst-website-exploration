@@ -4,12 +4,6 @@ import imgPlaceholder from "assets/asyst/img/background/product/overview/backgro
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
-// (teks saja, struktur & urutan sama).
-// Belum ada halaman sumber untuk E-Procurement. Copy disusun dari deskripsi "eProcurement Solution" di
-// product overview home.asyst.co.id dan poin procurement pada konten ERP.
-// TODO: konfirmasi copy, statistik & FAQ dengan tim produk; ganti gambar placeholder dengan screenshot e-Procurement.
-
 const eProcurementDetailEn: ProductDetailContent = {
     hero: {
         title: "E-Procurement Platform for Transparent, Connected Purchasing",
@@ -99,8 +93,6 @@ const eProcurementDetailEn: ProductDetailContent = {
         button: "Request product demo",
     },
 }
-
-// ---------- terjemahan ID (struktur & urutan sama dengan eProcurementDetailEn) ----------
 
 export const EProcurementDetailConst = localized(eProcurementDetailEn, {
     hero: {

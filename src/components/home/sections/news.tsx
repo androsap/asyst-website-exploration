@@ -16,7 +16,6 @@ import LazyBackground from "./lazy-background";
 
 const HOME_NEWS_LIMIT = 6;
 
-// Berita terbaru dari API news/retrieve (sama dengan halaman /news); kartu mengarah ke detail news
 export default function NewsSection() {
     const { swiperProps, navProps } = useSwiperNav();
     const t = useT();
@@ -30,7 +29,6 @@ export default function NewsSection() {
             if (!active) return;
             setLoading(false);
             const list: NewsModel[] = status && Array.isArray(data?.data) ? data.data : [];
-            // TODO: hapus fallback dummy setelah akses CMS tersedia
             setNews(list.length ? list : NewsDummyConst.slice(0, HOME_NEWS_LIMIT));
         });
         return () => { active = false };
@@ -38,7 +36,6 @@ export default function NewsSection() {
 
     if (!loading && !news.length) return null;
 
-    // Dummy belum punya halaman detail, arahkan ke daftar news
     const cardPath = (slug: string) => slug.startsWith("dummy-") ? NEWS_BASE_PATH : newsDetailPath(slug);
 
     return <section className="home-section home-news__section">
@@ -55,7 +52,6 @@ export default function NewsSection() {
                         </SwiperSlide>
                     ))
                     : news.map(({ id, slug, image, title, category: type }) => (
-                        // Tiap kartu = <article> dengan heading sendiri (SEO / semantik HTML5)
                         <SwiperSlide key={id} tag="article">
                             <LazyBackground as={Link} to={cardPath(slug)} className="home-news-card" image={image}>
                                 <span className="home-news-card__tag">{category(type)}</span>

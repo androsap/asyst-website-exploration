@@ -1,4 +1,3 @@
-// Halaman About Us (revamp 2026). Tambahan di atas components/home/sections/home.scss
 $navy: #123554;
 $navy-2: #123554;
 $blue: #2775BB;
@@ -22,7 +21,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- hero (foto tim di belakang overlay putih) ----------
     .about-hero {
         position: relative;
         padding: 170px 0 150px;
@@ -81,7 +79,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- intro ----------
     .about-intro {
         .home-heading {
             max-width: 900px;
@@ -95,7 +92,6 @@ $mobile: 599px;
         }
     }
 
-    // judul rata kiri (Clients, Consulting areas)
     .about-left-heading {
         margin-bottom: 32px;
 
@@ -119,7 +115,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- leaders ----------
     .about-leaders {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -188,7 +183,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- vision / mission / values ----------
     .about-principles__tabs {
         display: flex;
         justify-content: center;
@@ -285,7 +279,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- clients ----------
     .about-clients__marquee {
         overflow: hidden;
         mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
@@ -314,7 +307,7 @@ $mobile: 599px;
     .about-clients__logo {
         flex: 0 0 auto;
         width: 192px;
-        margin-right: 16px; // pakai margin (bukan gap) supaya -50% pas di batas salinan
+        margin-right: 16px;
         box-sizing: border-box;
         height: 100px;
         display: flex;
@@ -337,7 +330,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- consulting areas ----------
     .about-areas__swiper .swiper-slide {
         height: auto;
     }
@@ -363,7 +355,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- join our team ----------
     .about-join {
         display: grid;
         grid-template-columns: 1fr 1fr 1.4fr;

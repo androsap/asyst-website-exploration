@@ -11,12 +11,10 @@ import "./search-overlay.scss";
 
 export interface SearchOverlayProps {
     open: boolean;
-    /** Titik tengah tombol search (koordinat viewport); kotak membesar dari titik ini */
     origin: { x: number; y: number };
     onClose: () => void;
 }
 
-/** Pencarian cepat dari tombol search di header. Di-lazy-load agar index pencarian tidak ikut bundle header. */
 export default function SearchOverlay({ open, origin, onClose }: SearchOverlayProps) {
     const navigate = useNavigate();
     const content = useLocalized(SearchPageConst);
@@ -50,13 +48,11 @@ export default function SearchOverlay({ open, origin, onClose }: SearchOverlayPr
     const onKeyDown = (e: KeyboardEvent) => {
         if (!flatItems.length || (e.key !== "ArrowDown" && e.key !== "ArrowUp")) return;
         e.preventDefault();
-        // -1 = belum ada item terpilih; panah berputar: -1 → 0 → ... → terakhir → -1
         const step = e.key === "ArrowDown" ? 1 : -1;
         const slots = flatItems.length + 1;
         setActive(i => (i + 1 + step + slots) % slots - 1);
     };
 
-    // Transform origin = posisi tombol relatif terhadap kotak (offset tidak terpengaruh transform scale)
     const setOrigin = (node: HTMLElement) => {
         node.style.transformOrigin = `${origin.x - node.offsetLeft}px ${origin.y - node.offsetTop}px`;
     };
@@ -68,7 +64,6 @@ export default function SearchOverlay({ open, origin, onClose }: SearchOverlayPr
         onClose={onClose}
         closeAfterTransition
         className="search-overlay"
-        // slots.backdrop = Backdrop biasa (tanpa z-index -1 milik backdrop bawaan Modal)
         backdropClassName="search-overlay__backdrop z-auto"
         backdropTimeout={250}
         title={content.title}

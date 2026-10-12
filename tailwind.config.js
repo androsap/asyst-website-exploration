@@ -1,16 +1,9 @@
 import animate from "tailwindcss-animate";
 
-/**
- * Tailwind dipakai berdampingan dengan SCSS existing.
- * - preflight dimatikan: reset bawaan Tailwind akan mengubah margin heading, img, button, dll. di seluruh halaman.
- * - Token warna/font/radius mengikuti theme MUI lama (src/config/theme.tsx) agar tampilan identik.
- * @type {import('tailwindcss').Config}
- */
 export default {
     content: ["./index.html", "./src/**/*.{ts,tsx}"],
     corePlugins: {
         preflight: false,
-        // nama class "container" rawan bentrok dengan class SCSS; pakai komponen ui/container
         container: false,
     },
     theme: {
@@ -29,14 +22,12 @@ export default {
                 inter: ["Inter"],
             },
             screens: {
-                // breakpoint MUI (xs 0, sm 600, md 900, lg 1200, xl 1536)
                 sm: "600px",
                 md: "900px",
                 lg: "1200px",
                 xl: "1536px",
             },
             transitionTimingFunction: {
-                // easing MUI (theme.transitions.easing)
                 "ease-in-out": "cubic-bezier(0.4, 0, 0.2, 1)",
                 "ease-out": "cubic-bezier(0.0, 0, 0.2, 1)",
                 "ease-in": "cubic-bezier(0.4, 0, 1, 1)",
@@ -45,7 +36,6 @@ export default {
             keyframes: {
                 "page-loader-spin": { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } },
                 "page-loader-pulse": { "0%, 100%": { transform: "scale(1)", opacity: "1" }, "50%": { transform: "scale(0.88)", opacity: "0.75" } },
-                // Animasi yang sebelumnya dari komponen MUI
                 "mui-fade-in": { from: { opacity: "0" }, to: { opacity: "1" } },
                 "mui-fade-out": { from: { opacity: "1" }, to: { opacity: "0" } },
                 "mui-pulse": { "0%": { opacity: "1" }, "50%": { opacity: "0.4" }, "100%": { opacity: "1" } },

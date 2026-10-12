@@ -3,12 +3,10 @@ import { cn } from "@/lib/utils";
 
 export interface DividerProps extends HTMLAttributes<HTMLHRElement> {
     orientation?: "horizontal" | "vertical";
-    /** middle = inset 16px (vertikal) / 32px (horizontal) seperti Divider MUI dengan spacing 16 */
     variant?: "fullWidth" | "middle";
     flexItem?: boolean;
 }
 
-/** Garis pemisah tipis — identik dengan Divider MUI (border thin, rgba(0,0,0,0.12)). */
 export function Divider({ orientation = "horizontal", variant = "fullWidth", flexItem, className, ...props }: DividerProps) {
     const vertical = orientation === "vertical";
     return <hr

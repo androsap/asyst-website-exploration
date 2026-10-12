@@ -9,7 +9,6 @@ import ClientsSection from "./sections/clients";
 import ConsultingAreasSection from "./sections/consulting-areas";
 import JoinTeamSection from "./sections/join-team";
 
-// Memakai style dasar homepage (.home-v2: heading, tombol, carousel nav) + tambahan .about-v2
 export default function AboutUsComponent({ }: MainLayoutSharedProps) {
     return <div className="home-v2 about-v2">
         <AboutHeroSection />

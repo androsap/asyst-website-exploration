@@ -15,11 +15,6 @@ import imgCargo from "assets/asyst/img/background/services-solutions/cargo.webp"
 import imgTravel from "assets/asyst/img/background/HBNR-3.webp";
 import { localized } from "shared/i18n";
 
-// Konten halaman detail industri (desain revamp 2026). Satu objek per industri, dirender oleh components/industry/detail.
-// Gambar sementara memakai aset yang sudah ada di repo; desain memakai diagram ekosistem aviasi.
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
-// (teks saja, struktur & urutan sama).
-
 export interface IndustryChallengeItem {
     label: string;
     title: string;
@@ -35,7 +30,6 @@ export interface IndustryLayerItem {
     value: string;
 }
 
-/** Isi popover hover (judul + daftar poin) */
 export interface IndustryPopoverContent {
     title: string;
     points: string[];
@@ -45,11 +39,9 @@ export interface IndustryDomainItem {
     title: string;
     description: string;
     points: string[];
-    /** Tampil di atas kartu saat di-hover */
     popover?: IndustryPopoverContent;
 }
 
-/** Langkah value chain; `title` + `points` tampil sebagai popover saat langkah di-hover */
 export interface IndustryValueChainStep {
     label: string;
     title?: string;
@@ -101,13 +93,11 @@ export interface IndustryDetailContent {
 
 const aviationChallengeIntro = "Airline and aviation organizations often operate across multiple applications, operational environments, partners and data sources. Our products and Solutions will boost your business, to avoid bad impact in:";
 const aviationChips = ["Commercial", "Operations", "Passenger", "Enterprise Systems", "Integration", "Data"];
-// TODO: prototype memakai popover "Discover" sebagai placeholder untuk semua kartu domain; copy per kartu perlu dikonfirmasi
 const domainPopover: IndustryPopoverContent = {
     title: "Connect commercial channels with the systems",
     points: ["Customer", "Digital Channels", "Search & Discovery", "Product / Schedule Information", "Commercial Systems"],
 };
 
-// TODO: desain hanya menampilkan isi tab/accordion pertama di tiap section; copy lainnya perlu dikonfirmasi
 const aviationDetailEn: IndustryDetailContent = {
     hero: {
         eyebrow: "Aviation Industry",
@@ -268,7 +258,6 @@ const aviationDetailEn: IndustryDetailContent = {
         ],
         image: imgProducts,
     },
-    // TODO: desain memakai kartu placeholder (Loyalty/Cargo/Travel dengan copy sama); copy & link per kartu perlu dikonfirmasi
     solutions: {
         items: [
             {
@@ -394,8 +383,6 @@ const aviationDetailEn: IndustryDetailContent = {
         button: "Discuss Your Aviation Challenge",
     },
 }
-
-// ---------- terjemahan ID (struktur & urutan sama dengan aviationDetailEn) ----------
 
 const aviationChallengeIntroId = "Organisasi maskapai dan penerbangan sering beroperasi di atas banyak aplikasi, lingkungan operasional, mitra, dan sumber data. Produk dan Solusi kami akan mendorong bisnis Anda sekaligus menghindari dampak buruk berupa:";
 const aviationChipsId = ["Komersial", "Operasional", "Penumpang", "Sistem Enterprise", "Integrasi", "Data"];

@@ -1,6 +1,5 @@
 import bannerBackground from 'assets/asyst/img/background/industry/industry-detail.webp';
 
-// Class Tailwind hasil konversi style MUI `sx` sebelumnya (nilai identik).
 export const styles = {
     backNavContainer: "pl-[122px] flex items-center cursor-pointer mb-[auto] mt-[120px] z-[1]",
     backNavText: "text-[color:#FFF] font-['Source_Sans_Pro'] text-[length:16px] not-italic font-[400] leading-[normal] ml-[12px]",
@@ -11,11 +10,8 @@ export const styles = {
     headerSubtitle: "text-[color:#F4F4F4] font-['Inter'] text-[length:22px] not-italic font-[500] leading-[32px] mt-[29px]",
 };
 
-// Gambar banner (sebelumnya backgroundImage di sx)
 export const mainBoxStyle = { backgroundImage: `url(${bannerBackground})` };
 
-// Class logo slider; [&.swiper-slide] supaya mengalahkan width: 100% dari swiper.css
-// (padddingBottom lama typo sehingga tidak pernah berlaku — tidak dibawa)
 export const contentStyles = {
     logoContainer: "h-[90px]",
     logoSwiperSlider: "[&.swiper-slide]:w-auto [&.swiper-slide]:mr-[24px]",

@@ -1,4 +1,3 @@
-// Halaman News & detail news (revamp 2026). Isi news diambil dari API (helper/NewsHelper).
 import { localized } from "shared/i18n";
 import NewsModel from "models/news.model";
 import imgNewsHero1 from "assets/asyst/img/background/HBNR-1.webp";
@@ -20,10 +19,8 @@ export const NewsHeroConst = localized({
 
 export const NEWS_ALL_CATEGORY = "All News";
 
-// Kategori yang dipakai CMS asyst (field `category` di API)
 export const NewsCategoriesConst = [NEWS_ALL_CATEGORY, "Company", "Technology", "Events", "Expertise", "Logistics"];
 
-/** Label ID untuk kategori news; nilai kategori tetap dipakai untuk query API & URL */
 export const NewsCategoryTermsConst: Record<string, string> = {
     [NEWS_ALL_CATEGORY]: "Semua Berita",
     "All": "Semua",
@@ -34,7 +31,6 @@ export const NewsCategoryTermsConst: Record<string, string> = {
     "Logistics": "Logistik",
 };
 
-// TODO: hapus setelah akses CMS tersedia. Fallback section News di homepage saat API news kosong / gagal.
 const dummyNews = (id: string, title: string, category: string, image: string, created_date: string): NewsModel => ({
     id, slug: `dummy-${id}`, title, category, image, created_date,
     caption: "", content: "", status: "Published",
@@ -53,7 +49,6 @@ export const NewsDummyConst: NewsModel[] = [
 export const NEWS_PAGE_SIZE = 9;
 export const NEWS_RELATED_LIMIT = 6;
 
-// `created_by` dari API berisi username CMS (mis. "admincms"), bukan nama tampilan
 export const NEWS_AUTHOR = "Asyst Admin";
 
 export const NewsDetailConst = localized({
@@ -69,7 +64,6 @@ export const NewsDetailConst = localized({
     backToNews: "Back to News",
     share: "Share",
     linkCopied: "Link copied",
-    /** `{n}` diganti jumlah menit */
     readingTime: "{n} min",
     readingTimePlural: "{n} mins",
     dateFormat: "MMMM D, YYYY [at] HH:mm:ss",

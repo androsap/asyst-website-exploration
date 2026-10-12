@@ -20,7 +20,6 @@ export default function HeroSection({ onTalkToExpert }: HeroSectionProps) {
                 <Typography variant="h1" className="home-hero__title">{hero.title}</Typography>
                 <Typography className="home-hero__description">{hero.description}</Typography>
                 <div className="home-hero__actions">
-                    {/* span = item flex pengganti <a> pembungkus lama, supaya posisi tombol tetap sama persis */}
                     <span><Button asChild className="home-btn home-btn--primary"><Link to={hero.primaryButton.link}>{hero.primaryButton.label}</Link></Button></span>
                     <Button className="home-btn home-btn--outline" onClick={onTalkToExpert}>{hero.secondaryButton.label}</Button>
                 </div>
@@ -42,7 +41,6 @@ export default function HeroSection({ onTalkToExpert }: HeroSectionProps) {
             <div className="home-trusted">
                 <Typography className="home-trusted__label">{t("Trusted by", "Dipercaya oleh")}</Typography>
                 <div className="home-trusted__logos">
-                    {/* Marquee seperti Clients di About Us: 2 salinan logo agar animasi -50% looping tanpa jeda */}
                     <div className="home-trusted__track">
                         {[0, 1].map((copy) => TrustedByConst.map(({ name, logo }) => (
                             <div key={`${copy}-${name}`} className="home-trusted__logo" aria-hidden={copy === 1}>

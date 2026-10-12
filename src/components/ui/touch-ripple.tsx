@@ -1,10 +1,5 @@
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from "react";
 
-/**
- * Efek ripple saat tombol ditekan — replika TouchRipple MUI v5:
- * enter 550ms (scale 0 -> 1, opacity 0.1 -> 0.3), exit 550ms (opacity -> 0),
- * pulsate 2500ms saat fokus keyboard. Easing cubic-bezier(0.4, 0, 0.2, 1).
- */
 const DURATION = 550;
 const PULSATE_DURATION = 200;
 const DELAY_RIPPLE = 80;
@@ -45,7 +40,6 @@ function Ripple({ ripple, onExited }: { ripple: RippleData; onExited: () => void
     >
         <span
             className="block w-full h-full rounded-[50%] bg-current"
-            // Urutan prioritas sama dengan MUI: aturan pulsate menimpa animasi exit
             style={{
                 opacity: leaving ? 0 : 1,
                 ...(leaving && { animation: `mui-ripple-exit ${DURATION}ms ${EASE}` }),

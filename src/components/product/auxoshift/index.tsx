@@ -31,7 +31,6 @@ import he from 'he';
 import { useApiText, useT } from 'shared/i18n';
 import bannerBackground from 'assets/asyst/img/background/product/auxoshift/auxoshift-background.webp';
 
-
 const Loading = <div className="w-full h-[150px] flex items-center justify-center relative">
     <CircularProgress size={40} />
 </div>
@@ -86,7 +85,6 @@ export default function AmalaDetailComponent({ }: MainLayoutSharedProps) {
         })
     }
 
-    // console.log("data nih", data.product?.product_name)
     return <div className="container-product">
         <Element name="amala">
             <div className='mainBox' style={{ backgroundImage: `url(${bannerBackground})` }}>

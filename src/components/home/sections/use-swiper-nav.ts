@@ -1,7 +1,6 @@
 import { useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 
-/** State tombol prev/next custom untuk Swiper (di luar komponen Swiper). */
 export default function useSwiperNav() {
     const [swiper, setSwiper] = useState<SwiperType | null>(null);
     const [edges, setEdges] = useState({ isBeginning: true, isEnd: false });

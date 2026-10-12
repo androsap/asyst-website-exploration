@@ -13,11 +13,6 @@ import imgBusinessOwner from "assets/asyst/img/background/product/amala/business
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
-// (teks saja, struktur & urutan sama).
-// Konten mengikuti home.asyst.co.id/product/hermes (di situs lama slug ini dipakai untuk "Loyalty Platform").
-// Screenshot CMS lama untuk Hermes adalah aplikasi cargo, jadi sementara memakai aset loyalty Amala.
-
 const hermesDetailEn: ProductDetailContent = {
     hero: {
         title: "Maximize Customer Lifetime Value and Scale Seamless Loyalty Ecosystems",
@@ -131,8 +126,6 @@ const hermesDetailEn: ProductDetailContent = {
         button: "Request product demo",
     },
 }
-
-// ---------- terjemahan ID (struktur & urutan sama dengan hermesDetailEn) ----------
 
 export const HermesDetailConst = localized(hermesDetailEn, {
     hero: {

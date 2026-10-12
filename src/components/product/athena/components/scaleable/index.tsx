@@ -22,7 +22,6 @@ export default function ScalableComponent() {
             if (status) setData(data.data)
         })
     }
-    // console.log("data nih", data.product?.product_name)
     return <>
         {!loading && data && (
             <div>

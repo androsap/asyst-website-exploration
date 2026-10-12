@@ -1,4 +1,3 @@
-// Header revamp 2026
 $navy: #123554;
 $navy-2: #123554;
 $blue: #2775BB;
@@ -31,7 +30,6 @@ $header-height: 84px;
         -webkit-backdrop-filter: none;
     }
 
-    // Saat panel terbuka / di-hover, header jadi putih solid
     &--open,
     &:hover {
         background: #fff;
@@ -121,6 +119,7 @@ $header-height: 84px;
         color: $navy;
         font-size: 17px;
         font-weight: 600;
+        transition: color .15s;
 
         svg {
             font-size: 22px;
@@ -128,10 +127,31 @@ $header-height: 84px;
 
         .header__lang-caret {
             font-size: 18px;
+            transition: transform .2s;
+        }
+
+        &:hover,
+        &.active {
+            color: $blue;
+        }
+
+        &.active .header__lang-caret {
+            transform: rotate(180deg);
         }
     }
 
-    // Menu bahasa dirender lewat portal, jadi class ini harus tetap top-level
+    &__lang-wrap {
+        position: relative;
+    }
+
+    &__lang-dropdown {
+        position: absolute;
+        top: calc(50% + #{$header-height} / 2);
+        left: 50%;
+        transform: translateX(-50%);
+        padding-top: 14px;
+    }
+
     &__lang-option[data-slot="menu-item"] {
         gap: 10px;
     }
@@ -159,7 +179,6 @@ $header-height: 84px;
     }
 }
 
-// Diawali .header supaya mengalahkan reset `.header button` tanpa !important
 .header .header__cta {
     flex-shrink: 0;
     padding: 12px 22px;
@@ -180,7 +199,6 @@ $header-height: 84px;
     }
 }
 
-// ---------- mega menu panel ----------
 .header-panel {
     display: flex;
     gap: 32px;
@@ -235,7 +253,6 @@ $header-height: 84px;
         margin-top: 24px;
     }
 
-    // Diawali .header supaya font-family mengalahkan reset `.header button` tanpa !important
     .header &__tab {
         display: flex;
         align-items: center;
@@ -259,6 +276,13 @@ $header-height: 84px;
     &__content {
         flex: 1;
         min-width: 0;
+    }
+
+    &--lang {
+        flex-direction: column;
+        gap: 4px;
+        min-width: 180px;
+        padding: 12px;
     }
 
     &__highlight {
@@ -357,7 +381,8 @@ $header-height: 84px;
     color: $blue;
     transition: background .15s;
 
-    &:not(.is-disabled):hover {
+    &:not(.is-disabled):hover,
+    &.active {
         background: $surface;
     }
 
@@ -372,7 +397,7 @@ $header-height: 84px;
         border: 1px solid $border;
         border-radius: 10px;
         background: $surface;
-        color: #2775BB; // ikon pakai currentColor
+        color: #2775BB;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -400,7 +425,6 @@ $header-height: 84px;
     }
 }
 
-// ---------- mobile drawer ----------
 $green: #89BA3A;
 
 .header-mobile[data-slot="paper"] {

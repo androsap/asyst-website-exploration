@@ -16,7 +16,6 @@ const matchesFilter = (item: CaseStudyItem, key: CaseStudyFilterKey, value: stri
     return Array.isArray(field) ? field.includes(value) : field === value;
 };
 
-/** Tab dimensi (Industry/Solutions/Technology) + chip filter + pencarian + grid dengan "Load more". */
 export default function ExplorerSection() {
     const { allLabel, searchPlaceholder, emptyText, loadMore, pageSize } = useLocalized(CaseStudyExplorerConst);
     const filterTabs = useLocalized(CaseStudyFilterTabsConst);
@@ -37,7 +36,6 @@ export default function ExplorerSection() {
         );
     }, [caseStudies, tab.key, filter, search, term]);
 
-    // setiap perubahan filter mulai lagi dari halaman pertama
     const resetPaging = () => setVisible(pageSize);
 
     const changeTab = (index: number) => {

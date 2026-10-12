@@ -12,7 +12,6 @@ import { NEWS_ALL_CATEGORY, NEWS_PAGE_SIZE, NewsCategoriesConst, NewsCategoryTer
 import { useLocalized, useT, useTerms } from "shared/i18n";
 import NewsCard, { NewsCardSkeleton } from "./shared/news-card";
 
-/** Halaman utama News (revamp 2026). Daftar news dari API, filter kategori disimpan di query `?category=`. */
 export default function NewsComponent({ }: MainLayoutSharedProps) {
     const [searchParams, setSearchParams] = useSearchParams();
     const category = searchParams.get("category") || NEWS_ALL_CATEGORY;
@@ -24,7 +23,6 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [hasMore, setHasMore] = useState(false);
-    // Abaikan respons lama kalau kategori sudah diganti sebelum request selesai
     const requestId = useRef(0);
 
     const load = useCallback((offset: number) => {
@@ -41,7 +39,6 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
             const list: NewsModel[] = status && Array.isArray(data?.data) ? data.data : [];
             if (!status) setError(true);
             setItems(prev => offset ? [...prev, ...list] : list);
-            // Gagal saat "Show More": tombol tetap ada agar bisa dicoba lagi
             setHasMore(status ? list.length === NEWS_PAGE_SIZE : offset > 0);
         });
     }, [category]);

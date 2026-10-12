@@ -21,10 +21,6 @@ import logoPelni from "assets/asyst/img/about-us/clients/client-pelni.webp";
 import logoXlAxiata from "assets/asyst/img/about-us/clients/client-xl-axiata.webp";
 import { localized } from "shared/i18n";
 
-// Konten statis halaman About Us (desain revamp 2026).
-// Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
-// Tiap konten dua bahasa: argumen pertama `localized` = EN (lengkap), kedua = terjemahan ID (teks saja).
-
 export const AboutHeroConst = localized({
     title: "Your Strategic IT Consultant for Enterprise",
     description: "We transform complex challenges into secure, scalable and sustainable digital solutions.",
@@ -54,7 +50,6 @@ export interface LeaderItem {
 export const LeadersConst = localized({
     title: "The Leaders",
     description: "Discover behind our leadership, who guide our teams while upholding our vision and professional values to ensure your project meets expectations and delivers lasting impact",
-    // TODO: URL LinkedIn belum ada; jabatan Mohamad Reza Yunardi di desain sama dengan Hengki (perlu dikonfirmasi)
     items: [
         { name: "Hengki M. Sihombing", position: "President Director of PT Aero Systems Indonesia", image: imgHengki },
         { name: "Mohamad Reza Yunardi", position: "President Director of PT Aero Systems Indonesia", image: imgReza },
@@ -83,10 +78,8 @@ export interface PrincipleTab {
 }
 
 export const PrinciplesConst = localized({
-    // TODO: video perusahaan belum ada; isi embed URL YouTube (https://www.youtube.com/embed/<id>) agar tombol play aktif
     videoEmbedUrl: "",
     videoThumbnail: imgVideoThumbnail,
-    // TODO: desain hanya menampilkan isi tab "Values"; copy Vision & Mission perlu dikonfirmasi
     tabs: [
         {
             label: "Vision",
@@ -181,7 +174,6 @@ export const ConsultingAreasConst = localized({
         { title: "Financial Services", description: "Modernize core banking systems, accelerate cloud adoption, and secure sensitive financial data. We help banks, insurance firms, and fintech startups achieve SOC 2 and PCI-DSS compliance while building resilient infrastructure." },
         { title: "Manufacturing & Industrial", description: "Connect OT and IT environments safely to enable Industry 4.0 automation. We optimize ERP systems, implement IoT edge computing, and defend operational networks against ransomware threats." },
         { title: "Retail & E-Commerce", description: "Deliver frictionless, high-speed customer experiences. We design scalable cloud backbones that handle peak shopping loads, protect POS transactions, and unify online and in-store inventory systems." },
-        // TODO: kartu di luar layar tidak terlihat di desain; copy di bawah perlu dikonfirmasi
         { title: "Aviation & Transportation", description: "Digitize airline, airport and logistics operations with integrated systems for reservations, ground handling, cargo and crew management that keep every journey on schedule." },
         { title: "Public Sector & SOE", description: "Help government institutions and state-owned enterprises modernize public services with secure, compliant and interoperable digital platforms." },
     ] as ConsultingAreaItem[],

@@ -5,14 +5,6 @@ import { ButtonBase, ButtonBaseProps } from "./button-base";
 import { useScrollLock } from "./scroll-lock";
 import { Fade, Grow } from "./transitions";
 
-/**
- * Menu popup — port perilaku Menu/Popover MUI:
- * - posisi dihitung dari anchorEl + anchorOrigin/transformOrigin, digeser agar tetap 16px dari tepi layar
- *   (tidak dibalik ke atas), dihitung ulang saat render, resize, dan scroll (bila scroll tidak dikunci)
- * - backdrop transparan ber-Fade: klik di luar hanya menutup menu; Escape/Tab menutup
- * - Paper elevation 8 radius 8, list padding 8px, transisi Grow durasi "auto"
- * - fokus otomatis ke item terpilih/pertama, navigasi panah/Home/End/huruf, fokus kembali ke elemen asal saat tutup
- */
 type Origin = { vertical: "top" | "bottom"; horizontal: "left" | "center" };
 
 const MARGIN_THRESHOLD = 16;
@@ -26,13 +18,9 @@ export interface MenuPopupProps {
     children: ReactNode;
     role?: "menu" | "listbox";
     listId?: string;
-    /** Menu MUI: bawah-kiri; Select MUI: bawah-tengah */
     align?: "start" | "center";
-    /** Panah atas/bawah berputar dari item terakhir ke pertama (Menu) atau berhenti (Select) */
     wrap?: boolean;
-    /** Kunci scroll body selama terbuka (Menu MUI tanpa disableScrollLock) */
     lockScroll?: boolean;
-    /** Render di dalam elemen ini, bukan di body (MUI `disablePortal`) */
     container?: HTMLElement | null;
     paperStyle?: CSSProperties;
     paperClassName?: string;
@@ -50,7 +38,6 @@ export function MenuPopup({
 
     useScrollLock(open && lockScroll);
 
-    // Port getPositioningStyle Popover MUI (anchorOrigin bawah, transformOrigin atas)
     const setPositioningStyles = useCallback(() => {
         const element = paperRef.current;
         if (!element || !anchorEl) return;
@@ -98,7 +85,6 @@ export function MenuPopup({
         }
     }, [open]);
 
-    // Sama dengan Popover MUI: posisi dihitung ulang setiap render selama terbuka
     useEffect(() => { if (open) setPositioningStyles(); });
 
     useEffect(() => {
@@ -116,7 +102,6 @@ export function MenuPopup({
 
     const items = () => listRef.current ? [...listRef.current.querySelectorAll<HTMLElement>("[data-slot=menu-item]")] : [];
 
-    // MenuList autoFocusItem: fokus ke item terpilih (atau pertama) saat menu terbuka
     useLayoutEffect(() => {
         if (!open || exited) return;
         const list = items();
@@ -149,7 +134,6 @@ export function MenuPopup({
             className="fixed inset-0 z-[9999]"
             onKeyDown={event => { if (event.key === "Escape") { event.stopPropagation(); onClose(); } }}
         >
-            {/* Backdrop transparan (Backdrop invisible MUI, ber-Fade): klik di luar hanya menutup menu */}
             <Fade in={open} appear>
                 <div aria-hidden="true" className="fixed flex items-center justify-center inset-0 -z-[1] bg-transparent [-webkit-tap-highlight-color:transparent]" onClick={onClose} />
             </Fade>
@@ -188,7 +172,6 @@ export interface MenuItemProps extends Omit<ButtonBaseProps, "asChild" | "role">
     appearance?: MenuAppearance;
 }
 
-/** Item menu — identik dengan MenuItem MUI (min-height 48px di layar < 600px, ripple saat klik). */
 export const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>(function MenuItem(
     { selected, role = "menuitem", appearance = "app", className, children, style, ...props }, ref,
 ) {

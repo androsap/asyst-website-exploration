@@ -1,5 +1,3 @@
-// Halaman Case Study & detail (revamp 2026). Dipakai bersama product-v2.scss (pv-section, pv-btn, pv-heading, pv-tabs).
-// Token mengikuti components/product/shared/product-v2.scss
 $navy: #123554;
 $navy-2: #123554;
 $blue: #2775BB;
@@ -15,7 +13,6 @@ $mobile: 599px;
 
 .case-study-v2 {
 
-    // ---------- shared ----------
     .cs-eyebrow {
         font-family: $font-heading;
         font-size: 14px;
@@ -89,7 +86,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- hero ----------
     .cs-hero {
         position: relative;
         overflow: hidden;
@@ -103,14 +99,30 @@ $mobile: 599px;
 
         &__backdrop {
             position: absolute;
-            inset: 0 0 0 35%;
+            inset: 0;
             background-size: cover;
             background-position: center;
             opacity: 0.18;
             filter: blur(2px);
-            // memudar ke kiri agar teks tetap terbaca
-            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 40%);
-            mask-image: linear-gradient(90deg, transparent 0%, #000 40%);
+        }
+
+        &:not(.cs-hero--center) {
+            background: #fff;
+
+            .cs-hero__backdrop {
+                background-size: 100% auto;
+                background-position: center top;
+                background-repeat: no-repeat;
+                opacity: 0.105;
+                filter: none;
+                -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.67) 45%, rgba(0, 0, 0, 0.38) 67%, rgba(0, 0, 0, 0.23) 82%, transparent 96%);
+                mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.67) 45%, rgba(0, 0, 0, 0.38) 67%, rgba(0, 0, 0, 0.23) 82%, transparent 96%);
+
+                @media (max-width: $tablet) {
+                    background-size: cover;
+                    background-position: center;
+                }
+            }
         }
 
         &__inner {
@@ -151,7 +163,10 @@ $mobile: 599px;
             margin-top: 40px;
         }
 
-        // varian detail: teks di tengah, gambar latar penuh
+        .cs-hero__button.pv-btn--primary[data-slot="button"]::before {
+            background: $navy;
+        }
+
         &--center {
             text-align: center;
 
@@ -177,7 +192,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- main: featured ----------
     .cs-featured {
         margin-top: 64px;
 
@@ -205,13 +219,22 @@ $mobile: 599px;
         }
 
         &__image {
+            position: relative;
             min-height: 360px;
             border-radius: 10px;
-            background-size: cover;
-            background-position: center;
+            overflow: hidden;
 
             @media (max-width: $mobile) {
                 min-height: 220px;
+            }
+
+            img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
             }
         }
 
@@ -246,68 +269,133 @@ $mobile: 599px;
         }
     }
 
-    // ---------- main: explorer ----------
+    $explorer-active: #174670;
+    $explorer-line: #E9F1F8;
+    $explorer-text: #444444;
+
     .cs-explorer__toolbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        flex-wrap: wrap;
         gap: 16px;
+        padding: 7px;
+        border: 1px solid $explorer-line;
+        border-radius: 999px;
+        background: #fff;
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 8px;
+            border-radius: 24px;
+        }
 
         .pv-tabs--pill {
+            flex-shrink: 0;
             margin: 0;
+            padding: 0;
+            border: 0;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .pv-tabs__item {
+                padding: 10px 24px;
+                font-weight: 600;
+
+                &.active {
+                    background: $explorer-active;
+                }
+            }
+
+            @media (max-width: $mobile) {
+                width: 100%;
+
+                .pv-tabs__item {
+                    flex: 1;
+                    padding: 10px 8px;
+                    font-size: 14px;
+                }
+            }
+
+            .pv-tabs__indicator {
+                top: 0;
+                bottom: 0;
+                background: $explorer-active;
+            }
+
+            &.has-indicator .pv-tabs__item.active {
+                background: transparent;
+            }
         }
     }
 
     .cs-search {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 12px;
+        box-sizing: border-box;
         width: 100%;
-        max-width: 300px;
-        padding: 8px 16px;
-        border: 1px solid $border;
+        min-width: 0;
+        max-width: 282px;
+        height: 40px;
+        padding: 0 16px 0 20px;
+        border: 1px solid #EFF5FA;
         border-radius: 999px;
-        background: $surface-soft;
+        background: #F9FBFD;
 
-        @media (max-width: $mobile) {
+        @media (max-width: 767px) {
             max-width: none;
         }
 
         &__icon {
-            font-size: 20px;
-            color: $muted;
+            flex-shrink: 0;
+            font-size: 18px;
+            color: #1A1A1A;
         }
 
         &__input {
             flex: 1;
-            font-size: 15px;
+            font-family: inherit;
+            font-size: 16px;
+            color: $explorer-text;
+
+            input::placeholder {
+                color: $explorer-text;
+                opacity: 1;
+            }
         }
     }
 
     .cs-filters {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
-        margin: 24px 0 28px;
+        gap: 12px;
+        margin: 28px 0;
     }
 
     .cs-filter {
-        padding: 6px 12px;
-        border: 1px solid $border;
-        border-radius: 4px;
-        font-size: 14px;
-        color: $text;
-        transition: border-color .2s, color .2s;
+        box-sizing: border-box;
+        height: 36px;
+        padding: 0 8px;
+        border: 1px solid $explorer-line;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 15px;
+        color: $explorer-text;
+        transition: background-color .2s, border-color .2s, color .2s;
 
-        &:hover,
         &.active {
-            border-color: $navy-2;
-            color: $navy-2;
+            border-color: $explorer-active;
+            color: $explorer-active;
         }
 
-        &.active {
-            font-weight: 600;
+        &:hover {
+            background: $blue;
+            border-color: $blue;
+            color: #fff;
         }
     }
 
@@ -373,7 +461,6 @@ $mobile: 599px;
         margin-top: 40px;
     }
 
-    // ---------- main: testimonials ----------
     .cs-testimonials {
         padding-bottom: 40px;
 
@@ -384,6 +471,38 @@ $mobile: 599px;
         .swiper-pagination-bullet-active {
             background: $blue;
         }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 40px;
+            z-index: 2;
+            width: 64px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity .3s ease-out;
+
+            @media (max-width: $mobile) {
+                width: 32px;
+            }
+        }
+
+        &::before {
+            left: 0;
+            background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+        }
+
+        &::after {
+            right: 0;
+            background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+        }
+
+        &.is-sliding::before,
+        &.is-sliding::after {
+            opacity: 1;
+        }
     }
 
     .cs-testimonial {
@@ -391,9 +510,14 @@ $mobile: 599px;
         gap: 16px;
         height: 100%;
         box-sizing: border-box;
+        margin: 0;
         padding: 20px;
         border: 1px solid $border;
         border-radius: 12px;
+
+        figcaption > * {
+            display: block;
+        }
 
         &__photo {
             width: 48px;
@@ -405,6 +529,7 @@ $mobile: 599px;
 
         &__name {
             font-family: $font-heading;
+            font-style: normal;
             color: $navy;
             font-weight: 700;
         }
@@ -421,12 +546,59 @@ $mobile: 599px;
         }
     }
 
-    // ---------- main: experience ----------
+    .cs-experience__section {
+        overflow-x: clip;
+    }
+
     .cs-experience {
         position: relative;
 
+        &__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 32px;
+
+            .pv-heading {
+                margin-bottom: 0;
+            }
+        }
+
+        &__swiper {
+            overflow: visible;
+        }
+
         .swiper-slide {
             height: auto;
+        }
+
+        .home-carousel-nav {
+            display: flex;
+            flex-shrink: 0;
+            gap: 12px;
+
+            [data-slot="icon-button"] {
+                border: 1px solid $blue;
+                color: $blue;
+                width: 40px;
+                height: 40px;
+
+                &:disabled {
+                    border-color: $border;
+                    color: #B8C0CA;
+                }
+            }
+
+            &--large [data-slot="icon-button"] {
+                width: 52px;
+                height: 52px;
+
+                @media (max-width: $mobile) {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
         }
 
         &__card {
@@ -467,7 +639,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- CTA ----------
     .cs-cta {
         margin-top: 56px;
         padding: 64px 0;
@@ -508,7 +679,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- detail: summary & challenge ----------
     .cs-overview {
         padding-top: 0;
     }
@@ -599,7 +769,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- detail: solution ----------
     .cs-solution__heading {
         margin-bottom: 32px;
     }
@@ -691,7 +860,6 @@ $mobile: 599px;
             width: 100%;
         }
 
-        // garis horizontal dari tengah cabang pertama ke tengah cabang terakhir
         &__branch {
             position: relative;
             display: flex;
@@ -729,7 +897,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- detail: technologies ----------
     .cs-tech {
         position: relative;
         min-height: 480px;
@@ -749,7 +916,6 @@ $mobile: 599px;
             background-position: center;
         }
 
-        // gradasi gelap supaya kartu terbaca
         &::after {
             content: "";
             position: absolute;
@@ -822,7 +988,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- detail: approach ----------
     .cs-approach {
         display: grid;
         grid-template-columns: 1fr 1.1fr;
@@ -900,7 +1065,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- detail: outcome & related ----------
     .cs-outcome {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

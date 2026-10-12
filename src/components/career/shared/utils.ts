@@ -1,7 +1,6 @@
 import { CAREER_JOBS_PATH, CareerFilterKey, CareerJob } from "consts/career.const";
 import { formatDate, Language } from "shared/i18n";
 
-/** Filter aktif di /career/jobs; disimpan sebagai query param (`q` = kata kunci) */
 export type CareerFilters = Partial<Record<CareerFilterKey | "q", string>>;
 
 export const CAREER_FILTER_KEYS: (CareerFilterKey | "q")[] = ["q", "department", "location", "experience", "type", "skill"];
@@ -13,7 +12,6 @@ export const readCareerFilters = (params: URLSearchParams): CareerFilters =>
         return result;
     }, {});
 
-/** Hanya filter yang terisi yang masuk ke URL (nilai tidak di-trim agar spasi saat mengetik tidak hilang) */
 export const careerFilterParams = (filters: CareerFilters) => {
     const params = new URLSearchParams();
     CAREER_FILTER_KEYS.forEach(key => {

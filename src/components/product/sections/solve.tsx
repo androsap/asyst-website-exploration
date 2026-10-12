@@ -12,7 +12,6 @@ export default function SolveSection() {
     const solve = useLocalized(ProductSolveConst);
     const active = solve.items[activeIndex];
 
-    // Preload gambar semua tab supaya saat berpindah gambar tidak muncul terlambat
     useEffect(() => {
         solve.items.forEach(({ image }) => { new Image().src = image; });
     }, [solve.items]);

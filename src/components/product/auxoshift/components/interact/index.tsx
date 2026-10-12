@@ -36,7 +36,6 @@ export default function InteractComponent() {
             if (status) setDataCards(data.data)
         })
     }
-    // console.log('promotion cards', dataCards)
     return <>
         <div className={styles.mainBox}>
             <div className={styles.textContentBox}>

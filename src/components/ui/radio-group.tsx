@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { ButtonBase } from "./button-base";
 import { svgIconClass } from "./svg-icon";
 
-/** RadioGroup (shadcn/ui, Radix). */
 export const RadioGroup = RadioGroupPrimitive.Root;
 
 const RADIO_UNCHECKED = "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z";
@@ -15,16 +14,10 @@ export interface RadioGroupItemProps {
     "aria-label"?: string;
     checked: boolean;
     className?: string;
-    /** Ukuran ikon (default: ukuran small pada theme modal = 1.1607rem) */
     iconClassName?: string;
-    /** Warna aktif (RGB), default biru theme modal (#1976d2) */
     colorRgb?: string;
 }
 
-/**
- * Radio — tampilan & animasi identik dengan Radio MUI: lingkaran luar + titik yang membesar
- * (scale 0 -> 1, 150ms), ripple dari tengah, hover tint 4%.
- */
 export const RadioGroupItem = forwardRef<HTMLButtonElement, RadioGroupItemProps>(function RadioGroupItem(
     { value, checked, className, iconClassName = "text-[1.1607142857142858rem]", colorRgb = "25 118 210", "aria-label": ariaLabel }, ref,
 ) {
@@ -35,7 +28,6 @@ export const RadioGroupItem = forwardRef<HTMLButtonElement, RadioGroupItemProps>
             centerRipple
             focusRipple
             data-slot="radio"
-            // <button> mewarisi font-size & text-align seperti <span> pada Radio MUI
             className={cn("radio p-[9px] rounded-[50%] text-[rgba(0,0,0,0.6)] [font-size:inherit] [text-align:inherit]", className)}
             style={{ ["--radio-color-rgb" as string]: colorRgb }}
         >

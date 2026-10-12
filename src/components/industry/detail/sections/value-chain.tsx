@@ -7,7 +7,6 @@ interface ValueChainSectionProps {
     content: IndustryDetailContent["valueChain"];
 }
 
-/** Popover di ujung kiri/kanan dirapatkan ke sisi langkah supaya tidak keluar layar */
 const EDGE_STEPS = 2;
 
 export default function ValueChainSection({ content }: ValueChainSectionProps) {

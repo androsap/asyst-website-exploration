@@ -8,7 +8,6 @@ interface SolutionSectionProps {
     content: CaseStudyDetailContent["solution"];
 }
 
-/** Diagram arsitektur (dibangun dari data, bukan gambar) + daftar poin solusi. */
 export default function SolutionSection({ content }: SolutionSectionProps) {
     const { eyebrow, title, architecture, items } = content;
 

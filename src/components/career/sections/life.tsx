@@ -3,7 +3,6 @@ import { useLocalized } from "shared/i18n";
 import { CareerLifeConst } from "consts/career.const";
 import SectionHeading from "components/product/shared/section-heading";
 
-/** Galeri: 2 foto di baris pertama (kiri lebih lebar), 3 foto di baris kedua. */
 export default function LifeSection() {
     const { title, description, images } = useLocalized(CareerLifeConst);
 

@@ -4,12 +4,6 @@ import { cn } from "@/lib/utils";
 import { Appearance, useAppearance } from "./appearance";
 import { ButtonBase, ButtonBaseProps } from "./button-base";
 
-/**
- * Button (shadcn/ui pattern) dengan varian & nilai visual identik dengan Button MUI:
- * appearance "app" = theme proyek (primary #2775BB, font Inter 14px),
- * appearance "modal" = theme modal lama (primary #1976d2, font inherit 13px).
- * Radius 8, tanpa uppercase, ripple & focus ripple aktif seperti MUI.
- */
 const buttonVariants = cva(
     "font-medium leading-[1.75] min-w-[64px] rounded-[8px] normal-case hover:no-underline " +
     "[transition:background-color_250ms_cubic-bezier(0.4,0,0.2,1)_0ms,box-shadow_250ms_cubic-bezier(0.4,0,0.2,1)_0ms,border-color_250ms_cubic-bezier(0.4,0,0.2,1)_0ms,color_250ms_cubic-bezier(0.4,0,0.2,1)_0ms]",
@@ -42,7 +36,6 @@ const buttonVariants = cva(
     },
 );
 
-// Ikon start/end: margin & ukuran 20px seperti MUI (size medium)
 const iconClass = "[display:inherit] [&>*:nth-of-type(1)]:text-[20px]";
 const StartIcon = ({ children }: { children: ReactNode }) => <span data-slot="button-start-icon" className={cn(iconClass, "mr-2 -ml-1")}>{children}</span>;
 const EndIcon = ({ children }: { children: ReactNode }) => <span data-slot="button-end-icon" className={cn(iconClass, "-mr-1 ml-2")}>{children}</span>;
@@ -72,7 +65,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
         className={cn(buttonVariants({ variant, appearance, disableElevation }), className)}
         {...props}
     >
-        {/* asChild: ikon disisipkan ke dalam child (mis. <Link>) */}
         {asChild && isValidElement<{ children?: ReactNode }>(children)
             ? (startIcon || endIcon ? cloneElement(children, undefined, wrap(children.props.children)) : children)
             : wrap(children)}

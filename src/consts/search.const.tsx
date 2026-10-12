@@ -1,5 +1,3 @@
-// Halaman Search Result (revamp 2026). Belum ada API pencarian, jadi index disusun dari konten statis halaman
-// (katalog produk, layer solusi, keahlian industri) + halaman company. Konten ikut berubah kalau const sumbernya diubah.
 import { Language, Localized, localized } from "shared/i18n";
 import { ProductCatalogConst } from "consts/product.const";
 import { HeaderSolutionsConst } from "consts/header.const";
@@ -17,7 +15,6 @@ export interface SearchEntry {
     title: string;
     description: string;
     link: string;
-    /** Teks tambahan yang ikut dicari tapi tidak ditampilkan */
     keywords?: string;
 }
 
@@ -26,13 +23,11 @@ export const SearchPageConst = localized({
     placeholder: "Search products, solutions, industries...",
     clear: "Clear search",
     tabs: { all: "All Result", products: "Products", solutions: "Solutions", industries: "Industries" } as Record<SearchTab, string>,
-    /** `{n}` = jumlah hasil, `{q}` = kata kunci */
     resultCount: "{n} results for “{q}”",
     resultCountSingle: "1 result for “{q}”",
     emptyQuery: "Type a keyword to search ASYST products, solutions and industries.",
     noResult: "No results for “{q}”. Try another keyword.",
     loadMore: "Load more",
-    // Overlay pencarian cepat dari tombol search di header
     quickPlaceholder: "Search Aero Systems Indonesia",
     quickNoResult: "No results for “{q}”",
     seeAll: "See all Results",
@@ -55,11 +50,9 @@ export const SearchPageConst = localized({
     categories: { company: "Perusahaan", products: "Produk", solutions: "Solusi", industries: "Industri" },
 });
 
-/** Urutan grup hasil di overlay pencarian header */
 export const SEARCH_QUICK_GROUPS: SearchCategory[] = ["company", "products", "solutions", "industries"];
 export const SEARCH_QUICK_GROUP_LIMIT = 3;
 
-// Halaman company belum punya const konten yang bisa dipakai ulang
 const companyEntries = localized<SearchEntry[]>([
     { category: "company", title: "Asyst Corporate", description: "We are here to make our best contribution to the nation by prioritizing professionalism and integrity, and by working in synergy to realize a better Indonesia for the future.", link: "/about", keywords: "About us company profile Aero Systems Indonesia" },
     { category: "company", title: "Careers at Asyst", description: "Grow your career with ASYST and build enterprise technology that powers aviation, logistics and businesses across Indonesia.", link: "/career", keywords: "Career jobs vacancy hiring" },
@@ -79,7 +72,6 @@ const buildIndex = (lang: Language): SearchEntry[] => {
     const seenProducts = new Set<string>();
     const products: SearchEntry[] = [
         { category: "products", title: catalog.title, description: catalog.description, link: "/product" },
-        // Satu produk bisa muncul di beberapa kategori katalog; cukup tampil sekali
         ...catalog.categories.flatMap(category => category.products
             .filter(product => !seenProducts.has(product.link) && seenProducts.add(product.link))
             .map(product => ({
@@ -91,7 +83,6 @@ const buildIndex = (lang: Language): SearchEntry[] => {
             }))),
     ];
 
-    // Urutan layer solusi sama dengan urutan item solusi di menu header
     const solutionNames = HeaderSolutionsConst[lang][0].items;
     const solutionHero = SolutionHeroConst[lang];
     const solutions: SearchEntry[] = [

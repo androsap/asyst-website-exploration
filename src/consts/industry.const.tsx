@@ -10,11 +10,6 @@ import imgLoyalty from "assets/asyst/img/background/services-solutions/amala2.we
 import imgEcosystem from "assets/asyst/img/background/industry/industry-detail.webp";
 import { localized } from "shared/i18n";
 
-// Konten statis halaman Industries (desain revamp 2026).
-// Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
-// (teks saja, struktur & urutan sama).
-
 export interface IndustryHeroContent {
     eyebrow?: string;
     title: string;
@@ -24,7 +19,6 @@ export interface IndustryHeroContent {
     stats?: { icon: SvgIconComponent; value: string; label: string }[];
 }
 
-/** Section teks kiri + gambar kanan */
 export interface IndustryIntroContent {
     title: string;
     paragraphs: string[];
@@ -32,7 +26,6 @@ export interface IndustryIntroContent {
 }
 
 export interface IndustryCard {
-    /** Label hijau di kartu sekaligus kategori filter */
     tag: string;
     title: string;
     description: string;
@@ -71,7 +64,6 @@ const industryIntroEn: IndustryIntroContent = {
     image: imgIntro,
 }
 
-// TODO: baru Aviation yang punya halaman detail; Loyalty diarahkan ke produk Amala, Industry Ecosystem sementara ke halaman ini
 const industryExpertiseEn: IndustryCardsContent = {
     title: "Explore Our Industry Expertise",
     description: "From aviation and airport operations to loyalty and connected industry ecosystems, ASYST applies enterprise technology, software, integration and operational expertise to industry-specific challenges",
@@ -148,8 +140,6 @@ const industryCtaEn: SolutionCtaContent = {
     description: "ASYST combines local business and domain understanding with enterprise technology capabilities and global technology partnerships to deliver solutions designed around each organization's context",
     button: "Talk to Expert",
 }
-
-// ---------- konten dua bahasa (EN di atas, terjemahan ID di bawah) ----------
 
 export const IndustryHeroConst = localized(industryHeroEn, {
     title: "Solusi Teknologi yang Dibangun Sesuai Industri Anda",

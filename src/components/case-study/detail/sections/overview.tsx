@@ -10,7 +10,6 @@ interface OverviewSectionProps {
     onViewArchitecture: () => void;
 }
 
-/** Hero tengah + bar ringkasan klien + kartu Business Challenge. */
 export default function OverviewSection({ hero, summary, challenge, onViewArchitecture }: OverviewSectionProps) {
     return <>
         <section className="cs-hero cs-hero--center">

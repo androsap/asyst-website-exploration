@@ -149,7 +149,6 @@ const FeatureComponent: React.FC<FeaturesProps> = ({ feature, prevElement, nextE
                             else setIsFirstSlide(false)
                         }}
                         loop={false}
-                        // [&.swiper] supaya mengalahkan overflow: clip dari swiper.css
                         className="w-full h-full [&.swiper]:overflow-hidden"
                     >
                         {feature.product?.section?.length > 0 && feature.product.section.map((_, index) => (

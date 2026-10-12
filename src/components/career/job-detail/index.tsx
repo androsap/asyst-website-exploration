@@ -15,7 +15,6 @@ import CareerFaq from "../shared/faq";
 import JobSidebar from "../shared/job-sidebar";
 import { careerJobsLink } from "../shared/utils";
 
-/** Halaman detail lowongan (/career/jobs/:slug). Konten per lowongan ada di consts/career.const. */
 export default function CareerJobDetailComponent({ }: MainLayoutSharedProps) {
     const { slug = "" } = useParams();
     const job = useLocalized(CareerJobsConst).find(item => item.slug === slug);
@@ -53,7 +52,6 @@ function JobDetail({ job }: { job: CareerJob }) {
         ],
     });
 
-    // filter di sidebar membuka daftar lowongan dengan filter tersebut
     const openJobs = (key: CareerFilterKey, value?: string) => navigate(careerJobsLink({ [key]: value }));
 
     const faq = {

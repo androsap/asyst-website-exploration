@@ -19,7 +19,7 @@ import "./index.scss";
 
 const SearchOverlay = lazy(() => import("./search-overlay"));
 
-type PanelKey = "products" | "solutions" | "company";
+type PanelKey = "products" | "solutions" | "company" | "language";
 
 export default function HeaderShared() {
     const isMobile = useMediaQuery("(max-width:1023px)");
@@ -54,7 +54,6 @@ export default function HeaderShared() {
         closePanel();
     };
 
-    // Tutup menu saat pindah halaman / tekan Escape
     useEffect(() => {
         setPanel(null);
         setMobileOpen(false);
@@ -66,7 +65,6 @@ export default function HeaderShared() {
         return () => window.removeEventListener("keydown", onKey);
     }, []);
 
-    // Jeda kecil agar panel tidak tertutup saat kursor berpindah dari menu ke panel
     const openPanel = (key: PanelKey) => {
         window.clearTimeout(closeTimer.current);
         setPanel(key);
@@ -76,7 +74,6 @@ export default function HeaderShared() {
         closeTimer.current = window.setTimeout(closePanel, 150);
     };
 
-    // Transparan saat di paling atas; panel terbuka tetap pakai background agar terbaca
     return <header className={`header ${scrolled || panel ? "header--elevated" : "header--transparent"} ${panel ? "header--open" : ""}`} onMouseLeave={scheduleClose} onMouseEnter={() => window.clearTimeout(closeTimer.current)}>
         <Container maxWidth="xl" className="header__bar">
             <Link to="/" className="header__brand" aria-label={t("ASYST home", "Beranda ASYST")}>
@@ -103,26 +100,52 @@ export default function HeaderShared() {
             <div className="header__actions">
                 <IconButton aria-label={t("Search", "Cari")} aria-haspopup="dialog" aria-expanded={searchOpen} className="header__icon-btn" onClick={openSearch}><SearchRoundedIcon /></IconButton>
                 {isMobile
-                    ? <IconButton ref={setLangAnchor} aria-label={`${t("Language", "Bahasa")}: ${language}`} aria-haspopup="menu" className="header__icon-btn" onClick={() => setLangOpen(true)}><LanguageRoundedIcon /></IconButton>
-                    : <button ref={setLangAnchor} type="button" className="header__lang" aria-haspopup="menu" onClick={() => setLangOpen(true)}>
-                        <LanguageRoundedIcon />
-                        {language}
-                        <KeyboardArrowDownRoundedIcon className="header__lang-caret" />
-                    </button>}
-                <MenuPopup open={langOpen} onClose={() => setLangOpen(false)} anchorEl={langAnchor} lockScroll={false}>
-                    {HeaderLanguagesConst.map(lang => (
-                        <MenuItem key={lang} selected={lang === language} onClick={() => { setLanguage(lang); setLangOpen(false); }} className="header__lang-option">
-                            <LanguageFlag lang={lang} />
-                            {lang}
-                        </MenuItem>
-                    ))}
-                </MenuPopup>
+                    ? <>
+                        <IconButton ref={setLangAnchor} aria-label={`${t("Language", "Bahasa")}: ${language}`} aria-haspopup="menu" className="header__icon-btn" onClick={() => setLangOpen(true)}><LanguageRoundedIcon /></IconButton>
+                        <MenuPopup open={langOpen} onClose={() => setLangOpen(false)} anchorEl={langAnchor} lockScroll={false}>
+                            {HeaderLanguagesConst.map(lang => (
+                                <MenuItem key={lang} selected={lang === language} onClick={() => { setLanguage(lang); setLangOpen(false); }} className="header__lang-option">
+                                    <LanguageFlag lang={lang} />
+                                    {lang}
+                                </MenuItem>
+                            ))}
+                        </MenuPopup>
+                    </>
+                    : <div className="header__lang-wrap" onMouseEnter={() => openPanel("language")}>
+                        <button
+                            type="button"
+                            className={`header__lang ${panel === "language" ? "active" : ""}`}
+                            aria-label={`${t("Language", "Bahasa")}: ${language}`}
+                            aria-expanded={panel === "language"}
+                            onClick={() => panel === "language" ? closePanel() : openPanel("language")}
+                        >
+                            <LanguageRoundedIcon />
+                            {language}
+                            <KeyboardArrowDownRoundedIcon className="header__lang-caret" />
+                        </button>
+                        {panel === "language" && <div className="header__lang-dropdown">
+                            <div className="header-panel header-panel--lang">
+                                {HeaderLanguagesConst.map(lang => (
+                                    <button
+                                        key={lang}
+                                        type="button"
+                                        className={`header-link ${lang === language ? "active" : ""}`}
+                                        aria-pressed={lang === language}
+                                        onClick={() => { setLanguage(lang); closePanel(); }}
+                                    >
+                                        <span className="header-link__icon"><LanguageFlag lang={lang} /></span>
+                                        <span className="header-link__label">{lang}</span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>}
+                    </div>}
                 {!isMobile && <button type="button" className="header__cta" onClick={talkToExpert}>{t("Talk to expert", "Hubungi ahli")}</button>}
                 {isMobile && <IconButton aria-label={t("Open menu", "Buka menu")} className="header__icon-btn" onClick={() => setMobileOpen(true)}><MenuRoundedIcon /></IconButton>}
             </div>
         </Container>
 
-        {!isMobile && panel && <Container maxWidth="xl" className="header__dropdown">
+        {!isMobile && panel && panel !== "language" && <Container maxWidth="xl" className="header__dropdown">
             {panel === "products" && <ProductsPanel onNavigate={closePanel} />}
             {panel === "solutions" && <GroupsPanel groups={solutions} onNavigate={closePanel} />}
             {panel === "company" && <GroupsPanel groups={[company]} onNavigate={closePanel} />}
@@ -130,7 +153,6 @@ export default function HeaderShared() {
 
         {isMobile && <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} onTalkToExpert={talkToExpert} logo={logoAsyst} />}
 
-        {/* Baru dimuat setelah tombol search pertama kali diklik */}
         {searchOrigin && <Suspense fallback={null}>
             <SearchOverlay open={searchOpen} origin={searchOrigin} onClose={() => setSearchOpen(false)} />
         </Suspense>}

@@ -5,12 +5,6 @@ import { MenuItem, MenuPopup } from "./menu";
 import { SvgIconComponent } from "./svg-icon";
 import { focusVars, formControlClass, HelperText, InputAppearance, inputClass, inputPadding, NotchedOutline, outlinedRootClass } from "./text-field";
 
-/**
- * Select (pengganti Select MUI).
- * - variant "outlined": seperti TextField select (dipakai modal Ask Asyst)
- * - variant "standard": root InputBase tanpa outline (dipakai filter halaman Jobs); tampilan pilihan tetap varian outlined
- * Menu muncul di bawah-tengah input dengan min-width selebar input, ikon berputar saat terbuka.
- */
 export interface SelectOption {
     value: string;
     label: ReactNode;
@@ -26,11 +20,9 @@ export interface SelectProps {
     fullWidth?: boolean;
     error?: boolean;
     helperText?: ReactNode;
-    /** Class untuk elemen root (FormControl pada outlined, InputBase pada standard) */
     className?: string;
     renderValue?: (value: string) => ReactNode;
     IconComponent: SvgIconComponent;
-    /** Render menu di dalam input (MUI `disablePortal`) */
     disablePortal?: boolean;
     id?: string;
     "aria-label"?: string;
@@ -68,7 +60,6 @@ export function Select({
 
     const displayValue = renderValue ? renderValue(value) : options.find(option => option.value === value)?.label;
     const outlined = variant === "outlined";
-    // Root tetap "focused" selama menu terbuka (SelectInput MUI tidak meneruskan blur saat open)
     const state = { "data-focused": focused || open ? "true" : undefined, "data-error": error ? "true" : undefined };
 
     const input = <div
@@ -90,7 +81,6 @@ export function Select({
             aria-label={ariaLabel}
             data-slot="select-value"
             data-input={outlined ? "" : undefined}
-            // Tampilan select = varian outlined MUI (default Select) untuk kedua jenis root
             className={cn(
                 "select-value select-value--outlined select-none cursor-pointer rounded-[8px] focus:rounded-[8px]", inputClass,
                 outlined ? inputPadding[size] : "pt-1 pb-[5px] px-0",
@@ -115,7 +105,6 @@ export function Select({
         {outlined && <NotchedOutline notched={false} />}
     </div>;
 
-    // Menu ditambatkan ke root input (bukan FormControl) seperti MUI
     const menu = <MenuPopup
         open={open}
         onClose={() => setOpen(false)}

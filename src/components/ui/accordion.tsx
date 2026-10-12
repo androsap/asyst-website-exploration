@@ -3,18 +3,12 @@ import { cn } from "@/lib/utils";
 import { ButtonBase } from "./button-base";
 import { Collapse } from "./transitions";
 
-/**
- * Accordion bergaya Paper — identik dengan Accordion MUI (spacing 16):
- * garis pemisah ::before, margin 16px saat terbuka (gutters), ikon berputar 180deg, Collapse durasi "auto".
- * Bisa controlled (`expanded` + `onChange`) atau uncontrolled.
- */
 const AccordionContext = createContext({ expanded: false, toggle: () => undefined as void, id: "", gutters: true });
 
 export interface AccordionProps {
     expanded?: boolean;
     onChange?: (event: unknown, expanded: boolean) => void;
     disableGutters?: boolean;
-    /** elevation 0 = tanpa bayangan */
     elevation?: 0 | 1;
     square?: boolean;
     className?: string;

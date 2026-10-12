@@ -8,7 +8,6 @@ export interface PaperProps extends HTMLAttributes<HTMLDivElement> {
     square?: boolean;
 }
 
-/** Permukaan putih dengan bayangan elevation — identik dengan Paper MUI (radius 8). */
 export const Paper = forwardRef<HTMLDivElement, PaperProps>(function Paper({ elevation = 1, square = false, className, ...props }, ref) {
     return <div
         ref={ref}

@@ -8,11 +8,6 @@ import imgExpertise from "assets/asyst/img/background/product/expertise.svg";
 import imgEnterpriseDelivery from "assets/asyst/img/background/product/enterprise-delivery.svg";
 import { localized } from "shared/i18n";
 
-// Konten statis halaman Products (desain revamp 2026).
-// Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID (teks saja,
-// struktur & urutan sama).
-
 const productHeroEn = {
     eyebrow: "Asyst Products",
     title: "Enterprise software built for complex business environments",
@@ -38,8 +33,6 @@ export interface CatalogCategory {
     button: { label: string; link: string };
 }
 
-// TODO: desain hanya menampilkan isi tab "Enterprise Products" (deskripsi kartu masih placeholder).
-// Isi tab lain dipetakan dari produk yang ada di menu navigasi; copy perlu dikonfirmasi.
 const productCatalogEn = {
     title: "Products for the way your business works",
     description: "Different businesses have different operating models. ASYST products are designed around real business workflows helping organizations manage resources, travel, customers, assets, cargo, and technology operations through connected digital systems",
@@ -129,7 +122,6 @@ export interface SolveItem {
     description: string;
     points: string[];
     subtitle: string;
-    /** Boleh berisi <strong> untuk penekanan */
     subDescription: string;
     links: { label: string; link: string }[];
     image: string;
@@ -161,7 +153,6 @@ const productSolveEn = {
             links: productFamilyLinks,
             image: imgSolveMockup,
         },
-        // TODO: desain hanya menampilkan isi tab "Connect"; copy tab lain perlu dikonfirmasi
         {
             label: "Automate",
             title: "Automate repetitive work",
@@ -245,8 +236,6 @@ const productCtaEn = {
     description: "Tell us what you're trying to connect, automate, optimize or transform. Our team can help identify the right product, solution or technology approach for your organization.",
     button: "Talk to an Expert",
 }
-
-// ---------- konten dua bahasa (EN di atas, terjemahan ID di bawah) ----------
 
 export const ProductHeroConst = localized(productHeroEn, {
     eyebrow: "Produk Asyst",

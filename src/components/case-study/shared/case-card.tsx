@@ -7,7 +7,6 @@ interface CaseCardProps {
     item: CaseStudyItem;
 }
 
-/** Kartu case study (grid explorer & related cases). Tanpa halaman detail = tidak bisa diklik. */
 export default function CaseCard({ item }: CaseCardProps) {
     const { slug, title, image, tags } = item;
     const term = useTerms(CaseStudyTermsConst);

@@ -1,14 +1,8 @@
-/**
- * Transisi Fade / Grow / Slide / Zoom / Collapse.
- * Port dari @mui/material v5.18 (MIT) di atas react-transition-group agar durasi, easing,
- * urutan state & nilai awal/akhir identik dengan animasi sebelumnya.
- */
 import { cloneElement, CSSProperties, forwardRef, ReactElement, ReactNode, Ref, useCallback, useRef } from "react";
 import { Transition } from "react-transition-group";
 import type { TransitionStatus } from "react-transition-group";
 import { cn } from "@/lib/utils";
 
-// ---------- konstanta theme MUI ----------
 export const easing = {
     easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
     easeOut: "cubic-bezier(0.0, 0, 0.2, 1)",
@@ -61,7 +55,6 @@ interface BaseTransitionProps {
     style?: CSSProperties;
     children: ReactElement;
     onEnter?: (node: HTMLElement, isAppearing: boolean) => void;
-    /** Diteruskan langsung ke Transition (dipanggil tanpa node) */
     onEntering?: () => void;
     onEntered?: (node: HTMLElement, isAppearing: boolean) => void;
     onExited?: (node: HTMLElement) => void;
@@ -69,7 +62,6 @@ interface BaseTransitionProps {
 
 const childStyle = (children: ReactElement) => (children.props as { style?: CSSProperties }).style;
 
-// ---------- Fade ----------
 export const Fade = forwardRef<HTMLElement, BaseTransitionProps>(function Fade(
     { in: inProp, appear = true, children, easing: e, style, timeout = { enter: duration.enteringScreen, exit: duration.leavingScreen }, onEnter, onEntered, onExited, ...other }, ref,
 ) {
@@ -112,7 +104,6 @@ export const Fade = forwardRef<HTMLElement, BaseTransitionProps>(function Fade(
     </Transition>
 });
 
-// ---------- Grow (dipakai menu/popover) ----------
 const getScale = (value: number) => `scale(${value}, ${value ** 2})`;
 export const Grow = forwardRef<HTMLElement, Omit<BaseTransitionProps, "timeout"> & { timeout?: Timeout | "auto" }>(function Grow(
     { in: inProp, appear = true, children, easing: e, style, timeout = "auto", onEnter, onEntered, onExited, ...other }, ref,
@@ -181,7 +172,6 @@ export const Grow = forwardRef<HTMLElement, Omit<BaseTransitionProps, "timeout">
     </Transition>
 });
 
-// ---------- Zoom ----------
 export const Zoom = forwardRef<HTMLElement, BaseTransitionProps>(function Zoom(
     { in: inProp, appear = true, children, easing: e, style, timeout = { enter: duration.enteringScreen, exit: duration.leavingScreen }, onEnter, onEntered, onExited, ...other }, ref,
 ) {
@@ -224,7 +214,6 @@ export const Zoom = forwardRef<HTMLElement, BaseTransitionProps>(function Zoom(
     </Transition>
 });
 
-// ---------- Slide ----------
 type SlideDirection = "left" | "right" | "up" | "down";
 function getTranslateValue(direction: SlideDirection, node: HTMLElement) {
     const rect = node.getBoundingClientRect();
@@ -298,7 +287,6 @@ export const Slide = forwardRef<HTMLElement, BaseTransitionProps & { direction?:
     </Transition>
 });
 
-// ---------- Collapse (vertikal) ----------
 export interface CollapseProps {
     in?: boolean;
     timeout?: Timeout | "auto";

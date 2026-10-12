@@ -19,7 +19,6 @@ import { useLanguage, useLocalized, useT, useTerms } from "shared/i18n";
 import NewsCard from "../shared/news-card";
 import { decodeNewsHtml, formatNewsDate, newsCategoryPath, newsReadingMinutes } from "../shared/utils";
 
-/** Halaman detail news (/news/:slug). Isi dari API news/{slug}. */
 export default function NewsDetailComponent({ }: MainLayoutSharedProps) {
     const { slug = "" } = useParams();
     const [news, setNews] = useState<NewsModel | null>(null);
@@ -131,7 +130,6 @@ function ShareButton({ title }: { title: string }) {
             setCopied(true);
             window.setTimeout(() => setCopied(false), 2000);
         } catch {
-            // dibatalkan pengguna / clipboard tidak diizinkan
         }
     };
 
@@ -140,7 +138,6 @@ function ShareButton({ title }: { title: string }) {
     </button>
 }
 
-/** News lain dengan kategori sama; kalau kurang dari 2, dilengkapi news terbaru. */
 function RelatedNews({ slug, category }: { slug: string; category: string }) {
     const [items, setItems] = useState<NewsModel[]>([]);
     const { swiperProps, navProps } = useSwiperNav();

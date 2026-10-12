@@ -3,10 +3,6 @@ import { cn } from "@/lib/utils";
 import { AppearanceProvider } from "./appearance";
 import { Modal } from "./dialog";
 
-/**
- * Modal imperatif (pengganti bgsModal): `openModal({ render })` dari mana saja, dirender oleh <ModalHost /> di root aplikasi.
- * Perilaku sama dengan sebelumnya: backdrop fade-in, konten tanpa animasi, langsung hilang saat ditutup.
- */
 interface ModalEntry {
     key: number;
     className?: string;

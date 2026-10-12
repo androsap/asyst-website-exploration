@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export function generateUUID() {
     var d = new Date().getTime();
-    var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now() * 1000)) || 0;//Time in microseconds since page-load or 0 if unsupported
+    var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now() * 1000)) || 0;
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         var r = Math.random() * 16;
         if (d > 0) {
@@ -50,15 +50,12 @@ export function decryptText(encryptedText: string): string {
     return decrypted.toString(CryptoJS.enc.Utf8);
 }
 
-
-// Enkripsi data JSON
 export function encryptJSON(data: any): string {
     const jsonString = JSON.stringify(data);
     const encryptedData = CryptoJS.AES.encrypt(jsonString, import.meta.env.VITE_KEY_SEARCH_PARAMETER);
     return encryptedData.toString();
 }
 
-// Dekripsi data JSON
 export function decryptJSON(encryptedString: string) {
     try {
         const decryptedBytes = CryptoJS.AES.decrypt(encryptedString, import.meta.env.VITE_KEY_SEARCH_PARAMETER);
@@ -72,7 +69,6 @@ export function decryptJSON(encryptedString: string) {
 
 type CombinationTypeModel = "ctrl" | "alt" | "shift";
 export function useKeyPress(targetKey: string | number, combination?: CombinationTypeModel | CombinationTypeModel[]) {
-    //https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/
 
     const [keyPressed, setKeyPressed] = useState<boolean>(false);
 
@@ -108,10 +104,6 @@ export function useKeyPress(targetKey: string | number, combination?: Combinatio
         window.addEventListener("keydown", downHandler);
         window.addEventListener("keyup", upHandler);
 
-        // return () => {
-        //     window.removeEventListener("keydown", downHandler);
-        //     window.removeEventListener("keyup", upHandler);
-        // };
     }, []);
 
     return keyPressed;
@@ -121,7 +113,6 @@ export function disableBodyScroll() {
     document.body.classList.add('no-scroll');
 }
 
-// Function to remove the 'no-scroll' class from the body
 export function enableBodyScroll() {
     document.body.classList.remove('no-scroll');
 }
@@ -129,7 +120,6 @@ export function enableBodyScroll() {
 export function convertQueryStringToObject(queryString: string): { [key: string]: string } {
     const params: { [key: string]: string } = {};
 
-    // Remove any leading or trailing '&'
     if (queryString.startsWith('&')) {
         queryString = queryString.slice(1);
     }
@@ -159,7 +149,6 @@ export function objectToQueryString(params: { [key: string]: any }): string {
 
     return encodeURI(encryptText(keyValuePairs.join('&')));
 }
-
 
 export const scrollTo = (ref: React.RefObject<HTMLDivElement> | null) => {
     if (ref && ref.current) {

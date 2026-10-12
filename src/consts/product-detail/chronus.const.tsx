@@ -7,11 +7,6 @@ import imgPromotion from "assets/asyst/img/background/product/chronus/detail/pro
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
-// (teks saja, struktur & urutan sama).
-// Konten mengikuti home.asyst.co.id/product/chronus (Managed SOC & Cyber Defense).
-// TODO: gambar masih screenshot CMS lama (GESITS); ganti dengan visual SOC/SIEM dari desain.
-
 const chronusDetailEn: ProductDetailContent = {
     hero: {
         title: "Safeguard Mission-Critical Assets with 24/7 Managed Cyber Defense",
@@ -98,8 +93,6 @@ const chronusDetailEn: ProductDetailContent = {
         button: "Request product demo",
     },
 }
-
-// ---------- terjemahan ID (struktur & urutan sama dengan chronusDetailEn) ----------
 
 export const ChronusDetailConst = localized(chronusDetailEn, {
     hero: {

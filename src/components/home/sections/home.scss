@@ -1,4 +1,3 @@
-// Homepage revamp 2026
 $navy: #123554;
 $navy-2: #123554;
 $blue: #2775BB;
@@ -22,7 +21,6 @@ $mobile: 599px;
         font-family: inherit;
     }
 
-    // ---------- shared ----------
     .home-section {
         padding: 56px 0;
 
@@ -30,12 +28,9 @@ $mobile: 599px;
             padding: 40px 0;
         }
 
-        // footer bersama sudah punya margin-top besar
-        // (ditulis setelah media query di atas agar padding-bottom: 0 tidak tertimpa di mobile)
         &--last {
             padding-bottom: 0;
 
-            // Mobile: CTA menempel ke footer, batalkan margin-top .site-footer (80px)
             @media (max-width: $mobile) {
                 padding: 8px 0 0;
                 margin-bottom: -80px;
@@ -117,7 +112,6 @@ $mobile: 599px;
         }
     }
 
-    // Mobile: ukuran tombol diseragamkan dengan tombol hero Home
     @media (max-width: $mobile) {
         .home-btn[data-slot="button"],
         .home-btn--white[data-slot="button"] {
@@ -127,8 +121,6 @@ $mobile: 599px;
         }
     }
 
-    // Hero CTA: hover ease-out; outline berubah jadi primary. Gradient tidak bisa
-    // di-transition, jadi warna hover dipasang di ::before lalu di-fade lewat opacity.
     .home-hero {
         .home-btn--primary[data-slot="button"],
         .home-btn--outline[data-slot="button"] {
@@ -161,7 +153,6 @@ $mobile: 599px;
         }
 
         .home-btn--outline[data-slot="button"] {
-            // menutupi border 1px supaya sudutnya tidak menyisakan garis terang
             &::before {
                 inset: -1px;
                 background: linear-gradient(180deg, #89BA3A 0%, #89BA3A 100%);
@@ -259,10 +250,7 @@ $mobile: 599px;
         }
     }
 
-    // ---------- hero ----------
-    // Hero setinggi 1 layar: konten di tengah, "Trusted by" menempel di bawah.
     .home-hero {
-        // border-box agar padding dihitung di dalam 100vh, bukan menambah tinggi.
         box-sizing: border-box;
         min-height: min(100vh, 1067px);
         min-height: min(100svh, 1067px);
@@ -278,7 +266,11 @@ $mobile: 599px;
             padding-top: 110px;
         }
 
-        // Mobile: tinggi mengikuti konten, section berikutnya langsung menyusul.
+        @media (min-width: $tablet + 1) {
+            min-height: max(706px, min(100vh, 1067px));
+            min-height: max(706px, min(100svh, 1067px));
+        }
+
         @media (max-width: $mobile) {
             min-height: 0;
             padding: 112px 0 8px;
@@ -335,7 +327,6 @@ $mobile: 599px;
             gap: 16px;
             margin-top: 40px;
 
-            // Mobile: tombol ditumpuk selebar layar
             @media (max-width: $mobile) {
                 flex-direction: column;
                 gap: 24px;
@@ -453,8 +444,6 @@ $mobile: 599px;
             }
         }
 
-        // Marquee logo (seperti Clients di About Us). Logo berjalan ke kiri dan memudar
-        // ke dalam label "Trusted by" lewat gradient putih di kedua tepi.
         &__logos {
             position: relative;
             flex: 1;
@@ -491,7 +480,6 @@ $mobile: 599px;
                 animation-play-state: paused;
             }
 
-            // Mobile: label di atas, marquee selebar layar
             @media (max-width: $mobile) {
                 align-self: stretch;
                 width: auto;
@@ -509,8 +497,6 @@ $mobile: 599px;
             }
         }
 
-        // Card kaca (glass) sesuai Figma: padding 23px 17px, background putih 10%, blur 17px,
-        // border 1px gradient (#FFFFFF 51% -> #E9E9E9 29%).
         &__logo {
             position: relative;
             box-sizing: border-box;
@@ -519,14 +505,13 @@ $mobile: 599px;
             align-items: flex-start;
             flex: 0 0 auto;
             width: 146px;
-            margin-right: 16px; // pakai margin (bukan gap) supaya -50% pas di batas salinan
+            margin-right: 16px;
             padding: 23px 17px;
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(17px);
             -webkit-backdrop-filter: blur(17px);
 
-            // Border gradient: pseudo-element dengan mask agar hanya garis 1px yang terlihat.
             &::before {
                 content: "";
                 position: absolute;
@@ -561,8 +546,6 @@ $mobile: 599px;
         to { transform: translateX(-50%); }
     }
 
-    // ---------- enterprise highlight ----------
-    // Slide memanjang sampai tepi kiri & kanan layar, tapi area swipe & ukuran slide tetap selebar container.
     .home-highlight__section {
         overflow-x: clip;
     }
@@ -618,14 +601,12 @@ $mobile: 599px;
             }
         }
 
-        // Mobile: ikon tetap di samping judul
         @media (max-width: $mobile) {
             gap: 16px;
             padding: 24px;
         }
     }
 
-    // ---------- products ----------
     .home-tabs {
         display: flex;
         justify-content: center;
@@ -640,19 +621,16 @@ $mobile: 599px;
         overflow-x: auto;
         box-sizing: border-box;
 
-        // center + overflow memotong tab pertama saat discroll
         @media (max-width: $tablet) {
             justify-content: flex-start;
         }
 
-        // Mobile: deretan pill memanjang sampai tepi layar
         @media (max-width: $mobile) {
             width: auto;
             max-width: none;
             gap: 8px;
             margin: 0 -16px 24px;
             padding: 8px 16px;
-            // Full-bleed di mobile: tanpa sudut membulat & garis samping
             border-radius: 0;
             border-left: none;
             border-right: none;
@@ -663,7 +641,6 @@ $mobile: 599px;
             }
         }
 
-        // Tiap kategori jadi pill sendiri; yang aktif pakai warna primary
         &__item {
             flex-shrink: 0;
             font-family: $font-heading;
@@ -677,17 +654,17 @@ $mobile: 599px;
             white-space: nowrap;
             transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 
-            &:hover {
-                background: $navy-2;
-                border-color: $navy-2;
-                color: #fff;
-            }
-
             &.active {
                 background: $navy-2;
                 border-color: $navy-2;
                 color: #fff;
                 font-weight: 600;
+            }
+
+            &:hover {
+                background: $blue;
+                border-color: $blue;
+                color: #fff;
             }
         }
     }
@@ -701,7 +678,6 @@ $mobile: 599px;
             grid-template-columns: repeat(2, 1fr);
         }
 
-        // Mobile: satu kartu per layar, geser horizontal (kartu berikutnya mengintip di tepi kanan)
         @media (max-width: $mobile) {
             grid-template-columns: none;
             grid-auto-flow: column;
@@ -730,7 +706,6 @@ $mobile: 599px;
         overflow: hidden;
         background: linear-gradient(180deg, #fff 55%, #F1F5FA 100%);
         transition: border-color .2s;
-        // Muncul bergiliran saat ganti tab (--i = urutan kartu, diset dari products.tsx)
         animation: home-product-in 0.4s ease both;
         animation-delay: calc(var(--i, 0) * 60ms);
 
@@ -793,7 +768,6 @@ $mobile: 599px;
             }
         }
 
-        // satu border untuk bar + gambar agar garis tepi tidak terputus
         &__frame {
             border: 1px solid $border;
             border-bottom: 0;
@@ -817,7 +791,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- capabilities ----------
     .home-capabilities {
         display: grid;
         grid-template-columns: minmax(260px, 1fr) 3fr;
@@ -844,7 +817,6 @@ $mobile: 599px;
                 overflow-x: auto;
             }
 
-            // Mobile: daftar vertikal tanpa card, garis pemisah sampai tepi layar
             @media (max-width: $mobile) {
                 flex-direction: column;
                 gap: 0;
@@ -957,8 +929,7 @@ $mobile: 599px;
             border: 1px solid $border;
             border-radius: 10px;
             padding: 16px;
-            // Placeholder glass effect (sesuai Figma)
-            background: rgba(241, 245, 249, .10); // #F1F5F9 @ 10%
+            background: rgba(241, 245, 249, .10);
             backdrop-filter: blur(34px);
             -webkit-backdrop-filter: blur(34px);
             display: flex;
@@ -977,7 +948,6 @@ $mobile: 599px;
             }
         }
 
-        // Animasi saat pindah tab (elemen di-remount via key)
         &__text,
         &__image img {
             animation: home-capabilities-fade-in .45s ease both;
@@ -1005,8 +975,6 @@ $mobile: 599px;
         to { opacity: 1; transform: none; }
     }
 
-    // ---------- partner ----------
-    // Desktop: baris 1 = kecil + lebar, baris 2 = lebar + kecil
     .home-partner {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1028,7 +996,6 @@ $mobile: 599px;
             gap: 20px;
         }
 
-        // Mobile: tinggi kartu mengikuti caption yang hampir memenuhi kartu
         @media (max-width: $mobile) {
             grid-auto-rows: auto;
             gap: 18px;
@@ -1085,7 +1052,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- industries ----------
     .home-industries {
         display: grid;
         grid-template-columns: minmax(320px, 1fr) 2fr;
@@ -1119,7 +1085,6 @@ $mobile: 599px;
             margin-top: 32px;
         }
 
-        // Slide memanjang sampai tepi kanan layar; sisi kiri tetap dipotong agar tidak menimpa intro.
         &__section {
             overflow-x: clip;
         }
@@ -1128,11 +1093,8 @@ $mobile: 599px;
             --industries-fade-width: 120px;
             position: relative;
             min-width: 0;
-            // Area slider diperpanjang sampai tepi kanan layar agar mask tidak memotong kartu di kanan.
             margin-right: -100vw;
             padding-right: 100vw;
-            // Fade tepi kiri memakai mask (bukan overlay putih) supaya kartu memudar mulus tanpa garis.
-            // Hanya aktif setelah slider digeser supaya kartu pertama tidak ikut pudar.
             -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, var(--industries-fade)) 0, #000 var(--industries-fade-width));
             mask-image: linear-gradient(90deg, rgba(0, 0, 0, var(--industries-fade)) 0, #000 var(--industries-fade-width));
             transition: --industries-fade .3s ease;
@@ -1219,8 +1181,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- news ----------
-    // Slide memanjang sampai tepi kiri & kanan layar, tapi area swipe & ukuran slide tetap selebar container.
     .home-news__section {
         overflow-x: clip;
     }
@@ -1253,7 +1213,6 @@ $mobile: 599px;
         background-size: cover;
         background-position: center;
 
-        // Layer gambar terpisah agar bisa di-zoom tanpa ikut men-scale konten
         &::before {
             content: "";
             position: absolute;
@@ -1264,7 +1223,6 @@ $mobile: 599px;
             transition: transform .4s ease;
         }
 
-        // Outline primary saat hover
         &::after {
             content: "";
             position: absolute;
@@ -1336,7 +1294,6 @@ $mobile: 599px;
             line-height: 1.35;
             transition: background-color .25s, border-color .25s, color .25s;
 
-            // Mobile: label putih solid dengan teks biru di tengah
             @media (max-width: $mobile) {
                 padding: 16px;
                 background: #fff;
@@ -1349,7 +1306,6 @@ $mobile: 599px;
             }
         }
 
-        // Clamp di elemen dalam agar baris ke-3 tidak bocor ke padding container
         &__title-text {
             display: -webkit-box;
             -webkit-box-orient: vertical;
@@ -1360,7 +1316,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- CTA ----------
     .home-cta {
         display: flex;
         align-items: center;
@@ -1377,7 +1332,6 @@ $mobile: 599px;
             padding: 32px 24px;
         }
 
-        // Mobile: banner selebar layar, rata tengah, menempel ke footer
         @media (max-width: $mobile) {
             align-items: stretch;
             gap: 40px;
@@ -1426,7 +1380,6 @@ $mobile: 599px;
     }
 }
 
-// Didaftarkan agar fade kiri slider industri bisa dianimasikan (1 = tanpa fade, 0 = pudar penuh).
 @property --industries-fade {
     syntax: "<number>";
     inherits: true;

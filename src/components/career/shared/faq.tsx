@@ -8,7 +8,6 @@ interface CareerFaqProps {
     items: { question: string; answer: string }[];
 }
 
-/** FAQ di bawah halaman Career, Jobs & detail. Pertanyaan pertama terbuka secara default. */
 export default function CareerFaq({ title, items }: CareerFaqProps) {
     const [open, setOpen] = useState<number | null>(0);
 

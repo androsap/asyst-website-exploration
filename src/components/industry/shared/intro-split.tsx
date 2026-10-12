@@ -8,7 +8,6 @@ interface IntroSplitSectionProps {
     content: IndustryIntroContent;
 }
 
-/** Judul + paragraf di kiri, gambar di kanan. `children` dirender di bawahnya (mis. accordion layer teknologi). */
 export default function IntroSplitSection({ content, children }: PropsWithChildren<IntroSplitSectionProps>) {
     const { title, paragraphs, image } = content;
 

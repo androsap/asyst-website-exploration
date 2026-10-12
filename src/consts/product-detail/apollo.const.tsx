@@ -4,12 +4,6 @@ import imgPlaceholder from "assets/asyst/img/background/product/overview/backgro
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
-// (teks saja, struktur & urutan sama).
-// Struktur mengikuti halaman Amala (components/product/detail).
-// TODO: copy disusun dari positioning Apollo (ERP) di halaman Products; konfirmasi dengan tim produk.
-// TODO: gambar masih placeholder; ganti dengan screenshot/visual Apollo dari desain.
-
 const apolloDetailEn: ProductDetailContent = {
     hero: {
         title: "Integrated Enterprise Resource Planning for Connected Operations",
@@ -96,8 +90,6 @@ const apolloDetailEn: ProductDetailContent = {
         button: "Request product demo",
     },
 }
-
-// ---------- terjemahan ID (struktur & urutan sama dengan apolloDetailEn) ----------
 
 export const ApolloDetailConst = localized(apolloDetailEn, {
     hero: {

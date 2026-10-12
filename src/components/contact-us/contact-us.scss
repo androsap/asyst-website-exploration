@@ -1,4 +1,3 @@
-// Tambahan gaya halaman Contact Us (revamp 2026). Token mengikuti components/product/shared/product-v2.scss
 $navy: #123554;
 $blue: #2775BB;
 $text: #3F4650;
@@ -11,7 +10,6 @@ $mobile: 599px;
 
 .contact-v2 {
 
-    // ---------- hero ----------
     .cv-hero {
         padding: 190px 0 110px;
         max-height: 1067px;
@@ -54,7 +52,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- shared ----------
     .cv-title {
         font-family: $font-heading;
         color: $navy;
@@ -67,7 +64,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- contact form ----------
     .cv-contact[data-slot="container"] {
         padding-top: 32px;
         display: grid;
@@ -183,7 +179,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- what next ----------
     .cv-next {
         border: 1px solid $border;
         border-radius: 12px;
@@ -237,7 +232,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- office location ----------
     .cv-office {
         padding-top: 72px;
         padding-bottom: 120px;

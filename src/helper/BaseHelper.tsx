@@ -1,7 +1,5 @@
 import axios from "axios";
-// import { credential } from "../lib";
 import ResponseModel from "models/response.model";
-// import modalLogin from "components/login/components/modal";
 import RequestModel from "models/request.model";
 
 export interface Config {
@@ -82,9 +80,7 @@ class BaseHelper {
             ...config
         }
 
-        // if (config.usingToken && credential.storage.get("token")) headers.Authorization = `Bearer ${credential.storage.get("token")}`;
-
-        if (config?.token) headers.Authorization = `Bearer ${config.token}`;
+if (config?.token) headers.Authorization = `Bearer ${config.token}`;
 
         if (config?.gaSession) headers.GASession = config.gaSession;
 
@@ -100,51 +96,7 @@ class BaseHelper {
 
     }
 
-    // static postBase(url: string, data: any, callback?: any, options?: any) {
-    //     const config = {
-    //         headers: {
-    //             Authorization: options?.usingToken ? `Bearer ${credential.storage.get("token")}` : undefined,
-    //         },
-    //     };
-
-    //     return axios
-    //         .post(`${this.url}${url}`, data, config)
-    //         .then((response) => {
-    //             console.log(response.data);
-    //             if (callback) {
-    //                 callback(true, response.data);
-    //             }
-    //         })
-    //         .catch((error) => {
-    //             if (callback) {
-    //                 callback(false, error.response.data);
-    //             }
-    //         });
-    // }
-
-    // static getBase(url: string, callback?: any, options?: any) {
-    //     const config = {
-    //         headers: {
-    //             Authorization: options?.usingToken ? `Bearer ${credential.storage.get("token")}` : undefined,
-    //         },
-    //     };
-
-    //     return axios
-    //         .get(`${this.url}${url}`, config)
-    //         .then((response) => {
-    //             console.log(response.data);
-    //             if (callback) {
-    //                 callback(true, response.data);
-    //             }
-    //         })
-    //         .catch((error) => {
-    //             if (callback) {
-    //                 callback(false, error.response?.data || error.message); // If there's no error.response, use error.message
-    //             }
-    //         });
-    // }
-
-    static postBase(url: string, data: any, callback?: ((response: ResponseModel) => (any | ResponseModel)), config?: Config) {
+static postBase(url: string, data: any, callback?: ((response: ResponseModel) => (any | ResponseModel)), config?: Config) {
         return this.request("POST", `${this.url}${url}`, data, callback, config)
     }
 

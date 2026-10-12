@@ -1,6 +1,5 @@
 import { useSyncExternalStore } from "react";
 
-/** Status media query CSS (pengganti useMediaQuery MUI). */
 export function useMediaQuery(query: string) {
     const normalized = query.replace(/^@media( ?)/m, "");
     return useSyncExternalStore(

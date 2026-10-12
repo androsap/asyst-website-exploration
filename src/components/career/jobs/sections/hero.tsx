@@ -9,7 +9,6 @@ import { useLanguage, useLocalized, useT, useTerms } from "shared/i18n";
 import CareerBreadcrumb from "../../shared/breadcrumb";
 import { CareerFilters } from "../../shared/utils";
 
-/** Urutan dropdown di hero (berbeda dengan urutan chip di sidebar) */
 const SELECT_ORDER: CareerFilterKey[] = ["department", "location", "experience", "type"];
 const sortSelects = (groups: typeof CareerFilterGroupsConst.EN) => groups
     .filter(group => SELECT_ORDER.includes(group.key))
@@ -20,7 +19,6 @@ interface JobsHeroSectionProps {
     onFilterChange: (key: CareerFilterKey | "q", value?: string) => void;
 }
 
-/** Hero halaman Jobs: pencarian, dropdown filter & chip "Popular skills". */
 export default function JobsHeroSection({ filters, onFilterChange }: JobsHeroSectionProps) {
     const { title, description, searchPlaceholder, popularSkills, allSkills } = useLocalized(CareerJobsHeroConst);
     const t = useT();

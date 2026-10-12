@@ -1,5 +1,6 @@
-import imgHero from "assets/asyst/img/background/services-solutions/products-and-services.webp";
+import imgHero from "assets/asyst/img/background/case-study/case-study-hero.webp";
 import imgFeatured from "assets/asyst/img/background/product/amala/feature.webp";
+import imgFeaturedCaseStudy from "assets/asyst/img/background/case-study/featured-case-study-design-system.webp";
 import imgCase1 from "assets/asyst/img/background/services-solutions/amala1.webp";
 import imgCase2 from "assets/asyst/img/background/services-solutions/amala2.webp";
 import imgCase3 from "assets/asyst/img/background/industry/airline-airport/airport.webp";
@@ -21,19 +22,10 @@ import imgProfile3 from "assets/asyst/img/background/industry/testimonials-profi
 import logoGaruda from "assets/asyst/img/logo/ga-logo-color.webp";
 import { localized } from "shared/i18n";
 
-// Konten statis halaman Case Study & detailnya (desain revamp 2026).
-// Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
-// `slug` tanpa entri di caseStudyDetailsEn = halaman detail belum ada (kartu tampil tapi tidak bisa diklik).
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID (teks saja,
-// struktur & urutan sama). Opsi filter & tag tetap bahasa Inggris (key filter); labelnya lewat CaseStudyTermsConst.
-
 export const CASE_STUDY_BASE_PATH = "/case-study";
 
 export const caseStudyLink = (slug: string) => `${CASE_STUDY_BASE_PATH}/${slug}`;
 
-// ---------- halaman utama ----------
-
-/** Dimensi filter explorer; urutan = urutan tab */
 export type CaseStudyFilterKey = "industry" | "solution" | "technology";
 
 export interface CaseStudyItem {
@@ -66,13 +58,14 @@ const caseStudyFeaturedEn = {
     caseTitle: "Airline Booking & Distribution",
     summary: "UI/UX Re-design Web and Mobile include digital booking ecosystem supporting airline sales and business partners.",
     tags: ["Aviation", "React.js", "CMS Development"],
-    image: imgFeatured,
+    image: imgFeaturedCaseStudy,
+    imageAlt: "UI design system and component library displayed on a desktop monitor",
     details: [
         { label: "Service", value: "Professional IT Services / Booking & Distribution" },
         { label: "Challenge", value: "Enable digital airline booking and distribution across customer and business-partner channels." },
         { label: "Asyst Role", value: "Technology development, integration and application services." },
     ],
-    button: "Read Case study",
+    button: "Read Case Study",
 }
 
 const caseStudyFilterTabsEn: { key: CaseStudyFilterKey; label: string; options: string[] }[] = [
@@ -131,11 +124,8 @@ const caseStudyCtaEn = {
     button: "Talk with an ASYST IT Consultant",
 }
 
-// ---------- halaman detail ----------
-
 export interface CaseStudyArchitectureBranch {
     label: string;
-    /** Node turunan di bawah cabang (opsional) */
     child?: string;
 }
 
@@ -252,10 +242,6 @@ const caseStudyDetailsEn: Record<string, CaseStudyDetailContent> = {
     },
 };
 
-
-// ---------- konten dua bahasa (EN di atas, terjemahan ID di bawah) ----------
-
-/** Label ID untuk opsi filter & tag case study (nilainya tetap dipakai sebagai key filter) */
 export const CaseStudyTermsConst: Record<string, string> = {
     "Airlines": "Maskapai",
     "Banking": "Perbankan",
@@ -277,7 +263,7 @@ export const CaseStudyTermsConst: Record<string, string> = {
 };
 
 export const CaseStudyHeroConst = localized(caseStudyHeroEn, {
-    title: "Solusi Teknologi.\nHasil Bisnis Nyata.",
+    title: "Solusi Teknologi,\nHasil Bisnis yang Nyata",
     description: "Temukan bagaimana ASYST membantu organisasi menyelesaikan tantangan teknologi yang kompleks melalui konsultasi, software, integrasi, dan layanan IT terkelola.",
     button: "Jelajahi Karya Kami",
 });
@@ -293,6 +279,7 @@ export const CaseStudyFeaturedConst = localized(caseStudyFeaturedEn, {
     caseTitle: "Pemesanan & Distribusi Maskapai",
     summary: "Redesain UI/UX web dan mobile, termasuk ekosistem pemesanan digital yang mendukung penjualan maskapai dan mitra bisnis.",
     tags: ["Penerbangan", "React.js", "Pengembangan CMS"],
+    imageAlt: "Design system dan pustaka komponen UI yang ditampilkan di monitor desktop",
     details: [
         { label: "Layanan", value: "Layanan IT Profesional / Pemesanan & Distribusi" },
         { label: "Tantangan", value: "Menghadirkan pemesanan dan distribusi maskapai secara digital di kanal pelanggan dan mitra bisnis." },
@@ -314,7 +301,6 @@ export const CaseStudyExplorerConst = localized(caseStudyExplorerEn, {
     loadMore: "Muat lebih banyak",
 });
 
-// `tags`, `industry`, `solution`, `technology` tidak diterjemahkan di sini (key filter); labelnya lewat CaseStudyTermsConst
 export const CaseStudiesConst = localized(caseStudiesEn, [
     { title: "Ekosistem pemesanan & distribusi maskapai" },
     { title: "Peningkatan layanan platform mobile" },

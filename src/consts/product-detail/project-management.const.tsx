@@ -11,10 +11,6 @@ import imgTimeline from "assets/asyst/img/background/product/project-management/
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
-// (teks saja, struktur & urutan sama).
-// Konten mengikuti apm.asyst.co.id/landing
-
 const projectManagementDetailEn: ProductDetailContent = {
     hero: {
         title: "People and AI Agents, Working from One Plan",
@@ -104,8 +100,6 @@ const projectManagementDetailEn: ProductDetailContent = {
         button: "Request a demo",
     },
 }
-
-// ---------- terjemahan ID (struktur & urutan sama dengan projectManagementDetailEn) ----------
 
 export const ProjectManagementDetailConst = localized(projectManagementDetailEn, {
     hero: {

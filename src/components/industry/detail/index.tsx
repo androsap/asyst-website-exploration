@@ -20,7 +20,6 @@ interface IndustryDetailProps {
     content: IndustryDetailContent;
 }
 
-/** Layout halaman detail industri (revamp 2026). Konten per industri ada di consts/industry-detail.const. */
 export default function IndustryDetail({ content }: IndustryDetailProps) {
     return <div className="product-v2 solution-v2 industry-v2">
         <IndustryHero content={content.hero} onPrimary={() => scrollToSection(INDUSTRY_SECTION_IDS.solutions)} />

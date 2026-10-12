@@ -19,7 +19,6 @@ import JobsHeroSection from "./sections/hero";
 import ConnectsSection from "./sections/connects";
 import ApplyStepsSection from "./sections/apply-steps";
 
-/** Daftar lowongan (/career/jobs). Semua filter disimpan di query param agar bisa dibagikan & dipakai link dari halaman lain. */
 export default function CareerJobsComponent({ }: MainLayoutSharedProps) {
     const t = useT();
     const { title, description, emptyText, resetFilter, loadMore, pageSize } = useLocalized(CareerJobListConst);
@@ -30,7 +29,6 @@ export default function CareerJobsComponent({ }: MainLayoutSharedProps) {
     const results = useMemo(() => filterCareerJobs(jobs, filters), [jobs, filters]);
     const [visible, setVisible] = useState(pageSize);
 
-    // canonical tanpa query param agar variasi filter tidak terindeks sebagai halaman terpisah
     useSeo({
         ...useLocalized(CareerSeoConst).jobs,
         path: CAREER_JOBS_PATH,
@@ -41,7 +39,6 @@ export default function CareerJobsComponent({ }: MainLayoutSharedProps) {
         ],
     });
 
-    // setiap perubahan filter mulai lagi dari halaman pertama
     const query = searchParams.toString();
     useEffect(() => setVisible(pageSize), [query, pageSize]);
 
@@ -64,7 +61,6 @@ export default function CareerJobsComponent({ }: MainLayoutSharedProps) {
                     <Typography variant="h2" className="cr-title">{title}</Typography>
                     <Typography className="cr-text">{description}</Typography>
 
-                    {/* key = query: daftar di-mount ulang tiap filter berubah agar animasi masuk diputar lagi */}
                     {results.length
                         ? <div key={query} className="cr-job-list cr-job-list--animated">
                             {results.slice(0, visible).map((job, i) => (

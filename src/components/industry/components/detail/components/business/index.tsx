@@ -9,7 +9,6 @@ import React from "react";
 import { useT } from "shared/i18n";
 import { cn } from "@/lib/utils";
 
-// Varian Accordion halaman ini (sebelumnya styled() MUI): tanpa gutters & bayangan, sudut siku, tanpa garis ::before
 const Accordion = ({ className, ...props }: AccordionProps) =>
     <UiAccordion disableGutters elevation={0} square className={cn("[border-bottom:0px_solid_rgba(0,0,0,0.12)] [&:not(:last-child)]:[border-bottom:0] [&::before]:[display:none]", className)} {...props} />;
 
@@ -37,8 +36,7 @@ export default function BusinessComponent() {
             setExpanded(newExpanded ? panel : false);
         };
 
-
-    return (
+return (
         <>
             <div className='business'>
                 <div className="[box-sizing:border-box] flex-row flex gap-[40px] pb-[32px]">

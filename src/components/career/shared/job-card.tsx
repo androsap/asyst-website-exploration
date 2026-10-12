@@ -8,7 +8,6 @@ import { formatJobDate } from "./utils";
 
 interface JobCardProps {
     job: CareerJob;
-    /** grid = kartu 3 kolom (halaman Career), list = baris lebar (halaman Jobs) */
     variant?: "grid" | "list";
     style?: CSSProperties;
 }

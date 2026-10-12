@@ -8,11 +8,6 @@ import imgOutcome from "assets/asyst/img/background/product/overview/background-
 import imgDashboard from "assets/asyst/img/background/product/amala/device-A.webp";
 import { localized } from "shared/i18n";
 
-// Konten halaman detail solusi (desain revamp 2026). Satu objek per solusi, dirender oleh components/solution/detail.
-// Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
-// (teks saja, struktur & urutan sama).
-
 export interface SolutionChallengeItem {
     label: string;
     title: string;
@@ -57,7 +52,6 @@ export interface SolutionDetailContent {
 const socOurSolution = { title: "Our solution", description: "Connect → Integrate → Orchestrate" };
 const socEventOutput = ["Source", "Time", "Asset", "User", "Activity", "Location", "Event Type", "Severity Context"];
 
-// TODO: desain hanya menampilkan isi tab pertama di tiap section bertab; copy tab lain perlu dikonfirmasi
 const socDetailEn: SolutionDetailContent = {
     hero: {
         eyebrow: "Security Operation Center",
@@ -248,8 +242,6 @@ const socDetailEn: SolutionDetailContent = {
         button: "Talk to Security Expert",
     },
 }
-
-// ---------- terjemahan ID (struktur & urutan sama dengan socDetailEn) ----------
 
 const socOurSolutionId = { title: "Solusi kami", description: "Hubungkan → Integrasikan → Orkestrasikan" };
 const socEventOutputId = ["Sumber", "Waktu", "Aset", "Pengguna", "Aktivitas", "Lokasi", "Jenis Event", "Konteks Tingkat Keparahan"];

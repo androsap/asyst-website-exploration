@@ -22,7 +22,6 @@ export default function ProductComponent() {
                 </div>
                 <Divider />
                 <div className="[box-sizing:border-box] flex-col flex gap-[48px] pt-[42px]">
-                    {/* Line 1 */}
                     <div className="[box-sizing:border-box] flex-row flex gap-[48px]">
                         <Paper className="rounded-[20px] w-[392px] h-[392px]">
                             <div className="[box-sizing:border-box] flex-col pt-[28px] pr-[28px] pb-[28px] pl-[28px] flex gap-[74px]">
@@ -70,7 +69,6 @@ export default function ProductComponent() {
                             </div>
                         </Paper>
                     </div>
-                    {/* Line 2 */}
                     <div className="[box-sizing:border-box] flex-row flex gap-[48px]">
                         <Paper className="rounded-[20px] w-[392px] h-[392px]">
                             <div className="[box-sizing:border-box] flex-col pt-[28px] pr-[28px] pb-[28px] pl-[28px] flex gap-[74px]">

@@ -13,7 +13,6 @@ export default function ProductsSection() {
     const products = useLocalized(ProductsConst);
     const categoryLabel = useTerms(ProductCategoryTermsConst);
     const items = products.items.filter(x => active === "All Products" || x.category === active);
-    // `loading="lazy"` bawaan browser memuat gambar dari jarak ~1250-2500px; ditunda sampai section dekat viewport
     const sectionRef = useRef<HTMLElement>(null);
     const nearViewport = useNearViewport(sectionRef);
 
@@ -33,7 +32,6 @@ export default function ProductsSection() {
                     </ButtonBase>
                 ))}
             </div>
-            {/* key = kategori aktif: grid di-remount tiap ganti tab supaya animasi masuk kartu diputar ulang */}
             <div key={active} className="home-products">
                 {items.map(({ title, description, image, link }, i) => (
                     <Link key={i} to={link} className="home-product" style={{ "--i": i } as CSSProperties}>

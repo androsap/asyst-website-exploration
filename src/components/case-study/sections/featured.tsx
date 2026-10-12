@@ -6,9 +6,8 @@ import { CaseStudyFeaturedConst, CaseStudyIntroConst, caseStudyLink } from "cons
 import { useLocalized } from "shared/i18n";
 import SectionHeading from "components/product/shared/section-heading";
 
-/** Intro "Case Study" + kartu Featured Case Study. */
 export default function FeaturedSection() {
-    const { title, description, slug, client, caseTitle, summary, tags, image, details, button } = useLocalized(CaseStudyFeaturedConst);
+    const { title, description, slug, client, caseTitle, summary, tags, image, imageAlt, details, button } = useLocalized(CaseStudyFeaturedConst);
     const intro = useLocalized(CaseStudyIntroConst);
 
     return <section className="pv-section">
@@ -17,7 +16,9 @@ export default function FeaturedSection() {
             <div className="cs-featured">
                 <SectionHeading align="left" title={title} description={description} />
                 <div className="cs-featured__card">
-                    <div className="cs-featured__image" style={{ backgroundImage: `url(${image})` }} />
+                    <div className="cs-featured__image">
+                        <img src={image} alt={imageAlt} width={584} height={550} loading="lazy" decoding="async" />
+                    </div>
                     <div>
                         <Typography className="cs-eyebrow cs-eyebrow--dark">{client}</Typography>
                         <Typography className="cs-featured__title">{caseTitle}</Typography>

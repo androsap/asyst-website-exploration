@@ -1,4 +1,3 @@
-// Class Tailwind hasil konversi style MUI `sx` sebelumnya (nilai identik).
 export const styles = {
     mainBox: "flex flex-row justify-between gap-[50px] pb-[30px]",
     textContentBox: "flex flex-col [justify-content:justify] w-[50%]",

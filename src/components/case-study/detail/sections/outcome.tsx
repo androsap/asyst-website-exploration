@@ -9,7 +9,6 @@ interface OutcomeSectionProps {
     related: CaseStudyDetailContent["related"];
 }
 
-/** Ringkasan hasil (4 kolom) + kartu Related cases. */
 export default function OutcomeSection({ outcome, related }: OutcomeSectionProps) {
     const caseStudies = useLocalized(CaseStudiesConst);
     const relatedItems = related.slugs

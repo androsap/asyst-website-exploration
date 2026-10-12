@@ -1,5 +1,3 @@
-// Footer (desain revamp 2026). Sementara hardcode.
-// `link` kosong = halaman tujuan belum ada (tampil sebagai teks biasa).
 import { localized } from "shared/i18n";
 import { HeaderLinkItem } from "./header.const";
 
@@ -41,7 +39,6 @@ export const FooterColumnsConst = localized<FooterColumn[]>([
     },
     {
         title: "Solutions",
-        // Baru SOC yang punya halaman detail; lainnya ke halaman Solutions (sama seperti header.const)
         items: [
             { label: "Security Operation Center", link: "/solution/security-operations-center" },
             { label: "Digital Business Consulting", link: "/solution" },

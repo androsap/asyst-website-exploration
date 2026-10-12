@@ -12,7 +12,6 @@ interface TabbedPanelSectionProps {
     id?: string;
 }
 
-/** Kotak bertab sejajar + panel teks/gambar. Dipakai "Technology Is Only Valuable..." dan "How Security Operations Work". */
 export default function TabbedPanelSection({ title, description, items, id }: TabbedPanelSectionProps) {
     const [activeIndex, setActiveIndex] = useState(0);
     const active = items[activeIndex];

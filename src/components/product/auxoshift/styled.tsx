@@ -1,4 +1,3 @@
-// Class Tailwind hasil konversi style MUI `sx` sebelumnya (nilai identik).
 export const styles = {
     backNavText: "text-[color:#FFF] font-['Source_Sans_Pro'] text-[length:16px] not-italic font-[400] leading-[normal] ml-[12px] pr-[20px]",
     product: "text-[color:#FFF] font-['Inter'] text-[length:28px] font-[600] leading-[36px] pt-[25px]",

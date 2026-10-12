@@ -5,7 +5,6 @@ const MainComponent = lazy(() => import("components/news/detail"));
 
 const props: MainLayoutSharedProps = {
     title: localized("News | PT Aero Systems Indonesia", "Berita | PT Aero Systems Indonesia"),
-    // Hero baru berlatar terang: navbar selalu versi putih agar menu terbaca
     defaultNav: true
 }
 

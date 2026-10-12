@@ -9,15 +9,12 @@ import { CareerFilters } from "./utils";
 
 interface JobSidebarProps {
     filters: CareerFilters;
-    /** value undefined = hapus filter */
     onFilterChange: (key: CareerFilterKey, value?: string) => void;
     keyword: string;
     onKeywordChange: (value: string) => void;
-    /** Enter di kolom pencarian (dipakai halaman detail untuk pindah ke daftar lowongan) */
     onKeywordSubmit?: () => void;
 }
 
-/** Kartu "Browse" (departemen) + kartu "Filters" (pencarian & chip). Dipakai di halaman Jobs & detail. */
 export default function JobSidebar({ filters, onFilterChange, keyword, onKeywordChange, onKeywordSubmit }: JobSidebarProps) {
     const sidebar = useLocalized(CareerSidebarConst);
     const filterGroups = useLocalized(CareerFilterGroupsConst);

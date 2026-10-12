@@ -6,7 +6,6 @@ import { YouTubeIcon } from "components/ui/icons";
 import { PrinciplesConst } from "consts/about-us.const";
 import { useLocalized } from "shared/i18n";
 
-/** Tab Vision / Mission / Values + video profil perusahaan. */
 export default function PrinciplesSection() {
     const { tabs, defaultTab, videoEmbedUrl, videoThumbnail, videoTitle, videoThumbnailAlt, playVideo } = useLocalized(PrinciplesConst);
     const [activeIndex, setActiveIndex] = useState(defaultTab);

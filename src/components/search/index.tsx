@@ -13,7 +13,6 @@ import { highlight, searchEntries, toTerms } from "./shared/search-utils";
 import "components/product/shared/product-v2.scss";
 import "./search.scss";
 
-// Host tanpa protokol untuk baris URL di bawah tiap hasil, mis. "asyst.co.id/about"
 const DISPLAY_HOST = SITE_URL.replace(/^https?:\/\/(www\.)?/, "");
 const QUERY_DEBOUNCE = 300;
 
@@ -26,7 +25,6 @@ const LoadMoreIcon = () => (
     </svg>
 );
 
-/** Halaman Search Result (revamp 2026). Kata kunci & tab disimpan di query `?q=` dan `?tab=`. */
 export default function SearchComponent({ }: MainLayoutSharedProps) {
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get("q") ?? "";
@@ -44,10 +42,8 @@ export default function SearchComponent({ }: MainLayoutSharedProps) {
         setSearchParams({ ...(q && { q }), ...(nextTab !== "all" && { tab: nextTab }) }, { replace: true });
     };
 
-    // Sinkron saat URL berubah dari luar (mis. tombol back)
     useEffect(() => setInput(query), [query]);
 
-    // Hasil diperbarui sambil mengetik, URL ikut berubah setelah jeda singkat
     useEffect(() => {
         if (input.trim() === query.trim()) return;
         const timer = window.setTimeout(() => updateParams({ q: input }), QUERY_DEBOUNCE);

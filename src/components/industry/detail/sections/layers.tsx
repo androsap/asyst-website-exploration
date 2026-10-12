@@ -8,7 +8,6 @@ interface LayersAccordionProps {
     items: IndustryLayerItem[];
 }
 
-/** Accordion layer teknologi dua kolom; hanya satu item terbuka di kedua kolom. Dirender di dalam IntroSplitSection. */
 export default function LayersAccordion({ items }: LayersAccordionProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
     const t = useT();

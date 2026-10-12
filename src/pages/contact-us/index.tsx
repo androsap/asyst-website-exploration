@@ -5,7 +5,6 @@ const MainComponent = lazy(() => import("components/contact-us"));
 
 const props: MainLayoutSharedProps = {
     title: localized("Contact Us | PT Aero Systems Indonesia", "Hubungi Kami | PT Aero Systems Indonesia"),
-    // Hero berlatar terang: navbar selalu versi putih agar menu terbaca
     defaultNav: true
 }
 

@@ -11,11 +11,6 @@ import imgPromoReward from "assets/asyst/img/background/product/amala/promo-and-
 import imgBusinessOwner from "assets/asyst/img/background/product/amala/business-owner.webp";
 import { localized } from "shared/i18n";
 
-// Konten halaman detail produk (desain revamp 2026). Satu objek per produk, dirender oleh components/product/detail.
-// Gambar sementara memakai aset yang sudah ada di repo; ganti dengan aset final dari desain.
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
-// (teks saja, struktur & urutan sama).
-
 export interface IconTextItem {
     icon: SvgIconComponent;
     title: string;
@@ -92,7 +87,6 @@ const amalaDetailEn: ProductDetailContent = {
             "An enterprise loyalty platform is software that helps organizations manage customer membership, loyalty rules, points, rewards, promotions, tiers, partner relationships and customer engagement across multiple channels.",
             "Unlike a simple rewards application, an enterprise loyalty platform typically needs to connect with existing business systems, transaction data and external partners. This makes integration, scalability, security, configurability and operational management important considerations when selecting a loyalty technology platform.",
         ],
-        // TODO: ganti dengan diagram arsitektur "Enterprise Loyalty Platform" dari desain
         image: imgAmalaOverview,
         challenges: [
             { icon: PersonSearchOutlinedIcon, title: "Fragmented Customer Data", description: "Create a connected loyalty layer across customer and transaction ecosystems" },
@@ -104,7 +98,6 @@ const amalaDetailEn: ProductDetailContent = {
     lifecycle: {
         title: "One Platform for the Loyalty Lifecycle",
         description: lifecycleDescription,
-        // TODO: desain hanya menampilkan isi tab "Acquire"; copy & screenshot tab lain perlu dikonfirmasi
         items: [
             { label: "Acquire", title: "Acquire Member", description: lifecycleDescription, image: imgAmalaAdmin },
             { label: "Register", title: "Register Member", description: "Onboard new members through web, mobile and partner channels with consistent profile data and membership rules from day one.", image: imgAmalaAdmin },
@@ -118,7 +111,6 @@ const amalaDetailEn: ProductDetailContent = {
     },
     features: {
         title: "Everything You Need to Operate a Modern Loyalty Program",
-        // TODO: desain hanya menampilkan deskripsi "Member Management"; copy fitur lain perlu dikonfirmasi
         items: [
             { title: "Member Management", description: "Manage member profiles, loyalty status and customer information from a centralized loyalty environment", image: imgLoyaltyMember },
             { title: "Multi-Tier Loyalty", description: "Define membership tiers with their own qualification rules, benefits and upgrade or downgrade criteria", image: imgMultiTier },
@@ -133,7 +125,6 @@ const amalaDetailEn: ProductDetailContent = {
     },
     howItWorks: {
         title: "From Customer Activity to Meaningful Rewards",
-        // TODO: desain hanya menampilkan isi tab "How it work"; copy tab lain perlu dikonfirmasi
         items: [
             { label: "How it work", title: "How loyalty software actually works", description: lifecycleDescription, image: imgAmalaAdmin },
             { label: "Business & Admin Experience", title: "Built for business and admin teams", description: "Program managers configure tiers, earning rules, promotions and rewards from an admin console, while operations teams handle member service, adjustments and approvals in the same platform.", image: imgAmalaAdmin },
@@ -152,7 +143,6 @@ const amalaDetailEn: ProductDetailContent = {
     },
     faq: {
         title: "Enterprise Loyalty platform FAQ",
-        // TODO: desain hanya menampilkan jawaban pertanyaan pertama; jawaban lain perlu dikonfirmasi
         items: [
             { question: "What is Amala?", answer: "Amala is ASYST's enterprise loyalty platform designed to support customer membership, loyalty programs, points, rewards, promotions, partner ecosystems, analytics and digital loyalty experiences." },
             { question: "What industries can use Amala?", answer: "Amala can support loyalty programs across airline and travel, hospitality, banking and financial services, retail and commerce, healthcare and other industries that run membership or reward programs." },
@@ -170,8 +160,6 @@ const amalaDetailEn: ProductDetailContent = {
         button: "Request product demo",
     },
 }
-
-// ---------- terjemahan ID (struktur & urutan sama dengan amalaDetailEn) ----------
 
 const lifecycleDescriptionId = "Amala menyatukan operasional inti program loyalitas dalam satu platform terhubung, mulai dari manajemen member dan tingkatan hingga reward, promosi, poin, integrasi mitra, dan analitik";
 

@@ -2,7 +2,6 @@ import { HeaderLanguagesConst } from "consts/header.const";
 
 type Language = typeof HeaderLanguagesConst[number];
 
-// SVG inline karena emoji bendera tidak tampil di Windows
 const FlagID = () => <svg viewBox="0 0 3 2" aria-hidden="true">
     <rect width="3" height="1" fill="#E70011" />
     <rect y="1" width="3" height="1" fill="#FFFFFF" />

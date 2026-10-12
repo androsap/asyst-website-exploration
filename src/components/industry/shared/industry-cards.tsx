@@ -8,11 +8,9 @@ import TabBar from "components/product/shared/tab-bar";
 import { useT } from "shared/i18n";
 import { INDUSTRY_SECTION_IDS } from "./section-ids";
 
-/** Grid kartu industri dengan filter kapsul; kategori filter diambil dari `tag` tiap kartu. */
 export default function IndustryCardsSection({ title, description, items }: IndustryCardsContent) {
     const [activeIndex, setActiveIndex] = useState(0);
     const t = useT();
-    // Filter disimpan sebagai index (0 = semua) supaya tetap sama saat bahasa diganti
     const tags = Array.from(new Set(items.map(x => x.tag)));
     const filters = [t("All", "Semua"), ...tags];
     const visibleItems = activeIndex === 0 ? items : items.filter(x => x.tag === tags[activeIndex - 1]);

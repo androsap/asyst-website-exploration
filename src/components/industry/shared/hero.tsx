@@ -9,7 +9,6 @@ interface IndustryHeroProps {
     onSecondary?: () => void;
 }
 
-/** Hero rata tengah; eyebrow, tombol kedua dan statistik opsional. Memakai kelas pv-hero dari product-v2. */
 export default function IndustryHero({ content, onPrimary, onSecondary }: IndustryHeroProps) {
     const { eyebrow, title, description, primaryButton, secondaryButton, stats } = content;
 

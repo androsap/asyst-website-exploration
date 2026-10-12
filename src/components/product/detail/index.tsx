@@ -14,7 +14,6 @@ interface ProductDetailProps {
     content: ProductDetailContent;
 }
 
-/** Layout halaman detail produk (revamp 2026). Konten per produk ada di consts/product-detail.const. */
 export default function ProductDetail({ content }: ProductDetailProps) {
     const talkToExpert = useTalkToExpert("enterprise");
 

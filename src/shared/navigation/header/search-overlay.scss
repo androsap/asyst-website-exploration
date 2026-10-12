@@ -1,4 +1,3 @@
-// Overlay pencarian cepat dari tombol search header (revamp 2026). Dirender lewat portal, jadi font di-set sendiri.
 $ink: #101828;
 $blue: #2775BB;
 $navy: #123554;
@@ -22,7 +21,6 @@ $mobile: 599px;
         background: rgba(16, 24, 40, 0.45);
     }
 
-    // bingkai kaca di sekeliling panel
     &__glass {
         position: relative;
         box-sizing: border-box;
@@ -57,7 +55,6 @@ $mobile: 599px;
         }
     }
 
-    // ---------- input ----------
     &__input {
         display: flex;
         align-items: center;
@@ -103,7 +100,6 @@ $mobile: 599px;
         font-size: 22px;
     }
 
-    // ---------- hasil ----------
     &__results {
         max-height: calc(100vh - 280px);
         overflow-y: auto;

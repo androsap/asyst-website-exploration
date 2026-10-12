@@ -10,7 +10,6 @@ interface PrioritiesSectionProps {
     content: IndustryDetailContent["priorities"];
 }
 
-/** Accordion prioritas bisnis di kiri + matriks kapabilitas per segmen di kanan. */
 export default function PrioritiesSection({ content }: PrioritiesSectionProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
     const t = useT();

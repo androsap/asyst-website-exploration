@@ -31,7 +31,6 @@ const validate = (values: FormValues, form: ContactFormContent): FormErrors => {
     return errors;
 };
 
-/** Halaman Contact Us (revamp 2026). Memakai gaya dasar product-v2 + tambahan contact-v2. */
 export default function ContactUsComponent({ }: MainLayoutSharedProps) {
     return <div className="product-v2 contact-v2">
         <ContactHero />
@@ -76,7 +75,6 @@ function ContactForm() {
         setErrors(nextErrors);
         if (Object.keys(nextErrors).length) return;
 
-        // TODO: kirim ke endpoint backend saat API contact sudah tersedia
         setSubmitted(true);
         setValues(initialValues);
     };

@@ -10,7 +10,6 @@ interface ApproachSectionProps {
     content: CaseStudyDetailContent["approach"];
 }
 
-/** Judul sticky di kiri + langkah bernomor (accordion, satu terbuka) di kanan. */
 export default function ApproachSection({ content }: ApproachSectionProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 

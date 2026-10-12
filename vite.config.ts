@@ -13,11 +13,6 @@ import ManifestJson from "./manifest.json"
 dotenv.config({ path: ['.env.local', '.env'] });
 dns.setDefaultResultOrder("verbatim");
 
-/**
- * Halaman di router di-lazy load, jadi chunk-nya baru ketahuan browser setelah bundle utama selesai dieksekusi.
- * Plugin ini menyisipkan script inline yang langsung mem-preload chunk (JS + CSS) halaman yang sedang dibuka,
- * paralel dengan bundle utama, supaya konten pertama (LCP) tampil lebih cepat. Hanya untuk halaman di `pages`.
- */
 const preloadRouteChunks = (pages: Record<string, string>): Plugin => ({
     name: 'preload-route-chunks',
     apply: 'build',
@@ -29,7 +24,6 @@ const preloadRouteChunks = (pages: Record<string, string>): Plugin => ({
             for (const [pathname, file] of Object.entries(pages)) {
                 const entry = chunks.find(c => c.facadeModuleId?.replace(/\\/g, '/').endsWith(file));
                 if (!entry) continue;
-                // Import statis secara rekursif (tanpa entry utama yang sudah dimuat oleh <script type="module">)
                 const files = new Set<string>();
                 const visit = (chunk: OutputChunk) => {
                     if (chunk.isEntry || files.has(chunk.fileName)) return;
@@ -51,17 +45,15 @@ const preloadRouteChunks = (pages: Record<string, string>): Plugin => ({
     },
 });
 
-// https://vitejs.dev/config/
 export default defineConfig({
     plugins: [svgr(), react(), tsconfigPaths(), reactRefresh(), dynamicImportVars({
-        include: ['**/*.js', '**/*.ts', '**/*.tsx'], // Pilih file-file JavaScript yang ingin Anda proses
-        exclude: ['node_modules/**'], // File-file yang ingin Anda abaikan
+        include: ['**/*.js', '**/*.ts', '**/*.tsx'],
+        exclude: ['node_modules/**'],
     }), VitePWA(ManifestJson), preloadRouteChunks({ '/': '/src/pages/index.tsx' })],
     server: {
         host: "localhost",
         port: 3006,
         hmr: {
-            // Mengonfigurasi hot module replacement (HMR) jika diperlukan
             overlay: false,
         },
         proxy: {
@@ -95,12 +87,6 @@ export default defineConfig({
                 secure: false,
                 rewrite: (path) => path.replace(/^\/maintenances/, '')
             },
-            // '/socket.io': {
-                // target: 'http://103.126.57.142:8282',
-                // changeOrigin: false,
-                // secure: false,
-                // ws: true,
-            // },
         }
     },
     optimizeDeps: {
@@ -117,7 +103,6 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                // Vite 4 hanya mendukung legacy JS API Sass; hilang saat upgrade ke Vite 5.4+
                 silenceDeprecations: ['legacy-js-api'],
             },
         },
@@ -125,16 +110,7 @@ export default defineConfig({
     root: './',
     build: {
         outDir: './build',
-        // rollupOptions: {
-        //     plugins: [],
-        //     onwarn: () => {
-        //         return;
-        //     },
-        //     // output: {
-        //     //     dynamicImportFunction: 'importShim',
-        //     // },
 
-        // },
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue'],

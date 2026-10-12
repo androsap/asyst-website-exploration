@@ -10,7 +10,6 @@ import ExperienceSection from "./sections/experience";
 import CaseStudyCta from "./shared/cta";
 import { CASE_STUDY_SECTION_IDS } from "./shared/section-ids";
 
-/** Halaman utama Case Study (revamp 2026). Memakai gaya dasar product-v2 + tambahan case-study. */
 export default function CaseStudyComponent({ }: MainLayoutSharedProps) {
     return <div className="product-v2 case-study-v2">
         <HeroSection onExplore={() => scrollToSection(CASE_STUDY_SECTION_IDS.explorer)} />

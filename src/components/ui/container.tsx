@@ -13,10 +13,6 @@ export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
     disableGutters?: boolean;
 }
 
-/**
- * Pembungkus konten horizontal. Gutter 32px (48px >= 600px); max-width lg/xl dikunci 1280px,
- * sm/md mengikuti Container MUI dengan theme spacing 16.
- */
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(function Container(
     { maxWidth = "lg", disableGutters = false, className, ...props }, ref,
 ) {

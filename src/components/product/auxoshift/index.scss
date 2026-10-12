@@ -22,8 +22,7 @@
         background-size: cover;
         display: flex;
 
-
-        .backNavContainer {
+.backNavContainer {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -60,7 +59,6 @@
     }
 }
 
-//laptop 15" (breakpoints width 1900px)
 @media only screen and (max-width: 1920px) {
     [data-slot="container"][data-max-width="xl"] {
         padding-left: 8px;
@@ -101,7 +99,6 @@
     }
 }
 
-//laptop 14" (breakpoints width 1600px)
 @media only screen and (max-width: 1600px) {
     .left-banner {
         width: 55%;
@@ -128,7 +125,6 @@
     }
 }
 
-//laptop 13" (breakpoints width 1440px)
 @media only screen and (max-width: 1440px) {
 
     [data-slot="container"][data-max-width="xl"] {

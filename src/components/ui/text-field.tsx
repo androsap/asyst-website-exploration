@@ -2,14 +2,6 @@ import { ChangeEvent, CSSProperties, FocusEvent, forwardRef, InputHTMLAttributes
 import { cn } from "@/lib/utils";
 import { useAppearance } from "./appearance";
 
-/**
- * Input outlined (pengganti TextField MUI). Struktur DOM, ukuran, outline ber-notch, floating label,
- * helper text, dan auto-resize multiline sama dengan MUI.
- *
- * appearance:
- * - "app"   : theme proyek (Source Sans Pro 13px, fokus #2775BB) — halaman Contact Us
- * - "modal" : theme bawaan modal lama (font inherit, 0.9286rem, fokus #1976d2) — modal Ask Asyst & Request Demo
- */
 export type InputAppearance = "app" | "modal";
 
 const APPEARANCE: Record<InputAppearance, { root: string; focus: string; helper: string }> = {
@@ -17,7 +9,6 @@ const APPEARANCE: Record<InputAppearance, { root: string; focus: string; helper:
     modal: { root: "font-[inherit] text-[0.9285714285714286rem]", focus: "#1976d2", helper: "font-[inherit] text-[0.6964285714285714rem]" },
 };
 
-// Label: theme proyek meng-override 14px Source Sans Pro; theme modal menggeser top 2px
 const LABEL_APPEARANCE: Record<InputAppearance, string> = {
     app: "font-['Source_Sans_Pro'] text-[14px] top-0",
     modal: "font-[inherit] text-[0.9285714285714286rem] top-[2px]",
@@ -44,7 +35,6 @@ export function focusVars(appearance: InputAppearance): CSSProperties {
     return { ["--input-focus-color" as string]: APPEARANCE[appearance].focus };
 }
 
-/** Outline ber-notch: legend memberi celah untuk label yang melayang. */
 export function NotchedOutline({ label, notched, className }: { label?: ReactNode; notched: boolean; className?: string }) {
     return <fieldset
         aria-hidden="true"
@@ -85,7 +75,6 @@ export function HelperText({ id, error, appearance, size, children }: { id?: str
     </p>
 }
 
-// ---------- Textarea auto-resize (port TextareaAutosize MUI) ----------
 const getStyleValue = (value: string) => parseInt(value, 10) || 0;
 const shadowStyle: CSSProperties = { visibility: "hidden", position: "absolute", overflow: "hidden", height: 0, top: 0, left: 0, transform: "translateZ(0)" };
 
@@ -170,7 +159,6 @@ const TextareaAutosize = forwardRef<HTMLTextAreaElement, TextareaHTMLAttributes<
     </>
 });
 
-// ---------- TextField ----------
 type NativeProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "onChange"> & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "onChange">;
 
 export interface TextFieldProps extends Omit<NativeProps, "className" | "style"> {

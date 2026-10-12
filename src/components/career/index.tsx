@@ -14,7 +14,6 @@ import WhySection from "./sections/why";
 import IndonesiaSection from "./sections/indonesia";
 import InternshipSection from "./sections/internship";
 
-/** Halaman utama Career (revamp 2026). Memakai gaya dasar product-v2 + tambahan career. */
 export default function CareerComponent({ }: MainLayoutSharedProps) {
     const t = useT();
     const faq = useLocalized(CareerFaqConst);

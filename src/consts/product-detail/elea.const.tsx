@@ -6,11 +6,6 @@ import imgPromotion from "assets/asyst/img/background/product/elea/detail/promot
 import { ProductDetailContent } from "consts/product-detail.const";
 import { localized } from "shared/i18n";
 
-// Konten dua bahasa: konstanta `...En` = teks EN lengkap; ekspor `localized(...En, {...})` di bawah file = terjemahan ID
-// (teks saja, struktur & urutan sama).
-// Konten mengikuti home.asyst.co.id/product/elea (ERP Solution).
-// TODO: gambar masih screenshot CMS lama (Eleasoft); ganti dengan visual ERP dari desain.
-
 const eleaDetailEn: ProductDetailContent = {
     hero: {
         title: "Unify Core Operations and Accelerate Enterprise Growth with Next-Gen ERP",
@@ -98,8 +93,6 @@ const eleaDetailEn: ProductDetailContent = {
         button: "Request product demo",
     },
 }
-
-// ---------- terjemahan ID (struktur & urutan sama dengan eleaDetailEn) ----------
 
 export const EleaDetailConst = localized(eleaDetailEn, {
     hero: {

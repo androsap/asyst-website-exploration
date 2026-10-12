@@ -1,11 +1,9 @@
-/** Item news dari API asyst (`news/retrieve` dan `news/{slug}`). */
 export default interface NewsModel {
     id: string;
     slug: string;
     title: string;
     category: string;
     caption: string;
-    /** HTML yang masih di-escape (&lt;p&gt;...), decode dulu sebelum dirender */
     content: string;
     image: string;
     status: string;
