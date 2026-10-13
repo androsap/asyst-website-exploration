@@ -30,6 +30,7 @@ export interface ProductDetailContent {
         description: string;
         primaryButton: string;
         secondaryButton: string;
+        statsCaption?: string;
         stats: { icon: SvgIconComponent; value: string; label: string }[];
     };
     overview: {
@@ -40,7 +41,7 @@ export interface ProductDetailContent {
     };
     lifecycle: {
         title: string;
-        description: string;
+        description?: string;
         items: TabContentItem[];
     };
     features: {

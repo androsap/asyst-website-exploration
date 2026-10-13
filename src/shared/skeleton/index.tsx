@@ -5,8 +5,11 @@ import { Bone, Card } from "./bone";
 import HeaderSkeleton from "./header";
 import FooterSkeleton from "./footer";
 import HomeSkeleton from "./home";
+import NewsDetailSkeleton from "./news-detail";
 
-export { Bone, HeaderSkeleton, FooterSkeleton, HomeSkeleton };
+export { Bone, HeaderSkeleton, FooterSkeleton, HomeSkeleton, NewsDetailSkeleton };
+
+const NEWS_DETAIL_PATH = /^\/news\/[^/]+\/?$/;
 
 const ContentSkeleton = () =>
     <Container maxWidth="xl" className="pt-[140px] max-[1023px]:pt-28">
@@ -34,7 +37,7 @@ export default function PageSkeleton() {
     return <div role="status" aria-busy="true" className="relative bg-white">
         <span className="sr-only">{t("Loading content…", "Memuat konten…")}</span>
         <HeaderSkeleton />
-        {pathname === "/" ? <HomeSkeleton /> : <ContentSkeleton />}
+        {pathname === "/" ? <HomeSkeleton /> : NEWS_DETAIL_PATH.test(pathname) ? <NewsDetailSkeleton /> : <ContentSkeleton />}
         <FooterSkeleton />
     </div>
 }

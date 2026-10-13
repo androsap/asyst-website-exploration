@@ -7,15 +7,16 @@ import AccordionItem from "../../shared/accordion";
 
 interface FaqSectionProps {
     content: ProductDetailContent["faq"];
+    align?: "center" | "left";
 }
 
-export default function FaqSection({ content }: FaqSectionProps) {
+export default function FaqSection({ content, align = "left" }: FaqSectionProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return <section className="pv-section">
         <Container maxWidth="xl">
-            <SectionHeading title={content.title} align="left" />
-            <div className="pv-faq">
+            <SectionHeading title={content.title} align={align} />
+            <div className={`pv-faq pv-faq--${align}`}>
                 {content.items.map(({ question, answer }, index) => (
                     <AccordionItem
                         key={question}

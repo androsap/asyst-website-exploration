@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "components/ui/button";
 import { Container } from "components/ui/container";
-import { Skeleton } from "components/ui/skeleton";
+import { NewsDetailSkeleton } from "shared/skeleton";
 import { Typography } from "components/ui/typography";
 import { HomeOutlinedIcon, ChevronRightRoundedIcon, IosShareRoundedIcon, AccessTimeRoundedIcon } from "components/ui/icons";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -48,6 +48,8 @@ export default function NewsDetailComponent({ }: MainLayoutSharedProps) {
         if (news) document.title = `${news.title} | PT Aero Systems Indonesia`;
     }, [news]);
 
+    if (loading) return <NewsDetailSkeleton />;
+
     return <div className="product-v2 news-v2">
         <div className="nw-breadcrumb">
             <Container maxWidth="xl" className="nw-breadcrumb__inner">
@@ -55,14 +57,13 @@ export default function NewsDetailComponent({ }: MainLayoutSharedProps) {
                 <ChevronRightRoundedIcon className="nw-breadcrumb__separator" />
                 <Link to={NEWS_BASE_PATH}>{t("News", "Berita")}</Link>
                 <ChevronRightRoundedIcon className="nw-breadcrumb__separator" />
-                <span className="nw-breadcrumb__current">{news?.title || (loading ? "" : text.notFoundTitle)}</span>
+                <span className="nw-breadcrumb__current">{news?.title || text.notFoundTitle}</span>
             </Container>
         </div>
 
         <section className="pv-section pv-section--last">
             <Container className="nw-article">
-                {loading && <ArticleSkeleton />}
-                {!loading && !news && <NotFound />}
+                {!news && <NotFound />}
                 {news && <Article news={news} />}
             </Container>
         </section>
@@ -180,16 +181,6 @@ function RelatedNews({ slug, category }: { slug: string; category: string }) {
                 </SwiperSlide>
             ))}
         </Swiper>
-    </div>
-}
-
-function ArticleSkeleton() {
-    return <div aria-busy>
-        <Skeleton variant="text" height={48} width="95%" />
-        <Skeleton variant="text" height={48} width="60%" />
-        <Skeleton variant="rounded" height={44} className="mt-12 rounded-[7992px]" />
-        <Skeleton variant="rounded" className="nw-article__image" height={360} />
-        {Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} variant="text" width={i % 3 === 2 ? "70%" : "100%"} />)}
     </div>
 }
 

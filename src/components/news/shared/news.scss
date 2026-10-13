@@ -421,8 +421,13 @@ $mobile: 599px;
         border: 1px solid $border;
         border-radius: 999px;
 
-        @media (max-width: $mobile) {
+        // Once the meta wraps onto two lines a full pill looks stretched; switch to a rounded box
+        @media (max-width: $tablet) {
             border-radius: 16px;
+            padding: 12px 20px 12px 12px;
+        }
+
+        @media (max-width: $mobile) {
             padding: 12px;
         }
 
@@ -461,6 +466,13 @@ $mobile: 599px;
             svg {
                 font-size: 18px;
             }
+
+            // Tablet & mobile: share + reading time sit flush right on the wrapped second row.
+            // Negative margins let the 44px share tap area overlap the box padding instead of
+            // adding visible whitespace around the 13px text.
+            @media (max-width: $tablet) {
+                margin: -8px 0 -12px auto;
+            }
         }
 
         &__share {
@@ -478,22 +490,10 @@ $mobile: 599px;
                 text-decoration: underline;
             }
 
-            // Thumb-sized tap target on touch screens
-            @media (max-width: $mobile) {
+            // Tablet & mobile: borderless, but still a thumb-sized tap target
+            @media (max-width: $tablet) {
                 min-height: 44px;
-                padding: 0 18px;
-                border: 1px solid $blue;
-                border-radius: 999px;
-                font-size: 14px;
-                font-weight: 600;
-                transition: background-color .2s, color .2s;
-
-                &:hover,
-                &:active {
-                    text-decoration: none;
-                    background: $blue;
-                    color: #fff;
-                }
+                padding: 0 4px;
             }
         }
 

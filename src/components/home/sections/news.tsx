@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import NewsHelper from "helper/NewsHelper";
 import NewsModel from "models/news.model";
-import { NEWS_BASE_PATH, NewsCategoryTermsConst, NewsDummyConst } from "consts/news-page.const";
+import { NewsCategoryTermsConst, NewsDummyConst } from "consts/news-page.const";
 import { useT, useTerms } from "shared/i18n";
 import { newsDetailPath } from "components/news/shared/utils";
 import CarouselNav from "./carousel-nav";
@@ -36,8 +36,6 @@ export default function NewsSection() {
 
     if (!loading && !news.length) return null;
 
-    const cardPath = (slug: string) => slug.startsWith("dummy-") ? NEWS_BASE_PATH : newsDetailPath(slug);
-
     return <section className="home-section home-news__section">
         <Container maxWidth="xl">
             <div className="home-news__header">
@@ -53,7 +51,7 @@ export default function NewsSection() {
                     ))
                     : news.map(({ id, slug, image, title, category: type }) => (
                         <SwiperSlide key={id} tag="article">
-                            <LazyBackground as={Link} to={cardPath(slug)} className="home-news-card" image={image}>
+                            <LazyBackground as={Link} to={newsDetailPath(slug)} className="home-news-card" image={image}>
                                 <span className="home-news-card__tag">{category(type)}</span>
                                 <h3 className="home-news-card__title">
                                     <span className="home-news-card__title-text" title={title}>{title}</span>

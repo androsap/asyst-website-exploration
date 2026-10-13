@@ -10,7 +10,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ content, onTalkToExpert, onExplore }: HeroSectionProps) {
-    const { title, description, primaryButton, secondaryButton, stats } = content;
+    const { title, description, primaryButton, secondaryButton, statsCaption, stats } = content;
 
     return <section className="pv-hero">
         <Container maxWidth="xl">
@@ -22,7 +22,8 @@ export default function HeroSection({ content, onTalkToExpert, onExplore }: Hero
                     <Button className="pv-btn pv-btn--outline" onClick={onExplore}>{secondaryButton}</Button>
                 </div>
             </div>
-            <div className="pv-stats">
+            {statsCaption && <Typography className="pv-stats__caption">{statsCaption}</Typography>}
+            <div className={`pv-stats pv-stats--${stats.length} ${statsCaption ? "pv-stats--captioned" : ""}`}>
                 {stats.map(({ icon: Icon, value, label }) => (
                     <div key={label} className="pv-stats__item">
                         <Icon className="pv-stats__icon" />

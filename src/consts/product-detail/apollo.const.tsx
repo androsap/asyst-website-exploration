@@ -1,178 +1,198 @@
-import { AccountTreeOutlinedIcon, HubOutlinedIcon, InsightsOutlinedIcon, AutorenewOutlinedIcon, StorageOutlinedIcon, ContentPasteOffOutlinedIcon, VisibilityOffOutlinedIcon, GavelOutlinedIcon, FlightOutlinedIcon, BusinessOutlinedIcon, LocalShippingOutlinedIcon, AccountBalanceOutlinedIcon } from "components/ui/icons";
+import { AccountBalanceWalletOutlinedIcon, BusinessCenterOutlinedIcon, DashboardCustomizeOutlinedIcon, EngineeringOutlinedIcon, FactCheckOutlinedIcon, IntegrationInstructionsOutlinedIcon, LocalShippingOutlinedIcon, SettingsSuggestOutlinedIcon, ShoppingCartOutlinedIcon, WidgetsOutlinedIcon } from "components/ui/icons";
 
-import imgPlaceholder from "assets/asyst/img/background/product/overview/background-product.webp";
-import { ProductDetailContent } from "consts/product-detail.const";
+import imgTimeline from "assets/asyst/img/background/product/project-management/timeline.webp";
+import imgStreams from "assets/asyst/img/background/product/project-management/streams.webp";
+import imgDashboard from "assets/asyst/img/background/product/project-management/dashboard.webp";
+import imgDaily from "assets/asyst/img/background/product/project-management/daily.webp";
+import { EnterpriseProductContent } from "./enterprise.types";
 import { localized } from "shared/i18n";
 
-const apolloDetailEn: ProductDetailContent = {
+const apolloDetailEn: EnterpriseProductContent = {
+    seo: {
+        title: "ERP and Business Management System | ASYST",
+        description: "ASYST ERP and business management solutions connect finance, procurement, supply chain, operations, workflows and reporting in one integrated ecosystem that helps organizations work more efficiently.",
+    },
     hero: {
-        title: "Integrated Enterprise Resource Planning for Connected Operations",
-        description: "Bring finance, procurement, inventory, assets and human resources into one integrated platform so every team works from the same data and the same processes",
-        primaryButton: "Talk to ERP Expert",
-        secondaryButton: "Explore Apollo",
-        stats: [
-            { icon: AccountTreeOutlinedIcon, value: "Modular", label: "Business Processes" },
-            { icon: HubOutlinedIcon, value: "Integration", label: "API + Ecosystem" },
-            { icon: InsightsOutlinedIcon, value: "Real-Time", label: "Reporting" },
-            { icon: AutorenewOutlinedIcon, value: "Fullcycle", label: "Implementation" },
-        ],
+        breadcrumb: "ERP and Business Management",
+        title: "ERP and Business Management for an Integrated Business",
+        description: "Connect business processes, operations, data and enterprise systems in a single ecosystem that helps your organization work more efficiently.",
+        primaryButton: "Talk to an Expert",
+        secondaryButton: "Explore Product",
+        image: imgTimeline,
+        imageAlt: "ASYST ERP and business management application",
     },
-    overview: {
-        title: "Built for Core Business Processes at Enterprise Scale",
-        paragraphs: [
-            "An enterprise resource planning (ERP) platform is software that helps organizations manage core business processes such as finance, procurement, inventory, assets and human resources in one connected system.",
-            "Apollo replaces disconnected spreadsheets and standalone applications with integrated modules that share master data, approval workflows and reporting, so management gets a single, reliable view of operations and teams spend less time reconciling data.",
-        ],
-        image: imgPlaceholder,
-        challenges: [
-            { icon: StorageOutlinedIcon, title: "Siloed Business Data", description: "Connect finance, procurement, inventory and HR data in one platform" },
-            { icon: ContentPasteOffOutlinedIcon, title: "Manual Processes", description: "Replace spreadsheets and paper approvals with configurable workflows" },
-            { icon: VisibilityOffOutlinedIcon, title: "Limited Visibility", description: "Give management real-time insight into cost, budget and performance" },
-            { icon: GavelOutlinedIcon, title: "Compliance & Control", description: "Enforce approval hierarchies, audit trails and internal policies" },
-        ],
-    },
-    lifecycle: {
-        title: "Run Core Business Operations End to End",
-        description: "Apollo connects the processes that keep an organization running from planning and purchasing to accounting, assets and people",
-        items: [
-            { label: "Finance", title: "Financial management & accounting", description: "Manage general ledger, accounts payable and receivable, budgeting and financial closing in one integrated finance module.", image: imgPlaceholder },
-            { label: "Procurement", title: "Procurement & purchasing", description: "Digitize purchase requests, approvals, purchase orders and vendor management with full traceability.", image: imgPlaceholder },
-            { label: "Inventory", title: "Inventory & warehouse", description: "Track stock levels, movements and valuation across warehouses to keep materials available without overstocking.", image: imgPlaceholder },
-            { label: "Assets", title: "Asset management", description: "Register, maintain and depreciate company assets with a complete history of location, condition and value.", image: imgPlaceholder },
-            { label: "Human Resources", title: "Human resources & payroll", description: "Manage employee data, attendance, leave and payroll so HR processes stay connected to finance.", image: imgPlaceholder },
-            { label: "Reporting", title: "Reporting & analytics", description: "Turn transactions into real-time dashboards and reports that support faster management decisions.", image: imgPlaceholder },
-        ],
-    },
-    features: {
-        title: "Everything Your Core Operations Need in One Platform",
-        items: [
-            { title: "Integrated Master Data", description: "One source of truth for organizations, vendors, items, accounts and employees across every module", image: imgPlaceholder },
-            { title: "Configurable Approval Workflows", description: "Multi-level approvals that follow your organization's structure and authority matrix", image: imgPlaceholder },
-            { title: "Budget Control", description: "Plan budgets and check commitments against them before spending happens", image: imgPlaceholder },
-            { title: "Multi-Company & Multi-Branch", description: "Manage multiple entities, branches and cost centers with consolidated reporting", image: imgPlaceholder },
-            { title: "Audit Trail", description: "Every transaction and approval is recorded to support internal control and audits", image: imgPlaceholder },
-            { title: "Real-Time Dashboards", description: "Monitor financial and operational performance with up-to-date dashboards", image: imgPlaceholder },
-            { title: "Open Integration", description: "APIs that connect Apollo with existing operational systems, banks and partner platforms", image: imgPlaceholder },
-        ],
-    },
-    howItWorks: {
-        title: "How ASYST Delivers Apollo",
-        items: [
-            { label: "Assess & Configure", title: "Fit the platform to your processes", description: "Our team maps your business processes and configures Apollo modules, master data and workflows to match how your organization operates.", image: imgPlaceholder },
-            { label: "Integrate & Migrate", title: "Connect systems and move data safely", description: "Existing data is migrated and Apollo is integrated with the operational systems your teams already rely on.", image: imgPlaceholder },
-            { label: "Support & Evolve", title: "Grow with ongoing support", description: "After go-live, ASYST supports users, monitors the platform and extends modules as your organization grows.", image: imgPlaceholder },
-        ],
-    },
-    businessModels: {
-        title: "ERP for Every Kind of Enterprise",
-        items: [
-            { icon: FlightOutlinedIcon, title: "Aviation", points: ["airline back office", "maintenance procurement", "spare part inventory", "cost control"] },
-            { icon: GavelOutlinedIcon, title: "Government & State-Owned", points: ["budget governance", "procurement compliance", "asset registry", "audit trail"] },
-            { icon: LocalShippingOutlinedIcon, title: "Transportation & Logistics", points: ["fleet assets", "warehouse inventory", "vendor management", "operational costing"] },
-            { icon: AccountBalanceOutlinedIcon, title: "Financial Services", points: ["financial consolidation", "approval hierarchy", "regulatory reporting", "internal control"] },
-            { icon: BusinessOutlinedIcon, title: "Corporate Enterprise", points: ["multi-company", "shared services", "HR & payroll", "management reporting"] },
-        ],
-    },
+    sections: [
+        {
+            type: "challenge",
+            title: "A Single Ecosystem to Manage Increasingly Complex Businesses",
+            paragraphs: [
+                "ERP and business management solutions bring these processes together into a more connected ecosystem, so the organization can build a single source of business information and rely less on manual work.",
+            ],
+            items: [
+                { title: "People", description: "Grant access to each function based on roles, responsibilities and job requirements." },
+                { title: "Process", description: "Standardize workflows, approvals, transactions and operational processes." },
+                { title: "Data", description: "Consolidate business information into data that is easier to access and analyze." },
+                { title: "Integration", description: "Connect ERP with other enterprise applications and operational systems." },
+            ],
+        },
+        {
+            type: "overview",
+            title: "When Business Systems Are Not Connected",
+            paragraphs: [
+                "Business complexity does not always come from the volume of transactions. Problems often arise because processes, applications and data are not well connected.",
+            ],
+            image: imgStreams,
+            cards: [
+                { tag: "Fragmented Systems", title: "Data Is Scattered Across Applications", description: "Finance, procurement, HR, operations, CRM and other applications can create data silos when they are not properly integrated." },
+                { tag: "Manual Processes", title: "Too Much Administrative Work", description: "Repeated data entry, spreadsheets, email approvals and manual processes increase the risk of human error and slow the business down." },
+                { tag: "Limited Visibility", title: "Management Struggles to Get Answers", description: "When data comes from many sources, preparing and analyzing reports takes longer." },
+                { tag: "Inconsistent Processes", title: "Each Unit Works Differently", description: "Workflow standardization helps the organization improve process control and consistency." },
+                { tag: "Difficult Integration", title: "Communicating with Legacy Systems", description: "Enterprises cannot always replace every application at once, so integration capability becomes a crucial part of ERP transformation." },
+            ],
+        },
+        {
+            type: "capabilities",
+            heading: "column",
+            mediaFirst: true,
+            title: "ERP Capabilities for Connecting Business Processes",
+            description: "ERP and business management solutions can be designed in a modular way to meet organizational needs, with a focus on business processes, system integration and operational requirements.",
+            image: imgDashboard,
+            items: [
+                { icon: AccountBalanceWalletOutlinedIcon, title: "Financial Management", description: "Help the organization manage financial information and business processes related to budgeting, transactions, reporting and financial visibility." },
+                { icon: ShoppingCartOutlinedIcon, title: "Procurement Management", description: "Manage purchase requests, approvals, suppliers and purchase orders in a process connected to budgets and finance." },
+                { icon: LocalShippingOutlinedIcon, title: "Supply Chain Management", description: "Coordinate inventory, warehousing, distribution and demand so materials and products are available when they are needed." },
+                { icon: SettingsSuggestOutlinedIcon, title: "Operations Management", description: "Plan, run and monitor day-to-day operational activities with consistent data across units." },
+                { icon: FactCheckOutlinedIcon, title: "Workflow and Approval", description: "Standardize approvals and business workflows based on roles, authority and company policies." },
+                { icon: DashboardCustomizeOutlinedIcon, title: "Reporting and Management Dashboard", description: "Present financial and operational performance in real-time reports and dashboards for management." },
+            ],
+        },
+        {
+            type: "timeline",
+            layout: "split",
+            title: "From Transactions to Business Decisions",
+            description: "ERP is not just a repository for transactions. Its real value emerges when those transactions produce information that can be used to control operations and make decisions.",
+            image: imgDaily,
+            items: [
+                { title: "Request", description: "Submit business requirements through a structured, documented process." },
+                { title: "Approval", description: "Validate and approve requests based on company rules, authority and policies." },
+                { title: "Transaction", description: "Record every transaction centrally to keep data consistent and accurate." },
+                { title: "Decision", description: "Turn transaction data into reports and insights that support management decisions." },
+            ],
+        },
+        {
+            type: "expertise",
+            title: "Why ASYST for Enterprise Business Management?",
+            items: [
+                { icon: BusinessCenterOutlinedIcon, title: "Enterprise Capability", description: "ASYST has experience building and developing technology solutions for enterprise needs, including management, commercial, operations, cargo and IT services." },
+                { icon: IntegrationInstructionsOutlinedIcon, title: "Integration Expertise", description: "Connecting new solutions with existing applications, platforms, data sources and systems is a key part of ASYST's enterprise approach." },
+                { icon: EngineeringOutlinedIcon, title: "Technology Expertise", description: "Experience in complex business environments helps ASYST understand that technology must follow business processes, not the other way around." },
+                { icon: WidgetsOutlinedIcon, title: "Delivery", description: "ASYST focuses on more than system development. The SCM Phase 2 project, for example, shows a continuous approach that builds on previously established systems." },
+            ],
+        },
+    ],
     faq: {
-        title: "Apollo ERP FAQ",
+        title: "FAQ about ERP and Business Management",
         items: [
-            { question: "What is Apollo?", answer: "Apollo is ASYST's enterprise resource planning platform that brings core business processes such as finance, procurement, inventory, assets and human resources into one integrated system." },
-            { question: "Which modules does Apollo include?", answer: "Apollo covers financial management, procurement, inventory, asset management, human resources and reporting. Modules can be implemented together or in stages." },
-            { question: "Can Apollo integrate with our existing systems?", answer: "Yes. Apollo provides APIs to connect with existing operational systems, banking platforms and partner applications." },
-            { question: "Can Apollo be configured to our approval structure?", answer: "Yes. Approval workflows, authority matrices and organization structures are configurable to match your internal policies." },
-            { question: "Does Apollo support multiple companies or branches?", answer: "Yes. Apollo supports multiple entities, branches and cost centers with consolidated reporting." },
-            { question: "Does ASYST provide implementation and support?", answer: "Yes. ASYST handles process assessment, configuration, data migration, integration, training and ongoing support." },
+            { question: "What is ERP and business management?", answer: "ERP and business management is an enterprise software approach that helps organizations manage and integrate the business processes, data, workflows, operations and systems used by different corporate functions." },
+            { question: "What are the benefits of ERP for a company?", answer: "ERP gives a company a single source of business data, standardized processes, less manual work, stronger financial control and faster, more reliable reporting for management." },
+            { question: "Does an ERP system have to replace all existing systems?", answer: "No. ERP can be implemented in stages and integrated with existing applications, so the organization can modernize without replacing everything at once." },
+            { question: "Can ASYST develop solutions tailored to a company's needs?", answer: "Yes. ASYST designs modular solutions and custom development that follow each organization's business processes, structure and integration requirements." },
+            { question: "Can ERP be used for supply chain management?", answer: "Yes. ERP can cover procurement, inventory, warehousing and distribution, and connect them with finance and operations for end-to-end supply chain visibility." },
+            { question: "Which industries can use ERP solutions?", answer: "ERP solutions suit many industries, including aviation, transportation, manufacturing, government, state-owned enterprises and service companies." },
         ],
     },
     cta: {
-        title: "Ready to Connect Your Core Business Operations?",
-        description: "Talk with our ERP specialists about your business processes, systems and operational goals",
-        button: "Request product demo",
+        title: "Build a More Connected Enterprise",
+        description: "Every organization has unique processes, systems and challenges. With ASYST, you can design an ERP and business management approach that fits your business needs, integrates with your enterprise technology landscape and targets clear business outcomes.",
+        button: "Talk to an Expert",
     },
-}
+};
 
 export const ApolloDetailConst = localized(apolloDetailEn, {
+    seo: {
+        title: "Sistem ERP dan Manajemen Bisnis | ASYST",
+        description: "Solusi ERP dan manajemen bisnis ASYST menghubungkan keuangan, pengadaan, rantai pasok, operasional, alur kerja, dan pelaporan dalam satu ekosistem terintegrasi yang membantu organisasi bekerja lebih efisien.",
+    },
     hero: {
-        title: "Enterprise Resource Planning Terintegrasi untuk Operasional yang Terhubung",
-        description: "Satukan keuangan, pengadaan, inventori, aset, dan SDM dalam satu platform terintegrasi agar setiap tim bekerja dengan data dan proses yang sama",
-        primaryButton: "Hubungi Ahli ERP",
-        secondaryButton: "Jelajahi Apollo",
-        stats: [
-            { label: "Proses Bisnis" },
-            { label: "API + Ekosistem" },
-            { label: "Pelaporan" },
-            { label: "Implementasi" },
-        ],
+        breadcrumb: "ERP dan Manajemen Bisnis",
+        title: "ERP dan Manajemen Bisnis untuk Bisnis yang Terintegrasi",
+        description: "Hubungkan proses bisnis, operasional, data, dan sistem enterprise dalam satu ekosistem yang membantu organisasi Anda bekerja lebih efisien.",
+        primaryButton: "Hubungi Ahli Kami",
+        secondaryButton: "Jelajahi Produk",
+        imageAlt: "Aplikasi ERP dan manajemen bisnis ASYST",
     },
-    overview: {
-        title: "Dibangun untuk Proses Bisnis Inti Skala Enterprise",
-        paragraphs: [
-            "Platform enterprise resource planning (ERP) adalah software yang membantu organisasi mengelola proses bisnis inti seperti keuangan, pengadaan, inventori, aset, dan sumber daya manusia dalam satu sistem yang terhubung.",
-            "Apollo menggantikan spreadsheet dan aplikasi terpisah dengan modul terintegrasi yang berbagi master data, alur persetujuan, dan pelaporan, sehingga manajemen mendapatkan satu gambaran operasional yang andal dan tim tidak lagi menghabiskan waktu merekonsiliasi data.",
-        ],
-        challenges: [
-            { title: "Data Bisnis Terpisah", description: "Hubungkan data keuangan, pengadaan, inventori, dan SDM dalam satu platform" },
-            { title: "Proses Manual", description: "Ganti spreadsheet dan persetujuan kertas dengan alur kerja yang dapat dikonfigurasi" },
-            { title: "Visibilitas Terbatas", description: "Beri manajemen insight real-time atas biaya, anggaran, dan kinerja" },
-            { title: "Kepatuhan & Kontrol", description: "Terapkan hierarki persetujuan, jejak audit, dan kebijakan internal" },
-        ],
-    },
-    lifecycle: {
-        title: "Jalankan Operasional Bisnis Inti dari Hulu ke Hilir",
-        description: "Apollo menghubungkan proses yang menjaga organisasi tetap berjalan, mulai dari perencanaan dan pembelian hingga akuntansi, aset, dan SDM",
-        items: [
-            { label: "Keuangan", title: "Manajemen keuangan & akuntansi", description: "Kelola buku besar, utang dan piutang, anggaran, serta tutup buku dalam satu modul keuangan terintegrasi." },
-            { label: "Pengadaan", title: "Pengadaan & pembelian", description: "Digitalisasi permintaan pembelian, persetujuan, purchase order, dan manajemen vendor dengan jejak yang lengkap." },
-            { label: "Inventori", title: "Inventori & gudang", description: "Pantau level stok, pergerakan, dan valuasi di seluruh gudang agar material tetap tersedia tanpa kelebihan stok." },
-            { label: "Aset", title: "Manajemen aset", description: "Daftarkan, rawat, dan susutkan aset perusahaan dengan riwayat lokasi, kondisi, dan nilai yang lengkap." },
-            { label: "SDM", title: "Sumber daya manusia & penggajian", description: "Kelola data karyawan, kehadiran, cuti, dan penggajian agar proses SDM tetap terhubung dengan keuangan." },
-            { label: "Pelaporan", title: "Pelaporan & analitik", description: "Ubah transaksi menjadi dashboard dan laporan real-time yang mendukung keputusan manajemen lebih cepat." },
-        ],
-    },
-    features: {
-        title: "Semua Kebutuhan Operasional Inti dalam Satu Platform",
-        items: [
-            { title: "Master Data Terintegrasi", description: "Satu sumber data untuk organisasi, vendor, item, akun, dan karyawan di seluruh modul" },
-            { title: "Alur Persetujuan yang Dapat Dikonfigurasi", description: "Persetujuan bertingkat yang mengikuti struktur organisasi dan matriks kewenangan Anda" },
-            { title: "Kontrol Anggaran", description: "Rencanakan anggaran dan periksa komitmen terhadapnya sebelum pengeluaran terjadi" },
-            { title: "Multi-Perusahaan & Multi-Cabang", description: "Kelola banyak entitas, cabang, dan cost center dengan pelaporan konsolidasi" },
-            { title: "Jejak Audit", description: "Setiap transaksi dan persetujuan tercatat untuk mendukung kontrol internal dan audit" },
-            { title: "Dashboard Real-Time", description: "Pantau kinerja keuangan dan operasional melalui dashboard yang selalu terbaru" },
-            { title: "Integrasi Terbuka", description: "API yang menghubungkan Apollo dengan sistem operasional, bank, dan platform mitra yang sudah ada" },
-        ],
-    },
-    howItWorks: {
-        title: "Bagaimana ASYST Menghadirkan Apollo",
-        items: [
-            { label: "Analisis & Konfigurasi", title: "Sesuaikan platform dengan proses Anda", description: "Tim kami memetakan proses bisnis Anda dan mengonfigurasi modul, master data, serta alur kerja Apollo sesuai cara organisasi Anda beroperasi." },
-            { label: "Integrasi & Migrasi", title: "Hubungkan sistem dan pindahkan data dengan aman", description: "Data yang ada dimigrasikan dan Apollo diintegrasikan dengan sistem operasional yang sudah digunakan tim Anda." },
-            { label: "Dukungan & Pengembangan", title: "Berkembang dengan dukungan berkelanjutan", description: "Setelah go-live, ASYST mendampingi pengguna, memantau platform, dan mengembangkan modul seiring pertumbuhan organisasi Anda." },
-        ],
-    },
-    businessModels: {
-        title: "ERP untuk Setiap Jenis Perusahaan",
-        items: [
-            { title: "Penerbangan", points: ["back office maskapai", "pengadaan perawatan", "inventori suku cadang", "kontrol biaya"] },
-            { title: "Pemerintah & BUMN", points: ["tata kelola anggaran", "kepatuhan pengadaan", "registrasi aset", "jejak audit"] },
-            { title: "Transportasi & Logistik", points: ["aset armada", "inventori gudang", "manajemen vendor", "perhitungan biaya operasional"] },
-            { title: "Jasa Keuangan", points: ["konsolidasi keuangan", "hierarki persetujuan", "pelaporan regulasi", "kontrol internal"] },
-            { title: "Perusahaan Korporat", points: ["multi-perusahaan", "shared services", "SDM & penggajian", "laporan manajemen"] },
-        ],
-    },
+    sections: [
+        {
+            title: "Satu Ekosistem untuk Mengelola Bisnis yang Semakin Kompleks",
+            paragraphs: [
+                "Solusi ERP dan manajemen bisnis menyatukan berbagai proses ke dalam ekosistem yang lebih terhubung, sehingga organisasi dapat membangun satu sumber informasi bisnis dan mengurangi ketergantungan pada pekerjaan manual.",
+            ],
+            items: [
+                { title: "Orang", description: "Berikan akses ke setiap fungsi berdasarkan peran, tanggung jawab, dan kebutuhan pekerjaan." },
+                { title: "Proses", description: "Standarkan alur kerja, persetujuan, transaksi, dan proses operasional." },
+                { title: "Data", description: "Satukan informasi bisnis menjadi data yang lebih mudah diakses dan dianalisis." },
+                { title: "Integrasi", description: "Hubungkan ERP dengan aplikasi enterprise dan sistem operasional lainnya." },
+            ],
+        },
+        {
+            title: "Ketika Sistem Bisnis Tidak Terhubung",
+            paragraphs: [
+                "Kompleksitas bisnis tidak selalu berasal dari volume transaksi. Masalah sering muncul karena proses, aplikasi, dan data tidak terhubung dengan baik.",
+            ],
+            cards: [
+                { tag: "Sistem Terfragmentasi", title: "Data Tersebar di Berbagai Aplikasi", description: "Keuangan, pengadaan, HR, operasional, CRM, dan aplikasi lain dapat menciptakan silo data jika tidak terintegrasi dengan baik." },
+                { tag: "Proses Manual", title: "Terlalu Banyak Pekerjaan Administratif", description: "Input data berulang, spreadsheet, persetujuan via email, dan proses manual meningkatkan risiko kesalahan dan memperlambat bisnis." },
+                { tag: "Visibilitas Terbatas", title: "Manajemen Sulit Memperoleh Jawaban", description: "Ketika data berasal dari banyak sumber, penyusunan dan analisis laporan membutuhkan waktu lebih lama." },
+                { tag: "Proses Tidak Konsisten", title: "Setiap Unit Bekerja dengan Cara Berbeda", description: "Standardisasi alur kerja membantu organisasi meningkatkan kontrol dan konsistensi proses." },
+                { tag: "Integrasi Sulit", title: "Berkomunikasi dengan Sistem Lama", description: "Enterprise tidak selalu dapat mengganti semua aplikasi sekaligus, sehingga kapabilitas integrasi menjadi bagian penting dari transformasi ERP." },
+            ],
+        },
+        {
+            title: "Kapabilitas ERP untuk Menghubungkan Proses Bisnis",
+            description: "Solusi ERP dan manajemen bisnis dapat dirancang secara modular sesuai kebutuhan organisasi, dengan fokus pada proses bisnis, integrasi sistem, dan kebutuhan operasional.",
+            items: [
+                { title: "Manajemen Keuangan", description: "Bantu organisasi mengelola informasi keuangan dan proses bisnis terkait penganggaran, transaksi, pelaporan, dan visibilitas keuangan." },
+                { title: "Manajemen Pengadaan", description: "Kelola permintaan pembelian, persetujuan, pemasok, dan purchase order dalam proses yang terhubung dengan anggaran dan keuangan." },
+                { title: "Manajemen Rantai Pasok", description: "Koordinasikan inventaris, pergudangan, distribusi, dan permintaan agar material dan produk tersedia saat dibutuhkan." },
+                { title: "Manajemen Operasional", description: "Rencanakan, jalankan, dan pantau aktivitas operasional harian dengan data yang konsisten di seluruh unit." },
+                { title: "Alur Kerja dan Persetujuan", description: "Standarkan persetujuan dan alur kerja bisnis berdasarkan peran, kewenangan, dan kebijakan perusahaan." },
+                { title: "Laporan dan Dashboard Manajemen", description: "Tampilkan kinerja keuangan dan operasional dalam laporan dan dashboard real-time untuk manajemen." },
+            ],
+        },
+        {
+            title: "Dari Transaksi Menuju Keputusan Bisnis",
+            description: "ERP bukan sekadar tempat penyimpanan transaksi. Nilai sesungguhnya muncul ketika transaksi tersebut menghasilkan informasi yang dapat digunakan untuk mengendalikan operasional dan mengambil keputusan.",
+            items: [
+                { title: "Pengajuan", description: "Ajukan kebutuhan bisnis melalui proses yang terstruktur dan terdokumentasi." },
+                { title: "Persetujuan", description: "Validasi dan setujui pengajuan berdasarkan aturan, kewenangan, dan kebijakan perusahaan." },
+                { title: "Transaksi", description: "Catat setiap transaksi secara terpusat untuk menjaga konsistensi dan akurasi data." },
+                { title: "Keputusan", description: "Ubah data transaksi menjadi laporan dan insight yang mendukung keputusan manajemen." },
+            ],
+        },
+        {
+            title: "Mengapa ASYST untuk Manajemen Bisnis Enterprise?",
+            items: [
+                { title: "Kapabilitas Enterprise", description: "ASYST berpengalaman membangun dan mengembangkan solusi teknologi untuk kebutuhan enterprise, termasuk manajemen, komersial, operasional, kargo, dan layanan TI." },
+                { title: "Keahlian Integrasi", description: "Menghubungkan solusi baru dengan aplikasi, platform, sumber data, dan sistem yang sudah ada merupakan bagian penting dari pendekatan enterprise ASYST." },
+                { title: "Keahlian Teknologi", description: "Pengalaman di lingkungan bisnis yang kompleks membantu ASYST memahami bahwa teknologi harus mengikuti proses bisnis, bukan sebaliknya." },
+                { title: "Delivery", description: "ASYST berfokus pada lebih dari sekadar pembangunan sistem. Proyek SCM Fase 2, misalnya, menunjukkan pendekatan berkelanjutan yang dibangun di atas sistem yang telah ada." },
+            ],
+        },
+    ],
     faq: {
-        title: "FAQ Apollo ERP",
+        title: "Pertanyaan Umum tentang ERP dan Manajemen Bisnis",
         items: [
-            { question: "Apa itu Apollo?", answer: "Apollo adalah platform enterprise resource planning dari ASYST yang menyatukan proses bisnis inti seperti keuangan, pengadaan, inventori, aset, dan sumber daya manusia dalam satu sistem terintegrasi." },
-            { question: "Modul apa saja yang ada di Apollo?", answer: "Apollo mencakup manajemen keuangan, pengadaan, inventori, manajemen aset, sumber daya manusia, dan pelaporan. Modul dapat diimplementasikan sekaligus atau bertahap." },
-            { question: "Apakah Apollo dapat terintegrasi dengan sistem kami yang sudah ada?", answer: "Ya. Apollo menyediakan API untuk terhubung dengan sistem operasional, platform perbankan, dan aplikasi mitra yang sudah ada." },
-            { question: "Apakah Apollo dapat disesuaikan dengan struktur persetujuan kami?", answer: "Ya. Alur persetujuan, matriks kewenangan, dan struktur organisasi dapat dikonfigurasi sesuai kebijakan internal Anda." },
-            { question: "Apakah Apollo mendukung banyak perusahaan atau cabang?", answer: "Ya. Apollo mendukung banyak entitas, cabang, dan cost center dengan pelaporan konsolidasi." },
-            { question: "Apakah ASYST menyediakan implementasi dan dukungan?", answer: "Ya. ASYST menangani analisis proses, konfigurasi, migrasi data, integrasi, pelatihan, dan dukungan berkelanjutan." },
+            { question: "Apa itu ERP dan manajemen bisnis?", answer: "ERP dan manajemen bisnis adalah pendekatan software enterprise yang membantu organisasi mengelola dan mengintegrasikan proses bisnis, data, alur kerja, operasional, dan sistem yang digunakan berbagai fungsi perusahaan." },
+            { question: "Apa manfaat ERP bagi perusahaan?", answer: "ERP memberikan satu sumber data bisnis, proses yang terstandar, pekerjaan manual yang lebih sedikit, kontrol keuangan yang lebih kuat, serta pelaporan yang lebih cepat dan andal bagi manajemen." },
+            { question: "Apakah sistem ERP harus menggantikan semua sistem yang ada?", answer: "Tidak. ERP dapat diterapkan secara bertahap dan diintegrasikan dengan aplikasi yang ada, sehingga organisasi dapat bermodernisasi tanpa mengganti semuanya sekaligus." },
+            { question: "Apakah ASYST dapat mengembangkan solusi sesuai kebutuhan perusahaan?", answer: "Ya. ASYST merancang solusi modular dan pengembangan kustom yang mengikuti proses bisnis, struktur, dan kebutuhan integrasi setiap organisasi." },
+            { question: "Apakah ERP dapat digunakan untuk manajemen rantai pasok?", answer: "Ya. ERP dapat mencakup pengadaan, inventaris, pergudangan, dan distribusi, serta menghubungkannya dengan keuangan dan operasional untuk visibilitas rantai pasok secara menyeluruh." },
+            { question: "Industri apa saja yang dapat menggunakan solusi ERP?", answer: "Solusi ERP cocok untuk berbagai industri, termasuk penerbangan, transportasi, manufaktur, pemerintahan, BUMN, dan perusahaan jasa." },
         ],
     },
     cta: {
-        title: "Siap Menghubungkan Operasional Bisnis Inti Anda?",
-        description: "Diskusikan proses bisnis, sistem, dan tujuan operasional Anda bersama spesialis ERP kami",
-        button: "Minta demo produk",
+        title: "Bangun Enterprise yang Lebih Terhubung",
+        description: "Setiap organisasi memiliki proses, sistem, dan tantangan yang unik. Bersama ASYST, Anda dapat merancang pendekatan ERP dan manajemen bisnis yang sesuai kebutuhan bisnis, terintegrasi dengan lanskap teknologi enterprise, dan menargetkan hasil bisnis yang jelas.",
+        button: "Hubungi Ahli Kami",
     },
 });

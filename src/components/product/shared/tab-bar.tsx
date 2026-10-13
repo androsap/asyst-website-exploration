@@ -6,11 +6,12 @@ interface TabBarProps {
     active: number;
     onChange: (index: number) => void;
     variant: "pill" | "underline" | "segment";
+    fill?: boolean;
 }
 
 type IndicatorRect = { left: number; width: number };
 
-export default function TabBar({ labels, active, onChange, variant }: TabBarProps) {
+export default function TabBar({ labels, active, onChange, variant, fill = false }: TabBarProps) {
     const listRef = useRef<HTMLDivElement>(null);
     const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
     const [indicator, setIndicator] = useState<IndicatorRect | null>(null);
@@ -34,7 +35,7 @@ export default function TabBar({ labels, active, onChange, variant }: TabBarProp
         itemRefs.current[index]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
     };
 
-    return <div ref={listRef} className={`pv-tabs pv-tabs--${variant} ${indicator ? "has-indicator" : ""}`} role="tablist">
+    return <div ref={listRef} className={`pv-tabs pv-tabs--${variant} ${fill ? "pv-tabs--fill" : ""} ${indicator ? "has-indicator" : ""}`} role="tablist">
         {indicator && <span
             className="pv-tabs__indicator"
             aria-hidden="true"
