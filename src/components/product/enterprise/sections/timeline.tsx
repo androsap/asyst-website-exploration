@@ -12,7 +12,7 @@ interface TimelineSectionProps {
 export default function TimelineSection({ id, content }: TimelineSectionProps) {
     const { layout, mediaFirst = false, title, description, image, items } = content;
 
-    const timeline = <ol className="pe-timeline">
+    const timeline = <ol className={`pe-timeline ${layout === "band" ? "pe-timeline--accent" : ""}`}>
         {items.map(({ title, lead, description }) => (
             <li key={title} className="pe-timeline__item">
                 <Typography component="h3" className="pe-timeline__title">{title}</Typography>

@@ -8,6 +8,8 @@ $surface-soft: #FAFBFD;
 $backdrop: #EEF3F9;
 $tag-bg: #F1F7EA;
 $tag-text: #5E9A2A;
+$accent: #89BA3A;
+$accent-dot: #DCE1E5;
 $font-heading: "Inter", sans-serif;
 
 $header-height: 84px;
@@ -629,6 +631,26 @@ $mobile: 599px;
 
             &:last-child {
                 padding-bottom: 0;
+            }
+        }
+
+        &--accent .pe-timeline__item {
+            &::before {
+                top: 8px;
+                left: 1px;
+                width: 12px;
+                height: 12px;
+                border: 1.5px solid $accent;
+                background: $accent-dot;
+                box-sizing: border-box;
+            }
+
+            &:not(:last-child)::after {
+                top: 20px;
+                bottom: -8px;
+                left: 6.25px;
+                width: 1.5px;
+                background: $accent;
             }
         }
 

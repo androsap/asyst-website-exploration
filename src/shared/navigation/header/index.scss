@@ -369,13 +369,14 @@ $header-height: 84px;
 .header-links {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px 24px;
+    gap: 16px 12px;
 }
 
 .header-link {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
+    min-width: 0;
     padding: 6px;
     border-radius: 10px;
     color: $blue;
@@ -391,11 +392,11 @@ $header-height: 84px;
     }
 
     &__icon {
-        width: 48px;
-        height: 48px;
+        width: 40px;
+        height: 40px;
         flex-shrink: 0;
         border: 1px solid $border;
-        border-radius: 10px;
+        border-radius: 8px;
         background: $surface;
         color: #2775BB;
         display: flex;
@@ -403,13 +404,18 @@ $header-height: 84px;
         justify-content: center;
 
         svg {
-            font-size: 22px;
+            font-size: 20px;
         }
     }
 
     &__label {
+        min-width: 0;
         font-size: 15px;
-        line-height: 1.5;
+        line-height: 22px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
     }
 }
 

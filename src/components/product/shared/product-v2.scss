@@ -584,8 +584,8 @@ $mobile: 599px;
 
     .pv-stats {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        max-width: 1100px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        max-width: 1184px;
         margin: 64px auto 0;
         border: 1px solid $border;
         border-radius: 12px;
@@ -593,14 +593,23 @@ $mobile: 599px;
         backdrop-filter: blur(6px);
 
         @media (max-width: $tablet) {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media (max-width: $mobile) {
+            grid-template-columns: minmax(0, 1fr);
         }
 
         &__item {
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding: 20px 24px;
+            gap: 14px;
+            min-width: 0;
+            padding: 20px;
+
+            > div {
+                min-width: 0;
+            }
 
             & + & {
                 border-left: 1px solid $border;
@@ -617,33 +626,55 @@ $mobile: 599px;
             }
 
             @media (max-width: $mobile) {
-                padding: 16px;
-                gap: 10px;
+                padding: 14px 16px;
+                gap: 12px;
+
+                & + & {
+                    border-left: 0;
+                    border-top: 1px solid $border;
+                }
             }
         }
 
         &__icon {
+            flex-shrink: 0;
             font-size: 28px;
             color: $navy-2;
+        }
+
+        &__value,
+        &__label {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         &__value {
             font-family: $font-heading;
             color: $navy-2;
-            font-size: 24px;
+            font-size: clamp(16px, 1.45vw, 21px);
             font-weight: 700;
-            line-height: 1.2;
+            line-height: 1.25;
+
+            @media (max-width: $tablet) {
+                font-size: 20px;
+            }
 
             @media (max-width: $mobile) {
-                font-size: 18px;
+                font-size: 17px;
             }
         }
 
         &__label {
+            margin-top: 2px;
             font-family: $font-heading;
             color: $navy-2;
-            font-size: 15px;
+            font-size: clamp(12px, 1vw, 14px);
             font-weight: 600;
+
+            @media (max-width: $tablet) {
+                font-size: 14px;
+            }
 
             @media (max-width: $mobile) {
                 font-size: 13px;
@@ -689,9 +720,19 @@ $mobile: 599px;
         }
 
         &__menu {
+            position: relative;
             display: flex;
             flex-direction: column;
             border-right: 1px solid $border;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            &.has-indicator .pv-catalog__menu-item.active {
+                background: transparent;
+            }
 
             @media (max-width: $tablet) {
                 flex-direction: row;
@@ -701,7 +742,23 @@ $mobile: 599px;
             }
         }
 
+        &__indicator {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: $surface;
+            pointer-events: none;
+            transition: transform .22s cubic-bezier(0.2, 0, 0, 1), width .22s cubic-bezier(0.2, 0, 0, 1), height .22s cubic-bezier(0.2, 0, 0, 1);
+
+            @media (prefers-reduced-motion: reduce) {
+                transition: none;
+            }
+        }
+
         &__menu-item {
+            position: relative;
+            z-index: 1;
+            transition: color .22s cubic-bezier(0.2, 0, 0, 1), background-color .22s cubic-bezier(0.2, 0, 0, 1);
             justify-content: flex-start;
             padding: 18px 20px;
             border-bottom: 1px solid $border;
@@ -727,9 +784,59 @@ $mobile: 599px;
             }
         }
 
+        &__viewport {
+            min-width: 0;
+            overflow: hidden;
+            transition: height .45s cubic-bezier(0.4, 0, 0.2, 1);
+
+            @media (prefers-reduced-motion: reduce) {
+                transition: none;
+            }
+        }
+
         &__panel {
             padding: 28px;
             min-width: 0;
+
+            > *,
+            .pv-catalog-card {
+                animation: pv-tab-fade-in .45s cubic-bezier(0.4, 0, 0.2, 1) both;
+            }
+
+            > :nth-child(2) {
+                animation-delay: .04s;
+            }
+
+            > :nth-child(3) {
+                animation-delay: .08s;
+            }
+
+            > .pv-catalog__grid {
+                animation: none;
+            }
+
+            .pv-catalog-card:nth-child(1) {
+                animation-delay: .1s;
+            }
+
+            .pv-catalog-card:nth-child(2) {
+                animation-delay: .16s;
+            }
+
+            .pv-catalog-card:nth-child(3) {
+                animation-delay: .22s;
+            }
+
+            > .pv-catalog__button {
+                animation-delay: .26s;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                > *,
+                .pv-catalog-card {
+                    animation: none;
+                }
+            }
 
             @media (max-width: $mobile) {
                 padding: 20px;
@@ -800,6 +907,11 @@ $mobile: 599px;
             font-size: 19px;
             font-weight: 700;
             line-height: 1.35;
+            min-height: calc(19px * 1.35 * 2);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
         }
 
         &__description {
@@ -807,6 +919,11 @@ $mobile: 599px;
             font-size: 15px;
             line-height: 1.65;
             color: $muted;
+            min-height: calc(15px * 1.65 * 3);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
         }
 
         &__link {

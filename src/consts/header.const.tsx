@@ -47,6 +47,7 @@ export const HeaderProductsConst = localized<HeaderProductCategory[]>([
             { name: "Hermes", description: "Hermes brings cargo sales, shipment management", link: "/product/hermes" },
             { name: "Elea", description: "Elea helps IT teams manage requests, tickets", link: "/product/elea" },
             { name: "Document System", description: "Document helps IT teams and corporate to manage files", link: "/product/smart-document" },
+            { name: "Aprov", description: "Aprov brings procurement, approvals and vendor management", link: "/product/e-procurement" },
         ],
     },
     {
@@ -105,6 +106,7 @@ export const HeaderProductsConst = localized<HeaderProductCategory[]>([
             { description: "Hermes mencakup penjualan kargo dan manajemen pengiriman" },
             { description: "Elea membantu tim IT mengelola permintaan dan tiket" },
             { name: "Sistem Dokumen", description: "Membantu tim IT dan perusahaan mengelola berkas" },
+            { description: "Aprov menyatukan pengadaan, persetujuan, dan vendor" },
         ],
     },
     {
