@@ -9,6 +9,7 @@ import imgModernize from "assets/asyst/img/background/product/overview/backgroun
 import imgTransform from "assets/asyst/img/background/industry/industry-detail.webp";
 import imgSeat from "assets/asyst/img/background/industry/airline-airport/airline.webp";
 import { localized } from "shared/i18n";
+import { SOLUTION_LINKS } from "./solution-links.const";
 
 export interface SolutionHeroContent {
     eyebrow: string;
@@ -47,7 +48,7 @@ export interface SolutionCtaContent {
     button: string;
 }
 
-const SOC_LINK = "/solution/security-operations-center";
+const SOC_LINK = SOLUTION_LINKS.soc;
 
 const solutionHeroEn: SolutionHeroContent = {
     eyebrow: "Asyst Solutions",
@@ -92,28 +93,28 @@ const solutionLayersEn = {
             tag: "Operate",
             title: "Keep Infrastructure, Applications and IT Services Running",
             description: "Enterprise IT requires more than infrastructure availability. Applications, platforms, users and service processes need to work together reliably. ASYST combines technology operations",
-            link: { label: "Explore Infra, App, Platform Operation & ITSM", to: "/solution" },
+            link: { label: "Explore Infra, App, Platform Operation & ITSM", to: SOLUTION_LINKS.managedIt },
             image: imgOperate,
         },
         {
             tag: "Connect",
             title: "Connect Services, Systems and Data Into One Operational Flow",
             description: "Business processes often span multiple applications, databases, APIs and operational teams. Service orchestration helps coordinate these systems, while data management creates",
-            link: { label: "Explore Service Orchestration & Data Management", to: "/solution" },
+            link: { label: "Explore Service Orchestration & Data Management", to: SOLUTION_LINKS.serviceOrchestration },
             image: imgConnect,
         },
         {
             tag: "Modernize",
             title: "Modernize Legacy Applications Without Losing Business Continuity",
             description: "Legacy applications can contain years of business logic and operational knowledge. Modernization is therefore not simply replacing old technology it is evolving the application landscape",
-            link: { label: "Explore Application Modernization", to: "/solution" },
+            link: { label: "Explore Application Modernization", to: SOLUTION_LINKS.appModernization },
             image: imgModernize,
         },
         {
             tag: "Transform",
             title: "Turn Business Challenges Into Digital Transformation Roadmaps",
             description: "Digital transformation is most effective when business strategy, operating models, technology architecture and execution move together",
-            link: { label: "Explore Digital Business Consulting", to: "/solution" },
+            link: { label: "Explore Digital Business Consulting", to: SOLUTION_LINKS.digitalConsulting },
             image: imgTransform,
         },
         {

@@ -6,14 +6,14 @@ import router from "./router"
 import AnalyticsHelper from "helper/AnalyticsHelper";
 import PageLoader from "shared/page-loader";
 import { useLanguage } from "shared/i18n";
-import { LazyPage } from "./lazy-page";
+import { LazyPage, lazyPage } from "./lazy-page";
 
 export interface RouterProps {
     path: string;
     component: LazyPage;
 }
 
-const Error404 = () => <>404</>
+const NotFoundPage = lazyPage(() => import("components/not-found/page"));
 
 const PAGE_LOADER_DURATION = 700;
 
@@ -44,7 +44,7 @@ export default function MainApp() {
     return (<>
         <PageLoader open={pageLoading} />
         <Routes>
-            <Route path="*" element={<Error404 />} />
+            <Route path="*" element={<AutoRoute Component={NotFoundPage} />} />
             {Children.toArray(routers.map(({ path, component }) => <Route path={path} element={<AutoRoute Component={component} />} />))}
         </Routes>
     </>)

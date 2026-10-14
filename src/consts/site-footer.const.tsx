@@ -1,5 +1,6 @@
 import { localized } from "shared/i18n";
 import { HeaderLinkItem } from "./header.const";
+import { SOLUTION_LINKS } from "./solution-links.const";
 
 export interface FooterColumn {
     title?: string;
@@ -40,11 +41,11 @@ export const FooterColumnsConst = localized<FooterColumn[]>([
     {
         title: "Solutions",
         items: [
-            { label: "Security Operation Center", link: "/solution/security-operations-center" },
-            { label: "Digital Business Consulting", link: "/solution" },
-            { label: "Infra, App, Platform Operation and ITSM", link: "/solution" },
-            { label: "Service Orchestration and Data management", link: "/solution" },
-            { label: "Application Modernization", link: "/solution" },
+            { label: "Security Operation Center", link: SOLUTION_LINKS.soc },
+            { label: "Digital Business Consulting", link: SOLUTION_LINKS.digitalConsulting },
+            { label: "Infra, App, Platform Operation and ITSM", link: SOLUTION_LINKS.managedIt },
+            { label: "Service Orchestration and Data management", link: SOLUTION_LINKS.serviceOrchestration },
+            { label: "Application Modernization", link: SOLUTION_LINKS.appModernization },
         ],
     },
     {

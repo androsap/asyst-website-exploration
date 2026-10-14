@@ -8,7 +8,7 @@ import imgArchitecture from "assets/asyst/img/background/product/athena/detail/d
 import { EnterpriseProductContent } from "./enterprise.types";
 import { localized } from "shared/i18n";
 
-const amalaV2DetailEn: EnterpriseProductContent = {
+const amalaDetailEn: EnterpriseProductContent = {
     seo: {
         title: "Loyalty Management System for Enterprises | ASYST",
         description: "ASYST Loyalty Management System helps companies run loyalty programs that connect members, points, tiers, rewards, campaigns, partners and analytics in one enterprise platform.",
@@ -164,7 +164,7 @@ const amalaV2DetailEn: EnterpriseProductContent = {
     },
 };
 
-export const AmalaV2DetailConst = localized(amalaV2DetailEn, {
+export const AmalaDetailConst = localized(amalaDetailEn, {
     seo: {
         title: "Loyalty Management System untuk Enterprise | ASYST",
         description: "Loyalty Management System ASYST membantu perusahaan menjalankan program loyalitas yang menghubungkan member, poin, tier, reward, kampanye, mitra, dan analitik dalam satu platform enterprise.",

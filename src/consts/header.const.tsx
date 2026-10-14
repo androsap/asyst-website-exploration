@@ -3,6 +3,7 @@ import type { ComponentType } from "react";
 import imgFeatured from "assets/asyst/img/background/services-solutions/amala1.webp";
 import { LANGUAGES, localized } from "shared/i18n";
 import * as Icons from "shared/navigation/header/header-icons";
+import { SOLUTION_LINKS } from "./solution-links.const";
 
 export interface HeaderLinkItem {
     label: string;
@@ -161,11 +162,11 @@ export const HeaderSolutionsConst = localized<HeaderGroup[]>([
         link: "/solution",
         linkLabel: "All Solutions",
         items: [
-            { label: "Security Operation Center", link: "/solution/security-operations-center", icon: Icons.SecurityOperationCenterIcon },
-            { label: "Infra, App, Platform Operation and ITSM", link: "/solution", icon: Icons.InfraAppPlatformOperationAndITSMIcon },
-            { label: "Service Orchestration and Data Management", link: "/solution", icon: Icons.ServiceOrchestrationAndDataManagementIcon },
-            { label: "Application Modernization", link: "/solution", icon: Icons.ApplicationModernizationIcon },
-            { label: "Digital Business Consulting", link: "/solution", icon: Icons.DigitalBusinessConsultingIcon },
+            { label: "Security Operation Center", link: SOLUTION_LINKS.soc, icon: Icons.SecurityOperationCenterIcon },
+            { label: "Infra, App, Platform Operation and ITSM", link: SOLUTION_LINKS.managedIt, icon: Icons.InfraAppPlatformOperationAndITSMIcon },
+            { label: "Service Orchestration and Data Management", link: SOLUTION_LINKS.serviceOrchestration, icon: Icons.ServiceOrchestrationAndDataManagementIcon },
+            { label: "Application Modernization", link: SOLUTION_LINKS.appModernization, icon: Icons.ApplicationModernizationIcon },
+            { label: "Digital Business Consulting", link: SOLUTION_LINKS.digitalConsulting, icon: Icons.DigitalBusinessConsultingIcon },
             { label: "Seat Management", link: "/solution", icon: Icons.SeatManagementIcon },
         ],
     },

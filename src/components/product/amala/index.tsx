@@ -1,8 +1,8 @@
-import { MainLayoutSharedProps } from 'shared/layout/main-layout';
-import { AmalaDetailConst } from 'consts/product-detail.const';
-import { useLocalized } from 'shared/i18n';
-import ProductDetail from '../detail';
+import { MainLayoutSharedProps } from "shared/layout/main-layout";
+import { AmalaDetailConst } from "consts/product-detail/amala.const";
+import { useLocalized } from "shared/i18n";
+import EnterpriseProductPage from "../enterprise";
 
 export default function AmalaDetailComponent({ }: MainLayoutSharedProps) {
-    return <ProductDetail content={useLocalized(AmalaDetailConst)} />
+    return <EnterpriseProductPage path="/product/amala" content={useLocalized(AmalaDetailConst)} />
 }
