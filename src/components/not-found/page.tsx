@@ -5,7 +5,7 @@ import NotFoundComponent from ".";
 
 const props: MainLayoutSharedProps = {
     title: mapLocalized(NotFoundConst, content => content.seoTitle),
-    defaultNav: true
+    noindex: true
 }
 
 export default function NotFoundPage() {

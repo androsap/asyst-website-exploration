@@ -6,7 +6,6 @@ const MainComponent = lazy(() => import("components/product/amala"));
 
 const props: MainLayoutSharedProps = {
     title: mapLocalized(AmalaDetailConst, content => content.seo.title),
-    defaultNav: true
 }
 
 export default function DashboardPages() {

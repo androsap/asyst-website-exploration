@@ -6,7 +6,7 @@ class TestimonilaHelper extends BaseHelper {
     static url = api.testimonial;
 
     static get(callback?: Callback) {
-        return this.getBase("", callback, { showSuccess: true, showError: true })
+        return this.getBase("", callback)
     }
 }
 

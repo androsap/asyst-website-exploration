@@ -11,7 +11,8 @@ import { ResourcesModel } from "models/amala/resources.model";
 import ResourcesHelper from 'helper/auxoshift/ResourceHelper';
 import { Link } from 'react-router-dom';
 import './index.scss';
-import { formatDate, useLanguage, useT } from 'shared/i18n';
+import { useLanguage, useT } from 'shared/i18n';
+import { formatDate } from 'shared/i18n/format-date';
 
 type Resources = {
     type: string;
@@ -41,19 +42,15 @@ const getResources = (isId: boolean): Resources => [{
 
 export default function ResourcesComponent() {
     const [data, setData] = useState<ResourcesModel>({} as ResourcesModel)
-    const [loading, setLoading] = useState<boolean>(true)
     const t = useT()
     const resources = getResources(useLanguage() === "ID")
 
     useEffect(() => {
         getData()
-        console.log(data, loading)
     }, [])
 
     const getData = () => {
-        setLoading(true)
         ResourcesHelper.get(({ status, data }) => {
-            setLoading(false)
             if (status) setData(data.data)
         })
     }
@@ -62,8 +59,8 @@ export default function ResourcesComponent() {
         fetch(data.product.section.file, {
         }).then(response => {
             response.blob().then(blob => {
-                let url = window.URL.createObjectURL(blob);
-                let a = document.createElement('a');
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement("a");
                 a.href = url;
                 a.download = 'amala.pdf';
                 a.click();

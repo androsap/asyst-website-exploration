@@ -1,11 +1,9 @@
 import { useSyncExternalStore } from "react";
-import dayjs from "dayjs";
-import "dayjs/locale/id";
 
 export const LANGUAGES = ["ID", "EN"] as const;
 export type Language = typeof LANGUAGES[number];
 
-export const DEFAULT_LANGUAGE: Language = "ID";
+const DEFAULT_LANGUAGE: Language = "ID";
 const STORAGE_KEY = "language";
 
 const isLanguage = (value: unknown): value is Language => LANGUAGES.includes(value as Language);
@@ -27,7 +25,7 @@ const syncDocument = (language: Language) => {
 };
 syncDocument(currentLanguage);
 
-export const getLanguage = () => currentLanguage;
+const getLanguage = () => currentLanguage;
 
 export const setLanguage = (language: Language) => {
     if (language === currentLanguage) return;
@@ -66,10 +64,6 @@ export const useApiText = () => {
     };
 };
 
-export const formatDate = (date: string, format: string, language: Language) => {
-    const parsed = dayjs(date);
-    return parsed.isValid() ? parsed.locale(language === "ID" ? "id" : "en").format(format) : "";
-};
 
 export type Localized<T> = Record<Language, T>;
 

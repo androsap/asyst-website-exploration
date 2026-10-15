@@ -6,7 +6,7 @@ class CustomersHelper extends BaseHelper {
     static url = api.customers;
 
     static get(callback?: Callback) {
-        return this.getBase("/auxoshift", callback, { showSuccess: true, showError: true })
+        return this.getBase("/auxoshift", callback)
     }
 }
 

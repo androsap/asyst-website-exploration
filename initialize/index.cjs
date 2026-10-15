@@ -1,106 +1,62 @@
-const path = require('path');
-const fs = require("fs")
+const fs = require("fs");
+const path = require("path");
 
-const FileName = "router"
+const ROOT = path.join(__dirname, "..");
+const PAGES_DIR = path.join(ROOT, "src/pages");
+const NOINDEX_ROUTES = ["/about-us", "/search"];
 
-try {
-    const directoryPath = path.join(__dirname, '../src/pages');
+const readEnv = (file, key) => {
+    try {
+        const match = fs.readFileSync(path.join(ROOT, file), "utf8").match(new RegExp(`^${key}=(.*)$`, "m"));
+        return match?.[1].trim();
+    } catch {
+        return undefined;
+    }
+};
 
-    const generateRouter = (halaman, namafile) => {
-        let router = [];
+const SITE_URL = (process.env.VITE_SITE_URL || readEnv(".env.prd", "VITE_SITE_URL") || "https://www.asyst.co.id").replace(/\/$/, "");
 
-        const recursiveMap = (fileName, dir = "") => {
-            if (fileName.includes(".")) {
+const toParam = segment => segment.replace(/\[/g, ":").replace(/\]/g, "");
 
-                const rename = (fn, d, remove = true) => {
-                    fn = fn.replace(/\.[^/.]+$/, "")
-                    if (remove) {
-                        if (fn.includes("[")) {
-                            fn = fn.replace(/\[/g, ":")
-                            fn = fn.replace(/\]/g, "")
-                        }
+const collectPages = (dir = "") => fs.readdirSync(path.join(PAGES_DIR, dir)).flatMap(name => {
+    if (!name.includes(".")) return collectPages(`${dir}/${name}`);
+    const file = name.replace(/\.[^/.]+$/, "");
+    const route = toParam(dir);
+    return [{
+        path: file === "index" ? (route || "/") : `${route}/${toParam(file)}`,
+        file: `${dir}/${file}`,
+    }];
+});
 
-                        if (d.includes("[")) {
-                            d = d.replace(/\[/g, ":")
-                            d = d.replace(/\]/g, "")
-                        }
-                    }
+const pages = collectPages();
 
-                    return `${d}${(!remove ? "/" + fn : (fn === "index" ? (d ? "" : "/") : "/"))}`
-                }
-                const rename2 = (fn, d, remove = true) => {
-                    fn = fn.replace(/\.[^/.]+$/, "")
-                    if (remove) {
-                        if (fn.includes("[")) {
-                            fn = fn.replace(/\[/g, ":")
-                            fn = fn.replace(/\]/g, "")
-                        }
-
-                        if (d.includes("[")) {
-                            d = d.replace(/\[/g, ":")
-                            d = d.replace(/\]/g, "")
-                        }
-                    }
-
-                    return `${d}${fn === "index" ? (d ? "" : "/") : "/" + fn}`
-                }
-
-                router.push({
-                    path: rename2(fileName, dir),
-                    component: `{{buka}}../../pages${rename(fileName, dir, false)}{{tutup}}`
-                })
-            }
-            else {
-                const pat = path.join(__dirname, `../src/pages/` + dir + "/" + fileName);
-                fs.readdirSync(pat).map(x => recursiveMap(x, dir + "/" + fileName));
-            }
-        }
-
-        fs.readdirSync(halaman).map(fileName => recursiveMap(fileName));
-
-        fs.writeFile(path.join(__dirname, `../src/shared/router/${namafile}.tsx`), `
+const router = pages.map(({ path, file }) => `{"path":${JSON.stringify(path)},"component":lazyPage(() => import("../../pages${file}"))}`);
+fs.writeFileSync(path.join(ROOT, "src/shared/router/router.tsx"), `
 import { lazyPage } from "./lazy-page";
-const router = ${JSON.stringify(router).replace(/{{buka}}/g, 'lazyPage(() => import("').replace(/{{tutup}}/g, '"))')};
-export default router;`.replace(/"lazy/g, "lazy").replace(/\)\)"/g, "))"), function (err) {
-            if (err) throw err;
-            console.log(`File router ${namafile} is created successfully.`);
-        });
-    }
+const router = [${router.join(",")}];
+export default router;`);
 
-    generateRouter(directoryPath, FileName)
+const extract = (file, pattern) => [...fs.readFileSync(path.join(ROOT, file), "utf8").matchAll(pattern)].map(match => match[1]);
+const caseStudySlugs = [...new Set(extract("src/consts/case-study.const.tsx", /^ {4}"([a-z0-9-]+)": \{$/gm))];
+const jobSlugs = [...new Set(extract("src/consts/career.const.tsx", /^ {8}slug: "([a-z0-9-]+)",$/gm))];
 
-    function generateUUID() {
-        var d = new Date().getTime();
-        var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now() * 1000)) || 0;
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = Math.random() * 16;
-            if (d > 0) {
-                r = (d + r) % 16 | 0;
-                d = Math.floor(d / 16);
-            } else {
-                r = (d2 + r) % 16 | 0;
-                d2 = Math.floor(d2 / 16);
-            }
-            return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-        });
-    }
+const urls = [
+    ...pages.map(page => page.path).filter(route => !route.includes(":") && !NOINDEX_ROUTES.includes(route)),
+    ...caseStudySlugs.map(slug => `/case-study/${slug}`),
+    ...jobSlugs.map(slug => `/career/jobs/${slug}`),
+].sort((a, b) => a === "/" ? -1 : b === "/" ? 1 : a.localeCompare(b));
 
-    const version = generateUUID()
+fs.writeFileSync(path.join(ROOT, "public/sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map(url => `  <url><loc>${SITE_URL}${url === "/" ? "/" : url}</loc></url>`).join("\n")}
+</urlset>
+`);
 
-    fs.writeFile(path.join(__dirname, `../public/build-id.json`), JSON.stringify({
-        version
-    }), function (err) {
-        if (err) throw err;
-        console.log(`Version ${version} is created successfully.`);
-    })
-    fs.writeFile(path.join(__dirname, `../src/build-id.json`), JSON.stringify({
-        version
-    }), function (err) {
-        if (err) throw err;
-        console.log(`Version ${version} is created successfully.`);
-    })
+fs.writeFileSync(path.join(ROOT, "public/robots.txt"), `User-agent: *
+Allow: /
+Disallow: /search
 
-} catch (error) {
-    console.log(error, "File router Generate error")
-}
+Sitemap: ${SITE_URL}/sitemap.xml
+`);
 
+console.log(`Router (${pages.length} pages) and sitemap (${urls.length} URLs) generated.`);

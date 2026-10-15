@@ -37,7 +37,7 @@ const NavButtons = ({ size = "size-10" }: { size?: string }) =>
         <Bone className={cn(size, "rounded-full")} />
     </div>
 
-export function HeroSkeleton() {
+function HeroSkeleton() {
     return <section className="box-border flex min-h-[max(706px,min(100svh,1067px))] flex-col pb-8 pt-[116px] max-[1023px]:min-h-[min(100svh,1067px)] max-[1023px]:pt-[110px] max-[599px]:min-h-0 max-[599px]:pb-2 max-[599px]:pt-28" style={{ background: HERO_BACKGROUND }}>
         <Container maxWidth="xl" className="flex flex-1 flex-col">
             <div className="m-auto flex w-full max-w-[1000px] flex-col items-center">
@@ -75,7 +75,7 @@ export function HeroSkeleton() {
     </section>
 }
 
-export function HighlightSkeleton() {
+function HighlightSkeleton() {
     return <Section>
         <Heading />
         <div className="flex gap-6 overflow-hidden max-[599px]:gap-4">
@@ -199,7 +199,7 @@ export function NewsCardSkeleton({ className }: { className?: string }) {
     </div>
 }
 
-export function CtaSkeleton() {
+function CtaSkeleton() {
     return <Section>
         <div className="box-border flex items-center justify-between gap-8 rounded-[14px] bg-[#2775BB] px-14 py-[52px] max-[1023px]:px-6 max-[1023px]:py-8 max-[599px]:mx-[-16px] max-[599px]:flex-col max-[599px]:items-start max-[599px]:gap-10 max-[599px]:rounded-none max-[599px]:px-6 max-[599px]:py-10">
             <div className="flex flex-1 flex-col gap-3">

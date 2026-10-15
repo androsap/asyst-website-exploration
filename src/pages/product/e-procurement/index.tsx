@@ -6,7 +6,6 @@ const MainComponent = lazy(() => import("components/product/e-procurement"));
 
 const props: MainLayoutSharedProps = {
     title: mapLocalized(EProcurementDetailConst, content => content.seo.title),
-    defaultNav: true
 }
 
 export default function DashboardPages() {

@@ -5,7 +5,7 @@ const MainComponent = lazy(() => import("components/search"));
 
 const props: MainLayoutSharedProps = {
     title: localized("Search | PT Aero Systems Indonesia", "Pencarian | PT Aero Systems Indonesia"),
-    defaultNav: true
+    noindex: true
 }
 
 export default function SearchPages() {

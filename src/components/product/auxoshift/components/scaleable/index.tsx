@@ -1,9 +1,9 @@
+import { decodeEntities } from "@/lib/utils";
 import { Typography } from "components/ui/typography";
 import { styles } from './styled'
 import { useState, useEffect, } from 'react'
 import { ScaleModel } from "models/amala/scale.model"
 import ScaleHelper from 'helper/auxoshift/ScaleHelper'
-import he from 'he'
 import { useApiText } from 'shared/i18n'
 
 export default function ScalableComponent() {
@@ -26,11 +26,11 @@ export default function ScalableComponent() {
         {!loading && data && (
             <div>
                 <Typography className={styles.title}
-                    dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "subtitle") || '') }} />
+                    dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(data.product?.section, "subtitle") || '') }} />
                 <div className="flex flex-row justify-between">
                     <div className="w-[80%]">
                         <Typography className={styles.subtitle}
-                            dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
+                            dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(data.product?.section, "title") || '') }} />
                         <div className="inline">
                             <a className="inline text-[color:var(--color-primary,#2775BB)]">
                                 {data?.product?.product_name}{' '}
@@ -38,7 +38,7 @@ export default function ScalableComponent() {
                             <Typography
                                 className={`${styles.description} inline`}
                                 dangerouslySetInnerHTML={{
-                                    __html: he.decode(apiText(data.product?.section, "description") || '')
+                                    __html: decodeEntities(apiText(data.product?.section, "description") || '')
                                 }}
                             />
                         </div>

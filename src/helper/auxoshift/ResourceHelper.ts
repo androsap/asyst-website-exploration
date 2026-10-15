@@ -6,7 +6,7 @@ class ResourcesHelper extends BaseHelper {
     static url = api.resources;
 
     static get(callback?: Callback) {
-        return this.getBase("/auxoshift", callback, { showSuccess: true, showError: true })
+        return this.getBase("/auxoshift", callback)
     }
 }
 

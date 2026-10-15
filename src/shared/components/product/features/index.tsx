@@ -1,3 +1,4 @@
+import { decodeEntities, scrollTo } from "@/lib/utils";
 import { Typography } from "components/ui/typography";
 import { Divider } from "components/ui/divider";
 import { Container } from "components/ui/container";
@@ -11,10 +12,8 @@ import 'swiper/css/mousewheel'
 import { FeaturesModel } from "models/amala/features.model"
 import background from "assets/asyst/img/background/product/amala/feature.webp"
 import frame from "assets/asyst/img/background/product/amala/feature-frame.webp"
-import he from 'he'
 import { formatPaginationBullet } from 'components/home'
 import { RefObject, useEffect, useRef, useState } from 'react'
-import { scrollTo } from 'lib'
 import { useApiText, useT } from 'shared/i18n'
 
 interface FeatureContentBoxProps {
@@ -49,8 +48,8 @@ const FeatureComponent: React.FC<FeaturesProps> = ({ feature, prevElement, nextE
                     <div className="flex flex-row items-center justify-between gap-[80px]">
                         <div className="flex flex-col w-[90%]">
                             <Typography className={styles.feature}>{t(`${feature?.product_name} Feature`, `Fitur ${feature?.product_name}`)}</Typography>
-                            <Typography className={styles.title} dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "title") || '') }} />
-                            <Typography className={styles.subtitle} dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "subtitle") || '') }} />
+                            <Typography className={styles.title} dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(section, "title") || '') }} />
+                            <Typography className={styles.subtitle} dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(section, "subtitle") || '') }} />
                             {section.sub_section_1.map((subsection, index) => (
                                 <div key={`subsection-${index}`}>
                                     <Typography className={styles.description}>{apiText(subsection, "title")}</Typography>

@@ -6,7 +6,6 @@ const MainComponent = lazy(() => import("components/product/smart-document"));
 
 const props: MainLayoutSharedProps = {
     title: mapLocalized(SmartDocumentDetailConst, content => content.seo.title),
-    defaultNav: true
 }
 
 export default function DashboardPages() {

@@ -4,7 +4,6 @@ const MainComponent = lazy(() => import("components/product/project-management")
 
 const props: MainLayoutSharedProps = {
     title: "PT Aero Systems Indonesia",
-    defaultNav: true
 }
 
 export default function DashboardPages() {

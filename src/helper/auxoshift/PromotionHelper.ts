@@ -6,7 +6,7 @@ class PromotionHelper extends BaseHelper {
     static url = api.promotion;
 
     static get(callback?: Callback) {
-        return this.getBase("/auxoshift", callback, { showSuccess: true, showError: true })
+        return this.getBase("/auxoshift", callback)
     }
 }
 

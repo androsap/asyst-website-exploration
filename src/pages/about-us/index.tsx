@@ -1,14 +1,5 @@
-import { lazy } from "react";
-import MainLayoutShared, { MainLayoutSharedProps } from "shared/layout/main-layout";
-const MainComponent = lazy(() => import("components/about-us"));
+import { Navigate } from "react-router-dom";
 
-const props: MainLayoutSharedProps = {
-    title: "PT Aero Systems Indonesia",
-    defaultNav: true
-}
-
-export default function DashboardPages() {
-    return <MainLayoutShared {...props}>
-        <MainComponent {...props}/>
-    </MainLayoutShared>
+export default function AboutUsRedirect() {
+    return <Navigate to="/about" replace />
 }

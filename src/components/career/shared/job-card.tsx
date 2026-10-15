@@ -41,7 +41,7 @@ export default function JobCard({ job, variant = "grid", style }: JobCardProps) 
     </article>
 }
 
-export function JobMeta({ job }: { job: CareerJob }) {
+function JobMeta({ job }: { job: CareerJob }) {
     const t = useT();
     const term = useTerms(CareerTermsConst);
     const items = [

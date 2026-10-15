@@ -57,7 +57,6 @@ const DUMMY_PARAGRAPHS = [
     "If your team is facing a similar challenge, the best first step is a conversation. Share the process that slows you down most, and we will help you understand what is possible, what it takes, and where the quickest wins are likely to be.",
 ];
 
-// Builds a 4–8 paragraph article body; the first paragraph doubles as the card excerpt
 const dummyContent = (id: string, category: string, excerpt: string) => {
     const n = Number(id);
     const count = 3 + (n % 5);

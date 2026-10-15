@@ -1,3 +1,4 @@
+import { decodeEntities } from "@/lib/utils";
 import { Typography } from "components/ui/typography";
 import { Divider } from "components/ui/divider";
 import { styles } from './styled'
@@ -6,7 +7,6 @@ import PromotionHelper from 'helper/auxoshift/PromotionHelper';
 import { PromotionCardsModel } from "models/amala/promotionCards.model";
 import PromotionCardsHelper from 'helper/auxoshift/PromotionCardsHelper';
 import { Children, useState, useEffect } from "react"
-import he from 'he'
 import { useApiText } from 'shared/i18n'
 
 export default function InteractComponent() {
@@ -40,9 +40,9 @@ export default function InteractComponent() {
         <div className={styles.mainBox}>
             <div className={styles.textContentBox}>
                 <Typography className={styles.title}
-                    dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
+                    dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(data.product?.section, "title") || '') }} />
                 <Typography className={styles.content}
-                    dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "description") || '') }} />
+                    dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(data.product?.section, "description") || '') }} />
                 {!loading && data.product?.section?.sub_section_1 && Children.toArray(data.product?.section?.sub_section_1.map(item =>
                     <>
                         <Typography className={styles.subtitle}>
@@ -62,11 +62,11 @@ export default function InteractComponent() {
                     <div className="flex flex-col items-center mt-[32px]">
                         <div className={styles.numberContentBox}>
                             <Typography className={styles.number}
-                                dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "title")) }} />
+                                dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(section, "title")) }} />
                         </div>
                         <div className="h-[100px]">
                             <Typography className={styles.text}
-                                dangerouslySetInnerHTML={{ __html: he.decode(apiText(section, "subtitle")) }} />
+                                dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(section, "subtitle")) }} />
                         </div>
                     </div>
                     <div>

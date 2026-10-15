@@ -31,7 +31,6 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
         const limit = offset ? NEWS_MORE_SIZE : NEWS_PAGE_SIZE;
         setLoading(true);
         setError(false);
-        // TODO: switch back to NewsHelper.getList once the CMS has content
         getDummyNewsList({
             limit,
             offset,
@@ -82,7 +81,6 @@ export default function NewsComponent({ }: MainLayoutSharedProps) {
 
                 <div className="nw-grid">
                     {items.map(item => <NewsCard key={item.id} item={item} />)}
-                    {/* Show More on mobile keeps only the first skeleton; the rest are hidden via CSS */}
                     {loading && Array.from({ length: NEWS_SKELETON_COUNT }).map((_, i) => (
                         <NewsCardSkeleton key={i} className={items.length && i > 0 ? "nw-grid__extra" : undefined} />
                     ))}

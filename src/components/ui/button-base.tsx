@@ -3,7 +3,7 @@ import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cn } from "@/lib/utils";
 import { TouchRipple, TouchRippleHandle } from "./touch-ripple";
 
-export const buttonBaseClass = cn(
+const buttonBaseClass = cn(
     "inline-flex items-center justify-center relative box-border bg-transparent [outline:0] border-0 border-none border-current m-0 rounded-none p-0",
     "cursor-pointer select-none align-middle no-underline text-inherit appearance-none [-webkit-tap-highlight-color:transparent]",
     "[&::-moz-focus-inner]:border-none disabled:pointer-events-none disabled:cursor-default aria-disabled:pointer-events-none aria-disabled:cursor-default print:[print-color-adjust:exact]",

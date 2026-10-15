@@ -1,3 +1,4 @@
+import { decodeEntities } from "@/lib/utils";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -7,7 +8,6 @@ import { Typography } from "components/ui/typography";
 import { mainBoxStyle, styles } from './styled';
 import { ProductTestimonialModel } from "models/amala/testimonial.model";
 import { Children } from 'react';
-import he from 'he'
 import { useApiText, useT } from 'shared/i18n'
 import './index.scss';
 
@@ -57,11 +57,11 @@ const TestimonialComponent: React.FC<TestimonialProps> = ({ testimonial }) => {
                                             </div>
                                             <div className="box-border m-0 flex-row grow-0 basis-[79.166667%] max-w-[79.166667%]">
                                                 <Typography className={styles.name}
-                                                    dangerouslySetInnerHTML={{ __html: he.decode(testimonial.name) }} />
+                                                    dangerouslySetInnerHTML={{ __html: decodeEntities(testimonial.name) }} />
                                                 <Typography className={styles.position}
-                                                    dangerouslySetInnerHTML={{ __html: he.decode(testimonial.position) }} />
+                                                    dangerouslySetInnerHTML={{ __html: decodeEntities(testimonial.position) }} />
                                                 <Typography className={styles.company}
-                                                    dangerouslySetInnerHTML={{ __html: he.decode(testimonial.company) }} />
+                                                    dangerouslySetInnerHTML={{ __html: decodeEntities(testimonial.company) }} />
                                             </div>
                                         </div>
                                     </div>

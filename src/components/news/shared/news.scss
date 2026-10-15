@@ -28,7 +28,6 @@ $mobile: 599px;
         text-align: center;
         background: linear-gradient(180deg, #F4F8FD 0%, #FFFFFF 100%);
 
-        // Faded geometric backdrop: tinted blue via multiply, masked out toward the center and bottom
         &::before {
             content: "";
             position: absolute;
@@ -195,8 +194,6 @@ $mobile: 599px;
             font-size: 22px;
             font-weight: 700;
             line-height: 1.35;
-            // Fixed slots (title / excerpt / footer) keep loaded cards the same height as the skeleton.
-            // Box is exactly 2 lines so the clamp clips cleanly; the margin tops it up to the 68px slot.
             height: 2.7em;
             margin-bottom: calc(68px - 2.7em);
             display: -webkit-box;
@@ -228,7 +225,6 @@ $mobile: 599px;
                 border-color: $border;
             }
 
-            // Keep the skeleton's grey fill instead of the media placeholder surface
             .news-card__media {
                 background: rgba(0, 0, 0, 0.08);
             }
@@ -421,7 +417,6 @@ $mobile: 599px;
         border: 1px solid $border;
         border-radius: 999px;
 
-        // Once the meta wraps onto two lines a full pill looks stretched; switch to a rounded box
         @media (max-width: $tablet) {
             border-radius: 16px;
             padding: 12px 20px 12px 12px;
@@ -467,9 +462,6 @@ $mobile: 599px;
                 font-size: 18px;
             }
 
-            // Tablet & mobile: share + reading time sit flush right on the wrapped second row.
-            // Negative margins let the 44px share tap area overlap the box padding instead of
-            // adding visible whitespace around the 13px text.
             @media (max-width: $tablet) {
                 margin: -8px 0 -12px auto;
             }
@@ -490,7 +482,6 @@ $mobile: 599px;
                 text-decoration: underline;
             }
 
-            // Tablet & mobile: borderless, but still a thumb-sized tap target
             @media (max-width: $tablet) {
                 min-height: 44px;
                 padding: 0 4px;
@@ -649,8 +640,6 @@ $mobile: 599px;
         .swiper {
             padding-bottom: 4px;
 
-            // Bleed the carousel to the screen edges so cards slide off-screen instead of
-            // being clipped at the container gutter (pl-8 / pr-8 below 600px)
             @media (max-width: $mobile) {
                 margin: 0 -32px;
                 padding: 0 32px 4px;

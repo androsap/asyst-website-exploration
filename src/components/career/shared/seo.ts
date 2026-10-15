@@ -5,7 +5,7 @@ const ORGANIZATION = {
     "@type": "Organization",
     name: SITE_NAME,
     sameAs: SITE_URL,
-    logo: `${SITE_URL}/icon.png`,
+    logo: `${SITE_URL}/logo-asyst.png`,
 };
 
 const OFFICE_ADDRESS = {

@@ -1,28 +1,23 @@
-import dotenv from 'dotenv'
+import dotenv from "dotenv"
 import { defineConfig, Plugin } from "vite"
 import type { OutputChunk } from "rollup"
-import dns from "dns"
 import react from "@vitejs/plugin-react"
-import tsconfigPaths from 'vite-tsconfig-paths'
-import reactRefresh from '@vitejs/plugin-react-refresh';
-import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
-import svgr from "vite-plugin-svgr";
-import { VitePWA } from 'vite-plugin-pwa'
-import ManifestJson from "./manifest.json"
+import tsconfigPaths from "vite-tsconfig-paths"
+import svgr from "vite-plugin-svgr"
+import { VitePWA } from "vite-plugin-pwa"
 
-dotenv.config({ path: ['.env.local', '.env'] });
-dns.setDefaultResultOrder("verbatim");
+dotenv.config({ path: [".env.local", ".env"] });
 
 const preloadRouteChunks = (pages: Record<string, string>): Plugin => ({
-    name: 'preload-route-chunks',
-    apply: 'build',
+    name: "preload-route-chunks",
+    apply: "build",
     transformIndexHtml: {
-        order: 'post',
+        order: "post",
         handler(_html, ctx) {
-            const chunks = Object.values(ctx.bundle ?? {}).filter((c): c is OutputChunk => c.type === 'chunk');
+            const chunks = Object.values(ctx.bundle ?? {}).filter((c): c is OutputChunk => c.type === "chunk");
             const routes: Record<string, string[]> = {};
             for (const [pathname, file] of Object.entries(pages)) {
-                const entry = chunks.find(c => c.facadeModuleId?.replace(/\\/g, '/').endsWith(file));
+                const entry = chunks.find(c => c.facadeModuleId?.replace(/\\/g, "/").endsWith(file));
                 if (!entry) continue;
                 const files = new Set<string>();
                 const visit = (chunk: OutputChunk) => {
@@ -35,8 +30,8 @@ const preloadRouteChunks = (pages: Record<string, string>): Plugin => ({
                 routes[pathname] = [...files];
             }
             return [{
-                tag: 'script',
-                injectTo: 'head',
+                tag: "script",
+                injectTo: "head",
                 children: `(function(r){(r[location.pathname]||[]).forEach(function(f){var l=document.createElement('link');` +
                     `if(/\\.css$/.test(f)){l.rel='preload';l.as='style'}else{l.rel='modulepreload';l.crossOrigin=''}` +
                     `l.href='/'+f;document.head.appendChild(l)})})(${JSON.stringify(routes)})`,
@@ -46,10 +41,28 @@ const preloadRouteChunks = (pages: Record<string, string>): Plugin => ({
 });
 
 export default defineConfig({
-    plugins: [svgr(), react(), tsconfigPaths(), reactRefresh(), dynamicImportVars({
-        include: ['**/*.js', '**/*.ts', '**/*.tsx'],
-        exclude: ['node_modules/**'],
-    }), VitePWA(ManifestJson), preloadRouteChunks({ '/': '/src/pages/index.tsx' })],
+    plugins: [
+        svgr(),
+        react(),
+        tsconfigPaths(),
+        VitePWA({
+            selfDestroying: true,
+            injectRegister: null,
+            manifest: {
+                name: "PT Aero Systems Indonesia",
+                short_name: "Asyst",
+                description: "Enterprise technology, aviation systems and digital transformation partner in Indonesia.",
+                lang: "id",
+                icons: [{ src: "/logo-asyst.png", sizes: "100x100", type: "image/png" }],
+                theme_color: "#2775BB",
+                background_color: "#FFFFFF",
+                display: "standalone",
+                scope: "/",
+                start_url: "/",
+            },
+        }),
+        preloadRouteChunks({ "/": "/src/pages/index.tsx" }),
+    ],
     server: {
         host: "localhost",
         port: 3006,
@@ -57,62 +70,32 @@ export default defineConfig({
             overlay: false,
         },
         proxy: {
-            '/api/v1': {
-                target: 'https://www.asyst.co.id',
+            "/api/v1": {
+                target: "https://www.asyst.co.id",
                 changeOrigin: true,
                 secure: true,
                 headers: process.env.ASYST_API_TOKEN ? { Authorization: `Bearer ${process.env.ASYST_API_TOKEN}` } : undefined,
             },
-            '/traveldoclocations': {
-                target: 'https://widget.api.traveldoc.aero/WidgetService.svc/JSON/GetLocations?Language=en',
-                changeOrigin: false,
-                secure: false,
-                rewrite: (path) => path.replace(/^\/traveldoclocations/, '')
-            },
-            '/traveldoc': {
-                target: 'https://widget.api.traveldoc.aero',
-                changeOrigin: false,
-                secure: false,
-                rewrite: (path) => path.replace(/^\/traveldoc/, '/WidgetService.svc/JSON/GetResults')
-            },
-            '/configs': {
-                target: 'http://103.126.57.142:8282/api/config',
-                changeOrigin: false,
-                secure: false,
-                rewrite: (path) => path.replace(/^\/configs/, '')
-            },
-            '/maintenances': {
-                target: 'http://103.126.57.142:8282/api/maintenance',
-                changeOrigin: false,
-                secure: false,
-                rewrite: (path) => path.replace(/^\/maintenances/, '')
-            },
-        }
-    },
-    optimizeDeps: {
-        esbuildOptions: {
-            loader: {
-                '.js': 'jsx',
-                '.ts': 'tsx',
-            },
         },
-    },
-    esbuild: {
-        loader: 'tsx',
     },
     css: {
         preprocessorOptions: {
             scss: {
-                silenceDeprecations: ['legacy-js-api'],
+                silenceDeprecations: ["legacy-js-api"],
             },
         },
     },
-    root: './',
     build: {
-        outDir: './build',
-
-    },
-    resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue'],
+        outDir: "./build",
+        target: "es2020",
+        cssCodeSplit: true,
+        reportCompressedSize: false,
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    react: ["react", "react-dom", "react-router-dom"],
+                },
+            },
+        },
     },
 })

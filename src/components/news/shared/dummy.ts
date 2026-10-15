@@ -1,7 +1,6 @@
 import { NewsDummyConst } from "consts/news-page.const";
 import NewsModel, { NewsListParams } from "models/news.model";
 
-// Local stand-in for NewsHelper while the CMS has no content yet; mimics its { status, data } callback shape.
 const DUMMY_DELAY = 800;
 
 type DummyCallback<T> = (response: { status: boolean; data: { data: T } }) => void;

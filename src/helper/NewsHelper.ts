@@ -12,11 +12,11 @@ class NewsHelper extends BaseHelper {
         if (offset) params.append("offset", String(offset));
         if (category) params.append("category", category);
         if (keyword) params.append("keyword", keyword);
-        return this.getBase(`retrieve?${params.toString()}`, callback, { showSuccess: false, showError: true })
+        return this.getBase(`retrieve?${params.toString()}`, callback)
     }
 
     static getDetail(slug: string, callback?: Callback) {
-        return this.getBase(encodeURIComponent(slug), callback, { showSuccess: false, showError: true })
+        return this.getBase(encodeURIComponent(slug), callback)
     }
 }
 

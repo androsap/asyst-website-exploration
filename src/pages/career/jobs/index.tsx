@@ -6,7 +6,6 @@ const MainComponent = lazy(() => import("components/career/jobs"));
 
 const props: MainLayoutSharedProps = {
     title: mapLocalized(CareerSeoConst, seo => seo.jobs.title),
-    defaultNav: true
 }
 
 export default function DashboardPages() {

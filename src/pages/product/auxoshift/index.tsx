@@ -4,7 +4,6 @@ const MainComponent = lazy(() => import("components/product/auxoshift"));
 
 const props: MainLayoutSharedProps = {
     title: "PT Aero Systems Indonesia",
-    blurNav: true
 }
 
 export default function DashboardPages() {

@@ -9,29 +9,19 @@ import { Slide } from "components/ui/transitions";
 import { CloseRoundedIcon } from "components/ui/icons";
 import { useLanguage } from "shared/i18n";
 
-export interface MainLayoutSharedProps extends LayoutSharedProps {
-    showDetailFooter?: boolean;
-    hideDetailLogoFooter?: boolean;
-    showMenuNavigation?: boolean;
-    defaultNav?: boolean;
-    showLiveChat?: boolean;
-    blurNav?: boolean;
-}
+export type MainLayoutSharedProps = LayoutSharedProps;
 
-export default function MainLayoutShared({ showMenuNavigation = true, defaultNav = false, showLiveChat = true, blurNav = false, ...others }: PropsWithChildren<MainLayoutSharedProps>) {
+export default function MainLayoutShared(props: PropsWithChildren<MainLayoutSharedProps>) {
     return <LayoutShared
-        {...others}
+        {...props}
         render={() => <>
-                {showMenuNavigation && <HeaderShared />}
-                <ChildComponent {...others} />
+            <HeaderShared />
+            <ChildComponent {...props} />
         </>}
     />
 }
 
-interface ChildComponentProps extends MainLayoutSharedProps {
-}
-
-const ChildComponent = ({ children }: PropsWithChildren<ChildComponentProps>) => {
+const ChildComponent = ({ children }: PropsWithChildren<MainLayoutSharedProps>) => {
     const [show, setShow] = useState<boolean>(false);
     const language = useLanguage();
 

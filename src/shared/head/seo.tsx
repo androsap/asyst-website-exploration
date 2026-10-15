@@ -32,10 +32,15 @@ const meta = (key: "name" | "property", name: string, content: string) =>
         return element;
     }, "content", content);
 
+export const useNoIndex = (enabled = true) => {
+    useEffect(() => enabled ? meta("name", "robots", "noindex, follow") : undefined, [enabled]);
+};
+
 export default function useSeo({ title, description, path, image, type = "website", jsonLd }: SeoOptions) {
     const jsonLdText = jsonLd ? JSON.stringify(jsonLd) : "";
 
     useEffect(() => {
+        document.title = title;
         const url = absoluteUrl(path);
         const cleanups = [
             meta("name", "description", description),

@@ -70,4 +70,3 @@ export function Modal({
     </DialogPrimitive.Root>
 }
 
-export const DialogTitle = DialogPrimitive.Title;

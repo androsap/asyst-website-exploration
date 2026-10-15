@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $navy: #123554;
 $blue: #2775BB;
 $text: #3F4650;
@@ -143,7 +145,7 @@ $mobile: 599px;
             }
 
             &:hover fieldset {
-                border-color: darken($border, 12%);
+                border-color: color.adjust($border, $lightness: -12%);
             }
 
             &[data-focused="true"] fieldset {

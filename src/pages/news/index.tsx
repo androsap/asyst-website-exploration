@@ -5,7 +5,6 @@ const MainComponent = lazy(() => import("components/news"));
 
 const props: MainLayoutSharedProps = {
     title: localized("News | PT Aero Systems Indonesia", "Berita | PT Aero Systems Indonesia"),
-    defaultNav: true
 }
 
 export default function DashboardPages() {

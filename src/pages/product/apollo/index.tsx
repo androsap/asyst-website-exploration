@@ -6,7 +6,6 @@ const MainComponent = lazy(() => import("components/product/apollo"));
 
 const props: MainLayoutSharedProps = {
     title: mapLocalized(ApolloDetailConst, content => content.seo.title),
-    defaultNav: true
 }
 
 export default function DashboardPages() {

@@ -1,3 +1,4 @@
+import { decodeEntities } from "@/lib/utils";
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { Element } from 'react-scroll';
@@ -27,7 +28,6 @@ import BannerHelper from 'helper/auxoshift/BannerHelper';
 import TestimonialHelper from 'helper/auxoshift/TestimonialHelper';
 import CustomersHelper from 'helper/auxoshift/CustomersHelper';
 import FeaturesHelper from 'helper/auxoshift/FeatureHelper';
-import he from 'he';
 import { useApiText, useT } from 'shared/i18n';
 import bannerBackground from 'assets/asyst/img/background/product/auxoshift/auxoshift-background.webp';
 
@@ -107,9 +107,9 @@ export default function AmalaDetailComponent({ }: MainLayoutSharedProps) {
                         <div className="flex flex-row">
                             <div className="left-banner flex flex-col justify-start">
                                 <Typography className={styles.title}
-                                    dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
+                                    dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(data.product?.section, "title") || '') }} />
                                 <Typography className={styles.description}
-                                    dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "description") || '') }} />
+                                    dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(data.product?.section, "description") || '') }} />
                                 <Button className={styles.buttonFrame} onClick={requestDemoModal}>
                                     <span className={styles.button}>
                                         <Typography component="span" className={`block ${styles.textButton}`}>{t("Request Demo", "Minta Demo")}</Typography>

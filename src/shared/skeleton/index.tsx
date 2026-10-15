@@ -7,7 +7,7 @@ import FooterSkeleton from "./footer";
 import HomeSkeleton from "./home";
 import NewsDetailSkeleton from "./news-detail";
 
-export { Bone, HeaderSkeleton, FooterSkeleton, HomeSkeleton, NewsDetailSkeleton };
+export { NewsDetailSkeleton };
 
 const NEWS_DETAIL_PATH = /^\/news\/[^/]+\/?$/;
 

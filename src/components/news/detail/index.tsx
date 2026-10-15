@@ -13,6 +13,8 @@ import "../shared/news.scss";
 import CarouselNav from "components/home/sections/carousel-nav";
 import useSwiperNav from "components/home/sections/use-swiper-nav";
 import NewsHelper from "helper/NewsHelper";
+import useSeo, { SITE_NAME, SITE_URL } from "shared/head/seo";
+import { breadcrumbSchema } from "shared/head/schema";
 import NewsModel from "models/news.model";
 import { NEWS_AUTHOR, NEWS_BASE_PATH, NEWS_RELATED_LIMIT, NewsCategoryTermsConst, NewsDetailConst } from "consts/news-page.const";
 import { useLanguage, useLocalized, useT, useTerms } from "shared/i18n";
@@ -44,10 +46,6 @@ export default function NewsDetailComponent({ }: MainLayoutSharedProps) {
         };
     }, [slug]);
 
-    useEffect(() => {
-        if (news) document.title = `${news.title} | PT Aero Systems Indonesia`;
-    }, [news]);
-
     if (loading) return <NewsDetailSkeleton />;
 
     return <div className="product-v2 news-v2">
@@ -64,10 +62,41 @@ export default function NewsDetailComponent({ }: MainLayoutSharedProps) {
         <section className="pv-section pv-section--last">
             <Container className="nw-article">
                 {!news && <NotFound />}
+                {news && <NewsSeo news={news} />}
                 {news && <Article news={news} />}
             </Container>
         </section>
     </div>
+}
+
+function NewsSeo({ news }: { news: NewsModel }) {
+    const t = useT();
+    const path = `${NEWS_BASE_PATH}/${news.slug}`;
+    useSeo({
+        title: `${news.title} | ${SITE_NAME}`,
+        description: news.caption || news.title,
+        path,
+        image: news.image,
+        type: "article",
+        jsonLd: [
+            {
+                "@context": "https://schema.org",
+                "@type": "NewsArticle",
+                headline: news.title,
+                description: news.caption,
+                image: news.image ? [news.image] : undefined,
+                datePublished: news.created_date,
+                dateModified: news.updated_date || news.created_date,
+                publisher: { "@type": "Organization", name: SITE_NAME, logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-asyst.png` } },
+                mainEntityOfPage: `${SITE_URL}${path}`,
+            },
+            breadcrumbSchema([
+                { name: t("News", "Berita"), path: NEWS_BASE_PATH },
+                { name: news.title, path },
+            ], t("Home", "Beranda")),
+        ],
+    });
+    return null;
 }
 
 function Article({ news }: { news: NewsModel }) {

@@ -31,5 +31,5 @@ router.json
 router.tsx
 router-*.json
 yarn.lock
-/src/shared/bgs-component
-build-id.json
+public/sitemap.xml
+public/robots.txt

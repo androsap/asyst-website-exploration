@@ -1,9 +1,10 @@
 import { CAREER_JOBS_PATH, CareerFilterKey, CareerJob } from "consts/career.const";
-import { formatDate, Language } from "shared/i18n";
+import { Language } from "shared/i18n";
+import { formatDate } from "shared/i18n/format-date";
 
 export type CareerFilters = Partial<Record<CareerFilterKey | "q", string>>;
 
-export const CAREER_FILTER_KEYS: (CareerFilterKey | "q")[] = ["q", "department", "location", "experience", "type", "skill"];
+const CAREER_FILTER_KEYS: (CareerFilterKey | "q")[] = ["q", "department", "location", "experience", "type", "skill"];
 
 export const readCareerFilters = (params: URLSearchParams): CareerFilters =>
     CAREER_FILTER_KEYS.reduce<CareerFilters>((result, key) => {

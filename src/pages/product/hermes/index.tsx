@@ -6,7 +6,6 @@ const MainComponent = lazy(() => import("components/product/hermes"));
 
 const props: MainLayoutSharedProps = {
     title: mapLocalized(HermesDetailConst, content => content.seo.title),
-    defaultNav: true
 }
 
 export default function DashboardPages() {

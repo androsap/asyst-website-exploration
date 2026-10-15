@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { useT } from "shared/i18n";
 
 interface RequestDemoProps {
-    hide: Function;
+    hide: () => void;
 }
 
 const RequestDemoComponent: React.FC<RequestDemoProps> = ({ hide }) => {

@@ -1,3 +1,4 @@
+import { decodeEntities } from "@/lib/utils";
 import { Typography } from "components/ui/typography";
 import { styles } from './styled';
 import { Children, useState, useEffect } from "react"
@@ -8,7 +9,6 @@ import { BusinessModel } from "models/amala/business.model";
 import BusinessHelper from 'helper/auxoshift/BusinessHelper';
 import { CardBusinessModel } from "models/amala/cardbusiness.model";
 import CardBusinessHelper from 'helper/auxoshift/CardBusinessHelper';
-import he from 'he'
 import { useApiText } from 'shared/i18n'
 
 export default function BusinessComponent() {
@@ -45,9 +45,9 @@ export default function BusinessComponent() {
                 <div>
                     <div className="w-[80%]">
                         <Typography className={styles.title}
-                            dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "title") || '') }} />
+                            dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(data.product?.section, "title") || '') }} />
                         <Typography className={styles.subtitle}
-                            dangerouslySetInnerHTML={{ __html: he.decode(apiText(data.product?.section, "description") || '') }} />
+                            dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(data.product?.section, "description") || '') }} />
 
                     </div>
                     <div className="flex flex-row gap-[24px]">
@@ -58,12 +58,12 @@ export default function BusinessComponent() {
                                     <span className={styles.button} >
                                         <img src={business} alt=""></img>
                                         <Typography component="span" className={`block ${styles.textButton}`}
-                                            dangerouslySetInnerHTML={{ __html: he.decode(apiText(item, "title") || '') }} />
+                                            dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(item, "title") || '') }} />
                                     </span>
                                 </span>
                                 <span className="block">
                                     <Typography component="span" className={`block ${styles.desc}`}
-                                        dangerouslySetInnerHTML={{ __html: he.decode(apiText(item, "subtitle") || '') }} />
+                                        dangerouslySetInnerHTML={{ __html: decodeEntities(apiText(item, "subtitle") || '') }} />
                                 </span>
                             </Button>
                         ))}

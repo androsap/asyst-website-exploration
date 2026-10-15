@@ -1,8 +1,6 @@
 import { Container } from "components/ui/container";
 import { Bone } from "./bone";
 
-// Shared by the route-level PageLoader and the detail page's own loading state, so both
-// phases (chunk download → data fetch) look identical and read as a single skeleton.
 export default function NewsDetailSkeleton() {
     return <div aria-hidden="true">
         <div className="mt-[84px] border-y border-solid border-[#E4E8EE] max-[1023px]:mt-16">

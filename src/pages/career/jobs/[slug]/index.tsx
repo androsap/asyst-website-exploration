@@ -11,7 +11,6 @@ export default function DashboardPages() {
 
     const props: MainLayoutSharedProps = {
         title: mapLocalized(CareerSeoConst, ({ jobDetail }) => job ? jobDetail.title.replace("{title}", job.title) : jobDetail.fallbackTitle),
-        defaultNav: true
     }
 
     return <MainLayoutShared {...props}>

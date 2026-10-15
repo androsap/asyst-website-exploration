@@ -5,7 +5,6 @@ import { AskAsystTopic } from "consts/ask-asyst.const";
 const RequestDemoComponent = lazy(() => import("components/home/components/request-demo"));
 const AskAsystModal = lazy(() => import("./ask-asyst-modal"));
 
-export const CONTACT_US_LINK = "/contact-us";
 
 export const useTalkToExpert = (defaultTopic?: AskAsystTopic) => {
     return () => askAsystModal(defaultTopic);
